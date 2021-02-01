@@ -6,8 +6,8 @@ For internet users who find themselves having a difficult time organizing and di
 
 ## Team Members
 
-- Joshua Frazer
-- Jordyn Hayden
-- Jerrett Longworth
-- Diego Rodrigues
-- Jaeivan Romero
+- Joshua Frazer (@BlackOutDevelops)
+- Jordyn Hayden (@jordynhayden)
+- Jerrett Longworth (@jcoolrace)
+- Diego Rodrigues (@diegoro1)
+- Jaeivan Romero (@jaerom)
