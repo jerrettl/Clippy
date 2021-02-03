@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED2DF36C-265B-4B12-817B-15E2DF40898F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clippy.Api", "src\Clippy.Api\Clippy.Api.csproj", "{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Debug|x64.Build.0 = Debug|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Debug|x86.Build.0 = Debug|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Release|x64.ActiveCfg = Release|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Release|x64.Build.0 = Release|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Release|x86.ActiveCfg = Release|Any CPU
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7CBB2EC-6895-4030-8ED9-6B76A48E21DD} = {ED2DF36C-265B-4B12-817B-15E2DF40898F}
+	EndGlobalSection
+EndGlobal
