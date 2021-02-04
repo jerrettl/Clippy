@@ -50,7 +50,6 @@ class Sprint:
 		self.commitment = commitment
 		self.completed = completed
 
-
 def main():
 	sprint1 = Sprint("Sprint1", 2, 1)
 	velocity_chart = VelocityChart([sprint1, sprint2, sprint3])
