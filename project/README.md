@@ -1,4 +1,4 @@
 # Clippy
 
 ## API
-[Try It](http://clippy.fun/swagger/index.html)
+[Try It](https://api.clippy.fun/swagger/index.html)
