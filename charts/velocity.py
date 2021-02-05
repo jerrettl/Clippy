@@ -25,7 +25,7 @@ class VelocityChart:
             label_locations - bar_width / 2,
             commitment_values,
             bar_width,
-            label="Comitment",
+            label="Commitment",
         )
         completed_bar = ax.bar(
             label_locations + bar_width / 2,
