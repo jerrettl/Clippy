@@ -1,10 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from sprint import Sprint
 
 
 class VelocityChart:
-    def __init__(self, sprints):
-        self.sprints = sprints
+    def __init__(self):
+        self.sprints = []
+
+    def addSprint(self, name, commitment, completed):
+        self.sprints.append(Sprint(name, commitment, completed))
 
     def makeGraph(self):
         label_locations = np.arange(len(self.sprints))
@@ -57,20 +61,4 @@ class VelocityChart:
         ax.legend()
 
         plt.savefig("velocity_chart.png", bbox_inches="tight")
-
-
-class Sprint:
-    def __init__(self, name, commitment, completed):
-        self.name = name
-        self.commitment = commitment
-        self.completed = completed
-
-
-def main():
-    sprint1 = Sprint("Sprint1", 2, 1)
-    velocity_chart = VelocityChart([sprint1])
-    velocity_chart.makeGraph()
-
-
-if __name__ == "__main__":
-    main()
+        plt.close()
