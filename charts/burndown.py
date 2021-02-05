@@ -47,6 +47,7 @@ class BurndownChart:
         ax.set_xticks(x)
         plt.ylabel("Estimated points remaining")
         ax.set_yticks(np.arange(0, self.total_points + 15, 10))
+        ax.legend()
         plt.grid(True)
         plt.savefig("exported/burndown_chart.png", bbox_inches="tight")
         plt.close()
