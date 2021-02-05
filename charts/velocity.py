@@ -60,5 +60,5 @@ class VelocityChart:
         ax.set_xticklabels([sprint.name for sprint in self.sprints])
         ax.legend()
 
-        plt.savefig("velocity_chart.png", bbox_inches="tight")
+        plt.savefig("exported/velocity_chart.png", bbox_inches="tight")
         plt.close()
