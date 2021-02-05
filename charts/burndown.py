@@ -12,18 +12,26 @@ class BurndownChart:
         self.sprints.append(Sprint(name, commitment, completed))
 
     def makeGraph(self):
-        names = [sprint.name for sprint in self.sprints]
-
+        total_sprints = 8
         fig, ax = plt.subplots()
 
+        x = [i for i in range(total_sprints + 1)]
+
+        # Generate actual burndown graph
         temp_points = self.total_points
         points_left = []
+        points_left.append(temp_points)
         for sprint in self.sprints:
-            points_left.append(temp_points)
             temp_points -= sprint.completed
+            points_left.append(temp_points)
+        plt.plot(
+            x[: len(points_left)],
+            points_left,
+            color="red",
+            marker="o",
+            label="Remaining effort",
+        )
 
-        x = [i for i in range(len(names))]
-        plt.plot(x, points_left, color="red", marker="o")
         plt.title("Burndown Chart")
         plt.xlabel("Sprint")
         ax.set_xticks(x)
