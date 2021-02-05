@@ -25,7 +25,7 @@ class BurndownChart:
         x = [i for i in range(len(names))]
         plt.plot(x, points_left, color="red", marker="o")
         plt.title("Burndown Chart")
-        plt.xlabel("Sprints")
+        plt.xlabel("Sprint")
         ax.set_xticks(x)
         plt.ylabel("Estimated points remaining")
         ax.set_yticks(np.arange(10, self.total_points + 15, 10))
