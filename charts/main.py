@@ -20,10 +20,10 @@ def main():
     total_points = 100
     charts = Charts(total_points)
 
-    charts.addSprint("Sprint1", 2, 1)
-    charts.addSprint("Sprint2", 5, 5)
-    charts.addSprint("Sprint3", 10, 7)
-    charts.addSprint("Sprint4", 3, 3)
+    charts.addSprint("Sprint1", commitment=2, completed=1)
+    charts.addSprint("Sprint2", commitment=5, completed=5)
+    charts.addSprint("Sprint3", commitment=10, completed=7)
+    charts.addSprint("Sprint4", commitment=3, completed=3)
     charts.makeGraphs()
 
 
