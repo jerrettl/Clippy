@@ -32,6 +32,16 @@ class BurndownChart:
             label="Remaining effort",
         )
 
+        # Generate ideal burndown graph
+        temp_points = self.total_points
+        points_left = []
+        points_left.append(temp_points)
+        average_work = self.total_points / total_sprints
+        for index in range(total_sprints):
+            temp_points -= average_work
+            points_left.append(temp_points)
+        plt.plot(x, points_left, color="blue", marker="", label="Ideal burndown")
+
         plt.title("Burndown Chart")
         plt.xlabel("Sprint")
         ax.set_xticks(x)
