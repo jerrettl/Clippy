@@ -26,7 +26,7 @@ Joshua Frazer -
 
 Jordyn Hayden - I setup my development enviornment by installing Visual Studio Code and .NET 5. I also created the API project which involved creating a blank .NET Core WebAPI project, adding an API status, swashbuckle dependency, .gitignore, and a README.md. I also setup a development server for the API where I installed the IIS and .NET Core hosting bundle, created the website, binded the domain to the website and installed an SSL certificate. Also, I installed an object-relational mapper, database migration files, and initial database. Finally, I aided in the creation of user stories and project documentation.
 
-Jerrett Longworth -
+Jerrett Longworth - I created and refined the user stories for the project, as well as clarified the structure and format of the burndown chart.
 
 Diego Rodrigues -
 
