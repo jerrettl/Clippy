@@ -30,4 +30,4 @@ Jerrett Longworth - I created and refined the user stories for the project, as w
 
 Diego Rodrigues - I set up Visual Studio Code with multiple extensions for Javascript(React)/HTML/CSS for better productivity. Then, I created a new react-app, installed MaterialUI, and developed the website's static landing page. I placed the build on our server and configured it to output at the homepage. I finalized my tasks by contributing to the readme and other necessary documents.
 
-Jaeivan Romero -
+Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown chart using Python. I also slightly helped with the organization of user stories.
