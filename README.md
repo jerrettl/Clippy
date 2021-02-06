@@ -28,6 +28,6 @@ Jordyn Hayden - I setup my development enviornment by installing Visual Studio C
 
 Jerrett Longworth -
 
-Diego Rodrigues -
+Diego Rodrigues - I set up Visual Studio Code with multiple extensions for Javascript(React)/HTML/CSS for better productivity. Then, I created a new react-app, installed MaterialUI, and developed the website's static landing page. I placed the build on our server and configured it to output at the homepage. I finalized my tasks by contributing to the readme and other necessary documents.
 
 Jaeivan Romero -
