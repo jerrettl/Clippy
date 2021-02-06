@@ -1,30 +1,30 @@
-from velocity import VelocityChart
-from burndown import BurndownChart
+from burndown import create_burndown_chart
+from velocity import create_velocity_chart
 
 
-class Charts:
-    def __init__(self, total_points):
-        self.velocity_chart = VelocityChart()
-        self.burndown_chart = BurndownChart(total_points)
+class Sprint:
+    def __init__(self, name, days, commitment, completed):
+        self.name = name
+        self.days = days
+        self.commitment = commitment
+        self.completed = completed
 
-    def addSprint(self, name, commitment, completed):
-        self.velocity_chart.addSprint(name, commitment, completed)
-        self.burndown_chart.addSprint(name, commitment, completed)
+    def create_charts(self):
+        create_burndown_chart(self)
+        create_velocity_chart(self)
 
-    def makeGraphs(self):
-        self.velocity_chart.makeGraph()
-        self.burndown_chart.makeGraph()
+    def total_completed(self):
+        return sum(self.completed)
 
 
 def main():
-    total_points = 100
-    charts = Charts(total_points)
+    sprint1_name = "Sprint 1 (1/31/2021 - 2/6/2021)"
+    sprint1_completion = [0, 0, 0, 12, 0, 17, 7]
+    sprint1 = Sprint(sprint1_name, days=7, commitment=30, completed=sprint1_completion)
+    create_burndown_chart(sprint1)
 
-    charts.addSprint("Sprint 1", commitment=2, completed=1)
-    charts.addSprint("Sprint 2", commitment=5, completed=5)
-    charts.addSprint("Sprint 3", commitment=10, completed=7)
-    charts.addSprint("Sprint 4", commitment=3, completed=3)
-    charts.makeGraphs()
+    sprints = [sprint1]
+    create_velocity_chart(sprints)
 
 
 if __name__ == "__main__":

@@ -1,53 +1,62 @@
+import os
+import re
+
 import matplotlib.pyplot as plt
 import numpy as np
-from sprint import Sprint
 
 
-class BurndownChart:
-    def __init__(self, total_points):
-        self.sprints = []
-        self.total_points = total_points
+def format_name(name):
+    result = re.sub("\s*\([^)]*\)", "", name)
+    result = result.replace(" ", "_")
+    result = result.lower()
+    return result
 
-    def addSprint(self, name, commitment, completed):
-        self.sprints.append(Sprint(name, commitment, completed))
 
-    def makeGraph(self):
-        total_sprints = 8
-        fig, ax = plt.subplots()
+def create_burndown_chart(sprint):
+    fig, ax = plt.subplots()
 
-        x = [i for i in range(total_sprints + 1)]
+    x = [i for i in range(sprint.days + 1)]
 
-        # Generate actual burndown graph
-        temp_points = self.total_points
-        points_left = []
-        points_left.append(temp_points)
-        for sprint in self.sprints:
-            temp_points -= sprint.completed
-            points_left.append(temp_points)
-        plt.plot(
-            x[: len(points_left)],
-            points_left,
-            color="red",
-            marker="o",
-            label="Remaining effort",
-        )
+    # Generate actual burndown chart
+    points = sprint.commitment
+    actual_burndown = []
+    actual_burndown.append(points)
+    for day in sprint.completed:
+        points -= day
+        if (points < 0):
+            points = 0
+        actual_burndown.append(points)
+    plt.plot(
+        x[: len(sprint.completed) + 1],
+        actual_burndown,
+        color="red",
+        marker="o",
+        label="Remaining effort",
+    )
 
-        # Generate ideal burndown graph
-        temp_points = self.total_points
-        points_left = []
-        points_left.append(temp_points)
-        average_work = self.total_points / total_sprints
-        for index in range(total_sprints):
-            temp_points -= average_work
-            points_left.append(temp_points)
-        plt.plot(x, points_left, color="blue", marker="", label="Ideal burndown")
+    # Generate ideal burndown chart
+    points = sprint.commitment
+    ideal_burndown = []
+    ideal_burndown.append(points)
+    average_work = sprint.commitment / sprint.days
+    for index in range(sprint.days):
+        points -= average_work
+        ideal_burndown.append(points)
+    plt.plot(x, ideal_burndown, color="blue", marker="", label="Ideal burndown")
 
-        plt.title("Burndown Chart")
-        plt.xlabel("Sprint")
-        ax.set_xticks(x)
-        plt.ylabel("Estimated points remaining")
-        ax.set_yticks(np.arange(0, self.total_points + 15, 10))
-        ax.legend()
-        plt.grid(True)
-        plt.savefig("exported/burndown_chart.png", bbox_inches="tight")
-        plt.close()
+    plt.title(f"Burndown Chart - {sprint.name}")
+    plt.xlabel("Day")
+    ax.set_xticks(x)
+    plt.ylabel("Story Points")
+    ax.set_yticks(np.arange(0, sprint.commitment + 15, 10))
+    ax.legend()
+    plt.grid(True)
+
+    name = format_name(sprint.name)
+    if not os.path.exists("exported"):
+        os.makedirs("exported")
+    plt.savefig(f"exported/burndown_chart_{name}.png", bbox_inches="tight")
+
+    plt.close()
+
+    print(f"Saved burndown_chart_{name}.png")
