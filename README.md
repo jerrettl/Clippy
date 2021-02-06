@@ -30,4 +30,4 @@ Jerrett Longworth - I created and refined the user stories for the project, as w
 
 Diego Rodrigues -
 
-Jaeivan Romero -
+Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown chart using Python. I also slightly helped with the organization of user stories.
