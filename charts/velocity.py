@@ -1,76 +1,61 @@
+import os
+
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-class VelocityChart:
-    def __init__(self, sprints):
-        self.sprints = sprints
+def autolabel(rects, ax):
+    # Credit to: https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/barchart.html
+    # Attach a text label above each bar in *rects*, displaying its height.
 
-    def makeGraph(self):
-        label_locations = np.arange(len(self.sprints))
-        bar_width = 0.35
-
-        commitment_values = []
-        completed_values = []
-        for sprint in self.sprints:
-            commitment_values.append(sprint.commitment)
-            completed_values.append(sprint.completed)
-
-        fig, ax = plt.subplots()
-        commitment_bar = ax.bar(
-            label_locations - bar_width / 2,
-            commitment_values,
-            bar_width,
-            label="Comitment",
-        )
-        completed_bar = ax.bar(
-            label_locations + bar_width / 2,
-            completed_values,
-            bar_width,
-            label="Completed",
+    for rect in rects:
+        height = rect.get_height()
+        ax.annotate(
+            "{}".format(height),
+            xy=(rect.get_x() + rect.get_width() / 2, height),
+            xytext=(0, 3),  # 3 points vertical offset
+            textcoords="offset points",
+            ha="center",
+            va="bottom",
         )
 
-        """ Credit to: https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/barchart.html"""
 
-        def autolabel(rects):
-            """Attach a text label above each bar in *rects*, displaying its height."""
-            for rect in rects:
-                height = rect.get_height()
-                ax.annotate(
-                    "{}".format(height),
-                    xy=(rect.get_x() + rect.get_width() / 2, height),
-                    xytext=(0, 3),  # 3 points vertical offset
-                    textcoords="offset points",
-                    ha="center",
-                    va="bottom",
-                )
+def create_velocity_chart(sprints):
+    label_locations = np.arange(len(sprints))
+    bar_width = 0.35
 
-        autolabel(commitment_bar)
-        autolabel(completed_bar)
+    commitment_values = [s.commitment for s in sprints]
+    completed_values = [s.total_completed() for s in sprints]
 
-        fig.tight_layout()
+    fig, ax = plt.subplots()
+    commitment_bar = ax.bar(
+        label_locations - bar_width / 2,
+        commitment_values,
+        bar_width,
+        label="Commitment",
+    )
+    completed_bar = ax.bar(
+        label_locations + bar_width / 2,
+        completed_values,
+        bar_width,
+        label="Completed",
+    )
 
-        ax.set_ylabel("Scores")
-        ax.set_title("Velocity Chart")
-        ax.set_xticks(label_locations)
-        ax.set_xticklabels([sprint.name for sprint in self.sprints])
-        ax.legend()
+    autolabel(commitment_bar, ax)
+    autolabel(completed_bar, ax)
 
-        plt.savefig("velocity_chart.png", bbox_inches="tight")
+    fig.tight_layout()
 
+    ax.set_ylabel("Story Points")
+    ax.set_title("Velocity Chart")
+    ax.set_xticks(label_locations)
+    ax.set_xticklabels([sprint.name for sprint in sprints])
+    ax.legend()
 
-class Sprint:
-    def __init__(self, name, commitment, completed):
-        self.name = name
-        self.commitment = commitment
-        self.completed = completed
+    if not os.path.exists("exported"):
+        os.makedirs("exported")
+    plt.savefig("exported/velocity_chart.png", bbox_inches="tight")
 
+    plt.close()
 
-def main():
-    sprint1 = Sprint("Sprint1", 2, 1)
-    velocity_chart = VelocityChart([sprint1])
-    velocity_chart.makeGraph()
-
-
-if __name__ == "__main__":
-    main()
+    print("Saved velocity_chart.png")
