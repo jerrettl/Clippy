@@ -17,8 +17,8 @@ For internet users who find themselves having a difficult time organizing and di
 - [Product Backlog](https://trello.com/b/ui7fei2w/clippy)
 - [Sprint Backlog](https://trello.com/b/ui7fei2w/clippy)
 - [Requirements](artifacts/requirements.md)
-- [Burndown Chart]()
-- [Velocity Chart]()
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
 
 ## Task Allocation
 
