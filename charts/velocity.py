@@ -47,7 +47,7 @@ def create_velocity_chart(sprints):
     fig.tight_layout()
 
     ax.set_ylabel("Story Points")
-    ax.set_title(f"Velocity Chart")
+    ax.set_title("Velocity Chart")
     ax.set_xticks(label_locations)
     ax.set_xticklabels([sprint.name for sprint in sprints])
     ax.legend()
