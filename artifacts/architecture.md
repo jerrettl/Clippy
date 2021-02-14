@@ -48,7 +48,7 @@ The system is currently designed in a way where basic functionality should be av
 
 # Interoperability
 
-See Code Complete, Chapter 3
+The server will be alone in its operation and have no need to share resources with other systems. There may be third-party cloud services used to provide OAuth login support, but these resources will be considered independent to the server containing the web server, API, and database.
 
 # Internationalization/Localization
 
