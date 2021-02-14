@@ -89,7 +89,7 @@ With the novice level of experience between the developers involved in this proj
 
 # Reuse
 
-See Code Complete, Chapter 3
+Other than the decisions made in the previous section, any other components or applications will be created by hand.
 
 # Change Strategy
 
