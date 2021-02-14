@@ -46,7 +46,7 @@ Joshua Frazer - I created complete UI Mockup of the Clippy website, incorporatin
 
 Jordyn Hayden -
 
-Jerrett Longworth -
+Jerrett Longworth - I helped revise the user stories and requirements, worked on the high-level and class-level architecture diagrams, and worked on the system design document.
 
 Diego Rodrigues -
 
