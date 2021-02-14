@@ -52,7 +52,7 @@ The server will be alone in its operation and have no need to share resources wi
 
 # Internationalization/Localization
 
-See Code Complete, Chapter 3
+There is no intention at this time to support l18n or i10n for Clippy. It will only be available in English using the en_US locale. Unicode will be the default character set.
 
 # Input/Output
 
