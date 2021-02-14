@@ -68,7 +68,7 @@ All exceptions will be caught, providing information in the Javascript debugging
 
 # Fault Tolerance
 
-See Code Complete, Chapter 3
+The system presently is not intended to tolerate faults. Either an operation succeeds or fails, passing the result to the end user. This way, there is no ambiguous operations that arise from attempting to fix the error using an alternate method.
 
 # Architectural Feasibility
 
