@@ -72,7 +72,7 @@ The system presently is not intended to tolerate faults. Either an operation suc
 
 # Architectural Feasibility
 
-See Code Complete, Chapter 3
+Within the resources available, the architecture of the system should be feasible in its operation. The system is small enough to the extent that this is not a concern for the time being.
 
 # Overengineering
 
