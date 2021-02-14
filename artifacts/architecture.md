@@ -56,7 +56,7 @@ There is no intention at this time to support l18n or i10n for Clippy. It will o
 
 # Input/Output
 
-See Code Complete, Chapter 3
+All data will be handled just-in-time. The only data being written to and from local storage is the database, and tremendous corruption of data is not expected. Manual backups of the database will be kept at regular intervals to assure data is not lost in the worst situation.
 
 # Error Processing
 
