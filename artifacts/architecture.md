@@ -44,7 +44,7 @@ The current system in place to deploy Clippy should be noted to be a low-power s
 
 # Scalability
 
-See Code Complete, Chapter 3
+The system is currently designed in a way where basic functionality should be available for up to 30 users concurrently. Since, again, there is no data to determine how this system will perform under heavy load at this time, a lower number of concurrent users will be used to estimate performance. The system is not expected to grow considerably, so scalability will not be considered a priority at this time.
 
 # Interoperability
 
