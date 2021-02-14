@@ -34,7 +34,9 @@ Given the architecture as it is currently and the number of users expected to us
 
 # Security
 
-See Code Complete, Chapter 3
+Certainly with most web-based applications, security poses a major role in architecture considerations. In the case of Clippy, we will have a two-fold security measure in terms of API calls with the database. First, there will be a component between the API and the user interface, aptly called the API-UI Connector. This component will sanitize the data that comes from user input. Once the API call is received, the API will then check again for the validity of its input, since the API could be called directly from a third-party application. In the event that the input is invalid or possibly malicious, the input will be rejected. Any information transferred over the internet will use the HTTPS protocol. There are no plans at this time to implement rate limiting or IP-based banning.
+
+In terms of storage, any sensitive information like passwords or login keys will be hashed using SHA-2.
 
 # Performance
 
