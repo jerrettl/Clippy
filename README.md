@@ -48,6 +48,6 @@ Jordyn Hayden -
 
 Jerrett Longworth - I helped revise the user stories and requirements, worked on the high-level and class-level architecture diagrams, and worked on the system design document.
 
-Diego Rodrigues -
+Diego Rodrigues - I contributed to the low-level UML diagrams by adding the React components and their functionalities. I also worked on the UI diagrams by creating pages and elements as well as its documentation. Finally, I created and edited the product demonstration.
 
 Jaeivan Romero -
