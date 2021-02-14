@@ -93,4 +93,4 @@ Other than the decisions made in the previous section, any other components or a
 
 # Change Strategy
 
-See Code Complete, Chapter 3
+The architecture is designed to be modular in that if one component is no longer fit for the intentions of the project, it can be replaced without affecting the other components. While there may be slight changes that need to be made to other components, this would be an exceptional case.
