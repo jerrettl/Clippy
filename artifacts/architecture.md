@@ -30,7 +30,7 @@ The User Interface Design with connecting transitions and user story documentati
 
 # Resource Management
 
-See Code Complete, Chapter 3
+Given the architecture as it is currently and the number of users expected to use Clippy, we foresee that the architecture should be able to handle load reasonably. For this reason, the currently pre-built solutions for handling API calls with the .NET libraries should be appropriate. In the case that system load exceeds what can be reasonably handled, the architecture would be reevaluated.
 
 # Security
 
