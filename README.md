@@ -35,8 +35,8 @@ Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown
 # Sprint 2
 
 - [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
-- [Burndown Chart]()
-- [Velocity Chart]()
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
 - [System Architecture]()
 - [Product Demonstration]()
 
