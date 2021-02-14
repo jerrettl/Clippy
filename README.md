@@ -38,7 +38,7 @@ Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown
 - [Burndown Chart](charts/README.md)
 - [Velocity Chart](charts/README.md)
 - [System Architecture](artifacts/architecture.md)
-- [Product Demonstration]()
+- [Product Demonstration](https://www.youtube.com/watch?v=-NDbI9Itwfs)
 
 ## Task Allocation
 
