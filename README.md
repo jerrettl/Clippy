@@ -37,7 +37,7 @@ Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown
 - [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
 - [Burndown Chart](charts/README.md)
 - [Velocity Chart](charts/README.md)
-- [System Architecture]()
+- [System Architecture](artifacts/architecture.md)
 - [Product Demonstration]()
 
 ## Task Allocation
