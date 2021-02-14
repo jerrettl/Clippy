@@ -40,7 +40,7 @@ In terms of storage, any sensitive information like passwords or login keys will
 
 # Performance
 
-See Code Complete, Chapter 3
+The current system in place to deploy Clippy should be noted to be a low-power system, so there is reason to believe it may not perform well in extreme cases. For the state that the project is in now, it is expected that system performance should still meet the expectations for the quantity of users that will be on Clippy concurrently. For the purposes of illustration, it is expected that 30 users should be able to be handled simultaneously. There is not sufficient data to determine whether these expectations are able to be met at this time.
 
 # Scalability
 
