@@ -38,13 +38,11 @@ Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown
 - [Burndown Chart]()
 - [Velocity Chart]()
 - [System Architecture]()
-- Source Code
-- Automated Tests
 - [Product Demonstration]()
 
 ## Task Allocation
 
-Joshua Frazer -
+Joshua Frazer - I created complete UI Mockup of the Clippy website, incorporating the user stories from sprint 1 as a guide. I also revised the user stories by transitioning some of the requirements to separate cards while following the required format. In addition, I donated some time for project documentation such as the beginning of the high-level diagrams.
 
 Jordyn Hayden -
 
