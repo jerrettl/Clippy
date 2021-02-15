@@ -8,6 +8,10 @@ See Code Complete, Chapter 3 and https://c4model.com/
 
 # Code Design
 
+## Backend Server (from level 4 C4 Model)
+
+![ER Diagam](assets/backend-server-level-4.png)
+
 ## Backend Server Description
 The Clippy API is a set of controllers that make up the REST API. Each controller handles a subset of related API requests from the frontend web application. These controllers mainly send and retrieve data from the database.
 
