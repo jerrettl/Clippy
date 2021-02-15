@@ -150,7 +150,7 @@ The notifications page will simply show the user follower's actions.
 | 015 | Bookmark page  | The user bookmark page lets the user sort their bookmarks         |
 | 017 | Community page | The community page grants the ability to see community bookmarks. |
 
-The User Interface Design with connecting transitions and user story documentation is also [here](https://www.figma.com/file/IhVm7SrVe4bDZPFF8QcuLI/Clippy-UI-Mockup?node-id=0%3A1). There you can preview the UI by clicking through each dynamic component.
+The User Interface Design with connecting transitions and user story documentation is also [here](https://www.figma.com/proto/IhVm7SrVe4bDZPFF8QcuLI/Clippy-UI-Mockup?node-id=0%3A3&scaling=min-zoom). There you can preview the UI by clicking through each dynamic component.
 
 # Resource Management
 
