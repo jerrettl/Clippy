@@ -2,9 +2,34 @@ Populate each section with information as it applies to your project. If a secti
 
 # Program Organization
 
-You should have your context, container, and component (c4model.com) diagrams in this section, along with a description and explanation of each diagram and a table that relates each block to one or more user stories.
+<details><summary>System Context Diagram</summary>
+<p>
+Our system involves one monolithic system appearing to the main user. Everything they interact with will go through this, since at this point both the web-based user interface and API are used exclusively with each other.
+<img src="system-context-diagram.jpg" alt="System Context Diagram">
+</p>
+</details>
 
-See Code Complete, Chapter 3 and https://c4model.com/
+<details><summary>Container Diagram</summary>
+<p>
+The user will interact with a web-based application that is created and compiled with React.js. The web server used to deliver the compiled HTML, CSS, and Javascript files will be dubbed the "React Server." As part of the scripts involved on the React Server, it will make API calls to an exposed API server, dubbed the "Backend Server." The Backend Server will communicate with the connected database to send and receive information for the user interface. The Backend Server/database and the React Server, for now, will operate on the same machine out of conciseness, but could easily be on different machines if desired.
+
+In addition to the React Server and the Backend Server, there will be a separate administrator portal that can directly communicate with the Backend Server, circumventing the use of API calls. This is essentially a backdoor for development purposes to allow access to the database outside of the main interface.
+<img src="container-diagram.jpg" alt="Container Diagram">
+</p>
+</details>
+
+<details><summary>Component Diagram</summary>
+<p>
+Within the React Server, the Javascript files are broken into two categories: user interface and API-UI connection. In the former category, these files are completely dedicated to the visual presentation of information. In the ladder category, the API-UI Connector verifies user input, makes API calls, and retrieves information to be returned to the user interface.
+
+Within the Backend Server, the Clippy API acts as an intermediate party between the user interface and the database. Alongside this, an additional web server will be available to allow for direct access to the database. This is intended for development purposes. While not explicitly shown in the diagram, the Backend Server will contain the database locally alongside the API and administrator web server.
+<img src="component-diagram.jpg" alt="Component Diagram">
+</p>
+</details>
+
+</br>
+
+All components related to user functionality (React Server and Clippy API) were created to fulfill user stories 001, 002, 003. The administrator portal is a result of user story 018.
 
 # Code Design
 
