@@ -17,6 +17,21 @@ There is a set of core features used by the Clippy API and the Admin Portal for 
 
 The API and Admin Portal use Microsoft .NET 5, which requires few classes, such as Program and Startup, to bootstrap and run these services.
 
+### User Story Association
+
+| Class               | User Story IDs                           |
+|---------------------|-----------------------------------------|
+| StatusController    |                                         |
+| UsersController     | 001 016                                 |
+| TagsController      | 013                                     |
+| ResourcesController | 003 010 017                             |
+| BookmarksController | 003 004 006                             |
+| AuthController      | 001 016                                 |
+| User                | 001 002                                 |
+| Resource            | 003 006                                 |
+| Bookmark            | 003 004 006                             |
+| Tag                 | 013                                     |
+| ClippyContext       | 001 002 003 004 006 010 013 016 017 018 |
 
 # Data Design
 
