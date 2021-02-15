@@ -213,7 +213,7 @@ With the novice level of experience between the developers involved in this proj
 
 # Reuse
 
-Other than the decisions made in the previous section, any other components or applications will be created by hand.
+Since the third-party components inherently act as core components of the system, they will be coupled directly into the base functionality. In the event that different third-party tools are used, the changes would however still be isolated to their respective system. For example, if a different architecture were to be used for the API, any code on the React Server would be unaffected.
 
 # Change Strategy
 
