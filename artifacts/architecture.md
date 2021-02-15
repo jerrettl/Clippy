@@ -13,6 +13,7 @@ The user will interact with a web-based application that is created and compiled
 
 In addition to the React Server and the Backend Server, there will be a separate administrator portal that can directly communicate with the Backend Server, circumventing the use of API calls. This is essentially a backdoor for development purposes to allow access to the database outside of the main interface.
 <img src="assets/container-diagram.jpg" alt="Container Diagram">
+
 </p>
 </details>
 
@@ -22,6 +23,7 @@ Within the React Server, the Javascript files are broken into two categories: us
 
 Within the Backend Server, the Clippy API acts as an intermediate party between the user interface and the database. Alongside this, an additional web server will be available to allow for direct access to the database. This is intended for development purposes. While not explicitly shown in the diagram, the Backend Server will contain the database locally alongside the API and administrator web server.
 <img src="assets/component-diagram.jpg" alt="Component Diagram">
+
 </p>
 </details>
 
@@ -51,7 +53,55 @@ See Code Complete, Chapter 3 and https://c4model.com/
 
 # User Interface Design
 
-The User Interface Design with connecting transitions and user story documentation is [here](https://www.figma.com/file/IhVm7SrVe4bDZPFF8QcuLI/Clippy-UI-Mockup?node-id=0%3A1).
+To access Clippy, the user must first create an account or log in. Once the login is successful, the user will be with the explore page which displays trending bookmarks. The user then has the freedom to access their following page, profile page, notifications page, and bookmark page through the navigation bar.
+
+<div align="center">
+    <img src="assets/login-page.png" alt="Login page">
+</div>
+
+The user bookmark page can be accessed by clicking "favorite bookmarks" or "posts" on the profile page. The bookmark page is where the user will be given the capability of managing their bookmarks. They will be able to sort, delete, unfavorite, and share their bookmarks.
+
+<div align="center">
+    <img src="assets/bookmarks-page.png" alt="Bookmarks page">
+</div>
+
+The explore page will show the user a simple display of the trending bookmarks. The user will be able to add these bookmarks to their own favorites list.
+
+<div align="center">
+    <img src="assets/explore-page.png" alt="Explore page">
+</div>
+
+The following page will display either the list of followers or the list of following. This list will be sorted by the search input, if used. The user can then unfollow any user they desire.
+
+<div align="center">
+    <img src="assets/following-page.png" alt="Following page">
+</div>
+
+The profile page will display the user's information. Here, the user will be shown a list of recent bookmarks, followers, and favorite bookmarks. The user will also be able to change their biography.
+
+<div align="center">
+    <img src="assets/profile-page.png" alt="Profile page">
+</div>
+
+The notifications page will simply show the user follower's actions.
+
+<div align="center">
+    <img src="assets/notifications-page.png" alt="Notifications page">
+</div>
+
+| UID | Component | Description|
+| ------------- |:-------------:||
+| 001 | Log in page |The only entrance to the web app is by login|
+| 004 | Bookmark page |The bookmark page grats those capabilities.|
+| 005 | Bookmark page |The bookmark page gives the sorting capability.|
+| 008 | Navigation bar |The bookmark page gives the sorting capability.|
+| 009 | Log in page |The login page displays the logo.|
+| 010 | Community page |The community page grants the ability to see community bookmarks.|
+| 013 | Community page |The community page lets users favorite bookmarks.|
+| 015 | Bookmark page |The user bookmark page lets the user sort their bookmarks|
+| 017 | Community page |The community page grants the ability to see community bookmarks.|
+
+The User Interface Design with connecting transitions and user story documentation is also [here](https://www.figma.com/file/IhVm7SrVe4bDZPFF8QcuLI/Clippy-UI-Mockup?node-id=0%3A1). There you can preview the UI by clicking through each dynamic component.
 
 # Resource Management
 
