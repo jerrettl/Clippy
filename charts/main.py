@@ -26,7 +26,7 @@ def main():
     create_burndown_chart(sprint1)
 
     sprint2_name = "Sprint 2 (2/7/2021 - 2/14/2021)"
-    sprint2_completion = [0, 0, 0, 3, 0, 6, 0, 21]
+    sprint2_completion = [0, 0, 0, 3, 0, 6, 0, 37]
     sprint2 = Sprint(sprint2_name, days=8, commitment=46, completed=sprint2_completion)
     create_burndown_chart(sprint2)
 
