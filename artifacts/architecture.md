@@ -8,9 +8,15 @@ See Code Complete, Chapter 3 and https://c4model.com/
 
 # Code Design
 
-You should have your UML Class diagram and any other useful UML diagrams in this section. Each diagram should be accompanied by a brief description explaining what the elements are and why they are in the diagram. For your class diagram, you must also include a table that relates each class to one or more user stories.
+## Backend Server Description
+The Clippy API is a set of controllers that make up the REST API. Each controller handles a subset of related API requests from the frontend web application. These controllers mainly send and retrieve data from the database.
 
-See Code Complete, Chapter 3 and https://c4model.com/
+Various web pages are used by the Admin Portal to administer the database, REST API, configuration settings, and processes.
+
+There is a set of core features used by the Clippy API and the Admin Portal for authentication and authorization, database access and version control.
+
+The API and Admin Portal use Microsoft .NET 5, which requires few classes, such as Program and Startup, to bootstrap and run these services.
+
 
 # Data Design
 
