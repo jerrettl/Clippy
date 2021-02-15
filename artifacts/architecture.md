@@ -89,17 +89,17 @@ The notifications page will simply show the user follower's actions.
     <img src="assets/notifications-page.png" alt="Notifications page">
 </div>
 
-| UID | Component | Description|
-| ------------- |:-------------:||
-| 001 | Log in page |The only entrance to the web app is by login|
-| 004 | Bookmark page |The bookmark page grats those capabilities.|
-| 005 | Bookmark page |The bookmark page gives the sorting capability.|
-| 008 | Navigation bar |The bookmark page gives the sorting capability.|
-| 009 | Log in page |The login page displays the logo.|
-| 010 | Community page |The community page grants the ability to see community bookmarks.|
-| 013 | Community page |The community page lets users favorite bookmarks.|
-| 015 | Bookmark page |The user bookmark page lets the user sort their bookmarks|
-| 017 | Community page |The community page grants the ability to see community bookmarks.|
+| UID |   Component    | Description                                                       |
+| --- | :------------: | ----------------------------------------------------------------- |
+| 001 |  Log in page   | The only entrance to the web app is by login                      |
+| 004 | Bookmark page  | The bookmark page grats those capabilities.                       |
+| 005 | Bookmark page  | The bookmark page gives the sorting capability.                   |
+| 008 | Navigation bar | The bookmark page gives the sorting capability.                   |
+| 009 |  Log in page   | The login page displays the logo.                                 |
+| 010 | Community page | The community page grants the ability to see community bookmarks. |
+| 013 | Community page | The community page lets users favorite bookmarks.                 |
+| 015 | Bookmark page  | The user bookmark page lets the user sort their bookmarks         |
+| 017 | Community page | The community page grants the ability to see community bookmarks. |
 
 The User Interface Design with connecting transitions and user story documentation is also [here](https://www.figma.com/file/IhVm7SrVe4bDZPFF8QcuLI/Clippy-UI-Mockup?node-id=0%3A1). There you can preview the UI by clicking through each dynamic component.
 
