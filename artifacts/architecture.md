@@ -33,7 +33,7 @@ All components related to user functionality (React Server and Clippy API) were 
 
 # Code Design
 
-Font End Description
+## Front End Description
 
 The front end will be composed of 5 pages, each connected by a router.
 
@@ -56,6 +56,35 @@ All components have a navbar component that links all of them together.
 <div align="center">
     <img src="assets/frontend.png" alt="frontend">
 </div>
+
+## Backend Server (from level 4 C4 Model)
+
+![ER Diagam](assets/backend-server-level-4.png)
+
+## Backend Server Description
+The Clippy API is a set of controllers that make up the REST API. Each controller handles a subset of related API requests from the frontend web application. These controllers mainly send and retrieve data from the database.
+
+Various web pages are used by the Admin Portal to administer the database, REST API, configuration settings, and processes.
+
+There is a set of core features used by the Clippy API and the Admin Portal for authentication and authorization, database access and version control.
+
+The API and Admin Portal use Microsoft .NET 5, which requires few classes, such as Program and Startup, to bootstrap and run these services.
+
+### User Story Association
+
+| Class               | User Story IDs                           |
+|---------------------|-----------------------------------------|
+| StatusController    |                                         |
+| UsersController     | 001 016                                 |
+| TagsController      | 013                                     |
+| ResourcesController | 003 010 017                             |
+| BookmarksController | 003 004 006                             |
+| AuthController      | 001 016                                 |
+| User                | 001 002                                 |
+| Resource            | 003 006                                 |
+| Bookmark            | 003 004 006                             |
+| Tag                 | 013                                     |
+| ClippyContext       | 001 002 003 004 006 010 013 016 017 018 |
 
 # Data Design
 

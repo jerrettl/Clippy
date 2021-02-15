@@ -2,7 +2,7 @@
 
 # Product Vision
 
-For internet users who find themselves having a difficult time organizing and discovering resources on the Web that sparks their interest, we introduce Clippy. Clippy is a social bookmarking service designed for users to explore and manage resources on the Internet. Users can immerse themselves in their own distraction-free space curated by them or explore resources gathered by others in the community. Unlike many other social bookmarking services, such as Pocket, Clippy is currently a free service made available to everyone.
+For internet users who find themselves having a difficult time organizing and discovering resources on the Web that sparks their interest, we introduce Clippy. Clippy is a social bookmarking service designed for users to explore and manage resources on the Internet. Users can immerse themselves in their own distraction-free space curated by them or explore resources gathered by others in the community. Unlike many other social bookmarking services, such as Pocket, Clippy is currently open source for anyone to adapt or use for themselves.
 
 ## Team Members
 
@@ -44,7 +44,7 @@ Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown
 
 Joshua Frazer - I created complete UI Mockup of the Clippy website, incorporating the user stories from sprint 1 as a guide. I also revised the user stories by transitioning some of the requirements to separate cards while following the required format. In addition, I donated some time for project documentation such as the beginning of the high-level diagrams.
 
-Jordyn Hayden -
+Jordyn Hayden - I created the ER diagram, helped with the development of the C4 Model, added to the UI mockup, and refined user stories and requirements.
 
 Jerrett Longworth - I helped revise the user stories and requirements, worked on the high-level and class-level architecture diagrams, and worked on the system design document.
 
