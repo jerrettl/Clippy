@@ -46,7 +46,7 @@ Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown
 
 Joshua Frazer -
 
-Jordyn Hayden -
+Jordyn Hayden - I created the ER diagram, helped with the development of the C4 Model, added to the UI mockup, and refined user stories and requirements.
 
 Jerrett Longworth -
 
