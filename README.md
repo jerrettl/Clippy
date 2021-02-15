@@ -50,4 +50,4 @@ Jerrett Longworth - I helped revise the user stories and requirements, worked on
 
 Diego Rodrigues - I contributed to the low-level UML diagrams by adding the React components and their functionalities. I also worked on the UI diagrams by creating pages and elements as well as its documentation. Finally, I created and edited the product demonstration.
 
-Jaeivan Romero -
+Jaeivan Romero - I mainly worked on the first three levels of our achitecture diagrams and on the front end porition of the class-level diagram.
