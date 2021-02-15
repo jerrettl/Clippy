@@ -35,21 +35,19 @@ Jaeivan Romero - I wrote the underlying code for our velocity chart and burndown
 # Sprint 2
 
 - [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
-- [Burndown Chart]()
-- [Velocity Chart]()
-- [System Architecture]()
-- Source Code
-- Automated Tests
-- [Product Demonstration]()
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
+- [System Architecture](artifacts/architecture.md)
+- [Product Demonstration](https://www.youtube.com/watch?v=-NDbI9Itwfs)
 
 ## Task Allocation
 
-Joshua Frazer -
+Joshua Frazer - I created complete UI Mockup of the Clippy website, incorporating the user stories from sprint 1 as a guide. I also revised the user stories by transitioning some of the requirements to separate cards while following the required format. In addition, I donated some time for project documentation such as the beginning of the high-level diagrams.
 
 Jordyn Hayden - I created the ER diagram, helped with the development of the C4 Model, added to the UI mockup, and refined user stories and requirements.
 
-Jerrett Longworth -
+Jerrett Longworth - I helped revise the user stories and requirements, worked on the high-level and class-level architecture diagrams, and worked on the system design document.
 
-Diego Rodrigues -
+Diego Rodrigues - I contributed to the low-level UML diagrams by adding the React components and their functionalities. I also worked on the UI diagrams by creating pages and elements as well as its documentation. Finally, I created and edited the product demonstration.
 
-Jaeivan Romero -
+Jaeivan Romero - I mainly worked on the first three levels of our achitecture diagrams and on the front end porition of the class-level diagram.
