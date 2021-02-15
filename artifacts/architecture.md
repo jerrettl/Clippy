@@ -33,9 +33,29 @@ All components related to user functionality (React Server and Clippy API) were 
 
 # Code Design
 
-You should have your UML Class diagram and any other useful UML diagrams in this section. Each diagram should be accompanied by a brief description explaining what the elements are and why they are in the diagram. For your class diagram, you must also include a table that relates each class to one or more user stories.
+Font End Description
 
-See Code Complete, Chapter 3 and https://c4model.com/
+The front end will be composed of 5 pages, each connected by a router.
+
+The login page is used to send the user's inputs gathered by the sign-in form component to be authenticated and is the gateway to the other pages.
+
+The bookmark page component is composed of a sidebar component, that fetches the user's bookmarks to be filtered and sent to the bookmark display component which displays the props by calling multiple bookmark card components.
+
+The profile page component is composed of two components. The user header, which displays the user's information, as well as the bookmark display components, which will display the filtered bookmarks by calling the bookmark card component.
+
+The community page component consists of a bookmarks display component that also calls a bookmark card component to display the bookmark data.
+
+The following page component calls the community component that fetches the user followers and following data and passes it to a user follower display component to then display such data.
+
+Finally, the notification component fetches the user's follower's data and sends the said data to the display notification components that will then display the desired information.
+
+All components have a navbar component that links all of them together.
+
+</br>
+
+<div align="center">
+    <img src="assets/frontend.png" alt="frontend">
+</div>
 
 # Data Design
 
