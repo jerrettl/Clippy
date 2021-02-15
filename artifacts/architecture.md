@@ -217,4 +217,4 @@ Since the third-party components inherently act as core components of the system
 
 # Change Strategy
 
-The architecture is designed to be modular in that if one component is no longer fit for the intentions of the project, it can be replaced without affecting the other components. While there may be slight changes that need to be made to other components, this would be an exceptional case.
+All changes to the code will be tracked using Git, allowing for modular changes to be made to the system and merged with ease. In the event that a new bug emerges, the Git repository can be used to revert to a previous state of the project and find the point in which that bug emerged, and find the change that caused it.
