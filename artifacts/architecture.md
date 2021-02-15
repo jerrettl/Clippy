@@ -54,7 +54,7 @@ All components have a navbar component that links all of them together.
 </br>
 
 <div align="center">
-    <img src="assets/frontend.png" alt="frontend">
+    <img src="assets/frontend.jpg" alt="frontend">
 </div>
 
 ## Backend Server (from level 4 C4 Model)
