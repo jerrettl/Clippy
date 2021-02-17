@@ -26,5 +26,49 @@ Install the latest EF Core Tools if they are not installed already.
 $ dotnet tool install --global dotnet-ef
 ```
 
-## API
-[Try It](https://api.clippy.fun/swagger/index.html)
+## Getting Started
+
+Clone the `Clippy` GitHub repository to a local folder.
+
+```ps
+https://github.com/Clippy5/Clippy.git
+```
+
+Navigate inside the `project` folder where `Clippy.sln` is located to build and test the Clippy solution.
+
+```ps
+$ dotnet build
+$ dotnet test
+```
+
+Navigate to the `Clippy` source code folder.
+
+```ps
+$ cd src/clippy
+```
+
+Create the database using EF Core Tools.
+
+```ps
+$ dotnet ef database update
+```
+
+Run the application.
+
+```ps
+$ dotnet run --no-build
+
+Now listening on: https://localhost:5001
+```
+
+Open a browser and navigate to the Clippy web application at
+
+```
+https://localhost:5001
+```
+
+Explore the Clippy API using Swagger UI.
+
+```
+https://localhost:5001/swagger
+```
