@@ -72,3 +72,11 @@ Explore the Clippy API using Swagger UI.
 ```
 https://localhost:5001/swagger
 ```
+
+## Development
+
+Visit [development.md](development.md) for more information on development.
+
+## Testing
+
+Visit [test.md](test.md) for more information on testing.
