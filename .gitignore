@@ -368,3 +368,9 @@ FodyWeavers.xsd
 
 # Local History for Visual Studio Code
 .history/
+
+# JetBrains Rider stuff
+**/.idea/*
+
+#Database
+**/*.db
