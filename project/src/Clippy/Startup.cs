@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace Clippy
 {
@@ -29,7 +30,15 @@ namespace Clippy
             {
                 configuration.RootPath = "ClientApp/build";
             });
-            
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo{
+                    Title = "Clippy Api",
+                    Version = "v1"
+                });
+            });
+
             services.AddDbContext<ClippyContext>();
         }
 
@@ -50,6 +59,9 @@ namespace Clippy
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clippy Api v1"));
 
             app.UseRouting();
 
