@@ -6,7 +6,10 @@ export class Home extends Component {
   render () {
     return (
       <div>
-        <h1>Hello, world!</h1>
+        <h1>Clippy</h1>
+        <p>Go to the Admin Portal that uses Razor Pages.</p>
+        <h3><a href="/admin">Admin</a></h3>
+        <h2>More about this SPA</h2>
         <p>Welcome to your new single-page application, built with:</p>
         <ul>
           <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
