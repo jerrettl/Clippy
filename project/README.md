@@ -89,7 +89,7 @@ https://localhost:5001
 Explore the Clippy API using Swagger UI.
 
 ```
-https://localhost:5001/swagger
+https://localhost:5001/swagger/index.html
 ```
 
 ## Development
