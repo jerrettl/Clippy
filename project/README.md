@@ -26,6 +26,25 @@ Install the latest EF Core Tools if they are not installed already.
 $ dotnet tool install --global dotnet-ef
 ```
 
+## OAuth
+
+Clippy uses GitHub OAuth for authentication by default. You are free to add additional providers and change the default scheme.
+
+To use the existing provider you will need to create an OAuth Application in your GitHub Account and store the **ClientId** and **ClientSecret** as user secrets. For security reasons, this information has not been provided in the configuration settings.
+
+You set the user secrets by navigating to the `project/src/Clippy` folder and executing the following commands.
+
+```ps
+$ dotnet user-secrets set "GitHub:ClientId" "{Your ClientId}"
+$ dotnet user-secrets set "GitHub:ClientSecret" "{Your ClientSecret}"
+```
+
+You can learn more about securing secrets in .NET Core from the following article.
+
+[Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets)
+
+Failure to make the **ClientId** and **ClientSecret** available to Clippy will cause a runtime error.
+
 ## Getting Started
 
 Clone the `Clippy` GitHub repository to a local folder.
