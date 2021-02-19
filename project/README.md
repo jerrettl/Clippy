@@ -50,7 +50,7 @@ Failure to make the **ClientId** and **ClientSecret** available to Clippy will c
 Clone the `Clippy` GitHub repository to a local folder.
 
 ```ps
-https://github.com/Clippy5/Clippy.git
+$ git clone https://github.com/Clippy5/Clippy.git
 ```
 
 Navigate inside the `project` folder where `Clippy.sln` is located to build and test the Clippy solution.
