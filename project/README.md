@@ -1,6 +1,6 @@
 # Clippy
 
-Clippy is a social bookmarking app. It consists of a frontend website built using ReactJS and an API built using ASP.NET Core.
+Clippy is a social bookmarking app. It consists of a frontend website built using React and an API built using ASP.NET Core.
 
 ## Requirements
 
