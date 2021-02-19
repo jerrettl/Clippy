@@ -14,5 +14,10 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.05);
+}
+
+.background-color-primary {
+  background-color: rgb(255, 255, 255);
+  margin: 0 !important;
 }
