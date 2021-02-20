@@ -12,3 +12,15 @@
     justify-content: center;
     align-items: center;
 }
+.signin-position {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-position {
+    margin-top: auto;
+    flex-direction: column;
+    justify-content: center;
+}
