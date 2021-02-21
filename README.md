@@ -51,3 +51,25 @@ Jerrett Longworth - I helped revise the user stories and requirements, worked on
 Diego Rodrigues - I contributed to the low-level UML diagrams by adding the React components and their functionalities. I also worked on the UI diagrams by creating pages and elements as well as its documentation. Finally, I created and edited the product demonstration.
 
 Jaeivan Romero - I mainly worked on the first three levels of our achitecture diagrams and on the front end porition of the class-level diagram.
+
+# Sprint 3
+
+- [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
+- [System Architecture](artifacts/architecture.md)
+- [Source Code](project/src/Clippy)
+- [Automated Tests](project/test/Clippy.Tests)
+- Product Demonstration
+
+## Task Allocation
+
+Joshua Frazer -
+
+Jordyn Hayden -
+
+Jerrett Longworth -
+
+Diego Rodrigues -
+
+Jaeivan Romero -
