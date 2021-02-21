@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link, Route } from 'react-router-dom';
 import SignIn from './SignIn';
+import BookmarkPage from './BookmarkPage';
 import './Home.css';
 
 export class Home extends Component {
