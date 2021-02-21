@@ -1,4 +1,5 @@
 import os
+import re
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -18,6 +19,11 @@ def autolabel(rects, ax):
             ha="center",
             va="bottom",
         )
+
+
+def format_name(name):
+    result = re.sub("\s*\([^)]*\)", "", name)
+    return result
 
 
 def create_velocity_chart(sprints):
@@ -49,7 +55,7 @@ def create_velocity_chart(sprints):
     ax.set_ylabel("Story Points")
     ax.set_title("Velocity Chart")
     ax.set_xticks(label_locations)
-    ax.set_xticklabels([sprint.name for sprint in sprints])
+    ax.set_xticklabels([format_name(sprint.name) for sprint in sprints])
     ax.legend()
 
     if not os.path.exists("exported"):
