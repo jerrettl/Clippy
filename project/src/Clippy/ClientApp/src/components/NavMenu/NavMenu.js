@@ -28,7 +28,7 @@ export class NavMenu extends Component {
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3 background-color-primary " light>
           <Container>
             <NavbarBrand tag={Link} to="/">
-              <img src={require('../assets/logo.png')} width="156px" alt="logo" />
+              <img src={require('../../assets/logo.png')} width="156px" alt="logo" />
             </NavbarBrand>
             <NavbarBrand>
               <Form>

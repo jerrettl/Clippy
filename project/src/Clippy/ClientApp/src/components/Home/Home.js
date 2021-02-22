@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
-import SignIn from './../SignIn/Signin';
+import SignIn from './../SignIn/SignIn';
 import BookmarkPage from './../BookmarkPage/BookmarkPage';
 import './Home.css';
 

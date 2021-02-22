@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <div className="header">
             <div className="header__left">
-                <img src={require('../assets/logo.png')}  alt="logo"/>
+                <img src={require('../../assets/logo.png')}  alt="logo"/>
             </div>
 
             <div className="header__right">
