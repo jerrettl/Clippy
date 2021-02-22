@@ -68,7 +68,7 @@ Joshua Frazer -
 
 Jordyn Hayden - I added React to the Clippy project so development of the UI, API, and Admin Portal is super slick and builds together. I created an xUnit unit test project that supports the running of automated tests. I developed the Admin Portal and secured it with a custom implementation of GitHub OAuth. I also completed several requirements: all communication is forced to use SSL, admins have the ability to log on and log off with GitHub, and admins are properly navigated after such actions. I documented all of this in the repository, complete with a getting started guide and details on development and testing configuration.
 
-Jerrett Longworth -
+Jerrett Longworth - I created the product demonstration video and saw that the burndown and velocity charts are updated with the latest information from the Trello board.
 
 Diego Rodrigues - Redesigned the login page to better-fit user stories. Added routers to the react frontend app for better transitioning between pages. Started the bookmarks pages as well as the UserNavbar component and added elements according to user stories. Changed the layout component to better-fit the UI diagrams and swapped bootstrap to material UI for the frontend. Established a VS code connection with pair programming capabilities to better the frontend development and helped create a second development server.
 
