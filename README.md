@@ -64,7 +64,7 @@ Jaeivan Romero - I mainly worked on the first three levels of our achitecture di
 
 ## Task Allocation
 
-Joshua Frazer -
+Joshua Frazer - Established an AWS server to better further frontend pair programming capabilities that is accessed through VS Code Live Share. Added UI components from Material UI relevant to user stories that linked to search bar, sign in button, avatar icon, navigation bar for sign in and rest of site, and clippy logo. Helped in folder reconstruction to better testing and clean up the components folder within the ClientApp folder.
 
 Jordyn Hayden - I added React to the Clippy project so development of the UI, API, and Admin Portal is super slick and builds together. I created an xUnit unit test project that supports the running of automated tests. I developed the Admin Portal and secured it with a custom implementation of GitHub OAuth. I also completed several requirements: all communication is forced to use SSL, admins have the ability to log on and log off with GitHub, and admins are properly navigated after such actions. I documented all of this in the repository, complete with a getting started guide and details on development and testing configuration.
 
