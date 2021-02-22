@@ -72,4 +72,4 @@ Jerrett Longworth - I created the product demonstration video and saw that the b
 
 Diego Rodrigues - Redesigned the login page to better-fit user stories. Added routers to the react frontend app for better transitioning between pages. Started the bookmarks pages as well as the UserNavbar component and added elements according to user stories. Changed the layout component to better-fit the UI diagrams and swapped bootstrap to material UI for the frontend. Established a VS code connection with pair programming capabilities to better the frontend development and helped create a second development server.
 
-Jaeivan Romero -
+Jaeivan Romero - I restructured our React components folder to fit testing standards. I also setup our first frontend test.
