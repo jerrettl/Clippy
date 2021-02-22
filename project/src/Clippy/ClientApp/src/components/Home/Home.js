@@ -10,8 +10,8 @@ export class Home extends Component {
   render () {
     return (
       <div className="bg-image">
-        <div className="signin-position">
-          <SignIn />
+        <div>
+            <SignIn />
         </div>
       </div>
     );
