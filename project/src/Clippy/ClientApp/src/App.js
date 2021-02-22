@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Layout } from './components/Layout/Layout';
+import { Layout } from './components/Layout';
 import { FetchStatus } from './components/FetchStatus';
-import HomePage from './components/HomePage/HomePage';
-import BookmarkPage from './components/BookmarkPage/BookmarkPage'
+import HomePage from './components/HomePage';
+import BookmarkPage from './components/BookmarkPage'
 
 import './custom.css'
 import { Bookmark } from '@material-ui/icons';
