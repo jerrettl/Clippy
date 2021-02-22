@@ -1,0 +1,62 @@
+.header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  background-color: white;
+  z-index: 100;
+  top: 0;
+  box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
+}
+
+.header > img {
+  height: 40px;
+}
+
+.header__input {
+  display: flex;
+  align-items: center;
+  background-color: #eff2f5;
+  padding: 10px;
+  width: fill;
+  margin-left: 10px;
+  border-radius: 999px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.header__option.MuiTypography-colorPrimary {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.header__option {
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.header__right .header__option {
+  margin-right: 15px;
+  color: rgba(0, 0, 0, 0.6);
+  transition: 0.3s;
+  border-radius: 100%;
+  padding: 8px;
+}
+
+.header__right .header__option:hover {
+  color: rgba(0, 0, 0, 0.8);
+  background-color: #eff2f5;
+}
+
+.header__input input {
+  border: none;
+  background-color: transparent;
+  outline-width: 0;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
