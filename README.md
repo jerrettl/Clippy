@@ -66,7 +66,7 @@ Jaeivan Romero - I mainly worked on the first three levels of our achitecture di
 
 Joshua Frazer -
 
-Jordyn Hayden -
+Jordyn Hayden - I added React to the Clippy project so development of the UI, API, and Admin Portal is super slick and builds together. I created an xUnit unit test project that supports the running of automated tests. I developed the Admin Portal and secured it with a custom implementation of GitHub OAuth. I also completed several requirements: all communication is forced to use SSL, admins have the ability to log on and log off with GitHub, and admins are properly navigated after such actions. I documented all of this in the repository, complete with a getting started guide and details on development and testing configuration.
 
 Jerrett Longworth -
 
