@@ -60,7 +60,7 @@ Jaeivan Romero - I mainly worked on the first three levels of our achitecture di
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
 - [Automated Tests](project/test/Clippy.Tests)
-- Product Demonstration
+- [Product Demonstration](https://www.youtube.com/watch?v=WLseZofyHbY)
 
 ## Task Allocation
 
