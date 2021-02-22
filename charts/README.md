@@ -14,6 +14,10 @@ $ python3 main.py
 <img src="exported/burndown_chart_sprint_2.png" height="400px" alt="Burndown Chart - Sprint 2">
 </details>
 
+<details><summary>Burndown Chart - Sprint 3</summary>
+<img src="exported/burndown_chart_sprint_3.png" height="400px" alt="Burndown Chart - Sprint 3">
+</details>
+
 <details><summary>Velocity Chart</summary>
 <img src="exported/velocity_chart.png" height="400px" alt="Velocity Chart">
 </details>

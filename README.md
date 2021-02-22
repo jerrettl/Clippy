@@ -51,3 +51,25 @@ Jerrett Longworth - I helped revise the user stories and requirements, worked on
 Diego Rodrigues - I contributed to the low-level UML diagrams by adding the React components and their functionalities. I also worked on the UI diagrams by creating pages and elements as well as its documentation. Finally, I created and edited the product demonstration.
 
 Jaeivan Romero - I mainly worked on the first three levels of our achitecture diagrams and on the front end porition of the class-level diagram.
+
+# Sprint 3
+
+- [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
+- [System Architecture](artifacts/architecture.md)
+- [Source Code](project/src/Clippy)
+- [Automated Tests](project/test/Clippy.Tests)
+- [Product Demonstration](https://www.youtube.com/watch?v=WLseZofyHbY)
+
+## Task Allocation
+
+Joshua Frazer - Established an AWS server to better further frontend pair programming capabilities that is accessed through VS Code Live Share. Added UI components from Material UI relevant to user stories that linked to search bar, sign in button, avatar icon, navigation bar for sign in and rest of site, and clippy logo. Helped in folder reconstruction to better testing and clean up the components folder within the ClientApp folder.
+
+Jordyn Hayden - I added React to the Clippy project so development of the UI, API, and Admin Portal is super slick and builds together. I created an xUnit unit test project that supports the running of automated tests. I developed the Admin Portal and secured it with a custom implementation of GitHub OAuth. I also completed several requirements: all communication is forced to use SSL, admins have the ability to log on and log off with GitHub, and admins are properly navigated after such actions. I documented all of this in the repository, complete with a getting started guide and details on development and testing configuration.
+
+Jerrett Longworth - I created the product demonstration video and saw that the burndown and velocity charts are updated with the latest information from the Trello board.
+
+Diego Rodrigues - Redesigned the login page to better-fit user stories. Added routers to the react frontend app for better transitioning between pages. Started the bookmarks pages as well as the UserNavbar component and added elements according to user stories. Changed the layout component to better-fit the UI diagrams and swapped bootstrap to material UI for the frontend. Established a VS code connection with pair programming capabilities to better the frontend development and helped create a second development server.
+
+Jaeivan Romero - I restructured our React components folder to fit testing standards. I also setup our first frontend test.
