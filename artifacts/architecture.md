@@ -33,6 +33,8 @@ All components related to user functionality (React Server and Clippy API) were 
 
 # Code Design
 
+**Note:** The Clippy team is currently investigating new software to model the code architecture.
+
 ## Front End Description
 
 The front end will be composed of 5 pages, each connected by a router.
