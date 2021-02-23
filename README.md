@@ -8,7 +8,7 @@ For internet users who find themselves having a difficult time organizing and di
 
 - Joshua Frazer (@BlackOutDevelops)
 - Jordyn Hayden (@jordynhayden)
-- Jerrett Longworth (@jcoolrace)
+- Jerrett Longworth (@jerrettl)
 - Diego Rodrigues (@diegoro1)
 - Jaeivan Romero (@jaerom)
 
