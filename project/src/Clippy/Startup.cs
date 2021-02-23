@@ -23,11 +23,20 @@ namespace Clippy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "SubdomainsAllowPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://*.clippy.fun")
+                            .SetIsOriginAllowedToAllowWildcardSubdomains();
+                    });
+            });
 
             services.AddControllersWithViews();
             services.AddRazorPages(options =>
             {
-                options.Conventions.AuthorizePage("/Admin/SecurePage");
+                options.Conventions.AuthorizeFolder("/Admin");
             });
 
             // In production, the React files will be served from this directory
@@ -79,6 +88,8 @@ namespace Clippy
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clippy Api v1"));
 
             app.UseRouting();
+
+            app.UseCors("SubdomainsAllowPolicy");
 
             app.UseAuthentication();
             app.UseAuthorization();

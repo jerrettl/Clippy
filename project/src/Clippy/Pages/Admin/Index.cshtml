@@ -1,19 +1,17 @@
 @page
+@using System.Security.Claims
 @model Clippy.Pages.Admin.Index
 
-@{
-    Layout = null;
-}
+<div id="main">
 
-<!DOCTYPE html>
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Admin</h1>
+            </header>
+            <p>Welcom @User.Identity.Name!</p>
 
-<html>
-<head>
-    <title>Admin</title>
-</head>
-<body>
-<div>
-    <h1>Admin</h1>
+        </div>
+    </section>
+
 </div>
-</body>
-</html>
