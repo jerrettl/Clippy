@@ -1,0 +1,46 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+defaults:
+  run:
+    working-directory: scripts
+
+jobs:
+  test-dotnet:
+    name: Run .NET tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: project
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build .NET project
+      run: dotnet build --no-restore
+    - name: Test .NET project
+      run: dotnet test --no-build --verbosity normal
+
+  test-react:
+    name: Run React.js tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: project/src/Clippy/ClientApp
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.5
+    - name: Install cross-env
+      run: npm install --save-dev cross-env
+    - name: Test npm project
+      run: npm test
