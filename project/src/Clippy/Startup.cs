@@ -25,7 +25,10 @@ namespace Clippy
         {
 
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Admin");
+            });
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
