@@ -28,8 +28,8 @@ export default class UserNavbar extends Component {
 
 
             <div className="header__right">
-                <Link className="header__option" href="#" color="#06D6A0"><AddIcon /></Link>
-                <Avatar className="" alt ="Randy Rando" src={require('../../assets/rando.jpg')}/>
+                <Link href="#" color="#06D6A0"><AddIcon /></Link>
+                <Avatar alt ="Randy Rando" src={require('../../assets/rando.jpg')}/>
             </div>
         </div>
         )

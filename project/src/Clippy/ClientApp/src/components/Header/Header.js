@@ -11,8 +11,8 @@ export default function Header() {
             </div>
 
             <div className="header__right">
-                <Link className="header__option text-option" href="#" color="#06D6A0">About</Link>
-                <Button className="header__option header__button" variant="contained" color="primary">
+                <Link href="#" color="#06D6A0">About</Link>
+                <Button variant="contained" color="primary">
                     Sign in
                 </Button>
             </div>
