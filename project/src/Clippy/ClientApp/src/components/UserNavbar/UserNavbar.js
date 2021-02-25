@@ -1,37 +1,63 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { AppBar, Avatar, InputBase, Collapse } from '@material-ui/core'
+import SearchIcon from '@material-ui/icons/Search'
+import MenuIcon from '@material-ui/icons/Menu'
+import AddIcon from '@material-ui/icons/Add'
 import './UserNavbar.css';
-import SearchIcon from '@material-ui/icons/Search';
-import Avatar from '@material-ui/core/Avatar';
-import Collapse from '@material-ui/core/Collapse';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import AddIcon from '@material-ui/icons/Add';
 
-export default class UserNavbar extends Component {
+export default class UserNavbar extends Component {  
     render() {
+        function CollapsableList() {
+            const [open, setOpen] = React.useState(true);
+
+            const handleClick = () => {
+                setOpen(!open);
+            };
+
+            const useViewport = () => {
+                const [width, setWidth] = React.useState(window.innerWidth);
+
+                React.useEffect(() => {
+                    const handleWindowResize = () => setWidth(window.innerWidth);
+                    window.addEventListener("resize", handleWindowResize);
+                    return () => window.removeEventListener("resize", handleWindowResize);
+                }, []);
+                return width;
+            }
+            return (
+                <div>
+                    
+                    {useViewport() > 750 && open == false ? setOpen(!open) : false }
+                    {useViewport() < 700 && open == true ? setOpen(!open) : false }
+                    {open ? true : <MenuIcon className='MenuIcon' onClick={handleClick} /> }
+                    <Collapse in={open} timeout="auto" unmountOnExit>
+                        <Link className='Explore'>
+                            Explore
+                        </Link>
+
+                        <Link className='Following'>
+                            Following
+                        </Link>
+                    </Collapse>
+                </div>
+            )
+        }
         return (
-        <div className="header">
-            <img src={require('../../assets/logo.png')} alt="logo"/>
+            <div>
+                <AppBar className='NavBar'>
+                    <Link className='ClippyLogo' to="./bookmarks">
+                        <img src={require("../../assets/logo.png")} />
+                    </Link>
+                    
+                    <CollapsableList />                    
 
-            <Link className="header__option">
-                Explore
-            </Link>
+                    <InputBase className='SearchBar' placeholder="Search" type="text" startAdornment={<SearchIcon className='SearchIcon' />} />
 
-            <Link className="header__option">
-                Following
-            </Link>
-
-            <div className="header__input">
-                <SearchIcon />
-                <input type="text"/>
+                    <AddIcon className='AddIcon' />
+                    <Avatar className='Avatar' alt="Randy Rando" src={require('../../assets/rando.jpg')} />
+                </AppBar>
             </div>
-
-
-            <div className="header__right">
-                <Link href="#" color="#06D6A0"><AddIcon /></Link>
-                <Avatar alt ="Randy Rando" src={require('../../assets/rando.jpg')}/>
-            </div>
-        </div>
         )
     }
 }
