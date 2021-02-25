@@ -1,62 +1,78 @@
-.header {
-  padding: 15px 20px;
+.NavBar.MuiPaper-root {
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: sticky;
-  background-color: white;
-  z-index: 100;
-  top: 0;
-  box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
-}
-
-.header > img {
-  height: 40px;
-}
-
-.header__input {
-  display: flex;
-  align-items: center;
-  background-color: #eff2f5;
-  padding: 10px;
   width: 100%;
-  margin-left: 10px;
-  border-radius: 999px;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.header__option.MuiTypography-colorPrimary {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.MuiTypography-root {
-  padding: 0 30px;
-  display: flex;
+  height: 60px;
+  background-color: white;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
-.header__right .header__option {
-  margin-right: 15px;
-  color: rgba(0, 0, 0, 0.6);
-  transition: 0.3s;
-  border-radius: 100%;
-  padding: 8px;
-}
-
-.header__right .header__option:hover {
-  color: rgba(0, 0, 0, 0.8);
-  background-color: #eff2f5;
-}
-
-.header__input input {
-  border: none;
-  background-color: transparent;
-  outline-width: 0;
-}
-
-.header__right {
+a.ClippyLogo {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  margin-left: 10px;
+  justify-content: center;
+}
+
+.ClippyLogo {
+  scale: 65%
+}
+
+.MenuIcon {
+  color: black;
+}
+
+.Explore {
+  margin: 0px 15px;
+  text-decoration: none;
+}
+
+.Explore:hover {
+  margin: 0px 15px;
+  color:rgba(0, 0, 0, 0.30);
+  text-decoration: none;
+}
+
+.Following {
+  margin: 0px 15px;
+  text-decoration: none;
+}
+
+.Following:hover {
+  margin: 0px 15px;
+  color:rgba(0, 0, 0, 0.30);
+  text-decoration: none;
+}
+
+.SearchBar.MuiInputBase-root {
+  background-color: rgba(0, 0, 0, 0.10);
+  margin: 0px 20px;
+  padding-left: 10px;
+  width: 100%;
+  border-radius: 30px;
+}
+
+.SearchIcon.MuiSvgIcon-root {
+  color: black;
+}
+
+.AddIcon.MuiSvgIcon-root {
+  color: black;
+  border-radius: 30px;
+  scale: 120%;
+}
+
+.AddIcon.MuiSvgIcon-root:hover {
+  color: black;
+  background-color: rgba(0, 0, 0, 0.10);
+  transition: ease-out;
+  transition-duration: 1s;
+  border-radius: 30px;
+  scale: 120%;
+}
+
+.Avatar.MuiAvatar-root {
+  scale: 120%;
+  margin: 0px 20px;
 }

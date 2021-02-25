@@ -6,7 +6,6 @@ import HomePage from './components/HomePage/HomePage';
 import BookmarkPage from './components/BookmarkPage/BookmarkPage'
 
 import './custom.css'
-import { Bookmark } from '@material-ui/icons';
 
 export default class App extends Component {
   static displayName = App.name;
