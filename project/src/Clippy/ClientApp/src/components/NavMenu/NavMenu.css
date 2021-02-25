@@ -5,12 +5,7 @@ a.navbar-brand {
 }
 
 html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 18px;
-  }
+  font-size: 18px;
 }
 
 .text-dark {
