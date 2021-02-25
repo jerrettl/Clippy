@@ -1,0 +1,41 @@
+@page
+@model Clippy.Pages.Admin.Resources.IndexModel
+@{
+    ViewData["Title"] = "Resources";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Resources</h1>
+            </header>
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Location</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var resource in Model.Resources) {
+                        <tr>
+                            <td>@resource.Id</td>
+                            <td><a href="@resource.Location">@resource.Location</a></td>
+                            <td><a asp-page="Details" asp-route-id="@resource.Id">Details</a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <ul class="actions">
+                    <li><a asp-page="Add" class="button primary">Add</a></li>
+                    <li><a asp-page="../Index" class="button">Back</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</div>

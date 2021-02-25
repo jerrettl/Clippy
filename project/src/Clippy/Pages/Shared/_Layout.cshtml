@@ -1,62 +1,62 @@
 ﻿<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>@ViewData["Title"] - Clippy API</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/Home/css/main.css" />
-		<noscript><link rel="stylesheet" href="/Home/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+    <head>
+        <title>@ViewData["Title"] - Clippy API</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/Home/css/main.css" />
+        <noscript><link rel="stylesheet" href="/Home/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        <!-- Wrapper -->
+            <div id="wrapper">
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="/" class="logo"><strong>Clippy API</strong> <span>by Clippy5</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+                <!-- Header -->
+                    <header id="header" class="alt">
+                        <a href="/" class="logo"><strong>Clippy API</strong> <span>by Clippy5</span></a>
+                        <nav>
+                            <a href="#menu">Menu</a>
+                        </nav>
+                    </header>
 
-				<!-- Menu -->
-					<nav id="menu">
+                <!-- Menu -->
+                    <nav id="menu">
                         <ul class="links">
                             <li><a href="/">Home</a></li>
                             <li><a href="/swagger/index.html">Explore API</a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
-							<li><a href="/account/signout">Logout</a></li>
-							}
+                            <li><a href="/account/signout">Logout</a></li>
+                            }
                         </ul>
                         <ul class="actions stacked">
                             <li><a href="/admin" class="button fit">Dashboard</a></li>
                         </ul>
-					</nav>
+                    </nav>
 
-					@RenderSection("Banner", false)
-					@RenderBody()
+                    @RenderSection("Banner", false)
+                    @RenderBody()
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="copyright">
-								<li>&copy; Clippy API</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+                <!-- Footer -->
+                    <footer id="footer">
+                        <div class="inner">
+                            <ul class="copyright">
+                                <li>&copy; Clippy API</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                            </ul>
+                        </div>
+                    </footer>
 
-			</div>
+            </div>
 
-		<!-- Scripts -->
-			<script src="/Home/js/jquery.min.js"></script>
-			<script src="/Home/js/jquery.scrolly.min.js"></script>
-			<script src="/Home/js/jquery.scrollex.min.js"></script>
-			<script src="/Home/js/browser.min.js"></script>
-			<script src="/Home/js/breakpoints.min.js"></script>
-			<script src="/Home/js/util.js"></script>
-			<script src="/Home/js/main.js"></script>
+        <!-- Scripts -->
+            <script src="/Home/js/jquery.min.js"></script>
+            <script src="/Home/js/jquery.scrolly.min.js"></script>
+            <script src="/Home/js/jquery.scrollex.min.js"></script>
+            <script src="/Home/js/browser.min.js"></script>
+            <script src="/Home/js/breakpoints.min.js"></script>
+            <script src="/Home/js/util.js"></script>
+            <script src="/Home/js/main.js"></script>
 
-	</body>
+    </body>
 </html>
