@@ -19,11 +19,53 @@ a.ClippyLogo {
   scale: 65%
 }
 
+/* List Styles */
+.ListSubheader.MuiListSubheader-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Collapse.MuiCollapse-container {
+  position: absolute;
+}
+
 .MenuIcon {
   color: black;
 }
 
+.MenuIcon.MuiSvgIcon-root {
+  margin-top: 7px;
+}
+
+.ExpandLessIcon.MuiSvgIcon-root {
+  margin-top: 7px;
+}
+
+.ListItem.MuiButtonBase-root {
+  height: 50px;
+  background-color:rgba(0, 0, 0, 0.1);
+
+}
+
+.ListItem.MuiButtonBase-root:hover {
+  height: 50px;
+  color: rgba(0, 0, 0, 0.1);
+  background-color:rgba(0, 0, 0, 0.07);
+}
+
+.ExploreListItem.MuiButtonBase-root {
+  margin-top: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.FollowingListItem.MuiButtonBase-root {
+  border-radius: 0px 0px 10px 10px;
+}
+/* End of List styles */
+
 .Explore {
+  color: black;
   margin: 0px 15px;
   text-decoration: none;
 }
@@ -35,6 +77,7 @@ a.ClippyLogo {
 }
 
 .Following {
+  color: black;
   margin: 0px 15px;
   text-decoration: none;
 }
