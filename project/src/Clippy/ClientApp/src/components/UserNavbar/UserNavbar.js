@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { AppBar, Avatar, InputBase, Collapse } from '@material-ui/core'
+import { AppBar, Avatar, InputBase, Collapse, List, ListSubheader, ListItem, ListItemText } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
+import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 import MenuIcon from '@material-ui/icons/Menu'
 import AddIcon from '@material-ui/icons/Add'
 import './UserNavbar.css';
@@ -9,7 +10,7 @@ import './UserNavbar.css';
 export default class UserNavbar extends Component {  
     render() {
         function CollapsableList() {
-            const [open, setOpen] = React.useState(true);
+            const [open, setOpen] = React.useState(false);
 
             const handleClick = () => {
                 setOpen(!open);
@@ -27,19 +28,31 @@ export default class UserNavbar extends Component {
             }
             return (
                 <div>
-                    
-                    {useViewport() > 825 && open == false ? setOpen(!open) : false }
-                    {useViewport() < 775 && open == true ? setOpen(!open) : false }
-                    {open ? true : <MenuIcon className='MenuIcon' onClick={handleClick} /> }
-                    <Collapse in={open} timeout="auto" unmountOnExit>
+                    {useViewport() < 800 ? <List className='List' subheader={
+                        <ListSubheader className='ListSubheader' component="div" id="nested-list-subheader">
+                            {open ? <ExpandLessIcon className='ExpandLessIcon' onClick={handleClick} /> : <MenuIcon className='MenuIcon' onClick={handleClick} />}
+                        </ListSubheader>
+                    }>
+                        <Collapse className='Collapse' in={open} timeout="auto" unmountOnExit>
+                            <ListItem button className='ListItem ExploreListItem'>
+                                <ListItemText primary="Explore" />
+                            </ListItem>
+                            <ListItem button className='ListItem FollowingListItem'>
+                                <ListItemText primary="Following" />
+                            </ListItem>
+                        </Collapse>
+                    </List> 
+                    : 
+                    <div>
                         <Link className='Explore'>
                             Explore
                         </Link>
-
                         <Link className='Following'>
                             Following
                         </Link>
-                    </Collapse>
+                    </div>
+                    }
+                    
                 </div>
             )
         }
