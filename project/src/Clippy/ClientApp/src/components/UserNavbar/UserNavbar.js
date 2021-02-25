@@ -28,8 +28,8 @@ export default class UserNavbar extends Component {
             return (
                 <div>
                     
-                    {useViewport() > 750 && open == false ? setOpen(!open) : false }
-                    {useViewport() < 700 && open == true ? setOpen(!open) : false }
+                    {useViewport() > 825 && open == false ? setOpen(!open) : false }
+                    {useViewport() < 775 && open == true ? setOpen(!open) : false }
                     {open ? true : <MenuIcon className='MenuIcon' onClick={handleClick} /> }
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Link className='Explore'>
