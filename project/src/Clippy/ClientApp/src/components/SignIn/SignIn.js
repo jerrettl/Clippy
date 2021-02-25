@@ -12,7 +12,7 @@ export default function SignIn() {
                 <p>The source for all </p>
                 <p> your needed bookmarks</p>
             </div>
-            <Link className="container__link" to="/bookmarks">
+            <Link className="container__link" to="./bookmarks">
                 <div className="signin__github">
                     <Button className="signin__github">
                         <GitHubIcon  className="git-icon"/>
