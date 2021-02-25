@@ -1,0 +1,30 @@
+@page "{id:int}"
+@model Clippy.Pages.Admin.Resources.DetailsModel
+@{
+    ViewData["Title"] = "Resource Details";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Resource Details (Id: @Model.Resource.Id)</h1>
+            </header>
+            <p><strong>Location:</strong> <a href="@Model.Resource.Location">@Model.Resource.Location</a></p>
+            <p><strong>Metadata:</strong> @Model.Resource.Metadata.Count item(s)</p>
+            <pre>
+                @foreach(var metadata in Model.Resource.Metadata) {
+                    @($"     {metadata.Key}: {metadata.Value}\n")
+                }
+            </pre>
+            <p><strong>Created:</strong> @Model.Resource.CreateDate.ToShortDateString()</p>
+            <hr>
+            <ul class="actions">
+                <li><a asp-page="Index" class="button">Back</a></li>
+                <li><form method="Post"><button asp-page-handler="Delete" asp-route-id="@Model.Resource.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button></form></li>
+            </ul>
+        </div>
+    </section>
+
+</div>
