@@ -11,10 +11,10 @@ export default function Header() {
             </Link>
 
             <div className="Links">
-                <Link className="About" href="#" color="#06D6A0">
+                <Link className="About" href="/" color="#06D6A0">
                     About
                 </Link>
-                <Button className="SignIn" variant="contained" color="primary">
+                <Button className="SignIn" href="/signin" variant="contained" color="primary">
                     Sign in
                 </Button>
             </div>
