@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Layout } from './components/Layout/Layout';
 import { FetchStatus } from './components/FetchStatus';
 import SignInPage from './components/SignInPage/SignInPage';
 import AboutPage from './components/AboutPage/AboutPage';
@@ -21,8 +20,3 @@ export default class App extends Component {
     );
   }
 }
-
-// <Layout>
-//         <Route exact path='/' component={Home} />
-//         <Route path='/fetch-status' component={FetchStatus} />
-//       </Layout>
