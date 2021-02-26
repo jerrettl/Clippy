@@ -6,7 +6,7 @@ import Link from '@material-ui/core/Link';
 export default function Header() {
     return (
         <div className="Header">
-            <Link className="ClippyLogo" to="./bookmarks">
+            <Link className="ClippyLogo" href="/">
                 <img src={require("../../assets/logo.png")} />
             </Link>
 

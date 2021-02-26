@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from './../Header/Header';
-import { Home } from './../Home/Home';
+import { SignInButton } from './../SignInButton/SignInButton';
 
-export default function HomePage() {
+export default function SignInPage() {
     return (
         <div>
             <Header />
-            <Home />
+            <SignInButton />
         </div>
     )
 }
