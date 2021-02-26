@@ -10,12 +10,12 @@ export default function AboutContent() {
 
           <h1> Team Members </h1>
           <p>
-            Team Member <a href="https://github.com"> Github </a>
+            <li> Team Member <a href="https://github.com"> Github </a> </li>
           </p>
 
           <h1> Source Code </h1>
           <p>
-            Clippy is open source! Feel free to check out the source code at our github.
+            Clippy is open source! Feel free to check out the source code for our entire project at our github.
             <a href="https://github.com/Clippy5/Clippy">Source Code</a>
           </p>
         </div>
