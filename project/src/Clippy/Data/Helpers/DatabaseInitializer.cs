@@ -22,7 +22,9 @@ namespace Clippy.Data.Helpers {
                 Metadata = new Dictionary<string,string>
                 {
                     { "Title", "National Geographic" },
-                    { "MediaType", "text/html" }
+                    { "MediaType", "text/html" },
+                    { "Image", "https://api.clippy.fun/images/resources/natgeo.jpg" },
+                    { "Description", "Explore the world's beauty." }
                 },
                 CreateDate = now
             };
@@ -34,7 +36,9 @@ namespace Clippy.Data.Helpers {
                 Metadata = new Dictionary<string, string>
                 {
                     { "Title", "Yellowstone National Park" },
-                    { "MediaType", "text/html" }
+                    { "MediaType", "text/html" },
+                    { "Image", "https://api.clippy.fun/images/resources/yellowstone.jpg" },
+                    { "Description", "Escape to a winter wonderland." }
                 },
                 CreateDate = now
             };
@@ -46,7 +50,9 @@ namespace Clippy.Data.Helpers {
                 Metadata = new Dictionary<string, string>
                 {
                     { "Title", "Food Network" },
-                    { "MediaType", "text/html" }
+                    { "MediaType", "text/html" },
+                    { "Image", "https://api.clippy.fun/images/resources/foodnetwork.jpg" },
+                    { "Description", "Entice your taste buds." }
                 },
                 CreateDate = now
             };
@@ -58,7 +64,9 @@ namespace Clippy.Data.Helpers {
                 Metadata = new Dictionary<string, string>
                 {
                     { "Title", "Love and Lemons" },
-                    { "MediaType", "text/html" }
+                    { "MediaType", "text/html" },
+                    { "Image", "https://api.clippy.fun/images/resources/lovelemons.jpg" },
+                    { "Description", "Detoxify yourself each day." }
                 },
                 CreateDate = now
             };
@@ -70,12 +78,28 @@ namespace Clippy.Data.Helpers {
                 Metadata = new Dictionary<string, string>
                 {
                     { "Title", "Appalachian Trail Conservancy" },
-                    { "MediaType", "text/html" }
+                    { "MediaType", "text/html" },
+                    { "Image", "https://api.clippy.fun/images/resources/appalachiantrail.jpg" },
+                    { "Description", "Escape the city lights." }
                 },
                 CreateDate = now
             };
 
-            return new List<Resource>(new[] {r1, r2, r3, r4, r5});
+            var r6  = new Resource
+            {
+                Id = 6,
+                Location = "https://www.spacex.com",
+                Metadata = new Dictionary<string, string>
+                {
+                    { "Title", "SpaceX" },
+                    { "MediaType", "text/html" },
+                    { "Image", "https://api.clippy.fun/images/resources/spacex.jpg" },
+                    { "Description", "Experience space travel." }
+                },
+                CreateDate = now
+            };
+
+            return new List<Resource>(new[] {r1, r2, r3, r4, r5, r6});
         }
     }
 }
