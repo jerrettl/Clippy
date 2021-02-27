@@ -27,7 +27,7 @@
                             <td>@resource.Id</td>
                             <td>@(resource.Metadata["Title"] ?? "None Provided")</td>
                             <td><a href="@resource.Location">@resource.Location</a></td>
-                            <td><a asp-page="Details" asp-route-id="@resource.Id">Details</a></td>
+                            <td><a asp-page="Details" asp-route-id="@resource.Id">Details</a> <a asp-page="Edit" asp-route-id="@resource.Id">Edit</a></td>
                         </tr>
                         }
                     </tbody>
