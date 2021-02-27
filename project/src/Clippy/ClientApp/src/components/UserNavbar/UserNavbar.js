@@ -44,10 +44,10 @@ export default class UserNavbar extends Component {
                     </List>
                     :
                     <div>
-                        <Link className='Explore'>
+                        <Link className='Explore' to='/bookmarks'>
                             Explore
                         </Link>
-                        <Link className='Following'>
+                        <Link className='Following' to='/bookmarks'>
                             Following
                         </Link>
                     </div>
