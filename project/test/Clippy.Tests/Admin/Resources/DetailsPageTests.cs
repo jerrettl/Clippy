@@ -19,6 +19,7 @@ namespace Clippy.Tests.Admin.Resources
         [InlineData(3)]
         [InlineData(4)]
         [InlineData(5)]
+        [InlineData(6)]
         public async Task OnGetAsync_PopulatesThePageModel_WithAResource(int resourceId)
         {
             // Arrange
@@ -44,6 +45,7 @@ namespace Clippy.Tests.Admin.Resources
         [InlineData(3)]
         [InlineData(4)]
         [InlineData(5)]
+        [InlineData(6)]
         public async Task OnPostDeleteAsync_ReturnsARedirectToPageResult(int resourceId)
         {
             // Arrange
