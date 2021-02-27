@@ -1,13 +1,23 @@
-using Microsoft.AspNetCore.Mvc;
+using Clippy.Data;
+using Clippy.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Clippy.Pages {
-    public class Index : PageModel {
-        [ViewData]
-        public string Title { get; } = "Home";
+    public class IndexModel : PageModel {
+        private ClippyContext _context;
 
-        public void OnGet() {
+        public IndexModel(ClippyContext context) {
+            _context = context;
+        }
 
+         public IList<Resource> Resources { get; set; }
+
+        public async Task OnGetAsync() {
+            Resources = await _context.GetResourcesAsync();
+            Resources = Resources.Take(6).ToList();
         }
     }
 }
