@@ -84,5 +84,47 @@ namespace Clippy.Tests.Admin.Resources
             // Assert
             Assert.IsType<PageResult>(result);
         }
+
+        [Theory]
+        [InlineData(1, "https://www.spacex.com")]
+        [InlineData(2, "https://www.nationalgeographic.com")]
+        [InlineData(3, "https://www.nationalgeographic.com")]
+        [InlineData(4, "https://www.nationalgeographic.com")]
+        [InlineData(5, "https://www.nationalgeographic.com")]
+        [InlineData(6, "https://www.nationalgeographic.com")]
+        public async Task OnPostAsync_ReturnsAPageResult_WhenResourceLocationExists(int id, string existingLocation)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var idResource = DatabaseInitializer.GetSeedingResources().Single(r => r.Id == id);
+            var locationResource = DatabaseInitializer.GetSeedingResources().Single(r => r.Location == existingLocation);
+            mockContext.Setup(db => db.GetResourceAsync(id)).Returns(Task.FromResult(idResource));
+            mockContext.Setup(db => db.GetResourceByLocationAsync(existingLocation)).Returns(Task.FromResult(locationResource));
+            var httpContext = new DefaultHttpContext();
+            var modelState = new ModelStateDictionary();
+            var actionContext = new ActionContext(httpContext, new RouteData(), new PageActionDescriptor(), modelState);
+            var modelMetadataProvider = new EmptyModelMetadataProvider();
+            var viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageContext = new PageContext(actionContext)
+            {
+                ViewData = viewData
+            };
+            var pageModel = new EditModel(mockContext.Object)
+            {
+                PageContext = pageContext,
+                TempData = tempData,
+                Url = new UrlHelper(actionContext),
+                Resource = new EditResourceModel {Title = "1234567890", Location = existingLocation}
+            };
+
+            // Act
+            var result = await pageModel.OnPostAsync(id);
+
+            // Assert
+            Assert.IsType<PageResult>(result);
+        }
     }
 }
