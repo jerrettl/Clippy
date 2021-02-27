@@ -20,7 +20,7 @@ namespace Clippy.Pages.Admin.Resources
         [BindProperty]
         public EditResourceModel Resource { get; set; }
 
-        public async Task<IActionResult> OnGet(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             var resource = await _context.GetResourceAsync(id);
             if (resource == null)
