@@ -72,9 +72,6 @@ export default function AboutContent() {
             </CardActions>
           </CardContent>
         </Card>
-        <Card className="AboutContentCard">
-          <CardHeader title="How to Run" />
-        </Card>
       </div>
     )
 }
