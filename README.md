@@ -92,7 +92,7 @@ Joshua Frazer -
 
 Jordyn Hayden -
 
-Jerrett Longworth -
+Jerrett Longworth - Added continuous integration using GitHub Actions, created a basic API call to interface with the React frontend, and worked on some styling for the about page.
 
 Diego Rodrigues -
 
