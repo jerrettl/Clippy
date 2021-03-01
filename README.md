@@ -86,7 +86,7 @@ Jaeivan Romero - I restructured our React components folder to fit testing stand
 - Automated Tests:
 	* [C# Tests](project/test/Clippy.Tests)
 	* [Javascript Tests](project/src/Clippy/ClientApp/src)
-- Product Demonstration
+- [Product Demonstration](https://youtu.be/ETisNxjQkSE)
 
 ## Task Allocation
 
