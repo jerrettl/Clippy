@@ -7,7 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import AddIcon from '@material-ui/icons/Add'
 import './UserNavbar.css';
 
-export default class UserNavbar extends Component {
+export default class UserNavbar extends Component {  
     render() {
         function CollapsableList() {
             const [open, setOpen] = React.useState(false);
@@ -41,18 +41,18 @@ export default class UserNavbar extends Component {
                                 <ListItemText primary="Following" />
                             </ListItem>
                         </Collapse>
-                    </List>
-                    :
+                    </List> 
+                    : 
                     <div>
-                        <Link className='Explore' to='/bookmarks'>
+                        <Link className='Explore'>
                             Explore
                         </Link>
-                        <Link className='Following' to='/bookmarks'>
+                        <Link className='Following'>
                             Following
                         </Link>
                     </div>
                     }
-
+                    
                 </div>
             )
         }
@@ -62,8 +62,8 @@ export default class UserNavbar extends Component {
                     <Link className='ClippyLogo' to="./bookmarks">
                         <img src={require("../../assets/logo.png")} />
                     </Link>
-
-                    <CollapsableList />
+                    
+                    <CollapsableList />                    
 
                     <InputBase className='SearchBar' placeholder="Search" type="text" startAdornment={<SearchIcon className='SearchIcon' />} />
 
