@@ -6,15 +6,15 @@ import Link from '@material-ui/core/Link';
 export default function Header() {
     return (
         <div className="Header">
-            <Link className="ClippyLogo" to="./bookmarks">
+            <Link className="ClippyLogo" href="/">
                 <img src={require("../../assets/logo.png")} />
             </Link>
 
             <div className="Links">
-                <Link className="About" href="#" color="#06D6A0">
+                <Link className="About" href="/" color="#06D6A0">
                     About
                 </Link>
-                <Button className="SignIn" variant="contained" color="primary">
+                <Button className="SignIn" href="/signin" variant="contained" color="primary">
                     Sign in
                 </Button>
             </div>

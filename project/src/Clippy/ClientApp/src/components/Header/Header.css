@@ -11,8 +11,11 @@
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
 }
 
-.ClippyLogo.MuiTypography-root {
-  scale: 65%;
+.ClippyLogo img {
+  transform: scale(1);
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(1);
+  float: left;
 }
 
 .Links {
@@ -20,7 +23,7 @@
 }
 
 .About.MuiTypography-root {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, .8);
   padding: 0px 12px;
   transition: 0.3s;
 }
@@ -28,5 +31,5 @@
 .About.MuiTypography-root:hover {
   color: black;
   color: rgba(0, 0, 0, 0.3);
-  text-decoration: none;
+  text-decoration: none 
 }
