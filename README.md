@@ -94,6 +94,6 @@ Jordyn Hayden -
 
 Jerrett Longworth - Added continuous integration using GitHub Actions, created a basic API call to interface with the React frontend, and worked on some styling for the about page.
 
-Diego Rodrigues -
+Diego Rodrigues - Contributed to the front end OAuth research and attempted on implementing  AuthO for the React front end. Helped in the decision process for the project restructure. 
 
 Jaeivan Romero -
