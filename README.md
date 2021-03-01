@@ -1,5 +1,7 @@
 # Clippy
 
+[![Tests](https://github.com/Clippy5/Clippy/actions/workflows/tests.yml/badge.svg)](https://github.com/Clippy5/Clippy/actions/workflows/tests.yml)
+
 # Product Vision
 
 For internet users who find themselves having a difficult time organizing and discovering resources on the Web that sparks their interest, we introduce Clippy. Clippy is a social bookmarking service designed for users to explore and manage resources on the Internet. Users can immerse themselves in their own distraction-free space curated by them or explore resources gathered by others in the community. Unlike many other social bookmarking services, such as Pocket, Clippy is currently open source for anyone to adapt or use for themselves.
