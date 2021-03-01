@@ -1,0 +1,16 @@
+/* background-color: rgb(110,198,170); */
+
+/* Large displays */
+@media (min-width: 500px) {
+  .AboutContentCard.MuiCard-root {
+    width: 468px;
+    margin: 16px auto 16px auto;
+  }
+}
+
+/* Small displays */
+@media (max-width: 500px) {
+  .AboutContentCard.MuiCard-root {
+    margin: 16px;
+  }
+}

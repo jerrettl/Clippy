@@ -1,12 +1,13 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Clippy.Data;
 using Clippy.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Clippy.Pages {
-    public class IndexModel : PageModel {
+namespace Clippy.Pages.Admin.Resources
+{
+    public class IndexModel : PageModel
+    {
         private ClippyContext _context;
 
         public IndexModel(ClippyContext context) {
@@ -17,7 +18,6 @@ namespace Clippy.Pages {
 
         public async Task OnGetAsync() {
             Resources = await _context.GetResourcesAsync();
-            Resources = Resources.Take(6).ToList();
         }
     }
 }
