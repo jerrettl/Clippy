@@ -88,7 +88,7 @@ Jaeivan Romero - I restructured our React components folder to fit testing stand
 
 ## Task Allocation
 
-Joshua Frazer -
+Joshua Frazer - Fixed UI glitches dealing with UserNavbar.css and Header.css due to css class names causing conflict with one another. Converted entire webpage to work on mobile without any glitching or scaling issues. Dedicated time in researching OAuth on frontend and helped in the decision process for project restructure.
 
 Jordyn Hayden -
 
