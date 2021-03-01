@@ -92,7 +92,7 @@ Jaeivan Romero - I restructured our React components folder to fit testing stand
 
 Joshua Frazer - Fixed UI glitches dealing with UserNavbar.css and Header.css due to css class names causing conflict with one another. Converted entire webpage to work on mobile without any glitching or scaling issues. Dedicated time in researching OAuth on frontend and helped in the decision process for project restructure.
 
-Jordyn Hayden -
+Jordyn Hayden - I created the resources table in the database as well as the data version control files and seed data. I created the admin pages to add, edit, view, and delete each resource. I wrote the code that validates the resource data and tests to ensure the functionality and validation works properly. I also designed and coded the admin homepage that displays most recent resources added to the table. I published it all to our production server. I also recorded and published the demo.
 
 Jerrett Longworth - Added continuous integration using GitHub Actions, created a basic API call to interface with the React frontend, and worked on some styling for the about page.
 
