@@ -15,11 +15,16 @@ namespace Clippy.Data {
 
         public DbSet<Resource> Resources { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.AddResourceEntity();
+            modelBuilder.AddUserEntity();
             modelBuilder.AddSeedData();
         }
+
+        #region Resources
 
         public async virtual Task<List<Resource>> GetResourcesAsync()
         {
@@ -47,5 +52,38 @@ namespace Clippy.Data {
         {
             Resources.Add(resource);
         }
+
+        #endregion
+
+        #region Users
+
+        public async virtual Task<List<User>> GetUsersAsync()
+        {
+            return await Users
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async virtual Task<User> GetUserAsync(int id)
+        {
+            return await Users.FindAsync(id);
+        }
+
+        public async virtual Task<User> GetUserByUsernameAsync(string username)
+        {
+            return await Users.FirstOrDefaultAsync(u => u.Username == username);
+        }
+
+        public virtual void RemoveUser(User user)
+        {
+            Users.Remove(user);
+        }
+
+        public virtual void AddUser(User user)
+        {
+            Users.Add(user);
+        }
+
+        #endregion
     }
 }
