@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Clippy.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,14 @@ namespace Clippy.Data.Helpers {
         {
             modelBuilder.Entity<Resource>()
                 .HasData(GetSeedingResources());
+            modelBuilder.Entity<User>()
+                .HasData(GetSeedingUsers());
+            modelBuilder.Entity<Bookmark>()
+                .HasData(GetSeedingBookmarks());
         }
 
-        public static List<Resource> GetSeedingResources() {
+        public static List<Resource> GetSeedingResources()
+        {
             var now = DateTime.UtcNow;
 
             var r1 = new Resource
@@ -100,6 +106,42 @@ namespace Clippy.Data.Helpers {
             };
 
             return new List<Resource>(new[] {r1, r2, r3, r4, r5, r6});
+        }
+
+        public static List<User> GetSeedingUsers()
+        {
+            var u1 = new User
+            {
+                Id = 1,
+                Username = "Clippy5",
+                Name = "Clippy5 Team",
+                CreateDate = DateTime.UtcNow
+            };
+
+            return new List<User> (new[] {u1});
+        }
+
+        public static List<Bookmark> GetSeedingBookmarks()
+        {
+            var now = DateTime.UtcNow;
+
+            var resources = GetSeedingResources();
+            var user = GetSeedingUsers().First(u => u.Id == 1);
+
+            var bookmarks = new List<Bookmark>();
+
+            for(int i = 1; i < resources.Count; i++)
+            {
+                bookmarks.Add(new Bookmark
+                {
+                    Id = i,
+                    ResourceId = resources[i].Id,
+                    UserId = user.Id,
+                    CreateDate = now
+                });
+            }
+
+            return bookmarks;
         }
     }
 }
