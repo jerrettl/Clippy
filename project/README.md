@@ -1,23 +1,16 @@
 # Clippy
 
-Clippy is a social bookmarking app. It consists of a frontend website built using React and an API built using ASP.NET Core.
+Clippy is a social bookmarking app built using ASP.NET Core Razor Pages and Entity Framework Core (EF Core).
 
 ## Requirements
 
-Clippy requires .NET 5 and Node.js. To create the database, you will also need Entity Framework Core (EF Core) Tools installed.
+Clippy requires .NET 5. To create the database, you will also need EF Core Tools installed.
 
 You can verify the version of .NET you are running using the following command.
 
 ```ps
 $ dotnet --version
 5.0.102
-```
-
-You can verify the version of Node.js you are running using this command.
-
-```ps
-$ node --version
-v14.15.5
 ```
 
 Install the latest EF Core Tools if they are not installed already.

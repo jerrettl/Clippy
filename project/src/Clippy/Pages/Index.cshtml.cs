@@ -17,7 +17,7 @@ namespace Clippy.Pages {
 
         public async Task OnGetAsync() {
             Resources = await _context.GetResourcesAsync();
-            Resources = Resources.Take(6).ToList();
+            Resources = Resources.ToList();
         }
     }
 }

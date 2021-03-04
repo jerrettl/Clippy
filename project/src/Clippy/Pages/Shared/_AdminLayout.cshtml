@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>@ViewData["Title"] - Clippy Admin</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/Admin/css/main.css" />
+        <noscript><link rel="stylesheet" href="/Admin/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header" class="alt">
+                        <a href="/" class="logo"><strong>Clippy Admin</strong> <span>by Clippy5</span></a>
+                        <nav>
+                            <a href="#menu">Menu</a>
+                        </nav>
+                    </header>
+
+                <!-- Menu -->
+                    <nav id="menu">
+                        <ul class="links">
+                            <li><a href="/">Home</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                            <li><a href="/account/signout">Logout</a></li>
+                            }
+                        </ul>
+                        <ul class="actions stacked">
+                            <li><a href="/admin" class="button fit">Admin</a></li>
+                        </ul>
+                    </nav>
+
+                    @RenderSection("Banner", false)
+                    @RenderBody()
+
+                <!-- Footer -->
+                    <footer id="footer">
+                        <div class="inner">
+                            <ul class="copyright">
+                                <li>&copy; Clippy Admin</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                            </ul>
+                        </div>
+                    </footer>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="/Admin/js/jquery.min.js"></script>
+            <script src="/Admin/js/jquery.scrolly.min.js"></script>
+            <script src="/Admin/js/jquery.scrollex.min.js"></script>
+            <script src="/Admin/js/browser.min.js"></script>
+            <script src="/Admin/js/breakpoints.min.js"></script>
+            <script src="/Admin/js/util.js"></script>
+            <script src="/Admin/js/main.js"></script>
+
+    </body>
+</html>
