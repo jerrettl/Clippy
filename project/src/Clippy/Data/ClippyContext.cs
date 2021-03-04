@@ -13,16 +13,47 @@ namespace Clippy.Data {
         {
         }
 
+        public DbSet<Bookmark> Bookmarks { get; set; }
+
         public DbSet<Resource> Resources { get; set; }
 
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.AddBookmarkEntity();
             modelBuilder.AddResourceEntity();
             modelBuilder.AddUserEntity();
             modelBuilder.AddSeedData();
         }
+
+        #region Bookmarks
+
+        public async virtual Task<List<Bookmark>> GetBookmarksAsync()
+        {
+            return await Bookmarks
+                .Include(b => b.Resource)
+                .Include(b => b.User)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async virtual Task<Bookmark> GetBookmarkAsync(int id)
+        {
+            return await Bookmarks.FindAsync(id);
+        }
+
+        public virtual void RemoveBookmark(Bookmark bookmark)
+        {
+            Bookmarks.Remove(bookmark);
+        }
+
+        public virtual void AddBookmark(Bookmark bookmark)
+        {
+            Bookmarks.Add(bookmark);
+        }
+
+        #endregion
 
         #region Resources
 

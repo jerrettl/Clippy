@@ -3,14 +3,16 @@ using System;
 using Clippy.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clippy.Migrations
 {
     [DbContext(typeof(ClippyContext))]
-    partial class ClippyContextModelSnapshot : ModelSnapshot
+    [Migration("20210304191815_AddBookmarks")]
+    partial class AddBookmarks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,43 +40,6 @@ namespace Clippy.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Bookmarks");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 89, DateTimeKind.Utc).AddTicks(5720),
-                            ResourceId = 2,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 89, DateTimeKind.Utc).AddTicks(5720),
-                            ResourceId = 3,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 89, DateTimeKind.Utc).AddTicks(5720),
-                            ResourceId = 4,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 89, DateTimeKind.Utc).AddTicks(5720),
-                            ResourceId = 5,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 89, DateTimeKind.Utc).AddTicks(5720),
-                            ResourceId = 6,
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("Clippy.Entities.Resource", b =>
@@ -106,42 +71,42 @@ namespace Clippy.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 87, DateTimeKind.Utc).AddTicks(6540),
+                            CreateDate = new DateTime(2021, 3, 4, 19, 18, 15, 63, DateTimeKind.Utc).AddTicks(950),
                             Location = "https://www.nationalgeographic.com",
                             Metadata = "{\"Title\":\"National Geographic\",\"MediaType\":\"text/html\",\"Image\":\"https://api.clippy.fun/images/resources/natgeo.jpg\",\"Description\":\"Explore the world\\u0027s beauty.\"}"
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 87, DateTimeKind.Utc).AddTicks(6540),
+                            CreateDate = new DateTime(2021, 3, 4, 19, 18, 15, 63, DateTimeKind.Utc).AddTicks(950),
                             Location = "https://www.nps.gov/yell/index.htm",
                             Metadata = "{\"Title\":\"Yellowstone National Park\",\"MediaType\":\"text/html\",\"Image\":\"https://api.clippy.fun/images/resources/yellowstone.jpg\",\"Description\":\"Escape to a winter wonderland.\"}"
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 87, DateTimeKind.Utc).AddTicks(6540),
+                            CreateDate = new DateTime(2021, 3, 4, 19, 18, 15, 63, DateTimeKind.Utc).AddTicks(950),
                             Location = "https://www.foodnetwork.com",
                             Metadata = "{\"Title\":\"Food Network\",\"MediaType\":\"text/html\",\"Image\":\"https://api.clippy.fun/images/resources/foodnetwork.jpg\",\"Description\":\"Entice your taste buds.\"}"
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 87, DateTimeKind.Utc).AddTicks(6540),
+                            CreateDate = new DateTime(2021, 3, 4, 19, 18, 15, 63, DateTimeKind.Utc).AddTicks(950),
                             Location = "https://www.loveandlemons.com",
                             Metadata = "{\"Title\":\"Love and Lemons\",\"MediaType\":\"text/html\",\"Image\":\"https://api.clippy.fun/images/resources/lovelemons.jpg\",\"Description\":\"Detoxify yourself each day.\"}"
                         },
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 87, DateTimeKind.Utc).AddTicks(6540),
+                            CreateDate = new DateTime(2021, 3, 4, 19, 18, 15, 63, DateTimeKind.Utc).AddTicks(950),
                             Location = "https://appalachiantrail.org",
                             Metadata = "{\"Title\":\"Appalachian Trail Conservancy\",\"MediaType\":\"text/html\",\"Image\":\"https://api.clippy.fun/images/resources/appalachiantrail.jpg\",\"Description\":\"Escape the city lights.\"}"
                         },
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 87, DateTimeKind.Utc).AddTicks(6540),
+                            CreateDate = new DateTime(2021, 3, 4, 19, 18, 15, 63, DateTimeKind.Utc).AddTicks(950),
                             Location = "https://www.spacex.com",
                             Metadata = "{\"Title\":\"SpaceX\",\"MediaType\":\"text/html\",\"Image\":\"https://api.clippy.fun/images/resources/spacex.jpg\",\"Description\":\"Experience space travel.\"}"
                         });
@@ -172,15 +137,6 @@ namespace Clippy.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreateDate = new DateTime(2021, 3, 4, 19, 51, 25, 89, DateTimeKind.Utc).AddTicks(2070),
-                            Name = "Clippy5 Team",
-                            Username = "Clippy5"
-                        });
                 });
 
             modelBuilder.Entity("Clippy.Entities.Bookmark", b =>
