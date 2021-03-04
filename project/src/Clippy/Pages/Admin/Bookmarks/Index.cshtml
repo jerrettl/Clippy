@@ -1,0 +1,45 @@
+@page
+@model Clippy.Pages.Admin.Bookmarks.IndexModel
+@{
+    ViewData["Title"] = "Bookmarks";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Bookmarks</h1>
+            </header>
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Location</th>
+                            <th>User</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var bookmark in Model.Bookmarks) {
+                        <tr>
+                            <td>@bookmark.Id</td>
+                            <td>@(bookmark.Resource.Metadata["Title"] ?? "None Provided")</td>
+                            <td>@bookmark.Resource.Location</td>
+                            <td>@bookmark.User.Name</td>
+                            <td><a asp-page="Details" asp-route-id="@bookmark.Id">Details</a> <a asp-page="Edit" asp-route-id="@bookmark.Id">Edit</a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <ul class="actions">
+                    <li><a asp-page="Add" class="button primary">Add</a></li>
+                    <li><a asp-page="../Index" class="button">Back</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</div>
