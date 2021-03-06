@@ -1,6 +1,7 @@
 using Clippy.Entities;
 using Clippy.Data.Helpers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,9 +80,9 @@ namespace Clippy.Data {
             Resources.Remove(resource);
         }
 
-        public virtual void AddResource(Resource resource)
+        public virtual EntityEntry<Resource> AddResource(Resource resource)
         {
-            Resources.Add(resource);
+            return Resources.Add(resource);
         }
 
         #endregion
@@ -110,9 +111,9 @@ namespace Clippy.Data {
             Users.Remove(user);
         }
 
-        public virtual void AddUser(User user)
+        public virtual EntityEntry<User> AddUser(User user)
         {
-            Users.Add(user);
+            return Users.Add(user);
         }
 
         #endregion
