@@ -52,5 +52,40 @@ namespace Clippy.Tests.Admin.Users
             // Assert
             Assert.IsType<PageResult>(result);
         }
+
+        [Theory]
+        [InlineData("Clippy5")]
+        public async Task OnPostAsync_ReturnsAPageResult_WhenUsernameExists(string existingUsername)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var existingUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Username == existingUsername);
+            mockContext.Setup(db => db.GetUserByUsernameAsync(existingUsername)).Returns(Task.FromResult(existingUser));
+            var httpContext = new DefaultHttpContext();
+            var modelState = new ModelStateDictionary();
+            var actionContext = new ActionContext(httpContext, new RouteData(), new PageActionDescriptor(), modelState);
+            var modelMetadataProvider = new EmptyModelMetadataProvider();
+            var viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageContext = new PageContext(actionContext)
+            {
+                ViewData = viewData
+            };
+            var pageModel = new AddModel(mockContext.Object)
+            {
+                PageContext = pageContext,
+                TempData = tempData,
+                Url = new UrlHelper(actionContext),
+                UserEntity = new AddUserModel {Username = existingUsername, Name = existingUser.Name}
+            };
+
+            // Act
+            var result = await pageModel.OnPostAsync();
+
+            // Assert
+            Assert.IsType<PageResult>(result);
+        }
     }
 }
