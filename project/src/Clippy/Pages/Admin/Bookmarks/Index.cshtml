@@ -26,7 +26,15 @@
                         @foreach(var bookmark in Model.Bookmarks) {
                         <tr>
                             <td>@bookmark.Id</td>
-                            <td>@(bookmark.Resource.Metadata["Title"] ?? "None Provided")</td>
+                            @{
+                                string resourceTitle = "";
+                                if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
+                                    bookmark.Resource.Metadata["Title"] == null)
+                                {
+                                    resourceTitle = "None Provided";
+                                }
+                            }
+                            <td>@resourceTitle</td>
                             <td>@bookmark.Resource.Location</td>
                             <td>@bookmark.User.Name</td>
                             <td><a asp-page="Details" asp-route-id="@bookmark.Id">Details</a> <a asp-page="Edit" asp-route-id="@bookmark.Id">Edit</a></td>
