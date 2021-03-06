@@ -37,7 +37,7 @@ namespace Clippy
             services.AddRazorPages(options =>
             {
                 options.Conventions.AuthorizeFolder("/Admin");
-            });
+            }).AddRazorRuntimeCompilation();
 
             services.AddSwaggerGen(c =>
             {
