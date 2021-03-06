@@ -13,7 +13,7 @@ namespace Clippy.Pages {
             _context = context;
         }
 
-         public IList<Resource> Resources { get; set; }
+        public IList<Resource> Resources { get; set; }
 
         public async Task OnGetAsync() {
             Resources = await _context.GetResourcesAsync();
