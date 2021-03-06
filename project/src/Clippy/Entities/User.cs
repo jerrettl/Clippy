@@ -17,5 +17,7 @@ namespace Clippy.Entities
 
         [Required]
         public DateTime CreateDate { get; set; }
+
+        public string GithubId { get; set; }
     }
 }
