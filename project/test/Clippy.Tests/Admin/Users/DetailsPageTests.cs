@@ -33,5 +33,25 @@ namespace Clippy.Tests.Admin.Users
             var actualUser = Assert.IsAssignableFrom<User>(pageModel.UserEntity);
             Assert.Equal(expectedUser.Username, actualUser.Username);
         }
+
+        [Theory]
+        [InlineData(1)]
+        public async Task OnPostDeleteAsync_ReturnsARedirectToPageResult(int userId)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
+            mockContext.Setup(
+                db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
+            var pageModel = new DetailsModel(mockContext.Object);
+
+            // Act
+            var result = await pageModel.OnPostDeleteAsync(userId);
+
+            // Assert
+            Assert.IsType<RedirectToPageResult>(result);
+        }
     }
 }
