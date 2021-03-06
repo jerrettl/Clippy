@@ -21,7 +21,6 @@ namespace Clippy.Pages.Admin.Users
 
         public void OnGet() {
         }
-
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
