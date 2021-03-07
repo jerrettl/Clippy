@@ -57,7 +57,8 @@ namespace Clippy.Pages.Admin.Bookmarks
             {
                 // If it isn't found, make a new resource.
                 var metadata = new Dictionary<string,string>();
-                metadata.Add("Title", BookmarkEntity.Title ?? null);
+                if (!string.IsNullOrWhiteSpace(BookmarkEntity.Title))
+                    metadata.Add("Title", BookmarkEntity.Title);
 
                 var resource = new Resource {
                     Location = BookmarkEntity.Url,
@@ -93,7 +94,7 @@ namespace Clippy.Pages.Admin.Bookmarks
             }
 
             bookmark.CreateDate = now;
-            
+
             _context.AddBookmark(bookmark);
             await _context.SaveChangesAsync();
 
