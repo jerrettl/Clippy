@@ -1,11 +1,9 @@
 @page
-@model Clippy.Pages.IndexModel
+@model Clippy.Models.UserModel
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Bookmarks";
 }
 
 <div class="card">
-    <div class="card-header">Clippy</div>
+    Welcome, @User.Identity.Name!
 </div>
-
- 
