@@ -31,7 +31,7 @@ namespace Clippy.Tests.Admin
             var expectedResources = DatabaseInitializer.GetSeedingResources().Take(6).ToList();
             mockContext.Setup(
                 db => db.GetResourcesAsync()).Returns(Task.FromResult(expectedResources));
-            var pageModel = new IndexModel(mockContext.Object);
+            var pageModel = new TestModel(mockContext.Object);
 
             // Act
             await pageModel.OnGetAsync();
