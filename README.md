@@ -99,3 +99,27 @@ Jerrett Longworth - Added continuous integration using GitHub Actions, created a
 Diego Rodrigues - Contributed to the front end OAuth research and attempted on implementing  AuthO for the React front end. Helped in the decision process for the project restructure. 
 
 Jaeivan Romero - I restructed our components section to switch the landing page to the about page. Also added an about page with some basic content.
+
+# Sprint 5
+
+- [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
+- [System Architecture](artifacts/architecture.md)
+- [Source Code](project/src/Clippy)
+- Automated Tests:
+	* [C# Tests](project/test/Clippy.Tests)
+	* [Javascript Tests](project/src/Clippy/ClientApp/src)
+- [Product Demonstration](https://youtu.be/ETisNxjQkSE)
+
+## Task Allocation
+
+Joshua Frazer - Pushed pages such as the About page from react to razor pages. Pair programmed backend to get our Users, Resources, and Bookmark databases up and running. 
+
+Jordyn Hayden - 
+
+Jerrett Longworth - 
+
+Diego Rodrigues - 
+
+Jaeivan Romero - 
