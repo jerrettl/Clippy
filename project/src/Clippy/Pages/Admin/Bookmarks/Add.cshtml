@@ -15,14 +15,21 @@
                 <div asp-validation-summary="All"></div>
                 <div class="fields">
                     <div class="field">
-                        <label for="name">URL *</label>
-                        <input type="text" asp-for="BookmarkEntity.Url" />
-                        <span asp-validation-for="BookmarkEntity.Url"></span>
+                        <label asp-for="BookmarkEntity.Location">Location *</label>
+                        <input type="text" asp-for="BookmarkEntity.Location" />
+                        <span asp-validation-for="BookmarkEntity.Location"></span>
                     </div>
                     <div class="field">
-                        <label for="name">Title</label>
+                        <label asp-for="BookmarkEntity.Title">Title</label>
                         <input type="text" asp-for="BookmarkEntity.Title" />
                         <span asp-validation-for="BookmarkEntity.Title"></span>
+                    </div>
+                    <div class="field">
+                        <label asp-for="BookmarkEntity.UserId">User</label>
+                        <select asp-for="BookmarkEntity.UserId" asp-items="Model.Users">
+                            <option value="0">Current User</option>
+                        </select>
+                        <span asp-validation-for="BookmarkEntity.UserId"></span>
                     </div>
                 </div>
                 <ul class="actions">

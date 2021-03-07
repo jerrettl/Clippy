@@ -7,6 +7,8 @@ using Clippy.Entities;
 using Clippy.Models.Admin;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace Clippy.Pages.Admin.Bookmarks
 {
@@ -21,7 +23,11 @@ namespace Clippy.Pages.Admin.Bookmarks
         [BindProperty]
         public AddBookmarkModel BookmarkEntity { get; set; }
 
-        public void OnGet() {
+        public List<SelectListItem> Users { get; set; }
+
+        public async Task OnGet() {
+            var users = await _context.GetUsersAsync();
+            Users = users.Select(u => new SelectListItem(u.Name, u.Id.ToString())).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -46,7 +52,7 @@ namespace Clippy.Pages.Admin.Bookmarks
             }
 
             // Using the bookmark URL, find the corresponding resource from the database.
-            var existingResource = await _context.GetResourceByLocationAsync(BookmarkEntity.Url);
+            var existingResource = await _context.GetResourceByLocationAsync(BookmarkEntity.Location);
 
             // If it is found, take that existing resource and use its ID with the new bookmark.
             if (existingResource != null)
@@ -61,7 +67,7 @@ namespace Clippy.Pages.Admin.Bookmarks
                     metadata.Add("Title", BookmarkEntity.Title);
 
                 var resource = new Resource {
-                    Location = BookmarkEntity.Url,
+                    Location = BookmarkEntity.Location,
                     Metadata = metadata,
                     CreateDate = now
                 };
@@ -72,25 +78,31 @@ namespace Clippy.Pages.Admin.Bookmarks
                 bookmark.ResourceId = dbResponse.Entity.Id;
             }
 
-            // Repeat the process with adding a resource with adding a user.
-            var existingUser = await _context.GetUserByGithubId(githubId);
-
-            if (existingUser != null)
+            if (BookmarkEntity.UserId == 0)
             {
-                bookmark.UserId = existingUser.Id;
-            }
-            else
-            {
-                var user = new User {
-                    Username = username,
-                    Name = name,
-                    GithubId = githubId,
-                    CreateDate = now
-                };
+                // Repeat the process with adding a resource with adding a user.
+                var existingUser = await _context.GetUserByGithubId(githubId);
 
-                var dbResponse = _context.AddUser(user);
-                await _context.SaveChangesAsync();
-                bookmark.UserId = dbResponse.Entity.Id;
+                if (existingUser != null)
+                {
+                    bookmark.UserId = existingUser.Id;
+                }
+                else
+                {
+                    var user = new User {
+                        Username = username,
+                        Name = name,
+                        GithubId = githubId,
+                        CreateDate = now
+                    };
+
+                    var dbResponse = _context.AddUser(user);
+                    await _context.SaveChangesAsync();
+                    bookmark.UserId = dbResponse.Entity.Id;
+                }
+            } else
+            {
+                bookmark.UserId = BookmarkEntity.UserId;
             }
 
             bookmark.CreateDate = now;
