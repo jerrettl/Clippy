@@ -1,0 +1,31 @@
+@page "{id:int}"
+@model Clippy.Pages.Admin.Bookmarks.DetailsModel
+@{
+    ViewData["Title"] = "Bookmark Details";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Bookmark Details (Id: @Model.Bookmark.Id)</h1>
+            </header>
+            <p><strong>Location:</strong> <a href="@Model.Bookmark.Resource.Location">@Model.Bookmark.Resource.Location</a></p>
+            <p><strong>Metadata:</strong> @Model.Bookmark.Resource.Metadata.Count item(s)</p>
+            <pre>
+                @foreach(var metadata in Model.Bookmark.Resource.Metadata) {
+                    @($"     {metadata.Key}: {metadata.Value}\n")
+                }
+            </pre>
+           <p><strong>User:</strong> @Model.Bookmark.User.Name</p>
+           <p><strong>Created:</strong> @Model.Bookmark.CreateDate.ToShortDateString()</p>
+            <hr>
+            <ul class="actions">
+                <li><a asp-page="Index" class="button">Back</a></li>
+                <li><form method="Post"><button asp-page-handler="Delete" asp-route-id="@Model.Bookmark.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button></form></li>
+            </ul>
+        </div>
+    </section>
+
+</div>

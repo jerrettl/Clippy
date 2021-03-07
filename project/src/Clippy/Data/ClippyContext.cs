@@ -41,7 +41,10 @@ namespace Clippy.Data {
 
         public async virtual Task<Bookmark> GetBookmarkAsync(int id)
         {
-            return await Bookmarks.FindAsync(id);
+            return await Bookmarks
+                .Include(b => b.Resource)
+                .Include(b => b.User)
+                .FirstOrDefaultAsync(b => b.Id == id);
         }
 
         public virtual void RemoveBookmark(Bookmark bookmark)
