@@ -61,5 +61,27 @@ namespace Clippy.Tests.Admin.Bookmarks
             // Assert
             Assert.IsType<RedirectToPageResult>(result);
         }
+
+        [Theory]
+        [InlineData(100000000)]
+        [InlineData(200000000)]
+        [InlineData(300000000)]
+        [InlineData(400000000)]
+        public async Task OnPostDeleteAsync_ReturnsARedirectToPageWhenBookmarkDoesntExist(int bookmarkId)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            mockContext.Setup(
+                db => db.GetBookmarkAsync(bookmarkId)).Returns(Task.FromResult((Bookmark)null));
+            var pageModel = new DetailsModel(mockContext.Object);
+
+            // Act
+            var result = await pageModel.OnPostDeleteAsync(bookmarkId);
+
+            // Assert
+            Assert.IsType<RedirectToPageResult>(result);
+        }
     }
 }
