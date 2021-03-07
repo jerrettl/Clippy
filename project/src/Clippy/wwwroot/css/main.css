@@ -1,5 +1,14 @@
 * {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  --primary-color: rgb(110, 198, 170);
+
+  padding: 0;
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /* Large displays */
@@ -18,63 +27,65 @@
 }
 
 .card {
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    padding: 20px;
+  background-color: white;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card h1 {
+  margin-bottom: 6px;
+}
+
+.card p {
+  margin-top: 8px;
 }
 
 .github-list li {
-    list-style-type: none;
-    margin-left: -40px;
+  list-style-type: none;
 }
 
 .github-list li a button {
-    width: 100%;
-    height: 40px;
-    background-color: rgba(0,0,0,0);
-    border-radius: 8px;
-    border-color: rgba(0,0,0,0);
-    text-align: left;
-    margin: 5px;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  border-color: rgba(0, 0, 0, 0);
+  text-align: left;
+  margin: 5px 0;
 }
 
 .github-list li a button:hover {
-    width: 100%;
-    height: 40px;
-    background-color: rgba(0,0,0,0.05);
-    border-radius: 8px;
-    border-color: rgba(0,0,0,0.05);
-    text-align: left;
-    margin: 5px;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  border-color: rgba(0, 0, 0, 0.05);
+  text-align: left;
 }
 
 .github-list li a {
   text-decoration: none;
 }
 
-.source-code-button a button {
-    border-radius: 3px;
-    width: 120px;
-    height: 35px;
-    background-color: rgba(0,0,0,0);
-    text-transform: uppercase;
-    font-weight: bold;
-    border-color: rgba(0,0,0,0.35);
+.link-button a button {
+  border-radius: 3px;
+  padding: 0 8px;
+  height: 35px;
+  background-color: rgba(0, 0, 0, 0);
+  text-transform: uppercase;
+  font-weight: bold;
+  border-color: rgba(0, 0, 0, 0.35);
 }
 
-.source-code-button a button:hover {
-    border-radius: 3px;
-    width: 120px;
-    height: 35px;
-    background-color: rgba(0,0,0,0.05);
-    text-transform: uppercase;
-    font-weight: bold;
-    border-color: rgba(0,0,0,0.60);
+.link-button a button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.6);
 }
 
 /*----------------Navbar Styles----------------*/
 
-.navbar {
+#navbar {
   display: flex;
   width: 100%;
   height: 60px;
@@ -106,15 +117,18 @@
 }
 
 .nav-links:hover {
-  margin: 0px 15px;
-  color:rgba(0, 0, 0, 0.30);
-  text-decoration: none;
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .searchbar {
   width: 100%;
   margin: 0px 20px;
   padding: 0px 40px 0px 0px;
+  outline: none;
+}
+
+.search:focus {
+  outline: none;
 }
 
 .searchbar input {
@@ -122,13 +136,49 @@
   width: 100%;
   height: 35px;
   border: 0;
-  background-color: rgba(0, 0, 0, 0.10);
-  background-image: url('/images/resources/search.png');
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: url("/images/resources/search.png");
   background-position: 5px;
   padding-left: 40px;
   border-radius: 30px;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .searchbar {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  .nav-links.active {
+    background-color: green !important;
+    left: 0 !important;
+    opacity: 1 !important;
+    transition: all 0.5s ease !important;
+    z-index: 1 !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    padding-left: 0 !important;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
 }
 
 .search-icon {
@@ -144,7 +194,7 @@
 }
 
 .add-icon:hover {
-  background-color: rgba(0, 0, 0, 0.10);
+  background-color: rgba(0, 0, 0, 0.1);
   transition: ease-out;
   transition-duration: 1s;
 }
