@@ -92,11 +92,11 @@ Jaeivan Romero - I restructured our React components folder to fit testing stand
 
 Joshua Frazer - Fixed UI glitches dealing with UserNavbar.css and Header.css due to css class names causing conflict with one another. Converted entire webpage to work on mobile without any glitching or scaling issues. Dedicated time in researching OAuth on frontend and helped in the decision process for project restructure.
 
-Jordyn Hayden - I created the resources table in the database as well as the data version control files and seed data. I created the admin pages to add, edit, view, and delete each resource. I wrote the code that validates the resource data and tests to ensure the functionality and validation works properly. I also designed and coded the admin homepage that displays most recent resources added to the table. I published it all to our production server. I also recorded and published the demo. Finally, along with my team I contributed in the discussions and decisions of project restructure. 
+Jordyn Hayden - I created the resources table in the database as well as the data version control files and seed data. I created the admin pages to add, edit, view, and delete each resource. I wrote the code that validates the resource data and tests to ensure the functionality and validation works properly. I also designed and coded the admin homepage that displays most recent resources added to the table. I published it all to our production server. I also recorded and published the demo. Finally, along with my team I contributed in the discussions and decisions of project restructure.
 
 Jerrett Longworth - Added continuous integration using GitHub Actions, created a basic API call to interface with the React frontend, and worked on some styling for the about page.
 
-Diego Rodrigues - Contributed to the front end OAuth research and attempted on implementing  AuthO for the React front end. Helped in the decision process for the project restructure. 
+Diego Rodrigues - Contributed to the front end OAuth research and attempted on implementing  AuthO for the React front end. Helped in the decision process for the project restructure.
 
 Jaeivan Romero - I restructed our components section to switch the landing page to the about page. Also added an about page with some basic content.
 
@@ -114,12 +114,12 @@ Jaeivan Romero - I restructed our components section to switch the landing page 
 
 ## Task Allocation
 
-Joshua Frazer - Pushed pages such as the About page from react to razor pages. Pair programmed backend to get our Users, Resources, and Bookmark databases up and running. 
+Joshua Frazer - Pushed pages such as the About page from react to razor pages. Pair programmed backend to get our Users, Resources, and Bookmark databases up and running.
 
 Jordyn Hayden - I restructured the project to use Razor Pages for the frontend, and also added Razor Runtime Compliations. I created the bookmarks table, the data migration files, all its seed data, and the data access interface to access it. I also created the users table, the data migration files, its seed data, and the data access interface to access it. I co-authored the user admin pages to add, edit, view, and delete users. I created the bookmark admin pages for view and delete. I created all the C# unit tests. I recorded a tutorial to help teach others how to code using Razor Pages. I wrote the code that validates the users and bookmarks data and tests to ensure the functionality and validation works properly. Finally, I created this week's demo.
 
 Jerrett Longworth - Assisted in transitioning to Razor pages and user login flow (002). Added functionality to add bookmarks as an administrator (030).
 
-Diego Rodrigues - 
+Diego Rodrigues -
 
 Jaeivan Romero - I helped transtion our frontend to razor pages and worked on getting user login and backend data visible on the frontend.
