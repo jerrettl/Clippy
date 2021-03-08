@@ -2,28 +2,38 @@
 
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>@ViewData["Title"] - Clippy</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="/css/main.css" />
-    </head>
 
-    <body>
-        @if (!ViewData["Title"].Equals("Home"))
-        {
-            <div id="navbar">
-                <a href="/" class="clippy-logo"><img src="/images/resources/logo.png"></a>
-                <a asp-page="Explore" class="nav-links">Explore</a>
-                <a asp-page="Following" class="nav-links">Following</a>
-                <form class="searchbar">
-                    <input class="search" type="text" name="search-term" placeholder="Search" required>
-                </form>
-                <img src="/images/resources/add.png" class="add-icon">
-                <img src="@Model.AvatarUrl" class="avatar" alt="Randy Rando">
+<head>
+    <title>@ViewData["Title"] - Clippy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+    @* font awesome icons *@
+    <script src="https://kit.fontawesome.com/af82b590e2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    @if (!ViewData["Title"].Equals("Home"))
+    {
+        <div id="navbar">
+            <a href="/" class="clippy-logo"><img src="/images/resources/logo.png"></a>
+            <div class="nav-links">
+                <a asp-page="Explore" class="nav-link" onclick="closeMobileMenu()">Explore</a>
+                <a asp-page="Following" class="nav-link" onclick="closeMobileMenu()">Following</a>
             </div>
-        }
+            <form class="searchbar">
+                <input class="search" type="text" name="search-term" placeholder="Search" required>
+            </form>
+            <img src="/images/resources/add.png" class="add-icon">
+            <img src="@Model.AvatarUrl" class="avatar" alt="Randy Rando">
+            <button class="mobile-menu" onclick="handleClick()"><i class="fas fa-bars fa-lg"></i></button>
+        </div>
+    }
 
-        @RenderBody()
-    </body>
+    <script src="~/js/main.js"></script>
+
+    @RenderBody()
+</body>
+
 </html>
