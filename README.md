@@ -107,6 +107,8 @@ Jaeivan Romero - I restructed our components section to switch the landing page 
 - [Velocity Chart](charts/README.md)
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
+	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
+	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
 - [Automated Tests](project/test/Clippy.Tests)
 - Product Demonstration
 
