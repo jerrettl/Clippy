@@ -120,6 +120,6 @@ Jordyn Hayden - I restructured the project to use Razor Pages for the frontend, 
 
 Jerrett Longworth - Assisted in transitioning to Razor pages and user login flow (002). Added functionality to add bookmarks as an administrator (030).
 
-Diego Rodrigues -
+Diego Rodrigues - Contributed to the user and resources backend functionalities. Fixed the bookmark's page UI and made it mobile-friendly.
 
 Jaeivan Romero - I helped transtion our frontend to razor pages and worked on getting user login and backend data visible on the frontend.
