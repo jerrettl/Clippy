@@ -108,7 +108,7 @@ Jaeivan Romero - I restructed our components section to switch the landing page 
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
 - [Automated Tests](project/test/Clippy.Tests)
-- [Product Demonstration](https://youtu.be/ETisNxjQkSE)
+- Product Demonstration
 
 ## Task Allocation
 
