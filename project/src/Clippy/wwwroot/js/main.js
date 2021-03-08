@@ -4,26 +4,17 @@
 //   else nav.className = "mobile-nav";
 // }
 
-let navLinks = document.querySelectorAll("nav-links");
+let navLinks = document.querySelector(".nav-links");
 
 function handleClick() {
-  mobileNavBarClick = !mobileNavBarClick;
-  console.log("11");
 
   if (mobileNavBarClick) {
-    navLinks.className = "nav-links active";
+      navLinks.className = "nav-links active";
   } else {
-    navLinks.className = "nav-links";
+      navLinks.className = "nav-links";
   }
 
-  for (element of navLinks) {
-    element.className = "nav-links active";
-    console.log("22");
-  }
-
-  console.log("33");
-  console.log(mobileNavBarClick);
-  console.log(navLinks.className);
+  mobileNavBarClick = !mobileNavBarClick;
 }
 
 function closeMobileMenu() {
