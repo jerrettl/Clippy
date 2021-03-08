@@ -85,7 +85,7 @@ Jaeivan Romero - I restructured our React components folder to fit testing stand
 - [Source Code](project/src/Clippy)
 - Automated Tests:
 	* [C# Tests](project/test/Clippy.Tests)
-	* [Javascript Tests](project/src/Clippy/ClientApp/src)
+	* ~~[Javascript Tests](https://github.com/Clippy5/Clippy/tree/sprint-4/project/src/Clippy/ClientApp/src)~~
 - [Product Demonstration](https://youtu.be/ETisNxjQkSE)
 
 ## Task Allocation
@@ -107,9 +107,7 @@ Jaeivan Romero - I restructed our components section to switch the landing page 
 - [Velocity Chart](charts/README.md)
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
-- Automated Tests:
-	* [C# Tests](project/test/Clippy.Tests)
-	* [Javascript Tests](project/src/Clippy/ClientApp/src)
+- [Automated Tests](project/test/Clippy.Tests)
 - [Product Demonstration](https://youtu.be/ETisNxjQkSE)
 
 ## Task Allocation
