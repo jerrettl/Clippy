@@ -116,7 +116,7 @@ Jaeivan Romero - I restructed our components section to switch the landing page 
 
 Joshua Frazer - Pushed pages such as the About page from react to razor pages. Pair programmed backend to get our Users, Resources, and Bookmark databases up and running. 
 
-Jordyn Hayden - 
+Jordyn Hayden - I restructured the project to use Razor Pages for the frontend, and also added Razor Runtime Compliations. I created the bookmarks table, the data migration files, all its seed data, and the data access interface to access it. I also created the users table, the data migration files, its seed data, and the data access interface to access it. I co-authored the user admin pages to add, edit, view, and delete users. I created the bookmark admin pages for view and delete. I created all the C# unit tests. I recorded a tutorial to help teach others how to code using Razor Pages. I wrote the code that validates the users and bookmarks data and tests to ensure the functionality and validation works properly. Finally, I created this week's demo.
 
 Jerrett Longworth - 
 
