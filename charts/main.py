@@ -40,7 +40,12 @@ def main():
     sprint4 = Sprint(sprint4_name, days=7, commitment=80, completed=sprint4_completion)
     create_burndown_chart(sprint4)
 
-    sprints = [sprint1, sprint2, sprint3, sprint4]
+    sprint5_name = "Sprint 5 (3/1/2021 - 3/7/2021)"
+    sprint5_completion = [0, 0, 0, 1, 0, 23, 25]
+    sprint5 = Sprint(sprint5_name, days=7, commitment=49, completed=sprint5_completion)
+    create_burndown_chart(sprint5)
+
+    sprints = [sprint1, sprint2, sprint3, sprint4, sprint5]
     create_velocity_chart(sprints)
 
 
