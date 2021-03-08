@@ -122,4 +122,4 @@ Jerrett Longworth -
 
 Diego Rodrigues - 
 
-Jaeivan Romero - 
+Jaeivan Romero - I helped transtion our frontend to razor pages and worked on getting user login and backend data visible on the frontend.
