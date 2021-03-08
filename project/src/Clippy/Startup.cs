@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace Clippy
 {
@@ -23,6 +24,13 @@ namespace Clippy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (String.IsNullOrEmpty(Configuration["GitHub:ClientId"]) ||
+                String.IsNullOrEmpty(Configuration["GitHub:ClientSecret"]))
+            {
+                string errorMessage = "Your GitHub OAuth application details were not found. Please add values for the following entries in your app's configuration: \"GitHub:ClientId\", \"GitHub:ClientSecret\"\nTo do this using app secrets, follow the instructions here: https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets#set-a-secret";
+                Environment.FailFast(errorMessage);
+            }
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "SubdomainsAllowPolicy",
