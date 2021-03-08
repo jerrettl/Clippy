@@ -118,7 +118,7 @@ Joshua Frazer - Pushed pages such as the About page from react to razor pages. P
 
 Jordyn Hayden - I restructured the project to use Razor Pages for the frontend, and also added Razor Runtime Compliations. I created the bookmarks table, the data migration files, all its seed data, and the data access interface to access it. I also created the users table, the data migration files, its seed data, and the data access interface to access it. I co-authored the user admin pages to add, edit, view, and delete users. I created the bookmark admin pages for view and delete. I created all the C# unit tests. I recorded a tutorial to help teach others how to code using Razor Pages. I wrote the code that validates the users and bookmarks data and tests to ensure the functionality and validation works properly. Finally, I created this week's demo.
 
-Jerrett Longworth - 
+Jerrett Longworth - Assisted in transitioning to Razor pages and user login flow (002). Added functionality to add bookmarks as an administrator (030).
 
 Diego Rodrigues - 
 
