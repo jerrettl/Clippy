@@ -17,12 +17,12 @@
                 </div>
             </div>
             <div class="table-wrapper">
-                <table class="alt">
+                <table class="alt table-sort">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Title</th>
-                            <th>Location</th>
+                            <th data-sort="int"><span>Id</span></th>
+                            <th data-sort="string-ins"><span>Title</span></th>
+                            <th data-sort="string-ins"><span>Location</span></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -54,3 +54,11 @@
     </section>
 
 </div>
+
+@section Scripts {
+<script>
+    $(function() {
+        $("table").stupidtable();
+    });
+</script>
+}

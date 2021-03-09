@@ -20,10 +20,10 @@
                 <table class="alt">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Title</th>
-                            <th>Location</th>
-                            <th>User</th>
+                            <th data-sort="int"><span>Id</span></th>
+                            <th data-sort="string-ins"><span>Title</span></th>
+                            <th data-sort="string-ins"><span>Location</span></th>
+                            <th data-sort="string-ins"><span>User</span></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -56,3 +56,11 @@
     </section>
 
 </div>
+
+@section Scripts {
+<script>
+    $(function() {
+        $("table").stupidtable();
+    });
+</script>
+}
