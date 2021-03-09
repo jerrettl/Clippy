@@ -16,3 +16,13 @@ th[data-sort] span {
 th[data-sort] span:hover {
     color: #9bf1ff !important;
 }
+
+span.tag {
+    color: #9bf1ff !important;
+    margin-right: 10px;
+    border-bottom: dotted 1px;
+}
+
+span.hint {
+    opacity: .5;
+}
