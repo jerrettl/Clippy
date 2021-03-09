@@ -38,6 +38,7 @@ namespace Clippy.Pages.Admin.Bookmarks
             DateTime now = DateTime.UtcNow;
 
             var bookmark = new Bookmark();
+            bookmark.Tags = new List<Tag>();
 
             // Grab information about the user. This will be used to associate user
             // information with the new bookmark.
@@ -103,6 +104,16 @@ namespace Clippy.Pages.Admin.Bookmarks
             } else
             {
                 bookmark.UserId = BookmarkEntity.UserId;
+            }
+
+            // Add Tags
+            if (!string.IsNullOrWhiteSpace(BookmarkEntity.Tags))
+            {
+                // TODO: Check for uniqueness
+                var tags = BookmarkEntity.Tags.Split(',');
+                foreach(var tag in tags) {
+                    bookmark.Tags.Add(new Tag {TagName = tag});
+                }
             }
 
             bookmark.CreateDate = now;

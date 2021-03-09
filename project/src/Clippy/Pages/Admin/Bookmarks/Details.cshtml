@@ -19,6 +19,12 @@
                 }
             </pre>
            <p><strong>User:</strong> @Model.Bookmark.User.Name</p>
+           <p>
+               <strong>Tags:</strong>
+               @foreach(var tag in Model.Bookmark.Tags) {
+                   <span class="tag">@tag.TagName</span>
+               }
+           </p>
            <p><strong>Created:</strong> @Model.Bookmark.CreateDate.ToShortDateString()</p>
             <hr>
             <ul class="actions">

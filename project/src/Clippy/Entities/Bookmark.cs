@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Clippy.Entities
@@ -14,6 +15,8 @@ namespace Clippy.Entities
         [Required]
         public int UserId { get; set; }
         public User User { get; set; }
+
+        public IList<Tag> Tags { get; set; }
 
         [Required]
         public DateTime CreateDate { get; set; }

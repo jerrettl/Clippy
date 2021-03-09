@@ -2,9 +2,9 @@ using Clippy.Entities;
 using Clippy.Data.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Clippy.Data {
     public class ClippyContext : DbContext
@@ -24,6 +24,7 @@ namespace Clippy.Data {
         {
             modelBuilder.AddBookmarkEntity();
             modelBuilder.AddResourceEntity();
+            modelBuilder.AddTagEntity();
             modelBuilder.AddUserEntity();
             modelBuilder.AddSeedData();
         }
@@ -35,6 +36,7 @@ namespace Clippy.Data {
             return await Bookmarks
                 .Include(b => b.Resource)
                 .Include(b => b.User)
+                .Include(b => b.Tags)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -44,6 +46,7 @@ namespace Clippy.Data {
             return await Bookmarks
                 .Include(b => b.Resource)
                 .Include(b => b.User)
+                .Include(b => b.Tags)
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
 
