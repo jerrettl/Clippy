@@ -13,6 +13,8 @@ namespace Clippy.Data.Helpers {
                 .HasData(GetSeedingResources());
             modelBuilder.Entity<User>()
                 .HasData(GetSeedingUsers());
+            modelBuilder.Entity<Tag>()
+                .HasData(GetSeedingTags());
             modelBuilder.Entity<Bookmark>()
                 .HasData(GetSeedingBookmarks());
         }
@@ -119,6 +121,25 @@ namespace Clippy.Data.Helpers {
             };
 
             return new List<User> (new[] {u1});
+        }
+
+        public static List<Tag> GetSeedingTags()
+        {
+            var tags = new List<Tag>();
+
+            var resources = GetSeedingResources();
+
+            for(int i = 1; i < resources.Count; i++)
+            {
+                tags.Add(new Tag
+                {
+                    Id = i,
+                    BookmarkId = i,
+                    TagName = "favorite"
+                });
+            }
+
+            return tags;
         }
 
         public static List<Bookmark> GetSeedingBookmarks()
