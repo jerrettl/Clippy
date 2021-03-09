@@ -11,6 +11,11 @@
             <header class="major">
                 <h1>Bookmarks</h1>
             </header>
+            <div class="row table-filter">
+                <div class="col-4 col-12-xsmall">
+                    <input type="text" name="filter" id="filter" onkeyup="filter([1,3])" value="" placeholder="Filter..." />
+                </div>
+            </div>
             <div class="table-wrapper">
                 <table class="alt">
                     <thead>
@@ -22,7 +27,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tableBody">
                         @foreach(var bookmark in Model.Bookmarks) {
                         <tr>
                             <td>@bookmark.Id</td>
