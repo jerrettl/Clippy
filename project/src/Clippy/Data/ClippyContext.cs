@@ -40,6 +40,13 @@ namespace Clippy.Data {
                 .ToListAsync();
         }
 
+        public async virtual Task<List<Bookmark>> GetBookmarksByUserIdAsync(int id)
+        {
+            return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE UserId = {0}", id)
+                .Include(b => b.Resource)
+                .ToListAsync();
+        }
+
         public async virtual Task<Bookmark> GetBookmarkAsync(int id)
         {
             return await Bookmarks
