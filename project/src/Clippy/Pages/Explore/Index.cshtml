@@ -1,0 +1,37 @@
+@page
+@model Clippy.Pages.Explore.IndexModel
+@{
+    ViewData["Title"] = "Explore";
+}
+
+<div class="card">
+    <h3>Explore the Clippy Community</h3>
+</div>
+
+@foreach (var bookmark in Model.Bookmarks)
+{
+    <div class="card">
+        @{
+            string resourceTitle = "";
+            if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
+                bookmark.Resource.Metadata["Title"] == null)
+            {
+                resourceTitle = bookmark.Resource.Location;
+            }
+
+            string resourceLocation = "";
+            if (bookmark.Resource.Location.StartsWith("http://") ||
+                bookmark.Resource.Location.StartsWith("https://"))
+            {
+                resourceLocation = bookmark.Resource.Location;
+            }
+            else
+            {
+                resourceLocation = $"//{bookmark.Resource.Location}";
+            }
+        }
+        <h3>@resourceTitle</h3>
+        <a href="@resourceLocation">@bookmark.Resource.Location</a>
+        <p>Clipped by: @bookmark.User.Name</p>
+    </div>
+}
