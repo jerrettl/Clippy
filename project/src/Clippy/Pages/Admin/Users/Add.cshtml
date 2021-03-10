@@ -24,6 +24,12 @@
                         <input type="text" asp-for="UserEntity.Name" />
                         <span asp-validation-for="UserEntity.Name"></span>
                     </div>
+                    <div class="field">
+                        <label asp-for="UserEntity.Subscriptions">Subscriptions</label>
+                        <input type="text" asp-for="UserEntity.Subscriptions" />
+                        <span class="hint">Enter a comma separated list of usernames to follow</span>
+                        <span asp-validation-for="UserEntity.Subscriptions"></span>
+                    </div>
                 </div>
                 <ul class="actions">
                     <li><input type="submit" value="Add User" class="primary" /></li>

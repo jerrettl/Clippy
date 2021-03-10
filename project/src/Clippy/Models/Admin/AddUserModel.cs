@@ -14,5 +14,7 @@ namespace Clippy.Models.Admin
         [MinLength(2)]
         [MaxLength(100)]
         public string Name { get; set; }
+
+        public string Subscriptions { get; set; }
     }
 }
