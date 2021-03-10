@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Clippy.Entities
@@ -19,5 +20,9 @@ namespace Clippy.Entities
         public DateTime CreateDate { get; set; }
 
         public string GithubId { get; set; }
+
+        public IList<User> Subscriptions { get; set; }
+
+        public IList<User> Followers { get; set; }
     }
 }

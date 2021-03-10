@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Clippy.Data;
 using Clippy.Entities;
@@ -31,6 +32,26 @@ namespace Clippy.Pages.Admin.Users
                 ModelState.AddModelError("Username", $"Username is already taken: {existingUser.Username}.");
             }
 
+            // Add Subscriptions
+            var subscriptions = new List<User>();
+            if (!string.IsNullOrWhiteSpace(UserEntity.Subscriptions))
+            {
+                var usernames = UserEntity.Subscriptions.Split(',');
+                foreach(var username in usernames) {
+                    if (string.IsNullOrWhiteSpace(username))
+                        continue;
+
+                    var account = await _context.GetUserByUsernameAsync(username.Trim());
+                    if (account == null)
+                    {
+                        ModelState.AddModelError("Subscriptions", $"{username} does not exist.");
+                        continue;
+                    }
+
+                    subscriptions.Add(account);
+                }
+            }
+
             if (!ModelState.IsValid)
                 return Page();
 
@@ -38,7 +59,9 @@ namespace Clippy.Pages.Admin.Users
             {
                 Username = UserEntity.Username,
                 Name = UserEntity.Name,
-                CreateDate = DateTime.UtcNow
+                CreateDate = DateTime.UtcNow,
+                Subscriptions = subscriptions,
+                Followers = new List<User>()
             };
 
             _context.AddUser(user);

@@ -110,7 +110,9 @@ namespace Clippy.Data {
 
         public async virtual Task<User> GetUserAsync(int id)
         {
-            return await Users.FindAsync(id);
+            return await Users
+                .Include(u => u.Subscriptions)
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async virtual Task<User> GetUserByUsernameAsync(string username)
