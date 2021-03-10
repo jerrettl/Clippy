@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    @if (!ViewData["Title"].Equals("Home") && !ViewData["Title"].Equals("Error"))
+    {
     <div id="navbar">
         <a href="/" class="clippy-logo"><img src="/images/resources/logo.png"></a>
         <div class="nav-links">
@@ -25,6 +27,7 @@
         <img src="@Model.AvatarUrl" class="avatar" alt="@User.Identity.Name">
         <button class="mobile-menu" onclick="handleClick()"><i class="fas fa-bars fa-lg"></i></button>
     </div>
+    }
     @RenderBody()
     <script src="~/js/main.js"></script>
 </body>
