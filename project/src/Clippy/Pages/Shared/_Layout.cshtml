@@ -19,8 +19,10 @@
         <form class="searchbar">
             <input class="search" type="text" name="search-term" placeholder="Search" required>
         </form>
-        <img src="/images/resources/add.png" class="add-icon">
         <img src="@Model.AvatarUrl" class="avatar" alt="Randy Rando">
+        <a href="/bookmarks">
+            <img src="/images/resources/paperclip.png" class="clip-icon">
+        </a>
         <button class="mobile-menu" onclick="handleClick()"><i class="fas fa-bars fa-lg"></i></button>
     </div>
     @RenderBody()

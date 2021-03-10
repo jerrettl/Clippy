@@ -207,14 +207,14 @@
   scale: 15%;
 }
 
-.add-icon {
+.clip-icon {
   color: black;
   border-radius: 100%;
   height: 40px;
   width: 40px;
 }
 
-.add-icon:hover {
+.clip-icon:hover {
   background-color: rgba(0, 0, 0, 0.1);
   transition: ease-out;
   transition-duration: 0.3s;
