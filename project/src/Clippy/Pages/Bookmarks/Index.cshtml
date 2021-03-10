@@ -7,3 +7,24 @@
 <div class="card">
     Welcome, @User.Identity.Name!
 </div>
+
+<div class="card">
+    @if (Model.Bookmarks.Count == 0)
+    {
+        <div>
+            You have no bookmarks yet!
+        </div>
+    }
+    else
+    {
+        <h3>
+            Bookmarks
+        </h3>
+        <ul>
+        @foreach (var bookmark in Model.Bookmarks)
+        {
+            <li>@bookmark.Resource.Location</li>
+        }
+        </ul>
+    }
+</div>
