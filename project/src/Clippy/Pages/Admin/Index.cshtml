@@ -13,12 +13,56 @@
                 <h1>Admin</h1>
             </header>
             <p>Welcome @User.Identity.Name!</p>
-            <ul class="alt">
-                <li><a asp-page="Bookmarks/Index">View Bookmarks</a></li>
-                <li><a asp-page="Resources/Index">View Resources</a></li>
-                <li><a asp-page="Users/Index">View Users</a></li>
-                <li><a asp-page="Roles/Index">View Roles</a></li>
-            </ul>
+            <div class="row">
+                <div class="col-4 col-6-medium col-12-small">
+                    <a asp-page="Resources/Index">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-globe"></i> Resources</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>A collection of publicly available URL's on the Internet.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4 col-6-medium col-12-small">
+                    <a asp-page="Bookmarks/Index">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="far fa-bookmark"></i> Bookmarks</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>The resources that have been bookmarked by each user.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4 col-6-medium col-12-small">
+                    <a asp-page="Users/Index">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="header"><i class="fas fa-users"></i> Users</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>A list of users that have bookmarked resources on Clippy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4 col-6-medium col-12-small">
+                    <a asp-page="Roles/Index">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="header"><i class="fas fa-user-tag"></i> Roles</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>A list of roles that can be assigned to users on Clippy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
