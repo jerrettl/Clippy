@@ -25,6 +25,12 @@
                         <span asp-validation-for="UserEntity.Name"></span>
                     </div>
                     <div class="field">
+                        <label asp-for="UserEntity.Roles">Roles</label>
+                        <input type="text" asp-for="UserEntity.Roles" />
+                        <span class="hint">Enter a comma separated list of roles</span>
+                        <span asp-validation-for="UserEntity.Roles"></span>
+                    </div>
+                    <div class="field">
                         <label asp-for="UserEntity.Subscriptions">Subscriptions</label>
                         <input type="text" asp-for="UserEntity.Subscriptions" />
                         <span class="hint">Enter a comma separated list of usernames to follow</span>

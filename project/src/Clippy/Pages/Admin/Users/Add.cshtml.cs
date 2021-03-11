@@ -32,6 +32,26 @@ namespace Clippy.Pages.Admin.Users
                 ModelState.AddModelError("Username", $"Username is already taken: {existingUser.Username}.");
             }
 
+            // Add Roles
+            var roles = new List<Role>();
+            if (!string.IsNullOrWhiteSpace(UserEntity.Roles))
+            {
+                var rolenames = UserEntity.Roles.Split(',');
+                foreach(var rolename in rolenames) {
+                    if (string.IsNullOrWhiteSpace(rolename))
+                        continue;
+
+                    var r = await _context.GetRoleByNameAsync(rolename.Trim());
+                    if (r == null)
+                    {
+                        ModelState.AddModelError("Roles", $"{rolename} does not exist.");
+                        continue;
+                    }
+
+                    roles.Add(r);
+                }
+            }
+
             // Add Subscriptions
             var subscriptions = new List<User>();
             if (!string.IsNullOrWhiteSpace(UserEntity.Subscriptions))
@@ -60,6 +80,7 @@ namespace Clippy.Pages.Admin.Users
                 Username = UserEntity.Username,
                 Name = UserEntity.Name,
                 CreateDate = DateTime.UtcNow,
+                Roles = roles,
                 Subscriptions = subscriptions,
                 Followers = new List<User>()
             };

@@ -1,0 +1,54 @@
+@page
+@model Clippy.Pages.Admin.Roles.IndexModel
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Roles</h1>
+            </header>
+            <div class="row table-filter">
+                <div class="col-4 col-12-xsmall">
+                    <input type="text" name="filter" id="filter" onkeyup="filter([1])" value="" placeholder="Filter..." />
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                        <tr>
+                            <th data-sort="int"><span>Id</span></th>
+                            <th data-sort="string-ins"><span>Name</span></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        @foreach(var role in Model.Roles) {
+                        <tr>
+                            <td>@role.Id</td>
+                            <td>@role.Name</td>
+                            <td><a asp-page="Details" asp-route-id="@role.Id">Details</a> <a asp-page="Edit" asp-route-id="@role.Id">Edit</a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <ul class="actions">
+                    <li><a asp-page="Add" class="button primary">Add</a></li>
+                    <li><a asp-page="../Index" class="button">Back</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+@section Scripts {
+<script>
+    $(function() {
+        $("table").stupidtable();
+    });
+</script>
+}

@@ -19,11 +19,14 @@ namespace Clippy.Data {
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Role> Roles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.AddBookmarkEntity();
             modelBuilder.AddResourceEntity();
             modelBuilder.AddTagEntity();
+            modelBuilder.AddRoleEntity();
             modelBuilder.AddUserEntity();
             modelBuilder.AddSeedData();
         }
@@ -111,13 +114,16 @@ namespace Clippy.Data {
         public async virtual Task<User> GetUserAsync(int id)
         {
             return await Users
+                .Include(u => u.Roles)
                 .Include(u => u.Subscriptions)
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async virtual Task<User> GetUserByUsernameAsync(string username)
         {
-            return await Users.FirstOrDefaultAsync(u => u.Username == username);
+            return await Users
+                .Include(u => u.Roles)
+                .FirstOrDefaultAsync(u => u.Username == username);
         }
 
         public async virtual Task<User> GetUserByGithubId(string id)
@@ -133,6 +139,38 @@ namespace Clippy.Data {
         public virtual EntityEntry<User> AddUser(User user)
         {
             return Users.Add(user);
+        }
+
+        #endregion
+
+        #region Roles
+
+        public async virtual Task<List<Role>> GetRolesAsync()
+        {
+            return await Roles
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async virtual Task<Role> GetRoleAsync(int id)
+        {
+            return await Roles.FindAsync(id);
+        }
+
+        public async virtual Task<Role> GetRoleByNameAsync(string name)
+        {
+            return await Roles
+                .FirstOrDefaultAsync(r => r.Name == name);
+        }
+
+        public virtual void RemoveRole(Role role)
+        {
+            Roles.Remove(role);
+        }
+
+        public virtual void AddRole(Role role)
+        {
+            Roles.Add(role);
         }
 
         #endregion
