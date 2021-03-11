@@ -1,0 +1,31 @@
+@page "{id:int}"
+@model Clippy.Pages.Admin.Roles.EditModel
+@{
+    ViewData["Title"] = "Edit Role";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Edit Role (Id: @Model.RouteData.Values["id"])</h1>
+            </header>
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+                <div class="fields">
+                    <div class="field">
+                        <label asp-for="Role.Name">Name *</label>
+                        <input type="text" asp-for="Role.Name" />
+                        <span asp-validation-for="Role.Name"></span>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Update" class="primary" /></li>
+                    <li><a asp-page="Index" class="button">Back</a></li>
+                </ul>
+            </form>
+        </div>
+    </section>
+
+</div>
