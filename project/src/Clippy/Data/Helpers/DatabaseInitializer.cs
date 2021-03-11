@@ -11,6 +11,8 @@ namespace Clippy.Data.Helpers {
         {
             modelBuilder.Entity<Resource>()
                 .HasData(GetSeedingResources());
+            modelBuilder.Entity<Role>()
+                .HasData(GetSeedingRoles());
             modelBuilder.Entity<User>()
                 .HasData(GetSeedingUsers());
             modelBuilder.Entity<Tag>()
@@ -108,6 +110,17 @@ namespace Clippy.Data.Helpers {
             };
 
             return new List<Resource>(new[] {r1, r2, r3, r4, r5, r6});
+        }
+
+        public static List<Role> GetSeedingRoles()
+        {
+            var r1 = new Role
+            {
+                Id = 1,
+                Name = "Admin"
+            };
+
+            return new List<Role> (new[] {r1});
         }
 
         public static List<User> GetSeedingUsers()
