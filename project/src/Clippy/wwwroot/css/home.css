@@ -1,24 +1,25 @@
-body {
-  background-color: var(--primary-color);
+.clippy-logo {
+  margin-right: auto;
 }
 
-#page-spread {
+#page-content {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   justify-content: space-evenly;
-}
-
-#page-spread span {
-  font-size: 8em;
-  font-weight: bold;
-}
-
-.inline-clippy-logo {
-  height: 8em;
-  vertical-align: -90%;
-  background-color:rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    ),
+    url(../images/resources/clip-front-page.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 a {
@@ -36,7 +37,8 @@ a {
   padding: 8px 16px;
 }
 
-#github-button, #github-button img {
+#github-button,
+#github-button img {
   transition: 0.14s linear;
 }
 
@@ -68,4 +70,38 @@ hr {
 
 .link-button {
   margin-top: 12px;
+}
+
+#sign-in-btn {
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 8px 16px;
+  margin-right: 15px;
+}
+
+#about-link {
+  margin-right: 20px;
+}
+#about-link a {
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+#about-link a:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.about {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+.text {
+  vertical-align: middle;
+  margin: 0px 200px;
 }
