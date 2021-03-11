@@ -26,3 +26,18 @@ span.tag {
 span.hint {
     opacity: .5;
 }
+
+.field-validation-error, .validation-summary-errors {
+    color: orange;
+    opacity: .75;
+}
+
+.field-validation-error {
+    display: block;
+}
+
+.validation-summary-errors ul {
+    border: 1px #ffa50052 solid;
+    list-style: none;
+    padding:10px 0 10px 0;
+}
