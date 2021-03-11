@@ -41,3 +41,22 @@ span.hint {
     list-style: none;
     padding:10px 0 10px 0;
 }
+
+.card {
+    border: 1px #c0c0c09e solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card:hover {
+    border: 1px #9bf1ff solid;
+}
+
+.card-header {
+    text-align:center;
+}
+
+.card-body {
+    text-align:center;
+}
