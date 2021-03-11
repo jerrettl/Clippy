@@ -19,6 +19,12 @@
                     <span class="tag">@sub.Username</span>
                 }
             </p>
+            <p>
+                <strong>Roles:</strong>
+                @foreach(var role in Model.UserEntity.Roles) {
+                    <span class="tag">@role.Name</span>
+                }
+            </p>
             <p><strong>Created:</strong> @Model.UserEntity.CreateDate.ToShortDateString()</p>
             <hr>
             <ul class="actions">
