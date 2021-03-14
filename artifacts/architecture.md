@@ -2,8 +2,8 @@
 
 <details><summary>System Context Diagram</summary>
 <p>
-Our system involves one monolithic system appearing to the main user. Everything they interact with will go through this, since at this point both the web-based user interface and API are used exclusively with each other.
-<img src="assets/system-context-diagram.jpg" alt="System Context Diagram">
+Our system appears as one monolith to users, as well as administrators. Clippy depends on GitHub for providing authentication, and so users and administrators will be redirected to GitHub before being granted access to the Clippy System. The choice to require logins was deemed from user stories 001 and 022, and the choice to use GitHub is based on requirements R039 and R055.
+<img src="assets/system-context-diagram.png" alt="System Context Diagram">
 </p>
 </details>
 
