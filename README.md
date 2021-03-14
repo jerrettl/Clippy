@@ -123,3 +123,27 @@ Jerrett Longworth - Assisted in transitioning to Razor pages and user login flow
 Diego Rodrigues - Contributed to the user and resources backend functionalities. Fixed the bookmark's page UI and made it mobile-friendly.
 
 Jaeivan Romero - I helped transtion our frontend to razor pages and worked on getting user login and backend data visible on the frontend.
+
+# Sprint 6
+
+- [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
+- [System Architecture](artifacts/architecture.md)
+- [Source Code](project/src/Clippy)
+	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
+	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
+- [Automated Tests](project/test/Clippy.Tests)
+- [Product Demonstration](https://youtu.be/pUUb3lAEkcI)
+
+## Task Allocation
+
+Joshua Frazer - Made the avatar drop down list operational. Within the list is the new logout feature I implemented. Changed the entire explore page card layout to follow grid functionality. This way, when a bookmark gets added in the list, it is always updated and configured into a grid with autofitting. As for the bookmarks page, card layout had to be changed as well due to the cards carrying different behaviors. Helped redesign front page.
+
+Jordyn Hayden -
+
+Jerrett Longworth -
+
+Diego Rodrigues -
+
+Jaeivan Romero -
