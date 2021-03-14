@@ -142,7 +142,7 @@ Joshua Frazer - Made the avatar drop down list operational. Within the list is t
 
 Jordyn Hayden -
 
-Jerrett Longworth -
+Jerrett Longworth - Worked on displaying a user's bookmarks on the main bookmarks page (043), and created the initial "Explore" page to explore the bookmarks of other users (017, 042).
 
 Diego Rodrigues -
 
