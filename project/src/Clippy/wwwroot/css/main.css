@@ -205,11 +205,12 @@
   border: 0;
   background-color: rgba(0, 0, 0, 0.1);
   background-image: url("/images/resources/search.png");
-  background-position: 5px;
+  background-size: 25px;
+  background-position: 10px;
   padding-left: 40px;
   border-radius: 30px;
   background-repeat: no-repeat;
-  background-size: contain;
+  /* background-size: contain; */
 }
 
 .mobile-menu {
