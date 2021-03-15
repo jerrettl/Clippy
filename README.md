@@ -146,4 +146,4 @@ Jerrett Longworth - Worked on displaying a user's bookmarks on the main bookmark
 
 Diego Rodrigues -
 
-Jaeivan Romero -
+Jaeivan Romero - I worked on getting a users name and bookmarks on our main page and worked on our explore page which include other users bookmarks.
