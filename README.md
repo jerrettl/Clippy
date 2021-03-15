@@ -134,13 +134,13 @@ Jaeivan Romero - I helped transtion our frontend to razor pages and worked on ge
 	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
 	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
 - [Automated Tests](project/test/Clippy.Tests)
-- Product Demonstration
+- [Product Demonstration] (https://youtu.be/N9ZHO5tC84Q)
 
 ## Task Allocation
 
 Joshua Frazer - Made the avatar drop down list operational. Within the list is the new logout feature I implemented. Changed the entire explore page card layout to follow grid functionality. This way, when a bookmark gets added in the list, it is always updated and configured into a grid with autofitting. As for the bookmarks page, card layout had to be changed as well due to the cards carrying different behaviors. Helped redesign front page.
 
-Jordyn Hayden -
+Jordyn Hayden - I completed 11 user stories for this sprint. I added filtering and sorting capabilities to all admin tables. I created the Tags table, the data migration files, all its seed data, and the data access interface to access it. I added the ability for the admin to add, edit, delete, and assign roles. I created the Roles table, the data migration files, all its seed data, and the data access interface to access it. I created a new database table that allows users to follow and subscribe to the bookmarks of other users. In addition, I created the ability for admins to assign subscriptions to users while adding a user. I wrote all of the C# unit tests associated with the admin functionality. I also styled the admin homepage to make it look cleaner and sexier. Finally, I recorded, edited and uploaded the demo for this sprint.
 
 Jerrett Longworth - Worked on displaying a user's bookmarks on the main bookmarks page (043), and created the initial "Explore" page to explore the bookmarks of other users (017, 042).
 
