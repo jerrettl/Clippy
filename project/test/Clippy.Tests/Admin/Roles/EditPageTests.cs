@@ -40,5 +40,40 @@ namespace Clippy.Tests.Admin.Roles
             var actualRole = Assert.IsAssignableFrom<EditRoleModel>(pageModel.Role);
             Assert.Equal(expectedRole.Name, actualRole.Name);
         }
+
+        [Theory]
+        [InlineData(1)]
+        public async Task OnPostAsync_ReturnsAPageResult_WhenModelStateIsInvalid(int roleId)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var expectedRole = DatabaseInitializer.GetSeedingRoles().Single(r => r.Id == roleId);
+            mockContext.Setup(db => db.GetRoleAsync(roleId)).Returns(Task.FromResult(expectedRole));
+            var httpContext = new DefaultHttpContext();
+            var modelState = new ModelStateDictionary();
+            var actionContext = new ActionContext(httpContext, new RouteData(), new PageActionDescriptor(), modelState);
+            var modelMetadataProvider = new EmptyModelMetadataProvider();
+            var viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageContext = new PageContext(actionContext)
+            {
+                ViewData = viewData
+            };
+            var pageModel = new EditModel(mockContext.Object)
+            {
+                PageContext = pageContext,
+                TempData = tempData,
+                Url = new UrlHelper(actionContext)
+            };
+            pageModel.ModelState.AddModelError("Name", "Name is required.");
+
+            // Act
+            var result = await pageModel.OnPostAsync(roleId);
+
+            // Assert
+            Assert.IsType<PageResult>(result);
+        }
     }
 }
