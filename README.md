@@ -134,7 +134,7 @@ Jaeivan Romero - I helped transtion our frontend to razor pages and worked on ge
 	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
 	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
 - [Automated Tests](project/test/Clippy.Tests)
-- [Product Demonstration] (https://youtu.be/N9ZHO5tC84Q)
+- [Product Demonstration](https://youtu.be/N9ZHO5tC84Q)
 
 ## Task Allocation
 
