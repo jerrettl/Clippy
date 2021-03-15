@@ -75,5 +75,42 @@ namespace Clippy.Tests.Admin.Roles
             // Assert
             Assert.IsType<PageResult>(result);
         }
+
+        [Theory]
+        [InlineData(1, "Contributor")]
+        public async Task OnPostAsync_ReturnsAPageResult_WhenChangedRoleNameExists(int existingRoleId, string otherRoleName)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var existingRole = DatabaseInitializer.GetSeedingRoles().Single(r => r.Id == existingRoleId);
+            var otherRole = new Role { Name = existingRole.Name};
+            mockContext.Setup(db => db.GetRoleAsync(existingRole.Id)).Returns(Task.FromResult(existingRole));
+            mockContext.Setup(db => db.GetRoleByNameAsync(otherRoleName)).Returns(Task.FromResult(otherRole));
+            var httpContext = new DefaultHttpContext();
+            var modelState = new ModelStateDictionary();
+            var actionContext = new ActionContext(httpContext, new RouteData(), new PageActionDescriptor(), modelState);
+            var modelMetadataProvider = new EmptyModelMetadataProvider();
+            var viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageContext = new PageContext(actionContext)
+            {
+                ViewData = viewData
+            };
+            var pageModel = new EditModel(mockContext.Object)
+            {
+                PageContext = pageContext,
+                TempData = tempData,
+                Url = new UrlHelper(actionContext),
+                Role = new EditRoleModel {Name = otherRoleName}
+            };
+
+            // Act
+            var result = await pageModel.OnPostAsync(existingRoleId);
+
+            // Assert
+            Assert.IsType<PageResult>(result);
+        }
     }
 }
