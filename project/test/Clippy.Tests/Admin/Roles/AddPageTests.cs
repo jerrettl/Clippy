@@ -54,5 +54,40 @@ namespace Clippy.Tests.Admin.Roles
             // Assert
             Assert.IsType<PageResult>(result);
         }
+
+        [Theory]
+        [InlineData("Admin")]
+        public async Task OnPostAsync_ReturnsAPageResult_WhenRoleNameExists(string existingRoleName)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var existingRole = DatabaseInitializer.GetSeedingRoles().Single(r => r.Name == existingRoleName);
+            mockContext.Setup(db => db.GetRoleByNameAsync(existingRoleName)).Returns(Task.FromResult(existingRole));
+            var httpContext = new DefaultHttpContext();
+            var modelState = new ModelStateDictionary();
+            var actionContext = new ActionContext(httpContext, new RouteData(), new PageActionDescriptor(), modelState);
+            var modelMetadataProvider = new EmptyModelMetadataProvider();
+            var viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageContext = new PageContext(actionContext)
+            {
+                ViewData = viewData
+            };
+            var pageModel = new AddModel(mockContext.Object)
+            {
+                PageContext = pageContext,
+                TempData = tempData,
+                Url = new UrlHelper(actionContext),
+                Role = new AddRoleModel {Name = existingRoleName}
+            };
+
+            // Act
+            var result = await pageModel.OnPostAsync();
+
+            // Assert
+            Assert.IsType<PageResult>(result);
+        }
     }
 }
