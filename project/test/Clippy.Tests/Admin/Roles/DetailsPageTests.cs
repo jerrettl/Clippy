@@ -33,5 +33,25 @@ namespace Clippy.Tests.Admin.Roles
             var actualRole = Assert.IsAssignableFrom<Role>(pageModel.Role);
             Assert.Equal(expectedRole.Name, actualRole.Name);
         }
+
+        [Theory]
+        [InlineData(1)]
+        public async Task OnPostDeleteAsync_ReturnsARedirectToPageResult(int roleId)
+        {
+            // Arrange
+            var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
+                .UseInMemoryDatabase("InMemoryDb");
+            var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var expectedRole = DatabaseInitializer.GetSeedingRoles().Single(r => r.Id == roleId);
+            mockContext.Setup(
+                db => db.GetRoleAsync(roleId)).Returns(Task.FromResult(expectedRole));
+            var pageModel = new DetailsModel(mockContext.Object);
+
+            // Act
+            var result = await pageModel.OnPostDeleteAsync(roleId);
+
+            // Assert
+            Assert.IsType<RedirectToPageResult>(result);
+        }
     }
 }
