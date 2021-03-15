@@ -144,6 +144,6 @@ Jordyn Hayden -
 
 Jerrett Longworth - Worked on displaying a user's bookmarks on the main bookmarks page (043), and created the initial "Explore" page to explore the bookmarks of other users (017, 042).
 
-Diego Rodrigues -
+Diego Rodrigues - Redesigned the front page to the original design listed in the UI diagram. Fixed the mobile dropdown menu to deliver a better user experience. Invested time into illustrator to design better assets for the website. (fix/homepage branch)
 
 Jaeivan Romero - I worked on getting a users name and bookmarks on our main page and worked on our explore page which include other users bookmarks.
