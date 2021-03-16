@@ -129,6 +129,11 @@ hr {
   align-items: center;
 }
 
+#light-about {
+  background-color: rgba(246, 246, 246, 1);
+  flex-wrap: wrap-reverse;
+}
+
 .info-text {
   max-width: 400px;
   font-size: 16px;
@@ -156,6 +161,10 @@ hr {
   .info-text {
     padding: 0 20px;
   }
+}
+
+.info-img-right {
+  margin-right: 30px;
 }
 
 .text {
