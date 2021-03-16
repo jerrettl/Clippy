@@ -4,7 +4,13 @@
     ViewData["Title"] = "Home";
 }
 
-<link rel="stylesheet" href="/css/home.css" />
+<head>
+    @* styles *@
+    <link rel="stylesheet" href="/css/home.css" />
+
+    @* icons *@
+    <script src="https://kit.fontawesome.com/af82b590e2.js" crossorigin="anonymous"></script>
+</head>
 
 <div>
     <div id="navbar">
@@ -17,15 +23,15 @@
     </div>
 
     <div id="page-content">
-        <div id="login-content">
-            <div id="login-text">
+        <div class="login-content">
+            <div class="login-text">
                 <p>The source for all</p>
                 <p> your needed bookmarks</p>
             </div>
             <div>
                 <a href="Bookmarks">
-                    <button id="github-button">
-                        <img id="github-icon" src="/images/github/icon.png" />
+                    <button class="github-button">
+                        <img class="github-icon" src="/images/github/icon.png" />
                         <p>Sign in with GitHub</p>
                     </button>
                 </a>
@@ -59,39 +65,30 @@
     </div>
 </div>
 
+<div id="sign-in-bottom">
+    <div >
+        <div class="login-content">
+            <div class="login-text">
+                <p>Join the Clippy community.</p>
+            </div>
+            <div>
+                <a href="Bookmarks">
+                    <button class="github-button">
+                        <img class="github-icon" src="/images/github/icon.png" />
+                        <p>Sign in with GitHub</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-@* <div>
-    <div class="card">
-    <h1>About Clippy</h1>
+
+<div id="footer">
+    <div id="footer-links">
+        <a href="/">Developers</a>
+        <a href="/">Terms of Service</a>
+        <a href="/">Privacy</a>
     </div>
-    <div class="card">
-    <h3>Product Vision</h3>
-    <p>For internet users who find themselves having a difficult time organizing and discovering resources on
-    the Web that sparks their interest,
-    we introduce Clippy. Clippy is a social bookmarking service designed for users to explore and manage
-    resources on the Internet. Users can immerse
-    themselves in their own distraction-free space curated by them or explore resources gathered by others
-    in the community. Unlike many other social
-    bookmarking services, such as Pocket, Clippy is currently open source for anyone to adapt or use for
-    themselves.</p>
-    </div>
-    <div class="card">
-    <h3>Team Members</h3>
-    <ul class="github-list">
-    <li><a href="https://github.com/BlackOutDevelops"><button>Joshua Frazer
-    (@@BlackOutDevelops)</button></a></li>
-    <li><a href="https://github.com/jordynhayden"><button>Jordyn Hayden (@@jordynhayden)</button></a></li>
-    <li><a href="https://github.com/jerrettl"><button>Jerrett Longworth (@@jerrettl)</button></a></li>
-    <li><a href="https://github.com/diegoro1"><button>Diego Rodrigues (@@diegoro1)</button></a></li>
-    <li><a href="https://github.com/jaerom"><button>Jaeivan Romero (@@jaerom)</button></a></li>
-    </ul>
-    </div>
-    <div class="card">
-    <h3>Source Code</h3>
-    <p>Clippy is open source! Feel free to check out the source code for our entire project at our GitHub.</p>
-    <div class="link-button">
-    <a href="https://github.com/Clippy5/Clippy"><button>View Source Code</button></a>
-    </div>
-    </div>
-    </div> *@
+    <div><a href="https://github.com/Clippy5/Clippy"><i class="fab fa-github" id="gh-footer-icon"></i></a></div>
+    <div id="copyright">© 2021 Clippy, Inc</div>
 </div>
