@@ -24,7 +24,19 @@
             <a href="/bookmarks">
                 <img src="/images/resources/paperclip.png" class="clip-icon">
             </a>
-            <img src="@Model.AvatarUrl" class="avatar" alt="@User.Identity.Name">
+            <div class="wrapper">
+                <a href="#" class="dd-parent"><img src="@Model.AvatarUrl" class="avatar" alt="@User.Identity.Name"></a>
+                <div class="dd-menu">
+                    <div class="triangle"></div>
+                    <a href="#"><ul class="dd-menu-top">My Bookmarks</ul></a>
+                    <a href="#"><ul>Notifications</ul></a>
+                    <a href="#"><ul>Settings</ul></a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <a href="/account/signout"><ul class="dd-menu-bottom">Logout</ul></a>
+                    }
+                </div>
+            </div>
             <button class="mobile-menu" onclick="handleClick()"><i class="fas fa-bars fa-lg"></i></button>
         </div>
     }
