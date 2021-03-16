@@ -1,10 +1,10 @@
-// function mobileNavToggle() {
-//   let nav = document.querySelector("navbar");
-//   if (nav.className === "mobile-nav") nav.className += " responsive";
-//   else nav.className = "mobile-nav";
-// }
-
 let navLinks = document.querySelector(".nav-links");
+var dd_parent = document.querySelector(".dd-parent");
+var dd_menu = document.querySelector(".dd-menu");
+
+dd_parent.addEventListener("click", function(){
+    dd_menu.classList.toggle("active");
+})
 
 function handleClick() {
 
