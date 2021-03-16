@@ -9,10 +9,10 @@ Our system appears as one monolith to users, as well as administrators. Clippy d
 
 <details><summary>Container Diagram</summary>
 <p>
-The user will interact with a web-based application that is created and compiled with React.js. The web server used to deliver the compiled HTML, CSS, and Javascript files will be dubbed the "React Server." As part of the scripts involved on the React Server, it will make API calls to an exposed API server, dubbed the "Backend Server." The Backend Server will communicate with the connected database to send and receive information for the user interface. The Backend Server/database and the React Server, for now, will operate on the same machine out of conciseness, but could easily be on different machines if desired.
+The user will interact with a web-based application that is served from the ASP.NET server. The dynamic data served with the page is handled internally with in both the administrator-facing and user-facing pages.
 
-In addition to the React Server and the Backend Server, there will be a separate administrator portal that can directly communicate with the Backend Server, circumventing the use of API calls. This is essentially a backdoor for development purposes to allow access to the database outside of the main interface.
-<img src="assets/container-diagram.jpg" alt="Container Diagram">
+ASP.NET was chosen out of its ability to communicate with a database model directly, utilizing the .NET Entity Framework, which maps database entries to objects. This choice is based on a prior level of familiarity using the framework within the group members.
+<img src="assets/container-diagram.png" alt="Container Diagram">
 
 </p>
 </details>
