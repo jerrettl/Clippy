@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .clippy-logo {
   margin-right: auto;
 }
