@@ -11,8 +11,9 @@
   background-image: linear-gradient(
       270deg,
       rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0)
     ),
@@ -26,15 +27,37 @@ a {
   text-decoration: none;
 }
 
+#login-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-text > p {
+  color: white;
+  font-size: 32px;
+}
+
 #github-button {
+  font-size: 16px;
+  font-weight: 500;
   align-items: center;
   background-color: white;
-  border: 1px solid black;
-  border-radius: 64px;
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: relative;
   padding: 8px 16px;
+  border: none;
+  margin: 17px 0;
+  height: 48px;
+  width: 100%;
+  outline: none;
+}
+
+#github-button p {
+  position: absolute;
+  font-weight: bold;
 }
 
 #github-button,
@@ -44,7 +67,6 @@ a {
 
 #github-button:hover {
   background-color: black;
-  border: 1px solid white;
   color: white;
 }
 
@@ -58,6 +80,7 @@ a {
 
 #github-icon {
   margin-right: 8px;
+  margin-right: auto;
 }
 
 hr {
@@ -86,22 +109,67 @@ hr {
 
 #about-link {
   margin-right: 20px;
+  font-size: 18px;
 }
 #about-link a {
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 #about-link a:hover {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 1);
 }
 
 .about {
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 500px;
+  background-color: rgba(239, 239, 239, 1);
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.info-text {
+  max-width: 400px;
+  font-size: 16px;
+  line-height: 1.75;
+  margin-right: 30px;
+}
+
+#info-title {
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.info-img {
+  max-width: 500px;
+  height: auto;
+}
+@media (max-width: 510px) {
+  .info-img {
+    max-width: 350px;
+    height: auto;
+  }
+
+  .info-text {
+    padding: 0 20px;
+  }
 }
 
 .text {
   vertical-align: middle;
   margin: 0px 200px;
+}
+
+#terms-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#terms-text a {
+  color: white;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.6);
 }
