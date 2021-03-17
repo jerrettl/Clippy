@@ -13,23 +13,21 @@ The user will interact with a web-based application that is served from the ASP.
 
 ASP.NET was chosen out of its ability to communicate with a database model directly, utilizing the .NET Entity Framework, which maps database entries to objects. This choice is based on a prior level of familiarity using the framework within the group members.
 <img src="assets/container-diagram.png" alt="Container Diagram">
-
 </p>
 </details>
 
 <details><summary>Component Diagram</summary>
 <p>
-Within the React Server, the Javascript files are broken into two categories: user interface and API-UI connection. In the former category, these files are completely dedicated to the visual presentation of information. In the ladder category, the API-UI Connector verifies user input, makes API calls, and retrieves information to be returned to the user interface.
+When the server runs, ASP.NET middleware handles exceptions, routing, authentication, authorization, among other tasks, with the goal of being able to work on the main user-facing product on top of a robust and pre-tested solution. The authorization and authentication component is augmented with an external GitHub OAuth application to provide login via GitHub. As part of the .NET Entity Framework, database entries are loaded with an object-relational mapper, which allows for accessing entries like they were members of a C# class.
 
-Within the Backend Server, the Clippy API acts as an intermediate party between the user interface and the database. Alongside this, an additional web server will be available to allow for direct access to the database. This is intended for development purposes. While not explicitly shown in the diagram, the Backend Server will contain the database locally alongside the API and administrator web server.
-<img src="assets/component-diagram.jpg" alt="Component Diagram">
-
+The decision to use this set of components specifically is simply due to the structure of the ASP.NET framework, and building off of it is not necessarily a difficult task.
+<img src="assets/component-diagram.png" alt="Component Diagram">
 </p>
 </details>
 
 </br>
 
-All components related to user functionality (React Server and Clippy API) were created to fulfill user stories 001, 002, 003. The administrator portal is a result of user story 018.
+All components related to user functionality were created to fulfill user stories 001, 002, 003. The administrator portal is a result of user story 018. In a previous iteration of this architecture, a React.js project was used in tandem with Razor Pages, however the decision was made to remove React later, as it added extra complexity to the project as a whole.
 
 # Code Design
 
