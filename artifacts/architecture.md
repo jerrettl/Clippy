@@ -100,52 +100,38 @@ The API and Admin Portal use Microsoft .NET 5, which requires few classes, such 
 
 # User Interface Design
 
-To access Clippy, the user must first create an account or log in. Once the login is successful, the user will be with the explore page which displays trending bookmarks. The user then has the freedom to access their following page, profile page, notifications page, and bookmark page through the navigation bar.
+To access Clippy, the user must first create an account or log in. Once the login is successful, the user will be greeted with their list of saved bookmarks. The user then has the freedom to access their explore page, following page, profile page, and notifications page through the navigation bar.
 
-<div align="center">
-    <img src="assets/login-page.png" alt="Login page">
-</div>
+<img src="assets/login-page.png" alt="Login Page">
 
-The user bookmark page can be accessed by clicking "favorite bookmarks" or "posts" on the profile page. The bookmark page is where the user will be given the capability of managing their bookmarks. They will be able to sort, delete, unfavorite, and share their bookmarks.
+The bookmark page is where the user will be given the capability of managing their bookmarks. They will be able to add, remove, and edit bookmarks.
 
-<div align="center">
-    <img src="assets/bookmarks-page.png" alt="Bookmarks page">
-</div>
+<img src="assets/bookmarks-page.png" alt="Bookmarks Page">
 
 The explore page will show the user a simple display of the trending bookmarks. The user will be able to add these bookmarks to their own favorites list.
 
-<div align="center">
-    <img src="assets/explore-page.png" alt="Explore page">
-</div>
+<img src="assets/explore-page.png" alt="Explore Page">
 
 The following page will display either the list of followers or the list of following. This list will be sorted by the search input, if used. The user can then unfollow any user they desire.
 
-<div align="center">
-    <img src="assets/following-page.png" alt="Following page">
-</div>
+<img src="assets/following-page.png" alt="Following Page">
 
 The profile page will display the user's information. Here, the user will be shown a list of recent bookmarks, followers, and favorite bookmarks. The user will also be able to change their biography.
 
-<div align="center">
-    <img src="assets/profile-page.png" alt="Profile page">
-</div>
+<img src="assets/profile-page.png" alt="Profile Page">
 
-The notifications page will simply show the user follower's actions.
+The notifications page will simply show the user their follower's actions.
 
-<div align="center">
-    <img src="assets/notifications-page.png" alt="Notifications page">
-</div>
+<img src="assets/notifications-page.png" alt="Notifications Page">
 
-| UID |   Component    | Description                                                       |
+| UID | Page           | Effect on the UI                                                  |
 | --- | :------------: | ----------------------------------------------------------------- |
-| 001 |  Log in page   | The only entrance to the web app is by login                      |
-| 004 | Bookmark page  | The bookmark page grats those capabilities.                       |
-| 005 | Bookmark page  | The bookmark page gives the sorting capability.                   |
-| 008 | Navigation bar | The bookmark page gives the sorting capability.                   |
-| 009 |  Log in page   | The login page displays the logo.                                 |
+| 001 | Log in page    | The only entrance to the web app is by login.                     |
+| 003 | Bookmark page  | The bookmark page allows a user to add a bookmark.                |
+| 004 | Bookmark page  | The bookmark page allows a user to delete a bookmark.             |
+| 009 | Log in page    | The login page displays the logo.                                 |
 | 010 | Community page | The community page grants the ability to see community bookmarks. |
 | 013 | Community page | The community page lets users favorite bookmarks.                 |
-| 015 | Bookmark page  | The user bookmark page lets the user sort their bookmarks         |
 | 017 | Community page | The community page grants the ability to see community bookmarks. |
 
 The User Interface Design with connecting transitions and user story documentation is also [here](https://www.figma.com/proto/IhVm7SrVe4bDZPFF8QcuLI/Clippy-UI-Mockup?node-id=0%3A3&scaling=min-zoom). There you can preview the UI by clicking through each dynamic component.
