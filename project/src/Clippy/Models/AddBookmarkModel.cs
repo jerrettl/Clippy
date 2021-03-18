@@ -7,6 +7,7 @@ namespace Clippy.Models
         [Required]
         public string Location { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
         public string Tags { get; set; }
