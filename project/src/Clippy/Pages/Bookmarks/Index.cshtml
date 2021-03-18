@@ -28,24 +28,15 @@
         </div>
 
         <div class="card-main">
-            @if (Model.Bookmarks.Count == 0)
+            <h3>
+                Bookmarks
+            </h3>
+            <ul>
+            @foreach (var bookmark in Model.Bookmarks)
             {
-                <div>
-                    You have no bookmarks yet!
-                </div>
+                <li>@bookmark.Resource.Location</li>
             }
-            else
-            {
-                <h3>
-                    Bookmarks
-                </h3>
-                <ul>
-                @foreach (var bookmark in Model.Bookmarks)
-                {
-                    <li>@bookmark.Resource.Location</li>
-                }
-                </ul>
-            }
+            </ul>
         </div>
     </section>
 </div>
