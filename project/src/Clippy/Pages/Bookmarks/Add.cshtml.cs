@@ -73,6 +73,9 @@ namespace Clippy.Pages.Bookmarks
                 if (!string.IsNullOrWhiteSpace(BookmarkEntity.Title))
                     metadata.Add("Title", BookmarkEntity.Title);
 
+                if (!string.IsNullOrWhiteSpace(BookmarkEntity.Description))
+                    metadata.Add("Description", BookmarkEntity.Description);
+
                 var resource = new Resource
                 {
                     Location = BookmarkEntity.Location,

@@ -3,6 +3,7 @@
 .body {
   display: flex;
   width: 100%;
+  height: auto;
 }
 
 .content-main {
@@ -13,31 +14,31 @@
   align-items: center;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 0px) {
   .content-manage {
     columns: 1;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1050px) {
   .content-manage {
     columns: 2;
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1400px) {
   .content-manage {
     columns: 3;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1740px) {
   .content-manage {
     columns: 4;
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 2100px) {
   .content-manage {
     columns: 5;
   }
@@ -47,6 +48,7 @@
   -webkit-break-inside: avoid;
   break-inside: avoid;
   width: 100%;
+  height: 100em;
   padding: 10px 0px 0px 10px;
   column-gap: 30px;
   padding-right: 24px;
@@ -95,16 +97,9 @@
   background-color: white;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
-  padding: 10px;
   margin: 10px 0px;
-  width: 100%;
+  width: 350px;
   overflow: hidden;
-}
-
-.card h3 {
-  margin-bottom: 6px;
-  width: auto;
-  word-wrap: break-word;
 }
 
 .card a {
@@ -113,16 +108,70 @@
   word-wrap: break-word;
 }
 
-.card p {
-  margin-top: 8px;
+.card-photo {
+  width: 100%;
+  max-width: 350px;
+  overflow: hidden;
+}
+
+.title-icon-container {
+  display: flex;
   width: auto;
+  height: 30px;
+  justify-content: space-between;
+}
+
+.card-edit-icon {
+  height: auto;
+  width: 20px;
+  margin: auto 10px;
+}
+
+.title-icon-container h3 {
+  margin: 0px 10px;
   word-wrap: break-word;
+}
+
+.author-location-container {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  font-size: 11px;
+  word-wrap: break-word;
+  margin: 10px;
+}
+
+.author-location-container a {
+  text-decoration: none;
+  color: black;
+  margin: auto 0px;
+}
+
+.author-location-container a:hover {
+  color: rgb(50, 206, 175);
+}
+
+.date-description-container {
+  font-size: 14px;
+}
+
+.card-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: auto 10px;
+}
+
+.date {
+  margin: auto 10px 5px 10px;
 }
 
 /* ------------------ Bookmarks options styles ------------------ */
 
 .options {
-  height: 100vh;
+  height: 100em;
   min-width: 300px;
   width: 300px;
   box-shadow: 1px 20px 0px 0px rgba(0, 0, 0, 0.3);
@@ -181,10 +230,10 @@
     font-size: 14px;
 }
 
-/* .description {
+.description {
     display: block;
     box-sizing: border-box;
-    width: 60%;
+    width: 100%;
     height: 200px;
     border-radius: 15px;
     padding: 10px 0px 0px 10px;
@@ -193,7 +242,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     margin-top: 5px;
     resize: vertical;
-} */
+}
 
 .labels {
     margin-left: 15px;

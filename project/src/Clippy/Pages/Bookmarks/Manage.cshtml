@@ -22,16 +22,16 @@
     {
         <div class="card">
             @{
-                    string resourceTitle = "";
+                    string resourceTitle = null;
                     if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
-                bookmark.Resource.Metadata["Title"] == null)
+                    bookmark.Resource.Metadata["Title"] == null)
                     {
                         resourceTitle = bookmark.Resource.Location;
                     }
 
-                    string resourceLocation = "";
+                    string resourceLocation = null;
                     if (bookmark.Resource.Location.StartsWith("http://") ||
-                bookmark.Resource.Location.StartsWith("https://"))
+                    bookmark.Resource.Location.StartsWith("https://"))
                     {
                         resourceLocation = bookmark.Resource.Location;
                     }
@@ -39,10 +39,29 @@
                     {
                         resourceLocation = $"//{bookmark.Resource.Location}";
                     }
+
+                    string date = bookmark.CreateDate.ToShortDateString();
+                    string description = null;
+                    if (!bookmark.Resource.Metadata.TryGetValue("Description", out description) ||
+                    bookmark.Resource.Metadata["Description"] == null)
+                    {
+                        description = "No description.";
+                    }
             }
-            <h3>@resourceTitle</h3>
-            <a href="@resourceLocation">@bookmark.Resource.Location</a>
-            <p>Clipped by: @bookmark.User.Name</p>
+            <img class="card-photo" src="/images/resources/sad-clippy.jpg" alt="Bookmark Image Placholder">
+            <div class="title-icon-container">
+                <h3>@resourceTitle</h3>
+                <img class="card-edit-icon" src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark">
+            </div>
+            <div class="date-description-container">
+                <p class="date">@date</p>
+                <p class="card-description">@description</p>
+            </div>
+
+            <div class="author-location-container">
+                <p>Clipped by: @bookmark.User.Name</p>
+                <a href="@resourceLocation">Link...</a>
+            </div>
         </div>
     }
 </section>
