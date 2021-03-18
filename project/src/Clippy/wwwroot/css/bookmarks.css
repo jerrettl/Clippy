@@ -14,33 +14,9 @@
   align-items: center;
 }
 
-@media (min-width: 0px) {
+@media screen and (max-width: 0px) {
   .content-manage {
     columns: 1;
-  }
-}
-
-@media (min-width: 1050px) {
-  .content-manage {
-    columns: 2;
-  }
-}
-
-@media (min-width: 1400px) {
-  .content-manage {
-    columns: 3;
-  }
-}
-
-@media (min-width: 1740px) {
-  .content-manage {
-    columns: 4;
-  }
-}
-
-@media (min-width: 2100px) {
-  .content-manage {
-    columns: 5;
   }
 }
 
@@ -48,9 +24,8 @@
   -webkit-break-inside: avoid;
   break-inside: avoid;
   width: 100%;
-  height: 100em;
+  height: 100vh;
   padding: 10px 0px 0px 10px;
-  column-gap: 30px;
   padding-right: 24px;
   overflow: hidden;
   overflow-y: scroll;
@@ -97,8 +72,8 @@
   background-color: white;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
-  margin: 10px 0px;
-  width: 350px;
+  margin: 10px auto;
+  width: 340px;
   overflow: hidden;
 }
 
@@ -121,7 +96,7 @@
   justify-content: space-between;
 }
 
-.card-edit-icon {
+.title-icon-container img {
   height: auto;
   width: 20px;
   margin: auto 10px;
@@ -129,7 +104,9 @@
 
 .title-icon-container h3 {
   margin: 0px 10px;
-  word-wrap: break-word;
+  overflow: hidden;
+  max-width: 250x;
+  text-overflow: ellipsis;
 }
 
 .author-location-container {
@@ -171,7 +148,7 @@
 /* ------------------ Bookmarks options styles ------------------ */
 
 .options {
-  height: 100em;
+  height: 100vh;
   min-width: 300px;
   width: 300px;
   box-shadow: 1px 20px 0px 0px rgba(0, 0, 0, 0.3);
