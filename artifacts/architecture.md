@@ -184,7 +184,7 @@ Within the resources available, the architecture of the system should be feasibl
 
 # Overengineering
 
-To allow for expandability to other operating systems and architectures outside of web alone, Clippy uses an API as an intermediate party between the database and the user interface. Generally, this project's approach will err on the side of overengineering to achieve this goal.
+The decision was made to have a project architecture that is likely more complex than necessary for the sake of using technologies and frameworks used in industry. While this does make the project more complex in scope, it also allows for a learning experience that is considered valuable. Generally, this project's approach will err on the side of overengineering to achieve this goal.
 
 # Build-vs-Buy Decisions
 
