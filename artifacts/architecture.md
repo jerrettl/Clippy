@@ -156,7 +156,7 @@ The system is currently designed in a way where basic functionality should be av
 
 # Interoperability
 
-The server will be alone in its operation and have no need to share resources with other systems. There may be third-party cloud services used to provide OAuth login support, but these resources will be considered independent to the server containing the web server, API, and database.
+The server is mainly alone in its operation and has no need to share resources with other systems. The only connection to outside web services it has is with the GitHub OAuth Application, which serves to provide an authentication method for users. This is required for the server to run properly and it will fail without it since there would otherwise be no way to authenticate a user.
 
 # Internationalization/Localization
 
