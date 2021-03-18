@@ -4,123 +4,45 @@
     ViewData["Title"] = "Bookmarks";
 }
 
+@{ int columns = 4;  }
+
 @* styles *@
     <link rel="stylesheet" href="/css/bookmarks.css" />
     
 <div class="body">
-    <section class="options">
-        <ul>
-            <li><img src="../images/resources/BookmarkIcon.png"><a asp-page="Manage">Manage Bookmarks</a></li>
-        </ul>
+<section class="options">
+    <ul>
+        <li><img src="../images/resources/BookmarkIcon.png"><a asp-page="Manage">Manage Bookmarks</a></li>
+    </ul>
 
-    </section>
+</section>
     
-        @if (Model.Bookmarks.Count % 6 == 0)
-        {
-            @for (int column = 0; column < 6; column++)
-            {
-                <div class="card-zone">
-                @for (int entry = 0; entry < Model.Bookmarks.Count / 6; entry++)
-                {
-                    var bookmark = Model.Bookmarks[column * (Model.Bookmarks.Count / 6) + entry];
-                    <li>
-                        <div class="card-explore">
-                            @{
-                                string resourceTitle = "";
-                                if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
-                                    bookmark.Resource.Metadata["Title"] == null)
-                                {
-                                    resourceTitle = bookmark.Resource.Location;
-                                }
+<section class="content-manage">
+    @foreach (var bookmark in Model.Bookmarks)
+    {
+        <div class="card">
+            @{
+                    string resourceTitle = "";
+                    if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
+                bookmark.Resource.Metadata["Title"] == null)
+                    {
+                        resourceTitle = bookmark.Resource.Location;
+                    }
 
-                                string resourceLocation = "";
-                                if (bookmark.Resource.Location.StartsWith("http://") ||
-                                    bookmark.Resource.Location.StartsWith("https://"))
-                                {
-                                    resourceLocation = bookmark.Resource.Location;
-                                }
-                                else
-                                {
-                                    resourceLocation = $"//{bookmark.Resource.Location}";
-                                }
-                            }
-                            <h3>@resourceTitle</h3>
-                            <a href="@resourceLocation">@bookmark.Resource.Location</a>
-                            <p>Clipped by: @bookmark.User.Name</p>
-                        </div>
-                    </li>
-                }
-                </div>
+                    string resourceLocation = "";
+                    if (bookmark.Resource.Location.StartsWith("http://") ||
+                bookmark.Resource.Location.StartsWith("https://"))
+                    {
+                        resourceLocation = bookmark.Resource.Location;
+                    }
+                    else
+                    {
+                        resourceLocation = $"//{bookmark.Resource.Location}";
+                    }
             }
-        }
-        else
-        {
-            @for (int column = 0, i = Model.Bookmarks.Count % 6, j = 0; column < 6; column++)
-            {
-                <div class="card-zone">
-                @for (int entry = 0; entry < Model.Bookmarks.Count / 6; entry++)
-                {
-                    var bookmark = Model.Bookmarks[column * (Model.Bookmarks.Count / 6) + entry + j];
-                    <li>
-                        <div class="card-explore">
-                            @{
-                                string resourceTitle = "";
-                                if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
-                                    bookmark.Resource.Metadata["Title"] == null)
-                                {
-                                    resourceTitle = bookmark.Resource.Location;
-                                }
-
-                                string resourceLocation = "";
-                                if (bookmark.Resource.Location.StartsWith("http://") ||
-                                    bookmark.Resource.Location.StartsWith("https://"))
-                                {
-                                    resourceLocation = bookmark.Resource.Location;
-                                }
-                                else
-                                {
-                                    resourceLocation = $"//{bookmark.Resource.Location}";
-                                }
-                            }
-                            <h3>@resourceTitle</h3>
-                            <a href="@resourceLocation">@bookmark.Resource.Location</a>
-                            <p>Clipped by: @bookmark.User.Name</p>
-                        </div>
-                    </li>
-                }
-                @if (i > 0)
-                {
-                    var bookmark = Model.Bookmarks[column * (Model.Bookmarks.Count / 6) + Model.Bookmarks.Count / 6 + j];
-                    <li>
-                        <div class="card-explore">
-                            @{
-                                string resourceTitle = "";
-                                if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
-                                    bookmark.Resource.Metadata["Title"] == null)
-                                {
-                                    resourceTitle = bookmark.Resource.Location;
-                                }
-
-                                string resourceLocation = "";
-                                if (bookmark.Resource.Location.StartsWith("http://") ||
-                                    bookmark.Resource.Location.StartsWith("https://"))
-                                {
-                                    resourceLocation = bookmark.Resource.Location;
-                                }
-                                else
-                                {
-                                    resourceLocation = $"//{bookmark.Resource.Location}";
-                                }
-                            }
-                            <h3>@resourceTitle</h3>
-                            <a href="@resourceLocation">@bookmark.Resource.Location</a>
-                            <p>Clipped by: @bookmark.User.Name</p>
-                        </div>
-                    </li>
-                    i--; 
-                    j++;
-                }
-                </div>
-            }
-        }
+            <h3>@resourceTitle</h3>
+            <a href="@resourceLocation">@bookmark.Resource.Location</a>
+            <p>Clipped by: @bookmark.User.Name</p>
+        </div>
+    }
 </div>

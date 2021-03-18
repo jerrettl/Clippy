@@ -15,10 +15,9 @@
 
     </section>
 
-    <section class="content">
-        <div class="card">
+    <section class="content-main">
+        <div class="card-main">
 
-            @* Ignore this. I know this is ugly. *@
             @if (@Model.Bookmarks.Count > 1) 
                 { <p>Welcome, @User.Identity.Name! <br>You have @Model.Bookmarks.Count bookmarks. Great Job!</p> }
             else if(@Model.Bookmarks.Count == 1)
@@ -28,7 +27,7 @@
              
         </div>
 
-        <div class="card">
+        <div class="card-main">
             @if (Model.Bookmarks.Count == 0)
             {
                 <div>
