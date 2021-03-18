@@ -29,6 +29,7 @@
   padding-right: 24px;
   overflow: hidden;
   overflow-y: scroll;
+  text-align: center;
 }
 
 .card-main {
@@ -65,84 +66,6 @@
 
 .card-main ul li {
   margin-left: 15px;
-}
-
-.card {
-  display:inline-block;
-  background-color: white;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  margin: 10px auto;
-  width: 340px;
-  overflow: hidden;
-}
-
-.card a {
-  margin-top: 8px;
-  width: auto;
-  word-wrap: break-word;
-}
-
-.card-photo {
-  width: 100%;
-  max-width: 350px;
-  overflow: hidden;
-}
-
-.title-icon-container {
-  display: flex;
-  width: auto;
-  height: 30px;
-  justify-content: space-between;
-}
-
-.title-icon-container img {
-  height: auto;
-  width: 20px;
-  margin: auto 10px;
-}
-
-.title-icon-container h3 {
-  margin: 0px 10px;
-  overflow: hidden;
-  max-width: 250x;
-  text-overflow: ellipsis;
-}
-
-.author-location-container {
-  display: flex;
-  width: auto;
-  justify-content: space-between;
-  font-size: 11px;
-  word-wrap: break-word;
-  margin: 10px;
-}
-
-.author-location-container a {
-  text-decoration: none;
-  color: black;
-  margin: auto 0px;
-}
-
-.author-location-container a:hover {
-  color: rgb(50, 206, 175);
-}
-
-.date-description-container {
-  font-size: 14px;
-}
-
-.card-description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: auto 10px;
-}
-
-.date {
-  margin: auto 10px 5px 10px;
 }
 
 /* ------------------ Bookmarks options styles ------------------ */
