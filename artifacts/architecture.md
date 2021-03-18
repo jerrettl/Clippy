@@ -31,8 +31,6 @@ All components related to user functionality were created to fulfill user storie
 
 # Code Design
 
-**Note:** The Clippy team is currently investigating new software to model the code architecture.
-
 ## Front End Description
 
 The front end will be composed of 5 pages, each connected by a router.
