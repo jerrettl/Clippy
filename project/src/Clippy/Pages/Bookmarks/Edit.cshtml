@@ -1,0 +1,23 @@
+@page
+@model Clippy.Pages.Bookmarks.ManageModel
+@{
+    ViewData["Title"] = "Bookmarks";
+}
+
+@{ int columns = 4;  }
+
+@* styles *@
+    <link rel="stylesheet" href="/css/bookmarks.css" />
+    
+<div class="body">
+<section class="options">
+    <ul>
+        <li><img src="../images/resources/BookmarkIcon.png"><a asp-page="Manage">Manage Bookmarks</a></li>
+    </ul>
+
+</section>
+    
+<section class="content-edit">
+
+</section>
+</div>
