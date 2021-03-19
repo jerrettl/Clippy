@@ -8,6 +8,48 @@
     <h3>Explore the Clippy Community</h3>
 </div> *@
 
-<div class="card-zone">
-    hi
+<link rel="stylesheet" href="/css/profile.css" />
+
+<div class="body">
+    <div class="banner">
+        <div class="profile-pic" style="background-image: url('@Model.AvatarUrl')"></div>
+        <p class="profile-name">@User.Identity.Name</p>
+    </div>
+
+    <section class="intro border-round">
+        <div class="upper-div">
+            <p class="title">Intro</p>
+            <a href="#"><img class="icon" src="/images/resources/EditBookmarkIcon.png"></a>
+        </div>
+
+        <p id="bio">Bio</p>
+    </section>
+
+    <section class="favorited-bookmarks border-round">
+        <div class="upper-div">
+            <p class="title">Favorite Bookmarks</p>
+            <a href="#"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+        </div>
+
+        @* crazy for loop *@
+        <div class="card">
+            @* db *@
+        </div>
+    </section> 
+    
+    <section class="posts border-round">
+        <div class="upper-div">
+            <p class="title">Posts</p>
+            <a href="#"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+        </div>
+
+        @* crazy for loop *@
+        <div class="card">
+            @* db *@
+        </div>
+    </section>
+    
+    <section class="following border-round">
+    <p class="title">Following</p>
+    </section>
 </div>
