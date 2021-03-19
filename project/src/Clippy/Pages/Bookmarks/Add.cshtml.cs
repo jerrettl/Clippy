@@ -1,5 +1,6 @@
 using Clippy.Data;
 using Clippy.Entities;
+using Clippy.Helpers;
 using Clippy.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
@@ -75,6 +76,9 @@ namespace Clippy.Pages.Bookmarks
 
                 if (!string.IsNullOrWhiteSpace(BookmarkEntity.Description))
                     metadata.Add("Description", BookmarkEntity.Description);
+
+                string imageUrl = await ImageDownloaderHelper.FetchImageFromUrl(BookmarkEntity.Location);
+                metadata.Add("ImageURL", imageUrl);
 
                 var resource = new Resource
                 {
