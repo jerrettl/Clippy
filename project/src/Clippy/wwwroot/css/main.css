@@ -240,9 +240,13 @@
   word-wrap: break-word;
 }
 
+.card-photo-container {
+  height: 170px;
+  overflow: hidden;
+}
+
 .card-photo {
   width: 100%;
-  max-width: 350px;
   overflow: hidden;
 }
 

@@ -95,7 +95,9 @@
                                     imageUrl = "/images/resources/sad-clippy.jpg";
                                 }
                         }
-                        <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder">
+                        <div class="card-photo-container">
+                            <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder">
+                        </div>
                         <div class="title-icon-container">
                             <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
                             <a asp-page="Edit"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
