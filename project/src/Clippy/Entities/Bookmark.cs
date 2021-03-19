@@ -20,5 +20,7 @@ namespace Clippy.Entities
 
         [Required]
         public DateTime CreateDate { get; set; }
+
+        public string Title { get; set; }
     }
 }
