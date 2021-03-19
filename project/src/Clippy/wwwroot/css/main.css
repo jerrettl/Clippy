@@ -308,6 +308,8 @@
   overflow: hidden;
   max-width: 250x;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
 }
 
 .author-location-container {
