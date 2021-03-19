@@ -15,7 +15,7 @@
   padding: 20px;
   margin: 20px 0px;
   width: var(--card-width);
-  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 .card-main h3 {
