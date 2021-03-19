@@ -1,16 +1,6 @@
-@media screen and (max-width: 0px) {
-  .content-explore {
-    columns: 1;
-  }
-}
-
 .content-explore {
-  width: 100vw;
-  height: auto;
-  margin: 10px auto;
   justify-content: center;
   margin: 30px auto 0 auto;
-  column-gap: 40px;
   height: 100%;
   column-gap: 30px;
   border: none;
