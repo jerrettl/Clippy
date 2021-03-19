@@ -13,30 +13,45 @@
     @if (!ViewData["Title"].Equals("Home") && !ViewData["Title"].Equals("Error"))
     {
         <div id="navbar">
-            <a href="/Bookmarks" class="clippy-logo"><img src="/images/resources/logo.png"></a>
+            @{
+                string logoLink;
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+                logoLink = "/Bookmarks";
+            }
+            else
+            {
+                logoLink = "/";
+            }
+            <a href="@logoLink" class="clippy-logo"><img src="/images/resources/logo.png"></a>
             <div class="nav-links">
                 <a href="/explore" class="nav-link" onclick="closeMobileMenu()">Explore</a>
+                @if (User.Identity.IsAuthenticated)
+                {
                 <a asp-page="Following" class="nav-link" onclick="closeMobileMenu()">Following</a>
+                }
             </div>
             <form class="searchbar">
                 <input class="search" type="text" name="search-term" placeholder="Search" required>
             </form>
-            <a href="/bookmarks">
+            @if (User.Identity.IsAuthenticated)
+            {
+            <a href="/Bookmarks/Manage">
                 <img src="/images/resources/paperclip.png" class="clip-icon">
             </a>
             <div class="wrapper">
                 <a href="#" class="dd-parent"><img src="@Model.AvatarUrl" class="avatar" alt="@User.Identity.Name"></a>
                 <div class="dd-menu">
                     <div class="triangle"></div>
-                    <a href="#"><ul class="dd-menu-top">My Bookmarks</ul></a>
+                    <a href="/Profile"><ul class="dd-menu-top">Profile</ul></a>
+                    <a href="/Bookmarks"><ul>My Bookmarks</ul></a>
                     <a href="#"><ul>Notifications</ul></a>
                     <a href="#"><ul>Settings</ul></a>
-                    @if (User.Identity.IsAuthenticated)
-                    {
                     <a href="/account/signout"><ul class="dd-menu-bottom">Logout</ul></a>
-                    }
                 </div>
             </div>
+            }
             <button class="mobile-menu" onclick="handleClick()"><i class="fas fa-bars fa-lg"></i></button>
         </div>
     }

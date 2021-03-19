@@ -1,0 +1,193 @@
+/* ------------------ Bookmarks layout styles ------------------ */
+
+.content-main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-main {
+  background-color: white;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0px;
+  width: 25%;
+  overflow: hidden;
+}
+
+.card-main h3 {
+  margin-bottom: 6px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-main a {
+  display: block;
+  margin-top: 8px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-main p {
+  margin-top: 8px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-main ul li {
+  margin-left: 15px;
+}
+
+/* ------------------ Bookmarks/Manage styles ------------------ */
+
+@media screen and (max-width: 0px) {
+  .content-manage {
+    columns: 1;
+  }
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.content-manage {
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  width: 100%;
+  height: 93.5vh;
+  padding: 10px 0px 0px 10px;
+  padding-right: 24px;
+  overflow: hidden;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+/* ------------------ Bookmarks sidebar styles ------------------ */
+
+.options {
+  height: 93.5vh;
+  min-width: 300px;
+  width: 300px;
+  box-shadow: 1px 20px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+.options ul {
+  list-style-type: none;
+}
+
+.options ul li a {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+}
+
+.options ul li a:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.options ul li {
+  margin: 15px 5px 0px 20px;
+}
+
+.options ul li img {
+  width: 15px;
+  margin: 0px 5px;
+  vertical-align: top;
+}
+
+/* ------------------ Bookmarks/Add styles ------------------ */
+
+.input-text {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.select-user {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.description {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    padding: 10px 0px 0px 10px;
+    border: 0;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    resize: vertical;
+}
+
+.labels {
+    margin-left: 15px;
+}
+
+.button {
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+    border-radius: 15px;
+    border: 0;
+    background-color: rgb(177, 255, 223);
+    margin: 15px 15px 0px 0px;
+    font-size: 14px;
+}
+
+.button:hover {
+    background-color: rgb(50, 206, 175);
+    transition: ease-in;
+    transition-duration: .5s;
+}
+
+.content-add form a {
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+    border-radius: 15px;
+    border: 0;
+    background-color: rgb(177, 255, 223);
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.content-add form {
+  width: 1000px;
+  margin: auto;
+}
+
+.content-add {
+  height: 100%;
+  width: 100%;
+  align-content: center;
+}

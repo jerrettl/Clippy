@@ -3,9 +3,8 @@ using Clippy.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
-namespace Clippy.Pages.Explore
+namespace Clippy.Pages.Profile
 {
     public class IndexModel : PageModel
     {
@@ -17,17 +16,13 @@ namespace Clippy.Pages.Explore
 
         public string AvatarUrl { get; set; }
 
-        public IList<Bookmark> Bookmarks { get; set; }
-
-        public async Task OnGetAsync()
+        public void OnGet()
         {
             AvatarUrl = "";
             foreach (Claim claim in User.Claims)
             {
                 if (claim.Type == "urn:github:avatar") AvatarUrl = claim.Value;
             }
-
-            Bookmarks =  await _context.GetBookmarksAsync();
         }
     }
 }

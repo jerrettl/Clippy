@@ -1,37 +1,43 @@
-using System;
-using System.Security.Claims;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Clippy.Data;
 using Clippy.Entities;
-using Clippy.Models.Admin;
-using Microsoft.AspNetCore.Mvc;
+using Clippy.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System;
+using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 
-namespace Clippy.Pages.Admin.Bookmarks
+namespace Clippy.Pages.Bookmarks
 {
     public class AddModel : PageModel
     {
         private ClippyContext _context;
 
-        public AddModel(ClippyContext context) {
+        public AddModel(ClippyContext context)
+        {
             _context = context;
         }
+        public string AvatarUrl { get; set; }
 
         [BindProperty]
         public AddBookmarkModel BookmarkEntity { get; set; }
 
         public List<SelectListItem> Users { get; set; }
 
-        public async Task OnGet() {
-            var users = await _context.GetUsersAsync();
-            Users = users.Select(u => new SelectListItem(u.Name, u.Id.ToString())).ToList();
+        public void OnGet()
+        {
+            AvatarUrl = "";
+            foreach (Claim claim in User.Claims)
+            {
+                if (claim.Type == "urn:github:avatar") AvatarUrl = claim.Value;
+            }
         }
 
         public async Task<IActionResult> OnPostAsync()
-        {
+        {       
             if (!ModelState.IsValid)
                 return Page();
 
@@ -53,24 +59,25 @@ namespace Clippy.Pages.Admin.Bookmarks
             }
 
             // Using the bookmark URL, find the corresponding resource from the database.
-            var existingResource = await _context.GetResourceByLocationAsync(BookmarkEntity.Location);
+            var existingBookmark = await _context.GetResourceByLocationAsync(BookmarkEntity.Location);
 
             // If it is found, take that existing resource and use its ID with the new bookmark.
-            if (existingResource != null)
+            if (existingBookmark != null)
             {
-                bookmark.ResourceId = existingResource.Id;
+                ModelState.AddModelError("Location", $"Bookmark already exists: Location = {existingBookmark.Location}.");
             }
             else
             {
                 // If it isn't found, make a new resource.
-                var metadata = new Dictionary<string,string>();
+                var metadata = new Dictionary<string, string>();
                 if (!string.IsNullOrWhiteSpace(BookmarkEntity.Title))
                     metadata.Add("Title", BookmarkEntity.Title);
 
                 if (!string.IsNullOrWhiteSpace(BookmarkEntity.Description))
                     metadata.Add("Description", BookmarkEntity.Description);
 
-                var resource = new Resource {
+                var resource = new Resource
+                {
                     Location = BookmarkEntity.Location,
                     Metadata = metadata,
                     CreateDate = now
@@ -93,7 +100,8 @@ namespace Clippy.Pages.Admin.Bookmarks
                 }
                 else
                 {
-                    var user = new User {
+                    var user = new User
+                    {
                         Username = username,
                         Name = name,
                         GithubId = githubId,
@@ -104,7 +112,8 @@ namespace Clippy.Pages.Admin.Bookmarks
                     await _context.SaveChangesAsync();
                     bookmark.UserId = dbResponse.Entity.Id;
                 }
-            } else
+            }
+            else
             {
                 bookmark.UserId = BookmarkEntity.UserId;
             }
@@ -114,8 +123,9 @@ namespace Clippy.Pages.Admin.Bookmarks
             {
                 // TODO: Check for uniqueness
                 var tags = BookmarkEntity.Tags.Split(',');
-                foreach(var tag in tags) {
-                    bookmark.Tags.Add(new Tag {TagName = tag});
+                foreach (var tag in tags)
+                {
+                    bookmark.Tags.Add(new Tag { TagName = tag });
                 }
             }
 
@@ -123,7 +133,6 @@ namespace Clippy.Pages.Admin.Bookmarks
 
             _context.AddBookmark(bookmark);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

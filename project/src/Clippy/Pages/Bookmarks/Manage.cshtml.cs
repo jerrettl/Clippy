@@ -7,11 +7,12 @@ using System.Security.Claims;
 
 namespace Clippy.Pages.Bookmarks
 {
-    public class IndexModel : PageModel
+    public class ManageModel : PageModel
     {
         private ClippyContext _context;
 
-        public IndexModel(ClippyContext context) {
+        public ManageModel(ClippyContext context)
+        {
             _context = context;
         }
 
@@ -42,7 +43,8 @@ namespace Clippy.Pages.Bookmarks
             }
             else
             {
-                user = new User {
+                user = new User
+                {
                     Username = username,
                     Name = name,
                     GithubId = githubId,

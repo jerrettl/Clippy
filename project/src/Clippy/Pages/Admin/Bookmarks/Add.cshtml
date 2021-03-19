@@ -20,9 +20,15 @@
                         <span asp-validation-for="BookmarkEntity.Location"></span>
                     </div>
                     <div class="field">
-                        <label asp-for="BookmarkEntity.Title">Title</label>
+                        <label asp-for="BookmarkEntity.Title">Title *</label>
                         <input type="text" asp-for="BookmarkEntity.Title" />
                         <span asp-validation-for="BookmarkEntity.Title"></span>
+                    </div>
+                    <div class="field">
+                        <label asp-for="BookmarkEntity.Description">Description</label>
+                        <input type="text" asp-for="BookmarkEntity.Description" />
+                        <span class="hint">Enter a description</span>
+                        <span asp-validation-for="BookmarkEntity.Description"></span>
                     </div>
                     <div class="field">
                         <label asp-for="BookmarkEntity.Tags">Tags</label>
