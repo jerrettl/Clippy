@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using System;
 
 namespace Clippy
@@ -38,14 +37,6 @@ namespace Clippy
                 options.Conventions.AuthorizeFolder("/Admin");
             }).AddRazorRuntimeCompilation();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo{
-                    Title = "Clippy Api",
-                    Version = "v1"
-                });
-            });
-
             services.AddDbContext<ClippyContext>(options => options.UseSqlite("Data Source=clippy.db"));
 
             services.AddAuthentication(options =>
@@ -75,9 +66,6 @@ namespace Clippy
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clippy Api v1"));
 
             app.UseRouting();
 
