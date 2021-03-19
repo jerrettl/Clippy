@@ -16,7 +16,7 @@ namespace Clippy.Pages.Admin.Bookmarks
 
          public IList<Bookmark> Bookmarks { get; set; }
 
-        public async void OnGetAsync() {
+        public async Task OnGetAsync() {
             Bookmarks = await _context.GetBookmarksAsync();
         }
     }
