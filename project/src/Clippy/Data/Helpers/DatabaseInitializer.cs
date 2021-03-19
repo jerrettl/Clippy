@@ -33,7 +33,7 @@ namespace Clippy.Data.Helpers {
                 {
                     { "Title", "National Geographic" },
                     { "MediaType", "text/html" },
-                    { "Image", "https://api.clippy.fun/images/resources/natgeo.jpg" },
+                    { "ImageURL", "natgeo.jpg" },
                     { "Description", "Explore the world's beauty." }
                 },
                 CreateDate = now
@@ -47,7 +47,7 @@ namespace Clippy.Data.Helpers {
                 {
                     { "Title", "Yellowstone National Park" },
                     { "MediaType", "text/html" },
-                    { "Image", "https://api.clippy.fun/images/resources/yellowstone.jpg" },
+                    { "ImageURL", "yellowstone.jpg" },
                     { "Description", "Escape to a winter wonderland." }
                 },
                 CreateDate = now
@@ -61,7 +61,7 @@ namespace Clippy.Data.Helpers {
                 {
                     { "Title", "Food Network" },
                     { "MediaType", "text/html" },
-                    { "Image", "https://api.clippy.fun/images/resources/foodnetwork.jpg" },
+                    { "ImageURL", "foodnetwork.jpg" },
                     { "Description", "Entice your taste buds." }
                 },
                 CreateDate = now
@@ -75,7 +75,7 @@ namespace Clippy.Data.Helpers {
                 {
                     { "Title", "Love and Lemons" },
                     { "MediaType", "text/html" },
-                    { "Image", "https://api.clippy.fun/images/resources/lovelemons.jpg" },
+                    { "ImageURL", "lovelemons.jpg" },
                     { "Description", "Detoxify yourself each day." }
                 },
                 CreateDate = now
@@ -89,7 +89,7 @@ namespace Clippy.Data.Helpers {
                 {
                     { "Title", "Appalachian Trail Conservancy" },
                     { "MediaType", "text/html" },
-                    { "Image", "https://api.clippy.fun/images/resources/appalachiantrail.jpg" },
+                    { "ImageURL", "appalachiantrail.jpg" },
                     { "Description", "Escape the city lights." }
                 },
                 CreateDate = now
@@ -103,7 +103,7 @@ namespace Clippy.Data.Helpers {
                 {
                     { "Title", "SpaceX" },
                     { "MediaType", "text/html" },
-                    { "Image", "https://api.clippy.fun/images/resources/spacex.jpg" },
+                    { "ImageURL", "spacex.jpg" },
                     { "Description", "Experience space travel." }
                 },
                 CreateDate = now

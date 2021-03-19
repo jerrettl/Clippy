@@ -31,7 +31,7 @@ namespace Clippy.Models.Admin
             if (!string.IsNullOrWhiteSpace(MediaType))
                 metadata.Add("MediaType", MediaType);
             if (!string.IsNullOrWhiteSpace(Image))
-                metadata.Add("Image", Image);
+                metadata.Add("ImageURL", Image);
             if (!string.IsNullOrWhiteSpace(Description))
                 metadata.Add("Description", Description);
 

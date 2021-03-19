@@ -29,7 +29,7 @@ namespace Clippy.Models.Admin
 
             metadata.Add("Title", Title);
             metadata.Add("MediaType", MediaType ?? "");
-            metadata.Add("Image", Image ?? "");
+            metadata.Add("ImageURL", Image ?? "");
             metadata.Add("Description", Description ?? "");
 
             return metadata;
