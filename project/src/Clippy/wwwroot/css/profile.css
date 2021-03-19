@@ -26,30 +26,55 @@
     }
     
     .profile-pic {
-        top: 70px;
+        top: 100px;
         left: 20px;
         width: 150px;
         height: 150px;
     }
 
     .profile-name {
-        top: 38px;
+        top: 65px;
         left: 160px;
+    }
+
+    .follow-button {
+        top: 36px;
+        left: 320px;
     }
 }
 
 @media (min-width: 620px) {
     .profile-pic {
-        top: 80px;
+        top: 105px;
         left: 20px;
         width: 200px;
         height: 200px;
     }
 
     .profile-name {
-        top: 40px;
+        top: 65px;
         left: 200px;
     }
+
+    .follow-button {
+        top: 36px;
+        left: 370px;
+    }
+}
+
+.card-container {
+    overflow: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    height: auto;
+}
+
+.card:nth-child(1) {
+    margin-left: 10px;
+}
+
+.card:last-child {
+    margin-right: 10px;
 }
 
 .banner {
@@ -101,6 +126,19 @@
     height: auto;
     grid-area: favorite;
     padding: 10px;
+}
+
+.follow-button {
+    position: relative;
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    border: 0;
+}
+
+.follow-button:hover {
+    background-color: rgba(196, 196, 196, 0.4);
 }
 
 .posts {
