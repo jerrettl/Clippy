@@ -60,12 +60,12 @@ namespace Clippy.Pages.Bookmarks
             }
 
             // Using the bookmark URL, find the corresponding resource from the database.
-            var existingBookmark = await _context.GetResourceByLocationAsync(BookmarkEntity.Location);
+            var existingResource = await _context.GetResourceByLocationAsync(BookmarkEntity.Location);
 
             // If it is found, take that existing resource and use its ID with the new bookmark.
-            if (existingBookmark != null)
+            if (existingResource != null)
             {
-                ModelState.AddModelError("Location", $"Bookmark already exists: Location = {existingBookmark.Location}.");
+                bookmark.ResourceId = existingResource.Id;
             }
             else
             {
@@ -93,33 +93,26 @@ namespace Clippy.Pages.Bookmarks
                 bookmark.ResourceId = dbResponse.Entity.Id;
             }
 
-            if (BookmarkEntity.UserId == 0)
+            // Repeat the process with adding a resource with adding a user.
+            var existingUser = await _context.GetUserByGithubId(githubId);
+
+            if (existingUser != null)
             {
-                // Repeat the process with adding a resource with adding a user.
-                var existingUser = await _context.GetUserByGithubId(githubId);
-
-                if (existingUser != null)
-                {
-                    bookmark.UserId = existingUser.Id;
-                }
-                else
-                {
-                    var user = new User
-                    {
-                        Username = username,
-                        Name = name,
-                        GithubId = githubId,
-                        CreateDate = now
-                    };
-
-                    var dbResponse = _context.AddUser(user);
-                    await _context.SaveChangesAsync();
-                    bookmark.UserId = dbResponse.Entity.Id;
-                }
+                bookmark.UserId = existingUser.Id;
             }
             else
             {
-                bookmark.UserId = BookmarkEntity.UserId;
+                var user = new User
+                {
+                    Username = username,
+                    Name = name,
+                    GithubId = githubId,
+                    CreateDate = now
+                };
+
+                var dbResponse = _context.AddUser(user);
+                await _context.SaveChangesAsync();
+                bookmark.UserId = dbResponse.Entity.Id;
             }
 
             // Add Tags
@@ -134,7 +127,7 @@ namespace Clippy.Pages.Bookmarks
             }
 
             bookmark.CreateDate = now;
-
+            
             _context.AddBookmark(bookmark);
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
