@@ -46,12 +46,6 @@
 
 /* ------------------ Bookmarks/Manage styles ------------------ */
 
-@media screen and (max-width: 0px) {
-  .content-manage {
-    columns: 1;
-  }
-}
-
 .body {
   display: flex;
   width: 100%;
