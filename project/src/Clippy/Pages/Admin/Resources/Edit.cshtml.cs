@@ -31,7 +31,7 @@ namespace Clippy.Pages.Admin.Resources
                 Title = resource.Metadata["Title"],
                 Location = resource.Location,
                 MediaType = resource.Metadata.ContainsKey("MediaType") ? resource.Metadata["MediaType"] : "",
-                Image = resource.Metadata.ContainsKey("Image") ? resource.Metadata["Image"] : "",
+                Image = resource.Metadata.ContainsKey("ImageURL") ? resource.Metadata["ImageURL"] : "",
                 Description = resource.Metadata.ContainsKey("Description") ? resource.Metadata["Description"] : ""
             };
 
