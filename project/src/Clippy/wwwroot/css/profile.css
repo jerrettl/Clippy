@@ -1,0 +1,173 @@
+.body {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    width: 80%;
+    height: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    gap: 10px;
+    grid-template-areas:
+    "banner banner banner follow"
+    "intro intro intro follow"
+    "favorite favorite favorite follow"
+    "posts posts posts follow";
+}
+
+@media (max-width: 620px) {
+    .body {
+        width: 100%;
+        grid-template-areas:
+        "banner banner banner banner"
+        "intro intro intro intro"
+        "favorite favorite favorite favorite"
+        "posts posts posts posts"
+        "follow follow follow follow";
+    }
+    
+    .profile-pic {
+        top: 100px;
+        left: 20px;
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-name {
+        top: 65px;
+        left: 160px;
+    }
+
+    .follow-button {
+        top: 36px;
+        left: 320px;
+    }
+}
+
+@media (min-width: 620px) {
+    .profile-pic {
+        top: 105px;
+        left: 20px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-name {
+        top: 65px;
+        left: 200px;
+    }
+
+    .follow-button {
+        top: 36px;
+        left: 370px;
+    }
+}
+
+.card-container {
+    overflow: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    height: auto;
+}
+
+.card:nth-child(1) {
+    margin-left: 10px;
+}
+
+.card:last-child {
+    margin-right: 10px;
+}
+
+.banner {
+    grid-area: banner;
+    background-image: url("/images/resources/BannerImage.jpg");
+    background-position: center;
+    background-size: cover;
+    width: auto;
+    height: auto;
+    background-repeat: no-repeat;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.upper-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-name {
+    position: relative;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.profile-pic {
+    position: relative;
+    background-size: cover;
+    background-color: black;
+    border-radius: 100%;
+}
+
+.plus-icon {
+    max-width: 15px;
+    height: auto;
+}
+
+.intro {
+    grid-area: intro;
+    background-color: rgba(196, 196, 196, 0.2);
+    width: auto;
+    height: auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.favorited-bookmarks {
+    background-color: rgba(196, 196, 196, 0.2);
+    width: auto;
+    height: auto;
+    grid-area: favorite;
+    padding: 10px;
+}
+
+.follow-button {
+    position: relative;
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    border: 0;
+}
+
+.follow-button:hover {
+    background-color: rgba(196, 196, 196, 0.4);
+}
+
+.posts {
+    background-color: rgba(196, 196, 196, 0.2);
+    width: auto;
+    height: auto;
+    grid-area: posts;
+    padding: 10px;
+}
+
+.following {
+    background-color: rgba(196, 196, 196, 0.2);
+    width: auto;
+    grid-area: follow;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.border-round {
+    border-radius: 10px;
+}
+
+.icon {
+    max-width: 20px;
+    height: auto;
+}
+
+.title {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+    margin-bottom: 20px;
+}

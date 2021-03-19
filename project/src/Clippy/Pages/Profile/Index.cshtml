@@ -8,6 +8,96 @@
     <h3>Explore the Clippy Community</h3>
 </div> *@
 
-<div class="card-zone">
-    hi
+<link rel="stylesheet" href="/css/profile.css" />
+
+<div class="body">
+    <div class="banner">
+        <div class="profile-pic" style="background-image: url('@Model.AvatarUrl')"></div>
+        <p class="profile-name">@User.Identity.Name</p><button class="follow-button" href="#">Follow</button>
+    </div>
+
+    <section class="intro border-round">
+        <div class="upper-div">
+            <p class="title">Intro</p>
+            <a href="#"><img class="icon" src="/images/resources/EditBookmarkIcon.png"></a>
+        </div>
+
+        <p id="bio">Bio</p>
+    </section>
+
+    <section class="favorited-bookmarks border-round">
+        <div class="upper-div">
+            <p class="title">Favorite Bookmarks</p>
+            <a href="#"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+        </div>
+
+
+        <div class="card-container">
+    
+        </div>
+    </section> 
+    
+    <section class="posts border-round">
+        <div class="upper-div">
+            <p class="title">Posts</p>
+            <a href="#"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+        </div>
+
+        @* crazy for loop *@
+        <div class="card-container">
+            <div>
+                @foreach (var bookmark in Model.Bookmarks)
+                {
+                    <div class="card">
+                        @{
+                                string resourceTitle = null;
+                                if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
+                                bookmark.Resource.Metadata["Title"] == null)
+                                {
+                                    resourceTitle = bookmark.Resource.Location;
+                                }
+
+                                string resourceLocation = null;
+                                if (bookmark.Resource.Location.StartsWith("http://") ||
+                                bookmark.Resource.Location.StartsWith("https://"))
+                                {
+                                    resourceLocation = bookmark.Resource.Location;
+                                }
+                                else
+                                {
+                                    resourceLocation = $"//{bookmark.Resource.Location}";
+                                }
+
+                                string date = bookmark.CreateDate.ToShortDateString();
+                                string description = null;
+                                if (!bookmark.Resource.Metadata.TryGetValue("Description", out description) ||
+                                bookmark.Resource.Metadata["Description"] == null)
+                                {
+                                    description = "No description.";
+                                }
+                        }
+                        <img class="card-photo" src="/images/resources/sad-clippy.jpg" alt="Bookmark Image Placholder">
+                        <div class="title-icon-container">
+                            <h3>@resourceTitle</h3>
+                            <a asp-page="Edit"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
+                        </div>
+
+                        <div class="date-description-container">
+                            <p class="date">@date</p>
+                            <p class="card-description">@description</p>
+                        </div>
+
+                        <div class="author-location-container">
+                            <p>Clipped by: @bookmark.User.Name</p>
+                            <a href="@resourceLocation">Link...</a>
+                        </div>
+                    </div>
+                }  
+            </div>  
+        </div>
+    </section>
+    
+    <section class="following border-round">
+    <p class="title">Following</p>
+    </section>
 </div>
