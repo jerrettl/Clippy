@@ -16,7 +16,7 @@ namespace Clippy.Pages.Profile
 
         public string AvatarUrl { get; set; }
 
-        public async void OnGetAsync()
+        public void OnGetAsync()
         {
             AvatarUrl = "";
             foreach (Claim claim in User.Claims)

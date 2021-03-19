@@ -27,13 +27,13 @@ namespace Clippy.Pages.Bookmarks
 
         public List<SelectListItem> Users { get; set; }
 
-        public async Task OnGet()
+        public void OnGetAsync()
         {
             AvatarUrl = "";
             foreach (Claim claim in User.Claims)
             {
                 if (claim.Type == "urn:github:avatar") AvatarUrl = claim.Value;
-            }
+            } 
         }
 
         public async Task<IActionResult> OnPostAsync()
