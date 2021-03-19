@@ -64,8 +64,6 @@ namespace Clippy.Pages.Admin.Bookmarks
             {
                 // If it isn't found, make a new resource.
                 var metadata = new Dictionary<string,string>();
-                if (!string.IsNullOrWhiteSpace(BookmarkEntity.Title))
-                    metadata.Add("Title", BookmarkEntity.Title);
 
                 if (!string.IsNullOrWhiteSpace(BookmarkEntity.Description))
                     metadata.Add("Description", BookmarkEntity.Description);
@@ -120,6 +118,15 @@ namespace Clippy.Pages.Admin.Bookmarks
             }
 
             bookmark.CreateDate = now;
+
+            if (!string.IsNullOrWhiteSpace(BookmarkEntity.Title))
+            {
+                bookmark.Title = BookmarkEntity.Title;
+            }
+            else
+            {
+                bookmark.Title = null;
+            }
 
             _context.AddBookmark(bookmark);
             await _context.SaveChangesAsync();
