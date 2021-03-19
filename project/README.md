@@ -79,12 +79,6 @@ Open a browser and navigate to the Clippy web application at
 https://localhost:5001
 ```
 
-Explore the Clippy API using Swagger UI.
-
-```
-https://localhost:5001/swagger/index.html
-```
-
 ## Development
 
 Visit [development.md](development.md) for more information on development.
