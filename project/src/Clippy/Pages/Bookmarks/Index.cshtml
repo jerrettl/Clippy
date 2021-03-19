@@ -18,13 +18,13 @@
     <section class="content-main">
         <div class="card-main">
 
-            @if (@Model.Bookmarks.Count > 1) 
+            @if (@Model.Bookmarks.Count > 1)
                 { <p>Welcome, @User.Identity.Name! <br>You have @Model.Bookmarks.Count bookmarks. Great Job!</p> }
             else if(@Model.Bookmarks.Count == 1)
                 { <p>Welcome, @User.Identity.Name! <br>You have @Model.Bookmarks.Count bookmark. <br>Great Job!</p> }
             else
                 { <p>Welcome, @User.Identity.Name! <br>You have no bookmark. Come on dude.... </p> }
-             
+
         </div>
 
         <div class="card-main">

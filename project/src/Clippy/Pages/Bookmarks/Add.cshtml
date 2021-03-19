@@ -21,11 +21,11 @@
                 <label class="labels" asp-for="BookmarkEntity.Location">Location*</label>
                 <input class="input-text" type="text" placeholder="Location of the bookmark..." asp-for="BookmarkEntity.Location" required>
                 <span asp-validation-for="BookmarkEntity.Location"></span>
-                
+
                 <label class="labels" for="title">Title*</label>
                 <input class="input-text" type="text" id="title" placeholder="Title of the bookmark..." asp-for="BookmarkEntity.Title" required>
                 <span asp-validation-for="BookmarkEntity.Title"></span>
-                
+
                 <label class="labels" for="description">Description</label>
                 <textarea class="description" id="description" placeholder="Description of the bookmark..." asp-for="BookmarkEntity.Description"></textarea>
                 <span asp-validation-for="BookmarkEntity.Description"></span>
@@ -33,9 +33,9 @@
                 <label class="labels" asp-for="BookmarkEntity.Tags">Tags</label>
                 <input class="input-text" type="text" placeholder="Tags for the bookmark..." asp-for="BookmarkEntity.Tags">
                 <span asp-validation-for="BookmarkEntity.Tags"></span>
-                
+
                 <input class="button" type="submit" value="Add Bookmark">
-                <a asp-page="Index">Back</a>  
+                <a asp-page="Index">Back</a>
         </form>
     </section>
 </div>
