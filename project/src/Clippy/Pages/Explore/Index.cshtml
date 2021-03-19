@@ -67,17 +67,17 @@
                     }
 
                     string imageUrl;
-                    if (!bookmark.Resource.Metadata.ContainsKey("ImageURL") ||
-                    bookmark.Resource.Metadata["ImageURL"] == null)
-                    {
-                        imageUrl = "/images/resources/sad-clippy.jpg";
-                    }
-                    else
+                    if (bookmark.Resource.Metadata.ContainsKey("ImageURL") &&
+                    bookmark.Resource.Metadata["ImageURL"] != null)
                     {
                         imageUrl = $"/images/bookmarks/{bookmark.Resource.Metadata["ImageURL"]}";
                     }
+                    else
+                    {
+                        imageUrl = "/images/resources/sad-clippy.jpg";
+                    }
             }
-            <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placholder">
+            <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder">
             <div class="title-icon-container">
                 <h3>@resourceTitle</h3>
             </div>

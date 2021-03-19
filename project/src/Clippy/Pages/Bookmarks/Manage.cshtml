@@ -47,14 +47,14 @@
                     }
 
                     string imageUrl;
-                    if (!bookmark.Resource.Metadata.ContainsKey("ImageURL") ||
-                    bookmark.Resource.Metadata["ImageURL"] == null)
+                    if (bookmark.Resource.Metadata.ContainsKey("ImageURL") &&
+                    bookmark.Resource.Metadata["ImageURL"] != null)
                     {
-                        imageUrl = "/images/resources/sad-clippy.jpg";
+                        imageUrl = $"/images/bookmarks/{bookmark.Resource.Metadata["ImageURL"]}";
                     }
                     else
                     {
-                        imageUrl = $"/images/bookmarks/{bookmark.Resource.Metadata["ImageURL"]}";
+                        imageUrl = "/images/resources/sad-clippy.jpg";
                     }
             }
             <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placholder">
