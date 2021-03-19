@@ -4,6 +4,7 @@
   --primary-color: rgb(110, 198, 170);
 
   --navbar-height: 60px;
+  --card-width: 340px;
 
   padding: 0;
   margin: 0;
@@ -230,7 +231,7 @@
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   margin: 10px auto;
-  width: 340px;
+  width: var(--card-width);
   overflow: hidden;
 }
 
