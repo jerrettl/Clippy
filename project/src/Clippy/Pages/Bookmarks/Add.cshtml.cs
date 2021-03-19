@@ -27,7 +27,7 @@ namespace Clippy.Pages.Bookmarks
 
         public List<SelectListItem> Users { get; set; }
 
-        public async Task OnGet()
+        public void OnGet()
         {
             AvatarUrl = "";
             foreach (Claim claim in User.Claims)

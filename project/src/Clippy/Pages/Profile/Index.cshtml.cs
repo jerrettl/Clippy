@@ -16,14 +16,13 @@ namespace Clippy.Pages.Profile
 
         public string AvatarUrl { get; set; }
 
-        public async void OnGetAsync()
+        public void OnGet()
         {
             AvatarUrl = "";
             foreach (Claim claim in User.Claims)
             {
                 if (claim.Type == "urn:github:avatar") AvatarUrl = claim.Value;
             }
-
         }
     }
 }
