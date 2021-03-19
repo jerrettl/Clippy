@@ -147,3 +147,27 @@ Jerrett Longworth - Worked on displaying a user's bookmarks on the main bookmark
 Diego Rodrigues - Redesigned the front page to the original design listed in the UI diagram. Fixed the mobile dropdown menu to deliver a better user experience. Invested time into illustrator to design better assets for the website. (fix/homepage branch)
 
 Jaeivan Romero - I worked on getting a users name and bookmarks on our main page and worked on our explore page which include other users bookmarks.
+
+# Sprint 7
+
+- [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
+- [System Architecture](artifacts/architecture.md)
+- [Source Code](project/src/Clippy)
+	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
+	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
+- [Automated Tests](project/test/Clippy.Tests)
+- Product Demonstration
+
+## Task Allocation
+
+Joshua Frazer -
+
+Jordyn Hayden -
+
+Jerrett Longworth -
+
+Diego Rodrigues -
+
+Jaeivan Romero -
