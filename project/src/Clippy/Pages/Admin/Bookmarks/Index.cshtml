@@ -32,9 +32,17 @@
                         <tr>
                             <td>@bookmark.Id</td>
                             @{
-                                string resourceTitle = "";
-                                if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
-                                    bookmark.Resource.Metadata["Title"] == null)
+                                string resourceTitle = null;
+                                if (!string.IsNullOrWhiteSpace(bookmark.Title))
+                                {
+                                    resourceTitle = bookmark.Title;
+                                }
+                                else if (bookmark.Resource.Metadata.ContainsKey("Title") &&
+                                bookmark.Resource.Metadata["Title"] != null)
+                                {
+                                    resourceTitle = bookmark.Resource.Metadata["Title"];
+                                }
+                                else
                                 {
                                     resourceTitle = "None Provided";
                                 }

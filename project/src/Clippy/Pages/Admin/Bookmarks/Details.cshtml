@@ -12,7 +12,8 @@
                 <h1>Bookmark Details (Id: @Model.Bookmark.Id)</h1>
             </header>
             <p><strong>Location:</strong> <a href="@Model.Bookmark.Resource.Location">@Model.Bookmark.Resource.Location</a></p>
-            <p><strong>Metadata:</strong> @Model.Bookmark.Resource.Metadata.Count item(s)</p>
+            <p><strong>Title:</strong> @Model.Bookmark.Title</p>
+            <p><strong>Resource Metadata:</strong> @Model.Bookmark.Resource.Metadata.Count item(s)</p>
             <pre>
                 @foreach(var metadata in Model.Bookmark.Resource.Metadata) {
                     @($"     {metadata.Key}: {metadata.Value}\n")

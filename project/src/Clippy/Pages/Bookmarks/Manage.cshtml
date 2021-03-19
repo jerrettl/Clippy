@@ -21,8 +21,16 @@
         <div class="card">
             @{
                     string resourceTitle = null;
-                    if (!bookmark.Resource.Metadata.TryGetValue("Title", out resourceTitle) ||
-                    bookmark.Resource.Metadata["Title"] == null)
+                    if (!string.IsNullOrWhiteSpace(bookmark.Title))
+                    {
+                        resourceTitle = bookmark.Title;
+                    }
+                    else if (bookmark.Resource.Metadata.ContainsKey("Title") &&
+                    bookmark.Resource.Metadata["Title"] != null)
+                    {
+                        resourceTitle = bookmark.Resource.Metadata["Title"];
+                    }
+                    else
                     {
                         resourceTitle = bookmark.Resource.Location;
                     }
@@ -59,7 +67,7 @@
             }
             <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder">
             <div class="title-icon-container">
-                <h3>@resourceTitle</h3>
+                <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
                 <a asp-page="Edit"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
             </div>
 
