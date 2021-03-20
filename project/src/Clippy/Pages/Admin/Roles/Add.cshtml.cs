@@ -39,6 +39,8 @@ namespace Clippy.Pages.Admin.Roles
             _context.AddRole(role);
             await _context.SaveChangesAsync();
 
+            TempData["Message"] = $"{Role.Name} Role successfully added.";
+
             return RedirectToPage("./Index");
         }
     }
