@@ -1,4 +1,18 @@
-﻿<!DOCTYPE HTML>
+﻿@using System.Security.Claims
+@{
+    string avatarUrl = "";
+    if (User.Identity.IsAuthenticated) {
+        foreach (Claim claim in User.Claims)
+        {
+            if (claim.Type == "urn:github:avatar")
+            {
+                avatarUrl = claim.Value;
+            }
+        }
+    }
+}
+
+<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -41,7 +55,7 @@
                 <img src="/images/resources/paperclip.png" class="clip-icon">
             </a>
             <div class="wrapper">
-                <a href="#" class="dd-parent"><img src="@Model.AvatarUrl" class="avatar" alt="@User.Identity.Name"></a>
+                <a href="#" class="dd-parent"><img src="@avatarUrl" class="avatar" alt="@User.Identity.Name"></a>
                 <div class="dd-menu">
                     <div class="triangle"></div>
                     <a href="/Profile"><ul class="dd-menu-top">Profile</ul></a>
