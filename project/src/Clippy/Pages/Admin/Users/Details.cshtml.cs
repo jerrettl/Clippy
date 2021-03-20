@@ -56,6 +56,8 @@ namespace Clippy.Pages.Admin.Users
 
             await _context.SaveChangesAsync();
 
+            TempData["Message"] = $"User successfully deleted. Id = {id}.";
+
             return RedirectToPage("./Index");
         }
 
