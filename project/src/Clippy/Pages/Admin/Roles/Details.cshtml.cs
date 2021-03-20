@@ -20,7 +20,10 @@ namespace Clippy.Pages.Admin.Roles
         public async Task<IActionResult> OnGetAsync(int id) {
             Role = await _context.GetRoleAsync(id);
             if (Role == null)
+            {
+                TempData["Message"] = $"Role not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             return Page();
         }
