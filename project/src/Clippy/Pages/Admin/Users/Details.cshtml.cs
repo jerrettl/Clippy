@@ -18,6 +18,8 @@ namespace Clippy.Pages.Admin.Users
         [BindProperty]
         public User UserEntity { get; set; }
 
+        public bool UnitTesting { get; set; } = false;
+
         public async Task<IActionResult> OnGetAsync(int id) {
             UserEntity = await _context.GetUserAsync(id);
             if (UserEntity == null)
@@ -28,17 +30,20 @@ namespace Clippy.Pages.Admin.Users
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            string currentUsername = User.Claims.First(c => c.Type == "urn:github:login").Value;
-
             var user = await _context.GetUserAsync(id);
 
             if (user == null)
                 return RedirectToPage("./Index");
 
-            if (currentUsername.Equals(user.Username))
+            if (!UnitTesting)
             {
-                TempData["Message"] = "You cannot delete yo-self!";
-                return RedirectToPage("./Index");
+                string currentUsername = User.Claims.First(c => c.Type == "urn:github:login").Value;
+
+                if (currentUsername.Equals(user.Username))
+                {
+                    TempData["Message"] = "You cannot delete yo-self!";
+                    return RedirectToPage("./Index");
+                }
             }
 
             _context.Remove(user);
