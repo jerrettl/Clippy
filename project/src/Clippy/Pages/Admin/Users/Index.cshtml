@@ -11,6 +11,12 @@
             <header class="major">
                 <h1>Users</h1>
             </header>
+            @if(TempData.ContainsKey("Message"))
+            {
+            <div class="row message">
+                <span><i class="fas fa-exclamation-triangle"></i> @TempData["Message"]</span>
+            </div>
+            }
             <div class="row table-filter">
                 <div class="col-4 col-12-xsmall">
                     <input type="text" name="filter" id="filter" onkeyup="filter([1,2])" value="" placeholder="Filter..." />
