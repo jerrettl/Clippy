@@ -41,7 +41,10 @@ namespace Clippy.Pages.Admin.Roles
 
             var existingRole = await _context.GetRoleAsync(id);
             if (existingRole == null)
+            {
+                TempData["Message"] = $"Role not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             if (existingRole.Name != Role.Name) {
                 var existingName = await _context.GetRoleByNameAsync(Role.Name);
