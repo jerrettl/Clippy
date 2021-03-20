@@ -46,6 +46,7 @@ namespace Clippy.Tests.Admin.Users
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
             var pageModel = new DetailsModel(mockContext.Object);
+            pageModel.UnitTesting = true;
 
             // Act
             var result = await pageModel.OnPostDeleteAsync(userId);
@@ -68,6 +69,7 @@ namespace Clippy.Tests.Admin.Users
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult((User)null));
             var pageModel = new DetailsModel(mockContext.Object);
+            pageModel.UnitTesting = true;
 
             // Act
             var result = await pageModel.OnPostDeleteAsync(userId);

@@ -2,6 +2,7 @@
 @model Clippy.Pages.Admin.Users.DetailsModel
 @{
     ViewData["Title"] = "User Details";
+    string currentUsername = User.Claims.First(c => c.Type == "urn:github:login").Value;
 }
 
 <div id="main">
@@ -30,7 +31,10 @@
             <hr>
             <ul class="actions">
                 <li><a asp-page="Index" class="button">Back</a></li>
+                @if(!currentUsername.Equals(Model.UserEntity.Username))
+                {
                 <li><form method="Post"><button asp-page-handler="Delete" asp-route-id="@Model.UserEntity.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button></form></li>
+                }
             </ul>
         </div>
     </section>

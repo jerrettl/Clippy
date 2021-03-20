@@ -2,6 +2,7 @@ using Clippy.Data;
 using Clippy.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Clippy.Pages.Admin.Users
@@ -17,6 +18,8 @@ namespace Clippy.Pages.Admin.Users
         [BindProperty]
         public User UserEntity { get; set; }
 
+        public bool UnitTesting { get; set; } = false;
+
         public async Task<IActionResult> OnGetAsync(int id) {
             UserEntity = await _context.GetUserAsync(id);
             if (UserEntity == null)
@@ -31,6 +34,17 @@ namespace Clippy.Pages.Admin.Users
 
             if (user == null)
                 return RedirectToPage("./Index");
+
+            if (!UnitTesting)
+            {
+                string currentUsername = User.Claims.First(c => c.Type == "urn:github:login").Value;
+
+                if (currentUsername.Equals(user.Username))
+                {
+                    TempData["Message"] = "You cannot delete yo-self!";
+                    return RedirectToPage("./Index");
+                }
+            }
 
             _context.Remove(user);
 

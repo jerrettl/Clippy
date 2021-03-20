@@ -60,3 +60,10 @@ span.hint {
 .card-body {
     text-align:center;
 }
+
+div.message {
+    padding: 20px 0 20px 0;
+    background-color: #026688;
+    margin-left: 0;
+    margin-bottom: 25px;
+}
