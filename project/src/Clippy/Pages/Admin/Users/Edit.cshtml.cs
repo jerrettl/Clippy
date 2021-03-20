@@ -28,7 +28,8 @@ namespace Clippy.Pages.Admin.Users
 
             UserEntity = new EditUserModel {
                 Username = user.Username,
-                Name = user.Name
+                Name = user.Name,
+                Bio = user.Bio
             };
 
             return Page();
@@ -54,6 +55,7 @@ namespace Clippy.Pages.Admin.Users
 
             existingUser.Username = UserEntity.Username;
             existingUser.Name = UserEntity.Name;
+            existingUser.Bio = UserEntity.Bio;
 
             _context.Update(existingUser);
             await _context.SaveChangesAsync();

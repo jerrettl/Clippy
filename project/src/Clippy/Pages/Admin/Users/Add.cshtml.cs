@@ -79,6 +79,7 @@ namespace Clippy.Pages.Admin.Users
             {
                 Username = UserEntity.Username,
                 Name = UserEntity.Name,
+                Bio = UserEntity.Bio,
                 CreateDate = DateTime.UtcNow,
                 Roles = roles,
                 Subscriptions = subscriptions,
