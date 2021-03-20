@@ -29,12 +29,11 @@ namespace Clippy.Pages.Admin.Bookmarks
         {
             var bookmark = await _context.GetBookmarkAsync(id);
 
-            if (bookmark == null)
-                return RedirectToPage("./Index");
-
             _context.Remove(bookmark);
 
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = $"Bookmark successfully deleted. Id = {id}.";
 
             return RedirectToPage("./Index");
         }
