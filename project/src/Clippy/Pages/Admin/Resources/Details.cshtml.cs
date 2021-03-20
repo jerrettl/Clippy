@@ -20,7 +20,10 @@ namespace Clippy.Pages.Admin.Resources
         public async Task<IActionResult> OnGetAsync(int id) {
             Resource = await _context.GetResourceAsync(id);
             if (Resource == null)
+            {
+                TempData["Message"] = $"Resource not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             return Page();
         }
