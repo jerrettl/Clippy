@@ -66,6 +66,8 @@ namespace Clippy.Pages.Admin.Users
             _context.Update(existingUser);
             await _context.SaveChangesAsync();
 
+            TempData["Message"] = $"User successfully updated.";
+
             return RedirectToPage("./Index");
         }
     }
