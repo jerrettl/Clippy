@@ -21,7 +21,6 @@ namespace Clippy.Pages.Bookmarks
         {
             _context = context;
         }
-        public string AvatarUrl { get; set; }
 
         [BindProperty]
         public AddBookmarkModel BookmarkEntity { get; set; }
@@ -30,15 +29,10 @@ namespace Clippy.Pages.Bookmarks
 
         public void OnGet()
         {
-            AvatarUrl = "";
-            foreach (Claim claim in User.Claims)
-            {
-                if (claim.Type == "urn:github:avatar") AvatarUrl = claim.Value;
-            }
         }
 
         public async Task<IActionResult> OnPostAsync()
-        {       
+        {
             if (!ModelState.IsValid)
                 return Page();
 
@@ -134,7 +128,7 @@ namespace Clippy.Pages.Bookmarks
             {
                 bookmark.Title = null;
             }
-            
+
             _context.AddBookmark(bookmark);
             await _context.SaveChangesAsync();
             string returnPage = Request.Query.ContainsKey("return") ? "." + Request.Query["return"] : "./Index";
