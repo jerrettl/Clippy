@@ -45,7 +45,10 @@ namespace Clippy.Pages.Admin.Users
 
             var existingUser = await _context.GetUserAsync(id);
             if (existingUser == null)
+            {
+                TempData["Message"] = $"User not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             if (existingUser.Username != UserEntity.Username) {
                 var existingUsername = await _context.GetUserByUsernameAsync(UserEntity.Username);
