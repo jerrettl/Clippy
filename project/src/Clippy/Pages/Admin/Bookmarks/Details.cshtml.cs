@@ -29,6 +29,12 @@ namespace Clippy.Pages.Admin.Bookmarks
         {
             var bookmark = await _context.GetBookmarkAsync(id);
 
+            if (bookmark == null)
+            {
+                TempData["Message"] = $"Bookmark not found. Id = {id}.";
+                return RedirectToPage("./Index");
+            }
+
             _context.Remove(bookmark);
 
             await _context.SaveChangesAsync();
