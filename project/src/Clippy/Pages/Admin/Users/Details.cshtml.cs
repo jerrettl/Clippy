@@ -23,7 +23,10 @@ namespace Clippy.Pages.Admin.Users
         public async Task<IActionResult> OnGetAsync(int id) {
             UserEntity = await _context.GetUserAsync(id);
             if (UserEntity == null)
+            {
+                TempData["Message"] = $"User not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             return Page();
         }
