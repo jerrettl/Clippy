@@ -33,7 +33,10 @@ namespace Clippy.Pages.Admin.Resources
             var resource = await _context.GetResourceAsync(id);
 
             if (resource == null)
+            {
+                TempData["Message"] = $"Resource not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             _context.Remove(resource);
 
