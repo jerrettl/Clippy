@@ -22,7 +22,10 @@ namespace Clippy.Pages.Admin.Roles
         {
             var role = await _context.GetRoleAsync(id);
             if (role == null)
+            {
+                TempData["Message"] = $"Role not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             Role = new EditRoleModel {
                 Name = role.Name
