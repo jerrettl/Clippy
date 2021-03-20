@@ -20,7 +20,10 @@ namespace Clippy.Pages.Admin.Roles
         public async Task<IActionResult> OnGetAsync(int id) {
             Role = await _context.GetRoleAsync(id);
             if (Role == null)
+            {
+                TempData["Message"] = $"Role not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             return Page();
         }
@@ -30,11 +33,16 @@ namespace Clippy.Pages.Admin.Roles
             var role = await _context.GetRoleAsync(id);
 
             if (role == null)
+            {
+                TempData["Message"] = $"Role not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             _context.Remove(role);
 
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = $"Role successfully deleted. Id = {id}.";
 
             return RedirectToPage("./Index");
         }

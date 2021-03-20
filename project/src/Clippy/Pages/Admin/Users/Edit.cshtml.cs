@@ -24,7 +24,10 @@ namespace Clippy.Pages.Admin.Users
         {
             var user = await _context.GetUserAsync(id);
             if (user == null)
+            {
+                TempData["Message"] = $"User not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             UserEntity = new EditUserModel {
                 Username = user.Username,
@@ -42,7 +45,10 @@ namespace Clippy.Pages.Admin.Users
 
             var existingUser = await _context.GetUserAsync(id);
             if (existingUser == null)
+            {
+                TempData["Message"] = $"User not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             if (existingUser.Username != UserEntity.Username) {
                 var existingUsername = await _context.GetUserByUsernameAsync(UserEntity.Username);
@@ -59,6 +65,8 @@ namespace Clippy.Pages.Admin.Users
 
             _context.Update(existingUser);
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = $"User successfully updated.";
 
             return RedirectToPage("./Index");
         }

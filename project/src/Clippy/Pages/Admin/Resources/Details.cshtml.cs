@@ -20,7 +20,10 @@ namespace Clippy.Pages.Admin.Resources
         public async Task<IActionResult> OnGetAsync(int id) {
             Resource = await _context.GetResourceAsync(id);
             if (Resource == null)
+            {
+                TempData["Message"] = $"Resource not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             return Page();
         }
@@ -30,11 +33,16 @@ namespace Clippy.Pages.Admin.Resources
             var resource = await _context.GetResourceAsync(id);
 
             if (resource == null)
+            {
+                TempData["Message"] = $"Resource not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             _context.Remove(resource);
 
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = $"Resource successfully deleted. Id = {id}.";
 
             return RedirectToPage("./Index");
         }

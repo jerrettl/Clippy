@@ -45,7 +45,10 @@ namespace Clippy.Pages.Admin.Resources
             };
 
             _context.AddResource(resource);
+
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = $"Resource successfully added.";
 
             return RedirectToPage("./Index");
         }

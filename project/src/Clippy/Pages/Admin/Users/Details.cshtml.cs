@@ -23,7 +23,10 @@ namespace Clippy.Pages.Admin.Users
         public async Task<IActionResult> OnGetAsync(int id) {
             UserEntity = await _context.GetUserAsync(id);
             if (UserEntity == null)
+            {
+                TempData["Message"] = $"User not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             return Page();
         }
@@ -33,7 +36,10 @@ namespace Clippy.Pages.Admin.Users
             var user = await _context.GetUserAsync(id);
 
             if (user == null)
+            {
+                TempData["Message"] = $"User not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             if (!UnitTesting)
             {
@@ -49,6 +55,8 @@ namespace Clippy.Pages.Admin.Users
             _context.Remove(user);
 
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = $"User successfully deleted. Id = {id}.";
 
             return RedirectToPage("./Index");
         }

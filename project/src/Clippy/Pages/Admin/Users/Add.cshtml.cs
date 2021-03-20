@@ -89,6 +89,8 @@ namespace Clippy.Pages.Admin.Users
             _context.AddUser(user);
             await _context.SaveChangesAsync();
 
+            TempData["Message"] = $"{user.Username} successfully added as a user.";
+
             return RedirectToPage("./Index");
         }
     }

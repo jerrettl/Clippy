@@ -24,7 +24,10 @@ namespace Clippy.Pages.Admin.Resources
         {
             var resource = await _context.GetResourceAsync(id);
             if (resource == null)
+            {
+                TempData["Message"] = $"Resource not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             Resource = new EditResourceModel
             {
@@ -45,7 +48,10 @@ namespace Clippy.Pages.Admin.Resources
 
             var existingResource = await _context.GetResourceAsync(id);
             if (existingResource == null)
+            {
+                TempData["Message"] = $"Resource not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             if (Resource.Location != existingResource.Location) {
                 var existingLocation = await _context.GetResourceByLocationAsync(Resource.Location);
@@ -61,6 +67,8 @@ namespace Clippy.Pages.Admin.Resources
 
             _context.Update(existingResource);
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = $"Resource successfully updated.";
 
             return RedirectToPage("./Index");
         }

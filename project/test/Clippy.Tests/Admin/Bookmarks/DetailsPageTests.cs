@@ -2,7 +2,9 @@ using Clippy.Data;
 using Clippy.Data.Helpers;
 using Clippy.Entities;
 using Clippy.Pages.Admin.Bookmarks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using System.Linq;
@@ -28,7 +30,12 @@ namespace Clippy.Tests.Admin.Bookmarks
             var expectedBookmark = DatabaseInitializer.GetSeedingBookmarks().Single(b => b.Id == bookmarkId);
             mockContext.Setup(
                 db => db.GetBookmarkAsync(bookmarkId)).Returns(Task.FromResult(expectedBookmark));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
 
             // Act
             await pageModel.OnGetAsync(bookmarkId);
@@ -53,7 +60,12 @@ namespace Clippy.Tests.Admin.Bookmarks
             var expectedBookmark = DatabaseInitializer.GetSeedingBookmarks().Single(b => b.Id == bookmarkId);
             mockContext.Setup(
                 db => db.GetBookmarkAsync(bookmarkId)).Returns(Task.FromResult(expectedBookmark));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
 
             // Act
             var result = await pageModel.OnPostDeleteAsync(bookmarkId);
@@ -75,7 +87,12 @@ namespace Clippy.Tests.Admin.Bookmarks
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
             mockContext.Setup(
                 db => db.GetBookmarkAsync(bookmarkId)).Returns(Task.FromResult((Bookmark)null));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
 
             // Act
             var result = await pageModel.OnPostDeleteAsync(bookmarkId);

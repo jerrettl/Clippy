@@ -2,7 +2,9 @@ using Clippy.Data;
 using Clippy.Data.Helpers;
 using Clippy.Entities;
 using Clippy.Pages.Admin.Users;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using System.Linq;
@@ -24,7 +26,12 @@ namespace Clippy.Tests.Admin.Users
             var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
 
             // Act
             await pageModel.OnGetAsync(userId);
@@ -45,7 +52,12 @@ namespace Clippy.Tests.Admin.Users
             var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
             pageModel.UnitTesting = true;
 
             // Act
@@ -68,7 +80,12 @@ namespace Clippy.Tests.Admin.Users
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult((User)null));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
             pageModel.UnitTesting = true;
 
             // Act

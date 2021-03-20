@@ -129,7 +129,10 @@ namespace Clippy.Pages.Admin.Bookmarks
             }
 
             _context.AddBookmark(bookmark);
+
             await _context.SaveChangesAsync();
+
+            TempData["Message"] = "Bookmark successfully added.";
 
             return RedirectToPage("./Index");
         }

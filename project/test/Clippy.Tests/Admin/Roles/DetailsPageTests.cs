@@ -2,7 +2,9 @@ using Clippy.Data;
 using Clippy.Data.Helpers;
 using Clippy.Entities;
 using Clippy.Pages.Admin.Roles;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using System.Linq;
@@ -24,7 +26,12 @@ namespace Clippy.Tests.Admin.Roles
             var expectedRole = DatabaseInitializer.GetSeedingRoles().Single(r => r.Id == roleId);
             mockContext.Setup(
                 db => db.GetRoleAsync(roleId)).Returns(Task.FromResult(expectedRole));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
 
             // Act
             await pageModel.OnGetAsync(roleId);
@@ -45,7 +52,12 @@ namespace Clippy.Tests.Admin.Roles
             var expectedRole = DatabaseInitializer.GetSeedingRoles().Single(r => r.Id == roleId);
             mockContext.Setup(
                 db => db.GetRoleAsync(roleId)).Returns(Task.FromResult(expectedRole));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
 
             // Act
             var result = await pageModel.OnPostDeleteAsync(roleId);
@@ -67,7 +79,12 @@ namespace Clippy.Tests.Admin.Roles
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
             mockContext.Setup(
                 db => db.GetRoleAsync(roleId)).Returns(Task.FromResult((Role)null));
-            var pageModel = new DetailsModel(mockContext.Object);
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            var pageModel = new DetailsModel(mockContext.Object)
+            {
+                TempData = tempData    
+            };
 
             // Act
             var result = await pageModel.OnPostDeleteAsync(roleId);
