@@ -23,8 +23,6 @@ namespace Clippy.Data.Helpers {
 
         public static List<Resource> GetSeedingResources()
         {
-            var now = DateTime.UtcNow;
-
             var r1 = new Resource
             {
                 Id = 1,
@@ -36,7 +34,7 @@ namespace Clippy.Data.Helpers {
                     { "ImageURL", "natgeo.jpg" },
                     { "Description", "Explore the world's beauty." }
                 },
-                CreateDate = now
+                CreateDate = new DateTime(2021, 3, 2, 14, 8, 6, DateTimeKind.Utc)
             };
 
             var r2  = new Resource
@@ -50,7 +48,7 @@ namespace Clippy.Data.Helpers {
                     { "ImageURL", "yellowstone.jpg" },
                     { "Description", "Escape to a winter wonderland." }
                 },
-                CreateDate = now
+                CreateDate = new DateTime(2021, 3, 2, 18, 21, 8, DateTimeKind.Utc)
             };
 
             var r3  = new Resource
@@ -64,7 +62,7 @@ namespace Clippy.Data.Helpers {
                     { "ImageURL", "foodnetwork.jpg" },
                     { "Description", "Entice your taste buds." }
                 },
-                CreateDate = now
+                CreateDate = new DateTime(2021, 3, 3, 17, 38, 42, DateTimeKind.Utc)
             };
 
             var r4  = new Resource
@@ -78,7 +76,7 @@ namespace Clippy.Data.Helpers {
                     { "ImageURL", "lovelemons.jpg" },
                     { "Description", "Detoxify yourself each day." }
                 },
-                CreateDate = now
+                CreateDate = new DateTime(2021, 3, 3, 23, 59, 0, DateTimeKind.Utc)
             };
 
             var r5  = new Resource
@@ -92,7 +90,7 @@ namespace Clippy.Data.Helpers {
                     { "ImageURL", "appalachiantrail.jpg" },
                     { "Description", "Escape the city lights." }
                 },
-                CreateDate = now
+                CreateDate = new DateTime(2021, 3, 4, 5, 12, 58, DateTimeKind.Utc)
             };
 
             var r6  = new Resource
@@ -106,7 +104,7 @@ namespace Clippy.Data.Helpers {
                     { "ImageURL", "spacex.jpg" },
                     { "Description", "Experience space travel." }
                 },
-                CreateDate = now
+                CreateDate = new DateTime(2021, 3, 10, 9, 45, 32, DateTimeKind.Utc)
             };
 
             return new List<Resource>(new[] {r1, r2, r3, r4, r5, r6});
@@ -130,7 +128,7 @@ namespace Clippy.Data.Helpers {
                 Id = 1,
                 Username = "Clippy5",
                 Name = "Clippy5 Team",
-                CreateDate = DateTime.UtcNow
+                CreateDate = new DateTime(2021, 3, 1, 20, 32, 2, DateTimeKind.Utc)
             };
 
             return new List<User> (new[] {u1});
@@ -157,8 +155,6 @@ namespace Clippy.Data.Helpers {
 
         public static List<Bookmark> GetSeedingBookmarks()
         {
-            var now = DateTime.UtcNow;
-
             var resources = GetSeedingResources();
             var user = GetSeedingUsers().First(u => u.Id == 1);
 
@@ -171,7 +167,7 @@ namespace Clippy.Data.Helpers {
                     Id = i,
                     ResourceId = resources[i].Id,
                     UserId = user.Id,
-                    CreateDate = now
+                    CreateDate = resources[i].CreateDate
                 });
             }
 
