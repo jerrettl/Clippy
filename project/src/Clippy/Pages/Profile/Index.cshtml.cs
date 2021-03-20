@@ -19,6 +19,8 @@ namespace Clippy.Pages.Profile
 
         public string AvatarUrl { get; set; }
 
+        public string UserBio { get; set; }
+
         public async void OnGetAsync()
         {
             AvatarUrl = "";
@@ -54,6 +56,8 @@ namespace Clippy.Pages.Profile
                 await _context.SaveChangesAsync();
                 userId = dbResponse.Entity.Id;
             }
+
+            UserBio = user.Bio;
 
             Bookmarks = await _context.GetBookmarksByUserIdAsync(userId);
         }

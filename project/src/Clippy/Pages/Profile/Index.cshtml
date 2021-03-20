@@ -22,7 +22,11 @@
             <a href="#"><img class="icon" src="/images/resources/EditBookmarkIcon.png"></a>
         </div>
 
-        <p id="bio">Bio</p>
+        @{
+            string userBio = (!string.IsNullOrWhiteSpace(Model.UserBio)) ? Model.UserBio : "This user has no bio! (...yet)";
+        }
+
+        <p id="bio">@userBio</p>
     </section>
 
     <section class="favorited-bookmarks border-round">
