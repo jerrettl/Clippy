@@ -45,7 +45,10 @@ namespace Clippy.Pages.Admin.Resources
 
             var existingResource = await _context.GetResourceAsync(id);
             if (existingResource == null)
+            {
+                TempData["Message"] = $"Resource not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             if (Resource.Location != existingResource.Location) {
                 var existingLocation = await _context.GetResourceByLocationAsync(Resource.Location);
