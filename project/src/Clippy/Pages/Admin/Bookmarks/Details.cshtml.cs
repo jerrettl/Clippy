@@ -20,7 +20,10 @@ namespace Clippy.Pages.Admin.Bookmarks
         public async Task<IActionResult> OnGetAsync(int id) {
             Bookmark = await _context.GetBookmarkAsync(id);
             if (Bookmark == null)
+            {
+                TempData["Message"] = $"Bookmark not found. Id = {id}.";
                 return RedirectToPage("./Index");
+            }
 
             return Page();
         }
