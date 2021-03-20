@@ -21,6 +21,9 @@ namespace Clippy.Entities
 
         public string GithubId { get; set; }
 
+        [MaxLength(1000)]
+        public string Bio { get; set; }
+
         public IList<User> Subscriptions { get; set; }
 
         public IList<User> Followers { get; set; }
