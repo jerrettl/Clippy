@@ -162,7 +162,7 @@ Jaeivan Romero - I worked on getting a users name and bookmarks on our main page
 
 ## Task Allocation
 
-Joshua Frazer -
+Joshua Frazer - Added adding bookmark functionality to Clippy. Modified and finalized the entire card layout so columns of populated data won't be constrained to one window size. Helped create the entire profile page with all elements ready for future data. Updated the database to include unique descriptions and titles for each bookmark. Fixed UI bugs such as UI looking different across browsers and certain display elements not showing up on certain browsers.
 
 Jordyn Hayden -
 
