@@ -66,7 +66,7 @@ namespace Clippy.Pages.Admin.Users
             _context.Update(existingUser);
             await _context.SaveChangesAsync();
 
-            TempData["Message"] = $"User successfully updated.";
+            TempData["Message"] = $"The user, {existingUser.Username}, was successfully updated.";
 
             return RedirectToPage("./Index");
         }
