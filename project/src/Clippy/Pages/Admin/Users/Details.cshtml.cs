@@ -1,7 +1,9 @@
 using Clippy.Data;
 using Clippy.Entities;
+using Clippy.Models.Admin;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,9 +12,11 @@ namespace Clippy.Pages.Admin.Users
     public class DetailsModel : PageModel
     {
         private ClippyContext _context;
+        private ILogger _logger;
 
-        public DetailsModel(ClippyContext context) {
+        public DetailsModel(ClippyContext context, ILogger<DetailsModel> logger) {
             _context = context;
+            _logger = logger;
         }
 
         [BindProperty]
@@ -57,6 +61,8 @@ namespace Clippy.Pages.Admin.Users
             await _context.SaveChangesAsync();
 
             TempData["Message"] = $"The user, {user.Username}, was successfully deleted.";
+
+            _logger.LogWarning(AdminLoggingEvents.RemoveUserEvent, $"User removed: {user.Username}.");
 
             return RedirectToPage("./Index");
         }

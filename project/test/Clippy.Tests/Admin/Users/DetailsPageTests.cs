@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,12 +24,13 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<DetailsModel>>();
             var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
             var httpContext = new DefaultHttpContext();
             var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
-            var pageModel = new DetailsModel(mockContext.Object)
+            var pageModel = new DetailsModel(mockContext.Object, mockLogger.Object)
             {
                 TempData = tempData    
             };
@@ -49,12 +51,13 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<DetailsModel>>();
             var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
             var httpContext = new DefaultHttpContext();
             var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
-            var pageModel = new DetailsModel(mockContext.Object)
+            var pageModel = new DetailsModel(mockContext.Object, mockLogger.Object)
             {
                 TempData = tempData    
             };
@@ -78,11 +81,12 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<DetailsModel>>();
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult((User)null));
             var httpContext = new DefaultHttpContext();
             var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
-            var pageModel = new DetailsModel(mockContext.Object)
+            var pageModel = new DetailsModel(mockContext.Object, mockLogger.Object)
             {
                 TempData = tempData    
             };
