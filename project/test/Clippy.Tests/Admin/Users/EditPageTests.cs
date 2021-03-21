@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,10 +29,11 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<EditModel>>();
             var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
-            var pageModel = new EditModel(mockContext.Object);
+            var pageModel = new EditModel(mockContext.Object, mockLogger.Object);
 
             // Act
             await pageModel.OnGetAsync(userId);
@@ -49,6 +51,7 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<EditModel>>();
             var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
             mockContext.Setup(db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
             var httpContext = new DefaultHttpContext();
@@ -61,7 +64,7 @@ namespace Clippy.Tests.Admin.Users
             {
                 ViewData = viewData
             };
-            var pageModel = new EditModel(mockContext.Object)
+            var pageModel = new EditModel(mockContext.Object, mockLogger.Object)
             {
                 PageContext = pageContext,
                 TempData = tempData,
@@ -84,6 +87,7 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<EditModel>>();
             var existingUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == existingUserId);
             var otherUser = new User { Username = otherUsername, Name = existingUser.Username};
             mockContext.Setup(db => db.GetUserAsync(existingUser.Id)).Returns(Task.FromResult(existingUser));
@@ -98,7 +102,7 @@ namespace Clippy.Tests.Admin.Users
             {
                 ViewData = viewData
             };
-            var pageModel = new EditModel(mockContext.Object)
+            var pageModel = new EditModel(mockContext.Object, mockLogger.Object)
             {
                 PageContext = pageContext,
                 TempData = tempData,

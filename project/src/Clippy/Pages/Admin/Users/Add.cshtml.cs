@@ -6,15 +6,18 @@ using Clippy.Entities;
 using Clippy.Models.Admin;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
 namespace Clippy.Pages.Admin.Users
 {
     public class AddModel : PageModel
     {
         private ClippyContext _context;
+        private ILogger _logger;
 
-        public AddModel(ClippyContext context) {
+        public AddModel(ClippyContext context, ILogger<AddModel> logger) {
             _context = context;
+            _logger = logger;
         }
 
         [BindProperty]
@@ -89,7 +92,9 @@ namespace Clippy.Pages.Admin.Users
             _context.AddUser(user);
             await _context.SaveChangesAsync();
 
-            TempData["Message"] = $"{user.Username} successfully added as a user.";
+            TempData["Message"] = $"The user, {user.Username}, was successfully added.";
+
+            _logger.LogWarning(AdminLoggingEvents.AddUserEvent, $"New user added: {user.Username}.");
 
             return RedirectToPage("./Index");
         }

@@ -6,15 +6,18 @@ using Clippy.Helpers;
 using Clippy.Models.Admin;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
 namespace Clippy.Pages.Admin.Users
 {
     public class EditModel : PageModel
     {
         private ClippyContext _context;
+        private ILogger _logger;
 
-        public EditModel(ClippyContext context) {
+        public EditModel(ClippyContext context, ILogger<EditModel> logger) {
             _context = context;
+            _logger = logger;
         }
 
         [BindProperty]
@@ -66,7 +69,9 @@ namespace Clippy.Pages.Admin.Users
             _context.Update(existingUser);
             await _context.SaveChangesAsync();
 
-            TempData["Message"] = $"User successfully updated.";
+            TempData["Message"] = $"The user, {existingUser.Username}, was successfully updated.";
+
+            _logger.LogWarning(AdminLoggingEvents.UpdateUserEvent, $"New user updated: {existingUser.Username}.");
 
             return RedirectToPage("./Index");
         }

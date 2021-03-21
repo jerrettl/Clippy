@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,8 +27,10 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<AddModel>>();
             var expectedUsers = DatabaseInitializer.GetSeedingUsers();
             mockContext.Setup(db => db.GetUsersAsync()).Returns(Task.FromResult(expectedUsers));
+            // mockLogger.Setup(l => l.LogWarning(AdminLoggingEvents.AddUserEvent, ))
             var httpContext = new DefaultHttpContext();
             var modelState = new ModelStateDictionary();
             var actionContext = new ActionContext(httpContext, new RouteData(), new PageActionDescriptor(), modelState);
@@ -38,7 +41,7 @@ namespace Clippy.Tests.Admin.Users
             {
                 ViewData = viewData
             };
-            var pageModel = new AddModel(mockContext.Object)
+            var pageModel = new AddModel(mockContext.Object, mockLogger.Object)
             {
                 PageContext = pageContext,
                 TempData = tempData,
@@ -61,6 +64,7 @@ namespace Clippy.Tests.Admin.Users
             var optionsBuilder = new DbContextOptionsBuilder<ClippyContext>()
                 .UseInMemoryDatabase("InMemoryDb");
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
+            var mockLogger = new Mock<ILogger<AddModel>>();
             var existingUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Username == existingUsername);
             mockContext.Setup(db => db.GetUserByUsernameAsync(existingUsername)).Returns(Task.FromResult(existingUser));
             var httpContext = new DefaultHttpContext();
@@ -73,7 +77,7 @@ namespace Clippy.Tests.Admin.Users
             {
                 ViewData = viewData
             };
-            var pageModel = new AddModel(mockContext.Object)
+            var pageModel = new AddModel(mockContext.Object, mockLogger.Object)
             {
                 PageContext = pageContext,
                 TempData = tempData,
