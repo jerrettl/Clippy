@@ -93,7 +93,17 @@ namespace Clippy.Helpers
                 }
 
                 // Save the page contents.
-                pageContent = await response.Content.ReadAsStringAsync();
+                if (response.Content.Headers.ContentType.CharSet != null &&
+                    (response.Content.Headers.ContentType.CharSet.Equals("utf8") ||
+                     response.Content.Headers.ContentType.CharSet.Equals("utf-8")))
+                {
+                    byte[] byteArray = await response.Content.ReadAsByteArrayAsync();
+                    pageContent = System.Text.Encoding.UTF8.GetString(byteArray);
+                }
+                else
+                {
+                    pageContent = await response.Content.ReadAsStringAsync();
+                }
 
                 // Extrapolate the fully resolved URL.
                 try
