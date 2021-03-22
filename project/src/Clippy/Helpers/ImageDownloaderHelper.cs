@@ -10,6 +10,7 @@ namespace Clippy.Helpers
     public class ImageDownloaderHelper
     {
         const int MAX_TRIES = 5;
+        const string USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36";
 
         // Take the URL of a website as input, and attempt to download an image
         // from it using different methods. Returns the name of the file that was downloaded.
@@ -42,8 +43,11 @@ namespace Clippy.Helpers
             }
 
             // Setup for making requests to the internet.
-            HttpClientHandler handler = new HttpClientHandler() { AllowAutoRedirect = false };
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.AllowAutoRedirect = false;
+            handler.AutomaticDecompression = DecompressionMethods.All;
             HttpClient client = new HttpClient(handler);
+            client.DefaultRequestHeaders.Add("User-Agent", USER_AGENT);
             client.Timeout = TimeSpan.FromSeconds(5);
             HttpRequestMessage request = null;
             HttpResponseMessage response = null;
@@ -127,6 +131,7 @@ namespace Clippy.Helpers
             try
             {
                 WebClient webClient = new WebClient();
+                webClient.Headers.Add("User-Agent", USER_AGENT);
                 webClient.DownloadFile(longUrl, localImagePath);
             }
             catch (WebException exception)
@@ -185,16 +190,29 @@ namespace Clippy.Helpers
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(pageContent);
 
-            // Find the first <img> tag.
-            HtmlNode firstImage = doc.DocumentNode.SelectSingleNode("//img");
-            if (firstImage == null) return null;
+            // Find all <img> tags.
+            HtmlNodeCollection images = doc.DocumentNode.SelectNodes("//img");
+            if (images == null) return null;
 
-            // Generate the full URL to the image.
-            string imageUrl = GenerateImageUrl(url, firstImage.Attributes["src"].Value);
+            // Go through all the <img> tags and find the first reasonable-looking image link.
+            string newFileName = null;
+            foreach (HtmlNode node in images)
+            {
+                // Skip this image if it isn't wanted.
+                if (node.Attributes.Contains("src") && !IsSupportedFile(node.Attributes["src"].Value))
+                {
+                    continue;
+                }
 
-            // Download the image using a unique identifier.
-            string strippedImageUrl = (imageUrl.Contains("?")) ? imageUrl.Split("?")[0] : imageUrl;
-            string newFileName = DownloadImage(strippedImageUrl, imageUrl);
+                // Generate the full URL to the image.
+                string imageUrl = GenerateImageUrl(url, node.Attributes["src"].Value);
+
+                // Download the image using a unique identifier.
+                string strippedImageUrl = (imageUrl.Contains("?")) ? imageUrl.Split("?")[0] : imageUrl;
+
+                newFileName = DownloadImage(strippedImageUrl, imageUrl);
+                if (newFileName != null) break;
+            }           
 
             return newFileName;
         }
@@ -245,6 +263,27 @@ namespace Clippy.Helpers
             }
 
             return newFileName;
+        }
+
+        // Check if a file name has a supported file extension and isn't a sprite sheet.
+        private static bool IsSupportedFile(string fileName)
+        {
+            if (fileName.Contains("sprite"))
+            {
+                return false;
+            }
+            else if (fileName.EndsWith(".png") ||
+                fileName.EndsWith(".jpeg") ||
+                fileName.EndsWith(".jpg") ||
+                fileName.EndsWith(".svg") ||
+                fileName.EndsWith(".ico"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
