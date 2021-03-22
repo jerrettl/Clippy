@@ -170,4 +170,4 @@ Jerrett Longworth - Added automatic image downloading from bookmarked sites (057
 
 Diego Rodrigues - Completely remade the homepage with new assets created in photoshop and made the page responsive. Helped create the user page by establishing a responsive grid, layout, and aided in the data display process on the page. Helped fixed test failing bugs.
 
-Jaeivan Romero -
+Jaeivan Romero - I helped with adding description and viewing for bookmarks. I also helped with laying out bookmarks in a compact fashion.
