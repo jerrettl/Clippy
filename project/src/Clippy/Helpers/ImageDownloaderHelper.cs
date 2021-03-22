@@ -199,7 +199,7 @@ namespace Clippy.Helpers
             foreach (HtmlNode node in images)
             {
                 // Skip this image if it isn't wanted.
-                if (node.Attributes.Contains("src") && !IsSupportedFile(node.Attributes["src"].Value))
+                if (!node.Attributes.Contains("src") || !IsSupportedFile(node.Attributes["src"].Value))
                 {
                     continue;
                 }
