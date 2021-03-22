@@ -130,7 +130,7 @@ namespace Clippy.Helpers
             // Download the image.
             try
             {
-                WebClient webClient = new WebClient();
+                WebClient webClient = new CustomWebClient();
                 webClient.Headers.Add("User-Agent", USER_AGENT);
                 webClient.DownloadFile(longUrl, localImagePath);
             }
@@ -285,5 +285,16 @@ namespace Clippy.Helpers
                 return false;
             }
         }
+    }
+
+    class CustomWebClient : WebClient
+    {
+        protected override WebRequest GetWebRequest(Uri address)
+        {
+            HttpWebRequest request = base.GetWebRequest(address) as HttpWebRequest;
+            request.AutomaticDecompression = DecompressionMethods.All;
+            return request;
+        }
+
     }
 }
