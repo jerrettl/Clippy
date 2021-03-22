@@ -31,7 +31,7 @@ namespace Clippy.Pages.Admin.Resources
 
             Resource = new EditResourceModel
             {
-                Title = resource.Metadata["Title"],
+                Title = resource.Metadata.ContainsKey("Title") ? resource.Metadata["Title"] : "",
                 Location = resource.Location,
                 MediaType = resource.Metadata.ContainsKey("MediaType") ? resource.Metadata["MediaType"] : "",
                 Image = resource.Metadata.ContainsKey("ImageURL") ? resource.Metadata["ImageURL"] : "",
