@@ -166,7 +166,7 @@ Joshua Frazer - Added adding bookmark functionality to Clippy. Modified and fina
 
 Jordyn Hayden - I added successful notifications throughout the entire Admin which includes notifications for successful adds, updates, and deletes across the user, bookmark, resource, and roles tables. I also added unsuccessful notifications throughout the admin portal when an admin attempts to edit, update, or delete a record in the database that does not exist. Like the previous successful notifications, these unsuccessful notifications applies to users, bookmarks, roles, and resources. I refactored repetitive logic done in the frontend associated with displaying the avatar for the logged-in user by moving the code to a common component thereby removing redundency in the code base. I implemented application-wide logging, allowing developers to log meaningful events in a consistent manner. I configured two logging sources, a console and a rolling log file. I implemented critical logging associated with user accounts in the admin when an admin adds, updates, and deletes user accounts. Finally, I recorded, editing, and uploaded this sprint's demo.
 
-Jerrett Longworth -
+Jerrett Longworth - Added automatic image downloading from bookmarked sites (057) and basic user bio functionality (058).
 
 Diego Rodrigues -
 
