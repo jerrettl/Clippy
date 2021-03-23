@@ -83,6 +83,7 @@ namespace Clippy.Pages.Admin.Users
                 Username = UserEntity.Username,
                 Name = UserEntity.Name,
                 Bio = UserEntity.Bio,
+                AvatarUrl = UserEntity.AvatarUrl,
                 CreateDate = DateTime.UtcNow,
                 Roles = roles,
                 Subscriptions = subscriptions,
