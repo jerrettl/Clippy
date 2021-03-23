@@ -65,6 +65,7 @@ namespace Clippy.Pages.Admin.Users
             existingUser.Username = UserEntity.Username;
             existingUser.Name = UserEntity.Name;
             existingUser.Bio = UserEntity.Bio;
+            existingUser.AvatarUrl = UserEntity.AvatarUrl;
 
             _context.Update(existingUser);
             await _context.SaveChangesAsync();

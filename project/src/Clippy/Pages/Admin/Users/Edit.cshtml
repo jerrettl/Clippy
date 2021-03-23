@@ -29,6 +29,11 @@
                         <textarea asp-for="UserEntity.Bio"></textarea>
                         <span asp-validation-for="UserEntity.Bio"></span>
                     </div>
+                    <div class="field">
+                        <label for="name">Avatar URL</label>
+                        <input type="text" asp-for="UserEntity.AvatarUrl" />
+                        <span asp-validation-for="UserEntity.AvatarUrl"></span>
+                    </div>
                 </div>
                 <ul class="actions">
                     <li><input type="submit" value="Update" class="primary" /></li>
