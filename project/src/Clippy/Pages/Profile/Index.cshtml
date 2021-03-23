@@ -17,7 +17,7 @@
             <p class="title">Intro</p>
             @if (Model.ViewingUser.Id == Model.ThisUser.Id)
             {
-            <a asp-page="/Settings/Index"><img class="icon" src="/images/resources/EditBookmarkIcon.png"></a>
+                <a asp-page="/Settings/Index"><img class="icon" src="/images/resources/EditBookmarkIcon.png"></a>
             }
         </div>
 
@@ -31,7 +31,10 @@
     <section class="favorited-bookmarks border-round">
         <div class="upper-div">
             <p class="title">Favorite Bookmarks</p>
-            <a href="#"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+            @if (Model.ViewingUser.Id == Model.ThisUser.Id)
+            {
+                <a href="#"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+            }
         </div>
 
 
@@ -43,7 +46,10 @@
     <section class="posts border-round">
         <div class="upper-div">
             <p class="title">Posts</p>
-            <a href="/Bookmarks/Add?return=@Request.Path"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+            @if (Model.ViewingUser.Id == Model.ThisUser.Id)
+            {
+                <a href="/Bookmarks/Add?return=@Request.Path"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
+            }
         </div>
 
         @* crazy for loop *@
