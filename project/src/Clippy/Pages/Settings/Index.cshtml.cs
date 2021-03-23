@@ -89,5 +89,35 @@ namespace Clippy.Pages.Settings
 
             return RedirectToPage("/Profile/Index");
         }
+
+        public async Task<IActionResult> OnPostRefreshAsync()
+        {
+            string githubId = "";
+            string name = "";
+            string username = "";
+            string avatarUrl = "";
+            foreach (Claim claim in User.Claims)
+            {
+                if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
+                else if (claim.Type == ClaimTypes.Name) name = claim.Value;
+                else if (claim.Type == "urn:github:login") username = claim.Value;
+                else if (claim.Type == "urn:github:avatar") avatarUrl = claim.Value;
+            }
+
+            User user = await _context.GetUserByGithubId(githubId);
+            if (user == null)
+            {
+                return RedirectToPage("./Index");
+            }
+
+            user.AvatarUrl = avatarUrl;
+            user.Username = username;
+            user.Name = name;
+            
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("/Profile/Index");
+        }
     }
 }
