@@ -35,7 +35,8 @@ namespace Clippy.Pages.Admin.Users
             UserEntity = new EditUserModel {
                 Username = user.Username,
                 Name = user.Name,
-                Bio = user.Bio
+                Bio = user.Bio,
+                AvatarUrl = user.AvatarUrl
             };
 
             return Page();
