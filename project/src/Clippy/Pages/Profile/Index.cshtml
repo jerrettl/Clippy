@@ -4,26 +4,25 @@
     ViewData["Title"] = "Profile";
 }
 
-@* <div class="header-explore">
-    <h3>Explore the Clippy Community</h3>
-</div> *@
-
 <link rel="stylesheet" href="/css/profile.css" />
 
 <div class="body">
     <div class="banner">
-        <div class="profile-pic" style="background-image: url('@Model.AvatarUrl')"></div>
-        <p class="profile-name">@User.Identity.Name</p><button class="follow-button" href="#">Follow</button>
+        <div class="profile-pic" style="background-image: url('@Model.ViewingUser.AvatarUrl')"></div>
+        <p class="profile-name">@Model.ViewingUser.Name</p><button class="follow-button" href="#">Follow</button>
     </div>
 
     <section class="intro border-round">
         <div class="upper-div">
             <p class="title">Intro</p>
+            @if (Model.ViewingUser.Id == Model.ThisUser.Id)
+            {
             <a asp-page="/Settings/Index"><img class="icon" src="/images/resources/EditBookmarkIcon.png"></a>
+            }
         </div>
 
         @{
-            string userBio = (!string.IsNullOrWhiteSpace(Model.UserBio)) ? Model.UserBio : "This user has no bio! (...yet)";
+            string userBio = (!string.IsNullOrWhiteSpace(Model.ViewingUser.Bio)) ? Model.ViewingUser.Bio : "This user has no bio! (...yet)";
         }
 
         <p id="bio">@userBio</p>

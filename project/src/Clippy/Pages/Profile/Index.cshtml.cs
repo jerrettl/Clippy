@@ -1,9 +1,11 @@
 using Clippy.Data;
-using System;
 using Clippy.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Clippy.Pages.Profile
 {
@@ -17,49 +19,37 @@ namespace Clippy.Pages.Profile
 
         public IList<Bookmark> Bookmarks { get; set; }
 
-        public string AvatarUrl { get; set; }
+        public User ViewingUser { get; set; }
 
-        public string UserBio { get; set; }
+        public User ThisUser { get; set; }
 
-        public async void OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            AvatarUrl = "";
-            DateTime now = DateTime.Now;
             string githubId = "";
-            string name = "";
-            string username = "";
             foreach (Claim claim in User.Claims)
             {
-                if (claim.Type == "urn:github:avatar") AvatarUrl = claim.Value;
-                else if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
-                else if (claim.Type == ClaimTypes.Name) name = claim.Value;
-                else if (claim.Type == "urn:github:login") username = claim.Value;
+                if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
             }
 
-            User user = await _context.GetUserByGithubId(githubId);
-            int userId;
-            if (user != null)
+            ThisUser = await _context.GetUserByGithubId(githubId);
+            if (id == 0)
             {
-                userId = user.Id;
+                ViewingUser = ThisUser;
+                id = ThisUser.Id;
             }
             else
             {
-                user = new User
-                {
-                    Username = username,
-                    Name = name,
-                    GithubId = githubId,
-                    CreateDate = now
-                };
-
-                var dbResponse = _context.AddUser(user);
-                await _context.SaveChangesAsync();
-                userId = dbResponse.Entity.Id;
+                ViewingUser = await _context.GetUserAsync(id);
             }
 
-            UserBio = user.Bio;
+            if (ThisUser == null || ViewingUser == null)
+            {
+                return RedirectToPage("/Index");
+            }
 
-            Bookmarks = await _context.GetBookmarksByUserIdAsync(userId);
+            Bookmarks = await _context.GetBookmarksByUserIdAsync(id);
+
+            return Page();
         }
     }
 }
