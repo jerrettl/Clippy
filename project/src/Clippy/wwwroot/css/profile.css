@@ -26,39 +26,29 @@
     }
 
     .profile-pic {
-        top: 100px;
+        top: 80px;
         left: 20px;
         width: 150px;
         height: 150px;
     }
 
-    .profile-name {
-        top: 65px;
+    .profilename-follow {
+        top: 45px;
         left: 160px;
-    }
-
-    .follow-button {
-        top: 36px;
-        left: 320px;
     }
 }
 
 @media (min-width: 620px) {
     .profile-pic {
-        top: 105px;
+        top: 85px;
         left: 20px;
         width: 200px;
         height: 200px;
     }
 
-    .profile-name {
-        top: 65px;
+    .profilename-follow {
+        top: 45px;
         left: 200px;
-    }
-
-    .follow-button {
-        top: 36px;
-        left: 370px;
     }
 }
 
@@ -93,10 +83,27 @@
     justify-content: space-between;
 }
 
-.profile-name {
+.profilename-follow {
     position: relative;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.6);
+}
+
+.profile-name {
+    display: inline-block;
+}
+
+.profilename-follow button {
+    position: relative;
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    border: 0;
+}
+
+.profilename-follow button:hover {
+    background-color: rgba(196, 196, 196, 0.4);
 }
 
 .profile-pic {
@@ -126,19 +133,6 @@
     height: auto;
     grid-area: favorite;
     padding: 10px;
-}
-
-.follow-button {
-    position: relative;
-    font-size: 16px;
-    width: 100px;
-    height: 30px;
-    border-radius: 30px;
-    border: 0;
-}
-
-.follow-button:hover {
-    background-color: rgba(196, 196, 196, 0.4);
 }
 
 .posts {

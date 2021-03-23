@@ -9,7 +9,10 @@
 <div class="body">
     <div class="banner">
         <div class="profile-pic" style="background-image: url('@Model.ViewingUser.AvatarUrl')"></div>
-        <p class="profile-name">@Model.ViewingUser.Name</p><button class="follow-button" href="#">Follow</button>
+        <div class="profilename-follow">
+            <p class="profile-name">@Model.ViewingUser.Name</p>
+            <button href="#">Follow</button>
+        </div>
     </div>
 
     <section class="intro border-round">
