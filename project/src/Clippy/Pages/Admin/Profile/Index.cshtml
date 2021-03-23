@@ -1,0 +1,38 @@
+@page
+@model Clippy.Pages.Admin.Profile.IndexModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Profile</h1>
+            </header>
+            <p><strong>Username:</strong> @Model.UserEntity.Username</p>
+            <p><strong>Name:</strong> @Model.UserEntity.Name</p>
+            <p><strong>Avatar URL:</strong> @Model.UserEntity.AvatarUrl</p>
+            <p><strong>Bio:</strong> @Model.UserEntity.Bio</p>
+            <p>
+                <strong>Roles:</strong>
+                @foreach(var role in Model.UserEntity.Roles) {
+                    <span class="tag">@role.Name</span>
+                }
+            </p>
+            <p><strong>Claims:</strong></p>
+            <pre>
+                @foreach(var claim in User.Claims) {
+                    @($"     {claim.Type}: {claim.Value}\n")
+                }
+            </pre>
+            <p><strong>Created:</strong> @Model.UserEntity.CreateDate.ToShortDateString()</p>
+            <hr>
+            <ul class="actions">
+                <li><a asp-page="../Index" class="button">Back to Admin</a></li>
+            </ul>
+        </div>
+    </section>
+
+</div>
