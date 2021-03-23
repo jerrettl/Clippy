@@ -15,20 +15,14 @@
                 <div asp-validation-summary="All"></div>
                 <div class="fields">
                     <div class="field">
-                        <label asp-for="BookmarkEntity.Location">Location *</label>
-                        <input type="text" asp-for="BookmarkEntity.Location" />
-                        <span asp-validation-for="BookmarkEntity.Location"></span>
-                    </div>
-                    <div class="field">
                         <label asp-for="BookmarkEntity.Title">Title</label>
                         <input type="text" asp-for="BookmarkEntity.Title" />
                         <span asp-validation-for="BookmarkEntity.Title"></span>
                     </div>
                     <div class="field">
-                        <label asp-for="BookmarkEntity.Description">Description</label>
-                        <input type="text" asp-for="BookmarkEntity.Description" />
-                        <span class="hint">Enter a description</span>
-                        <span asp-validation-for="BookmarkEntity.Description"></span>
+                        <label asp-for="BookmarkEntity.ResourceId">Resource</label>
+                        <select asp-for="BookmarkEntity.ResourceId" asp-items="Model.Resources"></select>
+                        <span asp-validation-for="BookmarkEntity.ResourceId"></span>
                     </div>
                     <div class="field">
                         <label asp-for="BookmarkEntity.Tags">Tags</label>
@@ -38,9 +32,7 @@
                     </div>
                     <div class="field">
                         <label asp-for="BookmarkEntity.UserId">User</label>
-                        <select asp-for="BookmarkEntity.UserId" asp-items="Model.Users">
-                            <option value="0">Current User</option>
-                        </select>
+                        <select asp-for="BookmarkEntity.UserId" asp-items="Model.Users"></select>
                         <span asp-validation-for="BookmarkEntity.UserId"></span>
                     </div>
                 </div>
