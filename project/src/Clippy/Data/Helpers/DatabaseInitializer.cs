@@ -128,7 +128,9 @@ namespace Clippy.Data.Helpers {
                 Id = 1,
                 Username = "Clippy5",
                 Name = "Clippy5 Team",
-                CreateDate = new DateTime(2021, 3, 1, 20, 32, 2, DateTimeKind.Utc)
+                CreateDate = new DateTime(2021, 3, 1, 20, 32, 2, DateTimeKind.Utc),
+                AvatarUrl = "/images/resources/rando.jpg",
+                Bio = "Our moon is so useless and pathetic compared to all of the cool moons out there in the solar system. While so much other moons have all these cool features, all our Moon did was hit us, and then get a free ride orbiting us for a few billion years."
             };
 
             return new List<User> (new[] {u1});
