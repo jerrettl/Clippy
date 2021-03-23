@@ -1,4 +1,5 @@
 @page
+@model Clippy.Pages.Bookmarks.EditModel
 @{
     ViewData["Title"] = "Bookmarks";
 }
@@ -14,7 +15,23 @@
 
 </section>
 
-<section class="content-edit">
+<section class="content-add">
+        <form method="post">
+            <div asp-validation-summary="All"></div>
+                <label class="labels" asp-for="Bookmark.Location">Location</label>
+                <input class="input-text" type="text" placeholder="Location of the bookmark..." asp-for="Bookmark.Location" disabled>
 
-</section>
+                <label class="labels" for="title">Title</label>
+                <input class="input-text" type="text" id="title" placeholder="Title of the bookmark..." asp-for="Bookmark.Title">
+                <span asp-validation-for="Bookmark.Title"></span>
+
+                <label class="labels" for="description">Description</label>
+                <textarea class="description" id="description" placeholder="Description of the bookmark..." asp-for="Bookmark.Description"></textarea>
+                <span asp-validation-for="Bookmark.Description"></span>
+
+                <input class="button" type="submit" value="Save">
+                <button asp-page-handler="Delete" asp-route-id="@Model.Bookmark.Id" onclick="return confirm('Are you sure you want to delete?')" class="button">Delete</button>
+                <a asp-page="Manage">Back</a>
+        </form>
+    </section>
 </div>
