@@ -49,7 +49,8 @@ namespace Clippy.Pages.Settings
                     Username = username,
                     Name = name,
                     GithubId = githubId,
-                    CreateDate = DateTime.Now
+                    CreateDate = DateTime.Now,
+                    AvatarUrl = AvatarUrl
                 };
 
                 var dbResponse = _context.AddUser(user);

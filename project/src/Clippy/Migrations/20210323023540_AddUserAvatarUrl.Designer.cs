@@ -3,14 +3,16 @@ using System;
 using Clippy.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clippy.Migrations
 {
     [DbContext(typeof(ClippyContext))]
-    partial class ClippyContextModelSnapshot : ModelSnapshot
+    [Migration("20210323023540_AddUserAvatarUrl")]
+    partial class AddUserAvatarUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -292,13 +294,13 @@ namespace Clippy.Migrations
 
             modelBuilder.Entity("UserUser", b =>
                 {
-                    b.Property<int>("FollowersId")
+                    b.Property<int>("FollowingId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("SubscriptionsId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("FollowersId", "SubscriptionsId");
+                    b.HasKey("FollowingId", "SubscriptionsId");
 
                     b.HasIndex("SubscriptionsId");
 
@@ -352,7 +354,7 @@ namespace Clippy.Migrations
                 {
                     b.HasOne("Clippy.Entities.User", null)
                         .WithMany()
-                        .HasForeignKey("FollowersId")
+                        .HasForeignKey("FollowingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

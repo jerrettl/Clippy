@@ -24,11 +24,13 @@ namespace Clippy.Pages.Bookmarks
             string githubId = "";
             string name = "";
             string username = "";
+            string avatarUrl = "";
             foreach (Claim claim in User.Claims)
             {
                 if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
                 else if (claim.Type == ClaimTypes.Name) name = claim.Value;
                 else if (claim.Type == "urn:github:login") username = claim.Value;
+                else if (claim.Type == "urn:github:avatar") avatarUrl = claim.Value;
             }
 
             User user = await _context.GetUserByGithubId(githubId);
@@ -44,7 +46,8 @@ namespace Clippy.Pages.Bookmarks
                     Username = username,
                     Name = name,
                     GithubId = githubId,
-                    CreateDate = now
+                    CreateDate = now,
+                    AvatarUrl = avatarUrl
                 };
 
                 var dbResponse = _context.AddUser(user);
