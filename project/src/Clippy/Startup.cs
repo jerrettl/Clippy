@@ -33,6 +33,7 @@ namespace Clippy
             services.AddControllersWithViews();
             services.AddRazorPages(options =>
             {
+                options.Conventions.AuthorizeFolder("/Settings");
                 options.Conventions.AuthorizeFolder("/Bookmarks");
                 options.Conventions.AuthorizeFolder("/Admin");
             }).AddRazorRuntimeCompilation();

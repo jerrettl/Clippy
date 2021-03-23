@@ -1,0 +1,28 @@
+@page
+@model Clippy.Pages.Settings.IndexModel
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<link rel="stylesheet" href="/css/profile.css" />
+
+<div class="body">
+    <div class="banner">
+        <div class="profile-pic" style="background-image: url('@Model.AvatarUrl')"></div>
+        <p class="profile-name">@User.Identity.Name</p>
+    </div>
+
+    <section class="intro border-round">
+        <div class="upper-div">
+            <p class="title">Settings</p>
+        </div>
+        <p>Bio</p>
+
+        <form method="post">
+            <textarea class="description" asp-for="UserEntity.Bio" placeholder="Edit bio..."></textarea>
+            <span asp-validation-for="UserEntity.Bio"></span>
+            <input class="button" type="submit" value="Save">
+            <a asp-page="/Profile/Index"><input class="button" type="button" value="Back"></a>
+        </form>
+    </section>
+</div>
