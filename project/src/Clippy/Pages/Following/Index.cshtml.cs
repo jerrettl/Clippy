@@ -15,11 +15,11 @@ namespace Clippy.Pages.Following
             _context = context;
         }
 
-        public IList<Bookmark> Bookmarks { get; set; }
+        public IList<User> Users { get; set; }
 
         public async Task OnGetAsync()
         {
-            Bookmarks = await _context.GetBookmarksAsync();
+            Users = await _context.GetUsersAsync();
         }
     }
 }

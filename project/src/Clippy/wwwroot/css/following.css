@@ -1,0 +1,121 @@
+.body {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: auto;
+    width: 60%;
+    height: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    grid-template-areas:
+    "title title title"
+    "searchbar searchbar buttons"
+    "people people people";
+}
+
+.title {
+    grid-area: title;
+    font-size: 24px;
+    margin: 0px 0px 7px 10px;
+}
+
+.searchbar-container {
+    grid-area: searchbar;
+    background-color: rgba(196, 196, 196, 0.2);
+    border-radius: 15px 0px 0px 0px;
+    padding: 20px;
+}
+
+.following-searchbar {
+    border: 0;
+    border-radius: 15px;
+    height: 35px;
+    width: 95%;
+    background-image: url("/images/resources/search.png");
+    background-size: 25px;
+    background-position: 10px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+.buttons-container {
+    grid-area: buttons;
+    background-color: rgba(196, 196, 196, 0.2);
+    border-radius: 0px 15px 0px 0px;
+    padding: 20px;
+}
+
+.followers {
+    background-color: rgb(108, 199, 170);
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    height: 35px;
+    width: 95px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
+    margin: 0px 10px;
+    float: right;
+}
+
+.following {
+    background-color: rgb(108, 199, 170);
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    height: 35px;
+    width: 95px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
+    margin: 0px 10px;
+    float: right;
+}
+
+.followers:hover {
+    background-color: rgb(78, 179, 140);
+}
+
+.following:hover {
+    background-color: rgb(78, 179, 140);
+}
+
+.content {
+    grid-area: people;
+    height: 79vh;
+    background-color: rgba(196, 196, 196, 0.2);
+    border-radius: 0px 0px 15px 15px;
+    overflow-y: scroll;
+}
+
+.following-item {
+    display: flex;
+    width: 95%;
+    height: 70px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 10px auto;
+    align-items: center;
+}
+
+.image {
+    display: inline-block;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px; 
+    margin: 0px 10px;
+}
+
+.person-name {
+    display: inline-block;
+}
+
+.following-item button {
+    background-color: rgb(108, 199, 170);
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    height: 35px;
+    width: 95px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
+    margin: 0px 30px;
+    margin-left: auto;
+}

@@ -1,5 +1,5 @@
 @page
-@model Clippy.Pages.Explore.IndexModel
+@model Clippy.Pages.Following.IndexModel
 @{
     ViewData["Title"] = "Following";
 }
@@ -10,13 +10,45 @@
 <section class="title">
 Your Community
 </section>
-<section class="searchbar-buttons">
-<input type="text"></input>
-<button>Followers</button>
-<button>Following</button>
-</section>
-<section class="content">
 
+<div class="searchbar-container">
+    <input class="following-searchbar" type="text"></input>
+</div>
+<div class="buttons-container">
+    <button class="followers">Followers</button>
+    <button class="following">Following</button>
+</div>
+
+@* FIX THIS TO WORK WITH FOLLOWING FUNCTIONAILITY! *@
+<section class="content">
+    @foreach (var user in Model.Users) {
+        <div class="following-item">
+            <div class="image" style= "background-image: url('@user.AvatarUrl')"></div> 
+            <div class="person-name">
+                @user.Name
+            </div> 
+            <button>Unfollow</button>
+        </div>
+    }
+    @foreach (var user in Model.Users) {
+        <div class="following-item">
+            <div class="image" style= "background-image: url('@user.AvatarUrl')"></div> 
+            <div class="person-name">
+                @user.Name
+            </div> 
+            <button>Unfollow</button>
+        </div>
+    }
+    @foreach (var user in Model.Users) {
+        <div class="following-item">
+            <div class="image" style= "background-image: url('@user.AvatarUrl')"></div> 
+            <div class="person-name">
+                @user.Name
+            </div> 
+            <button>Unfollow</button>
+        </div>
+    }
 </section>
+
 
 </div>
