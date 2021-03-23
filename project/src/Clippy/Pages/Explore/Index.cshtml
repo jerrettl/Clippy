@@ -69,7 +69,7 @@
             </div>
 
             <div class="author-location-container">
-                <p>Clipped by: @bookmark.User.Name</p>
+                <p>Clipped by: <a asp-page="/Profile/Index" asp-route-id="@bookmark.User.Id">@bookmark.User.Name</a></p>
                 <a href="@resourceLocation">Link...</a>
             </div>
         </div>
