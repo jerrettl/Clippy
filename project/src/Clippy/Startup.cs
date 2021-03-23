@@ -1,5 +1,7 @@
 using Clippy.AuthenticationProviders;
 using Clippy.Data;
+using Clippy.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,6 +41,8 @@ namespace Clippy
             }).AddRazorRuntimeCompilation();
 
             services.AddDbContext<ClippyContext>(options => options.UseSqlite("Data Source=clippy.db"));
+
+            services.AddScoped<IClaimsTransformation, AddRolesClaimsTransformation>();
 
             services.AddAuthentication(options =>
             {

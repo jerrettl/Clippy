@@ -28,6 +28,7 @@
                             <li><a href="/">Home</a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
+                            <li><a href="/admin/profile">Profile</a></li>
                             <li><a href="/account/signout">Logout</a></li>
                             }
                         </ul>

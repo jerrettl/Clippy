@@ -34,6 +34,12 @@
                         <input type="text" asp-for="UserEntity.AvatarUrl" />
                         <span asp-validation-for="UserEntity.AvatarUrl"></span>
                     </div>
+                    <div class="field">
+                        <label asp-for="UserEntity.Roles">Roles</label>
+                        <input type="text" asp-for="UserEntity.Roles" />
+                        <span class="hint">Enter a comma separated list of roles</span>
+                        <span asp-validation-for="UserEntity.Roles"></span>
+                    </div>
                 </div>
                 <ul class="actions">
                     <li><input type="submit" value="Update" class="primary" /></li>

@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Clippy.Data;
 using Clippy.Entities;
@@ -39,6 +42,17 @@ namespace Clippy.Pages.Admin.Users
                 AvatarUrl = user.AvatarUrl
             };
 
+            int i = 0;
+            var sb = new StringBuilder();
+            foreach(var role in user.Roles) {
+                if (i != 0)
+                    sb.Append(",");
+                sb.Append(role.Name);
+                i++;
+            }
+
+            UserEntity.Roles = sb.ToString();
+
             return Page();
         }
 
@@ -68,7 +82,32 @@ namespace Clippy.Pages.Admin.Users
             existingUser.Bio = UserEntity.Bio;
             existingUser.AvatarUrl = UserEntity.AvatarUrl;
 
+            // Add Roles - Delete existing and start over
+            existingUser.Roles.Clear();
+
+            var roles = new List<Role>();
+            if (!string.IsNullOrWhiteSpace(UserEntity.Roles))
+            {
+                var rolenames = UserEntity.Roles.Split(',');
+                foreach(var rolename in rolenames) {
+                    if (string.IsNullOrWhiteSpace(rolename))
+                        continue;
+
+                    var r = await _context.GetRoleByNameAsync(rolename.Trim());
+                    if (r == null)
+                    {
+                        ModelState.AddModelError("Roles", $"{rolename} does not exist.");
+                        continue;
+                    };
+
+                    roles.Add(r);
+                }
+            }
+
+            existingUser.Roles = roles;
+
             _context.Update(existingUser);
+
             await _context.SaveChangesAsync();
 
             TempData["Message"] = $"The user, {existingUser.Username}, was successfully updated.";

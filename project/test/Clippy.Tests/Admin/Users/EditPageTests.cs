@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -31,6 +32,7 @@ namespace Clippy.Tests.Admin.Users
             var mockContext = new Mock<ClippyContext>(optionsBuilder.Options);
             var mockLogger = new Mock<ILogger<EditModel>>();
             var expectedUser = DatabaseInitializer.GetSeedingUsers().Single(u => u.Id == userId);
+            expectedUser.Roles = new List<Role>();
             mockContext.Setup(
                 db => db.GetUserAsync(userId)).Returns(Task.FromResult(expectedUser));
             var pageModel = new EditModel(mockContext.Object, mockLogger.Object);
