@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Clippy.Pages.Explore
+namespace Clippy.Pages.Following
 {
     public class IndexModel : PageModel
     {
