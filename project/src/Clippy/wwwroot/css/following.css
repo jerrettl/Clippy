@@ -119,3 +119,7 @@
     margin: 0px 30px;
     margin-left: auto;
 }
+
+.following-item button:hover {
+    background-color: rgb(78, 179, 140);
+}
