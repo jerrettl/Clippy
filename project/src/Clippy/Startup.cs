@@ -1,5 +1,6 @@
 using Clippy.AuthenticationProviders;
 using Clippy.Data;
+using Clippy.Models.Admin;
 using Clippy.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Security.Claims;
 
 namespace Clippy
 {
@@ -32,12 +34,20 @@ namespace Clippy
                 Environment.FailFast(errorMessage);
             }
 
+            var adminSettings = Configuration.GetSection("Admin");
+            services.Configure<AdminSettings>(adminSettings);
+
             services.AddControllersWithViews();
             services.AddRazorPages(options =>
             {
                 options.Conventions.AuthorizeFolder("/Settings");
                 options.Conventions.AuthorizeFolder("/Bookmarks");
-                options.Conventions.AuthorizeFolder("/Admin");
+
+                var secureByAdminRole = adminSettings.GetValue<bool>("SecureByAdminRole");
+                if (secureByAdminRole)
+                    options.Conventions.AuthorizeFolder("/Admin", "AdminRoleOnly");
+                else
+                    options.Conventions.AuthorizeFolder("/Admin");
             }).AddRazorRuntimeCompilation();
 
             services.AddDbContext<ClippyContext>(options => options.UseSqlite("Data Source=clippy.db"));
@@ -52,6 +62,11 @@ namespace Clippy
             })
             .AddCookie()
             .AddGitHubAuthentication(Configuration);
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminRoleOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Admin"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
