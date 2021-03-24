@@ -1,0 +1,28 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>@ViewData["Title"] - Clippy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <script src="https://kit.fontawesome.com/af82b590e2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar">
+        <a asp-page="../Index" class="clippy-logo"><img src="/images/resources/logo.png"></a>
+    </div>
+    @RenderBody()
+    <div id="footer">
+        <div id="footer-links">
+            <a href="/">Developers</a>
+            <a href="/">Terms of Service</a>
+            <a href="/">Privacy</a>
+        </div>
+        <div><a href="https://github.com/Clippy5/Clippy"><i class="fab fa-github" id="gh-footer-icon"></i></a></div>
+        <div id="copyright">© 2021 Clippy, Inc</div>
+    </div>
+    <script src="~/js/main.js"></script>
+</body>
+
+</html>

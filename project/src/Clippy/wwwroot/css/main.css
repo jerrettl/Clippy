@@ -310,3 +310,8 @@
   margin: auto 10px 5px 10px;
 }
 
+h1.error-page-title {
+  font-size: 48px;
+  text-transform: uppercase;
+  color: white;
+}

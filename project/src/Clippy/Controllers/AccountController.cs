@@ -19,5 +19,11 @@ namespace Clippy.Controllers {
             await HttpContext.SignOutAsync();
             return Redirect("~/");
         }
+
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return Redirect("/errors/403");
+        }
     }
 }
