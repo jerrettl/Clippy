@@ -84,6 +84,8 @@ namespace Clippy
                 app.UseHsts();
             }
 
+            app.UseStatusCodePagesWithRedirects("~/errors/{0}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
