@@ -146,12 +146,12 @@
     <section class="following border-round">
     <p class="title">Following</p>
     @foreach(var user in Model.ViewingUser.Subscriptions) {
-        <a asp-page="/Profile/Index" asp-route-id="@user.Id">
-            <div class="following-user">
-                <div class="following-user-image" style="background-image: url('@user.AvatarUrl')"></div> 
+        <div class="following-user">
+            <div class="following-user-image" style="background-image: url('@user.AvatarUrl')"></div>
+            <a asp-page="/Profile/Index" asp-route-id="@user.Id">
                 @user.Name
-            </div>
-        </a>
+            </a>
+        </div>
     }
     </section>
 </div>

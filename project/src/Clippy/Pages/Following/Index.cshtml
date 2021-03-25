@@ -23,10 +23,12 @@ Your Community
 <section class="content">
     @foreach (var user in Model.ThisUser.Subscriptions) {
         <div class="following-item">
-            <div class="image" style= "background-image: url('@user.AvatarUrl')"></div> 
-            <div class="person-name">
-                @user.Name
-            </div> 
+            <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
+            <a asp-page="/Profile/Index" asp-route-id="@user.Id">
+                <div class="person-name">
+                    @user.Name
+                </div> 
+            </a>
             <button>Unfollow</button>
         </div>
     }
