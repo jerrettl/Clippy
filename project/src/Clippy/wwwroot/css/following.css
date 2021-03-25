@@ -57,22 +57,19 @@
 }
 
 .following {
-    background-color: rgb(108, 199, 170);
-    color: white;
-    border: 0;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px;
     border-radius: 5px;
+    border-color: black;
+    border-style: solid;
     height: 35px;
     width: 95px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
     margin: 0px 10px;
     float: right;
 }
 
 .followers:hover {
-    background-color: rgb(78, 179, 140);
-}
-
-.following:hover {
     background-color: rgb(78, 179, 140);
 }
 
@@ -113,8 +110,8 @@
 }
 
 .following-item form button {
-    background-color: rgb(108, 199, 170);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: black;
     border: 0;
     border-radius: 5px;
     height: 35px;
@@ -124,5 +121,5 @@
 }
 
 .following-item form button:hover {
-    background-color: rgb(78, 179, 140);
+    background-color: rgb(247, 247, 247);
 }
