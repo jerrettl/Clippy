@@ -56,31 +56,19 @@ namespace Clippy.Pages.Profile
             ThisUser = await _context.GetUserAsync(thisuser);
             ViewingUser = await _context.GetUserAsync(viewinguser);
 
-            Console.WriteLine($"{ThisUser.Name} is looking at {ViewingUser.Name}");
-
-
             if (ThisUser.Subscriptions.Contains(ViewingUser))
             {
-                Console.WriteLine($"{ThisUser.Name} is unfollowing {ViewingUser.Name}");
                 ThisUser.Subscriptions.Remove(ViewingUser);
             }
             else
             {
-                Console.WriteLine($"{ThisUser.Name} is following {ViewingUser.Name}");
                 ThisUser.Subscriptions.Add(ViewingUser);
             }
 
-            
-            Console.WriteLine($"Follower list for {ThisUser.Name}:");
-            foreach (var user in ThisUser.Subscriptions)
-            {
-                Console.WriteLine(user.Name);
-            }
-            
             // _context.Update(ThisUser);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage();
+            return RedirectToPage("/Profile/Index", new { id = ViewingUser.Id });
         }
     }
 }
