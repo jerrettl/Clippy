@@ -123,6 +123,7 @@ namespace Clippy.Data {
         {
             return await Users
                 .Include(u => u.Roles)
+                .Include(u => u.Subscriptions)
                 .FirstOrDefaultAsync(u => u.Username == username);
         }
 

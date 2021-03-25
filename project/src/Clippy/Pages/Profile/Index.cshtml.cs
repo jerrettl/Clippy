@@ -32,8 +32,6 @@ namespace Clippy.Pages.Profile
             }
 
             ThisUser = await _context.GetUserByGithubId(githubId);
-            Console.WriteLine(githubId);
-            Console.WriteLine(id);
             if (id == 0)
             {
                 ViewingUser = ThisUser;
