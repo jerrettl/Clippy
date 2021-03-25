@@ -29,7 +29,9 @@ Your Community
                     @user.Name
                 </div> 
             </a>
-            <button>Unfollow</button>
+            <form method="post" asp-route-thisuser="@Model.ThisUser.Id" asp-route-viewinguser="@user.Id">
+                <button>Unfollow</button>
+            </form>
         </div>
     }
 </section>

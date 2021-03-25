@@ -108,7 +108,11 @@
     display: inline-block;
 }
 
-.following-item button {
+.following-item form {
+    margin-left: auto;
+}
+
+.following-item form button {
     background-color: rgb(108, 199, 170);
     color: white;
     border: 0;
@@ -116,10 +120,9 @@
     height: 35px;
     width: 95px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
-    margin: 0px 30px;
-    margin-left: auto;
+    margin: 0px 30px;  
 }
 
-.following-item button:hover {
+.following-item form button:hover {
     background-color: rgb(78, 179, 140);
 }
