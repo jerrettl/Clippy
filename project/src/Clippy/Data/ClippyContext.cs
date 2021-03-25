@@ -128,7 +128,9 @@ namespace Clippy.Data {
 
         public async virtual Task<User> GetUserByGithubId(string id)
         {
-            return await Users.FirstOrDefaultAsync(u => u.GithubId == id);
+            return await Users
+            .Include(u => u.Subscriptions)
+            .FirstOrDefaultAsync(u => u.GithubId == id);
         }
 
         public virtual void RemoveUser(User user)
