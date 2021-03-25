@@ -147,13 +147,6 @@
     padding: 10px;
 }
 
-.following {
-    background-color: rgba(196, 196, 196, 0.2);
-    width: auto;
-    grid-area: follow;
-    overflow: hidden;
-    padding: 10px;
-}
 
 .border-round {
     border-radius: 10px;
@@ -198,4 +191,36 @@
     margin: 15px 15px 0px 0px;
     font-size: 14px;
     text-align: center;
+}
+
+/* Following */
+
+.following {
+    background-color: rgba(196, 196, 196, 0.2);
+    width: auto;
+    grid-area: follow;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.following-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.following-user-image {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background-size: cover;
+}
+
+section.following a {
+    color: #000;
+    text-decoration: none;
+}
+
+section.following a:hover {
+    color: var(--primary-color);
 }
