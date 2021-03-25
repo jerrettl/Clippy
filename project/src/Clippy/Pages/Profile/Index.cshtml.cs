@@ -32,6 +32,8 @@ namespace Clippy.Pages.Profile
             }
 
             ThisUser = await _context.GetUserByGithubId(githubId);
+            Console.WriteLine(githubId);
+            Console.WriteLine(id);
             if (id == 0)
             {
                 ViewingUser = ThisUser;
@@ -50,6 +52,37 @@ namespace Clippy.Pages.Profile
             Bookmarks = await _context.GetBookmarksByUserIdAsync(id);
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int thisuser, int viewinguser) {
+            ThisUser = await _context.GetUserAsync(thisuser);
+            ViewingUser = await _context.GetUserAsync(viewinguser);
+
+            Console.WriteLine($"{ThisUser.Name} is looking at {ViewingUser.Name}");
+
+
+            if (ThisUser.Subscriptions.Contains(ViewingUser))
+            {
+                Console.WriteLine($"{ThisUser.Name} is unfollowing {ViewingUser.Name}");
+                ThisUser.Subscriptions.Remove(ViewingUser);
+            }
+            else
+            {
+                Console.WriteLine($"{ThisUser.Name} is following {ViewingUser.Name}");
+                ThisUser.Subscriptions.Add(ViewingUser);
+            }
+
+            
+            Console.WriteLine($"Follower list for {ThisUser.Name}:");
+            foreach (var user in ThisUser.Subscriptions)
+            {
+                Console.WriteLine(user.Name);
+            }
+            
+            // _context.Update(ThisUser);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage();
         }
     }
 }

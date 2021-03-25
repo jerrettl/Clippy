@@ -11,10 +11,23 @@
         <div class="profile-pic" style="background-image: url('@Model.ViewingUser.AvatarUrl')"></div>
         <div class="profilename-follow">
             <p class="profile-name">@Model.ViewingUser.Name</p>
-            <button href="#">Follow</button>
+        <form method="post" asp-route-thisuser="@Model.ThisUser.Id" asp-route-viewinguser="@Model.ViewingUser.Id">
+            @if (Model.ThisUser.Equals(Model.ViewingUser))
+            {
+
+            }
+            else if (!Model.ThisUser.Subscriptions.Contains(Model.ViewingUser))
+            {
+                <button>Follow</button>
+            }
+            else
+            {
+                <button>Unfollow</button>
+            }
+        </form>
         </div>
     </div>
-
+        
     <section class="intro border-round">
         <div class="upper-div">
             <p class="title">Intro</p>
@@ -132,5 +145,10 @@
 
     <section class="following border-round">
     <p class="title">Following</p>
+    @{
+        foreach(var followers in Model.ViewingUser.Subscriptions) {
+            <li>@followers.Name</li>
+        }
+    }
     </section>
 </div>
