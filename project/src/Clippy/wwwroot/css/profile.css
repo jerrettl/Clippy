@@ -93,6 +93,10 @@
     display: inline-block;
 }
 
+.profilename-follow form {
+    display: inline-block;
+}
+
 .profilename-follow form button {
     position: relative;
     font-size: 16px;
