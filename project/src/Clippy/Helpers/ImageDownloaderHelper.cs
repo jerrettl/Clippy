@@ -93,7 +93,8 @@ namespace Clippy.Helpers
                 }
 
                 // Save the page contents.
-                if (response.Content.Headers.ContentType.CharSet != null &&
+                if (response.Content.Headers.ContentType != null &&
+                    response.Content.Headers.ContentType.CharSet != null &&
                     (response.Content.Headers.ContentType.CharSet.Equals("utf8") ||
                      response.Content.Headers.ContentType.CharSet.Equals("utf-8")))
                 {
@@ -168,6 +169,8 @@ namespace Clippy.Helpers
         private static string GenerateImageUrl(string pageUrl, string imageUrl)
         {
             string result;
+
+            pageUrl = pageUrl.Contains("?") ? pageUrl.Split("?")[0] : pageUrl;
 
             if (imageUrl.StartsWith("http://") ||
                 imageUrl.StartsWith("https://"))
