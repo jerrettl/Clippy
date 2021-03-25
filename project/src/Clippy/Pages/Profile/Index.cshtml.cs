@@ -65,7 +65,6 @@ namespace Clippy.Pages.Profile
                 ThisUser.Subscriptions.Add(ViewingUser);
             }
 
-            // _context.Update(ThisUser);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("/Profile/Index", new { id = ViewingUser.Id });
