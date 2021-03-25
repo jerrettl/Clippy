@@ -11,20 +11,20 @@
         <div class="profile-pic" style="background-image: url('@Model.ViewingUser.AvatarUrl')"></div>
         <div class="profilename-follow">
             <p class="profile-name">@Model.ViewingUser.Name</p>
-        <form method="post" asp-route-thisuser="@Model.ThisUser.Id" asp-route-viewinguser="@Model.ViewingUser.Id">
-            @if (Model.ThisUser.Equals(Model.ViewingUser))
-            {
+            <form method="post" asp-route-thisuser="@Model.ThisUser.Id" asp-route-viewinguser="@Model.ViewingUser.Id">
+                @if (Model.ThisUser.Equals(Model.ViewingUser))
+                {
 
-            }
-            else if (!Model.ThisUser.Subscriptions.Contains(Model.ViewingUser))
-            {
-                <button>Follow</button>
-            }
-            else
-            {
-                <button>Unfollow</button>
-            }
-        </form>
+                }
+                else if (!Model.ThisUser.Subscriptions.Contains(Model.ViewingUser))
+                {
+                    <button>Follow</button>
+                }
+                else
+                {
+                    <button>Unfollow</button>
+                }
+            </form>
         </div>
     </div>
         
