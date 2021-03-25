@@ -116,6 +116,7 @@ namespace Clippy.Data {
             return await Users
                 .Include(u => u.Roles)
                 .Include(u => u.Subscriptions)
+                .Include(u => u.Followers)
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
 
@@ -131,6 +132,7 @@ namespace Clippy.Data {
         {
             return await Users
             .Include(u => u.Subscriptions)
+            .Include(u => u.Followers)
             .FirstOrDefaultAsync(u => u.GithubId == id);
         }
 

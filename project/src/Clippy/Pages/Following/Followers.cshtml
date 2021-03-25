@@ -20,8 +20,6 @@ Your Community
 </div>
 
 <section class="content">
-
-</section>
     @foreach (var user in Model.ThisUser.Followers) {
         <div class="following-item">
             <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
@@ -35,4 +33,5 @@ Your Community
             </form>
         </div>
     }
+</section>    
 </div>

@@ -44,7 +44,7 @@ namespace Clippy.Pages.Following
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Following/Index");
+            return RedirectToPage("/Following/Followers");
         }
     }
 }

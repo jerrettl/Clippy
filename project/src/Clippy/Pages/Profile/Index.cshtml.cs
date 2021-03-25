@@ -59,10 +59,12 @@ namespace Clippy.Pages.Profile
             if (ThisUser.Subscriptions.Contains(ViewingUser))
             {
                 ThisUser.Subscriptions.Remove(ViewingUser);
+                ViewingUser.Followers.Remove(ThisUser);
             }
             else
             {
                 ThisUser.Subscriptions.Add(ViewingUser);
+                ViewingUser.Followers.Add(ThisUser);
             }
 
             await _context.SaveChangesAsync();
