@@ -1,4 +1,5 @@
 using Clippy.Data;
+using System.Security.Claims;
 using Clippy.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
@@ -15,11 +16,17 @@ namespace Clippy.Pages.Following
             _context = context;
         }
 
-        public IList<User> Users { get; set; }
+        public User ThisUser { get; set; }
 
         public async Task OnGetAsync()
         {
-            Users = await _context.GetUsersAsync();
+            string githubId = "";
+            foreach (Claim claim in User.Claims)
+            {
+                if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
+            }
+
+            ThisUser = await _context.GetUserByGithubId(githubId);
         }
     }
 }
