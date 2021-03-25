@@ -15,11 +15,10 @@ Your Community
     <input class="following-searchbar" type="text"></input>
 </div>
 <div class="buttons-container">
-    <button asp-page="Following" class="followers">Followers</button>
-    <button class="following">Following</button>
+    <a href="/Following/Followers"><button class="followers">Followers</button></a>
+    <button class="following-a">Following</button>
 </div>
 
-@* FIX THIS TO WORK WITH FOLLOWING FUNCTIONAILITY! *@
 <section class="content">
     @foreach (var user in Model.ThisUser.Subscriptions) {
         <div class="following-item">

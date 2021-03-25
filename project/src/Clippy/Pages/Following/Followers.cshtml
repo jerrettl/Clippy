@@ -1,0 +1,38 @@
+@page
+@model Clippy.Pages.Following.FollowersModel
+@{
+    ViewData["Title"] = "Followers";
+}
+
+<link rel="stylesheet" href="/css/following.css" />
+
+<div class="body">
+<section class="title">
+Your Community
+</section>
+
+<div class="searchbar-container">
+    <input class="following-searchbar" type="text"></input>
+</div>
+<div class="buttons-container">
+    <button class="followers-a">Followers</button>
+    <a href="/Following"><button class="following">Following</button></a>
+</div>
+
+<section class="content">
+
+</section>
+    @foreach (var user in Model.ThisUser.Followers) {
+        <div class="following-item">
+            <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
+            <a asp-page="/Profile/Index" asp-route-id="@user.Id">
+                <div class="person-name">
+                    @user.Name
+                </div> 
+            </a>
+            <form method="post" asp-route-thisuser="@Model.ThisUser.Id" asp-route-viewinguser="@user.Id">
+                <button>Block</button>
+            </form>
+        </div>
+    }
+</div>
