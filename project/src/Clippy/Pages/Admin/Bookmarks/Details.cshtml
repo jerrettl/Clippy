@@ -13,6 +13,7 @@
             </header>
             <p><strong>Location:</strong> <a href="@Model.Bookmark.Resource.Location">@Model.Bookmark.Resource.Location</a></p>
             <p><strong>Title:</strong> @Model.Bookmark.Title</p>
+            <p><strong>Description:</strong> @Model.Bookmark.Description</p>
             <p><strong>Resource Metadata:</strong> @Model.Bookmark.Resource.Metadata.Count item(s)</p>
             <pre>
                 @foreach(var metadata in Model.Bookmark.Resource.Metadata) {

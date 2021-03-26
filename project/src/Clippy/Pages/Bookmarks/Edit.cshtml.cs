@@ -41,7 +41,7 @@ namespace Clippy.Pages.Bookmarks
                 Id = bookmark.Id,
                 Title = bookmark.Title ?? "",
                 Location = bookmark.Resource.Location,
-                Description = bookmark.Resource.Metadata.ContainsKey("Description") ? bookmark.Resource.Metadata["Description"] : ""
+                Description = bookmark.Description ?? ""
             };
 
             return Page();
@@ -58,14 +58,8 @@ namespace Clippy.Pages.Bookmarks
                 return RedirectToPage("./Manage");
             }
 
-            existingBookmark.Title = Bookmark.Title;
-            if (existingBookmark.Resource.Metadata.ContainsKey("Description"))
-            {
-                existingBookmark.Resource.Metadata["Description"] = Bookmark.Description;
-            }
-            else {
-                existingBookmark.Resource.Metadata.Add("Description", Bookmark.Description);
-            }
+            existingBookmark.Title = !string.IsNullOrWhiteSpace(Bookmark.Title) ? Bookmark.Title : null;
+            existingBookmark.Description = !string.IsNullOrWhiteSpace(Bookmark.Description) ? Bookmark.Description : null;
             
             _context.Update(existingBookmark);
             await _context.SaveChangesAsync();

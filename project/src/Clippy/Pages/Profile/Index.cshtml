@@ -103,8 +103,16 @@
 
                                 string date = bookmark.CreateDate.ToShortDateString();
                                 string description = null;
-                                if (!bookmark.Resource.Metadata.TryGetValue("Description", out description) ||
-                                bookmark.Resource.Metadata["Description"] == null)
+                                if (!string.IsNullOrWhiteSpace(bookmark.Description))
+                                {
+                                    description = bookmark.Description;
+                                }
+                                else if (bookmark.Resource.Metadata.ContainsKey("Description") &&
+                                bookmark.Resource.Metadata["Description"] != null)
+                                {
+                                    description = bookmark.Resource.Metadata["Description"];
+                                }
+                                else
                                 {
                                     description = "No description.";
                                 }
