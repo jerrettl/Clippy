@@ -105,6 +105,7 @@ namespace Clippy.Pages.Bookmarks
                     AvatarUrl = avatarUrl
                 };
 
+                existingUser = user;
                 var dbResponse = _context.AddUser(user);
                 await _context.SaveChangesAsync();
                 bookmark.UserId = dbResponse.Entity.Id;
@@ -133,6 +134,14 @@ namespace Clippy.Pages.Bookmarks
             }
 
             _context.AddBookmark(bookmark);
+
+            Notification newNotification = new Notification {
+                UserId = existingUser.Id,
+                CreateDate = DateTime.Now,
+                Text = $"{existingUser.Name} added a new bookmark!"
+            };
+            _context.AddNotification(newNotification);
+            
             await _context.SaveChangesAsync();
             string returnPage = Request.Query.ContainsKey("return") ? "." + Request.Query["return"] : "./Index";
             return RedirectToPage(returnPage);

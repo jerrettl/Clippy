@@ -9,35 +9,11 @@
 <div class="body">
     <div class="title">Your Notifications</div>
     <div class="content">
-        @foreach(var user in Model.ThisUser.Subscriptions) {
+        @foreach(var notification in Model.Notifications) {
             <div class="notifications-item">
-                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
+                    <div class="image" style= "background-image: url('@notification.User.AvatarUrl')"></div>
                 <div class="text-from-db">
-                    @user.Name
-                </div>
-            </div>
-        }
-        @foreach(var user in Model.ThisUser.Subscriptions) {
-            <div class="notifications-item">
-                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
-                <div class="text-from-db">
-                    @user.Name
-                </div>
-            </div>
-        }
-        @foreach(var user in Model.ThisUser.Subscriptions) {
-            <div class="notifications-item">
-                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
-                <div class="text-from-db">
-                    @user.Name
-                </div>
-            </div>
-        }
-        @foreach(var user in Model.ThisUser.Subscriptions) {
-            <div class="notifications-item">
-                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
-                <div class="text-from-db">
-                    @user.Name
+                    @notification.Text
                 </div>
             </div>
         }

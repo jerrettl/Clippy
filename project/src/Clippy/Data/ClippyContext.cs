@@ -21,6 +21,8 @@ namespace Clippy.Data {
 
         public DbSet<Role> Roles { get; set; }
 
+        public DbSet<Notification> Notifications { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.AddBookmarkEntity();
@@ -28,6 +30,7 @@ namespace Clippy.Data {
             modelBuilder.AddTagEntity();
             modelBuilder.AddRoleEntity();
             modelBuilder.AddUserEntity();
+            modelBuilder.AddNotificationEntity();
             modelBuilder.AddSeedData();
         }
 
@@ -111,6 +114,13 @@ namespace Clippy.Data {
                 .ToListAsync();
         }
 
+        // public async virtual Task<Dictionary<User>> GetUsersDictionaryAsync()
+        // {
+        //     return await Users
+        //         .AsNoTracking()
+        //         .ToDictionaryAsync();
+        // }
+
         public async virtual Task<User> GetUserAsync(int id)
         {
             return await Users
@@ -178,6 +188,27 @@ namespace Clippy.Data {
             Roles.Add(role);
         }
 
+        #endregion
+
+        #region Notifications
+
+        // public async virtual Task<List<Notification>> GetNotificationsByUser(int id)
+        // {
+        //     return await Notifications.FromSqlRaw("SELECT * FROM Notifications WHERE UserId = {0}", id)
+        //         .ToListAsync();
+        // }
+
+        public async virtual Task<List<Notification>> GetNotificationsByUser(int id)
+        {
+            return await Notifications.FromSqlRaw("SELECT * FROM Notifications WHERE UserId IN (SELECT SubscriptionsId FROM UserUser WHERE FollowersId = {0}) ORDER BY CreateDate", id)
+                .ToListAsync();
+        }
+
+        public virtual void AddNotification(Notification notification)
+        {
+            Notifications.Add(notification);
+        }
+        
         #endregion
     }
 }

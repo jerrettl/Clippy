@@ -20,9 +20,11 @@ namespace Clippy.Pages.Notifications
 
         public IList<Bookmark> Bookmarks { get; set; }
 
-        public User ViewingUser { get; set; }
+        public IList<User> Users { get; set; }
 
         public User ThisUser { get; set; }
+
+        public IList<Notification> Notifications { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -32,24 +34,14 @@ namespace Clippy.Pages.Notifications
                 if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
             }
 
+            Users = await _context.GetUsersAsync();
+
             ThisUser = await _context.GetUserByGithubId(githubId);
-            if (id == 0)
+            if (ThisUser != null)
             {
-                ViewingUser = ThisUser;
-                id = ThisUser.Id;
+                Notifications = await _context.GetNotificationsByUser(ThisUser.Id);
             }
-            else
-            {
-                ViewingUser = await _context.GetUserAsync(id);
-            }
-
-            if (ThisUser == null || ViewingUser == null)
-            {
-                return RedirectToPage("/Index");
-            }
-
-            Bookmarks = await _context.GetBookmarksByUserIdAsync(id);
-
+            
             return Page();
         }
     }

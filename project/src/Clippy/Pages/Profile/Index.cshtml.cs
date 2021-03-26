@@ -52,6 +52,7 @@ namespace Clippy.Pages.Profile
             return Page();
         }
 
+
         public async Task<IActionResult> OnPostAsync(int thisuser, int viewinguser) {
             ThisUser = await _context.GetUserAsync(thisuser);
             ViewingUser = await _context.GetUserAsync(viewinguser);
@@ -68,7 +69,6 @@ namespace Clippy.Pages.Profile
             }
 
             await _context.SaveChangesAsync();
-
             return RedirectToPage("/Profile/Index", new { id = ViewingUser.Id });
         }
     }

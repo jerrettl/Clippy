@@ -32,13 +32,10 @@ namespace Clippy.Entities
 
         public IList<Role> Roles { get; set; }
 
-        public IList<Notifications> Notifications { get; set; }
-
         public User()
         {
             Followers = new List<User>();
             Subscriptions = new List<User>();
-            Notifications = new List<Notifications>();
         }
     }
 }
