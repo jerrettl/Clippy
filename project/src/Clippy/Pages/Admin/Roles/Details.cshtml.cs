@@ -42,7 +42,7 @@ namespace Clippy.Pages.Admin.Roles
 
             await _context.SaveChangesAsync();
 
-            TempData["Message"] = $"Role successfully deleted. Id = {id}.";
+            TempData["Message"] = $"The role, {role.Name}, was successfully deleted.";
 
             return RedirectToPage("./Index");
         }

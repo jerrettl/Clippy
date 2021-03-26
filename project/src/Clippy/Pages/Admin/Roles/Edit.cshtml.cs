@@ -60,7 +60,7 @@ namespace Clippy.Pages.Admin.Roles
             _context.Update(existingRole);
             await _context.SaveChangesAsync();
 
-            TempData["Message"] = $"Role successfully updated.";
+            TempData["Message"] = $"The role, {existingRole.Name}, was successfully updated.";
 
             return RedirectToPage("./Index");
         }
