@@ -62,6 +62,10 @@
                     <a href="/Bookmarks"><ul>My Bookmarks</ul></a>
                     <a href="/Notifications"><ul>Notifications</ul></a>
                     <a href="/Settings"><ul>Settings</ul></a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="/Admin"><ul>Admin</ul></a>
+                    }
                     <a href="/account/signout"><ul class="dd-menu-bottom">Logout</ul></a>
                 </div>
             </div>
