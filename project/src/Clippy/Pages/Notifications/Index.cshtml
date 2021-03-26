@@ -1,0 +1,45 @@
+@page
+@model Clippy.Pages.Notifications.IndexModel
+@{
+    ViewData["Title"] = "Notifications";
+}
+
+<link rel="stylesheet" href="/css/notifications.css" />
+
+<div class="body">
+    <div class="title">Your Notifications</div>
+    <div class="content">
+        @foreach(var user in Model.ThisUser.Subscriptions) {
+            <div class="notifications-item">
+                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
+                <div class="text-from-db">
+                    @user.Name
+                </div>
+            </div>
+        }
+        @foreach(var user in Model.ThisUser.Subscriptions) {
+            <div class="notifications-item">
+                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
+                <div class="text-from-db">
+                    @user.Name
+                </div>
+            </div>
+        }
+        @foreach(var user in Model.ThisUser.Subscriptions) {
+            <div class="notifications-item">
+                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
+                <div class="text-from-db">
+                    @user.Name
+                </div>
+            </div>
+        }
+        @foreach(var user in Model.ThisUser.Subscriptions) {
+            <div class="notifications-item">
+                <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
+                <div class="text-from-db">
+                    @user.Name
+                </div>
+            </div>
+        }
+    </div>
+</div>

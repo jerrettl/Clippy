@@ -104,6 +104,12 @@
     background-color: rgba(196, 196, 196, 0.2);
     border-radius: 0px 0px 15px 15px;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
 }
 
 .following-item {
