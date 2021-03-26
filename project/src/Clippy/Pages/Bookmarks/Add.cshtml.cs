@@ -134,7 +134,7 @@ namespace Clippy.Pages.Bookmarks
             _context.AddNotification(newNotification);
             
             await _context.SaveChangesAsync();
-            string returnPage = Request.Query.ContainsKey("return") ? Request.Query["return"] : "/Index";
+            string returnPage = Request.Query.ContainsKey("return") ? Request.Query["return"] : "/Bookmarks/Index";
             return RedirectToPage(returnPage);
         }
     }
