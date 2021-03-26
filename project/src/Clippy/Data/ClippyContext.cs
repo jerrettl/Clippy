@@ -114,13 +114,6 @@ namespace Clippy.Data {
                 .ToListAsync();
         }
 
-        // public async virtual Task<Dictionary<User>> GetUsersDictionaryAsync()
-        // {
-        //     return await Users
-        //         .AsNoTracking()
-        //         .ToDictionaryAsync();
-        // }
-
         public async virtual Task<User> GetUserAsync(int id)
         {
             return await Users
