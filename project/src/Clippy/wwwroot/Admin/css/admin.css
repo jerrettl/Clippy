@@ -67,3 +67,11 @@ div.message {
     margin-left: 0;
     margin-bottom: 25px;
 }
+
+.json-import {
+    height: 700px;
+}
+
+.sample-link {
+    cursor: pointer;
+}

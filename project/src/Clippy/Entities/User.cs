@@ -35,6 +35,7 @@ namespace Clippy.Entities
         public User()
         {
             Followers = new List<User>();
+            Roles = new List<Role>();
             Subscriptions = new List<User>();
         }
     }
