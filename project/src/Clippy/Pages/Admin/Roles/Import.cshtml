@@ -1,0 +1,41 @@
+@page
+@model Clippy.Pages.Admin.Roles.ImportModel
+@{
+    ViewData["Title"] = "Import Roles";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Import Roles</h1>
+            </header>
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">JSON (<a id="addSample" class="sample-link">View Sample</a>)</label>
+                        <textarea asp-for="Json" class="json-import"></textarea>
+                        <span class="hint">Enter a JSON array of roles.</span>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Import Users" class="primary" /></li>
+                    <li><a asp-page="Index" class="button">Back</a></li>
+                </ul>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+@section Scripts {
+<script>
+    $(function() {
+        $("#addSample").click(function() {
+            $("#Json").text("[\n  {\n    \"Name\": \"Admin\"\n  },\n  {\n    \"Name\": \"User\"\n  }\n]");
+        })
+    });
+</script>
+}
