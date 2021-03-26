@@ -134,6 +134,8 @@
     top: 58px;
     right: 77px;
     display: none;
+    width: 200px;
+    z-index: 1000;
   }
 }
 
@@ -143,6 +145,8 @@
     top: 58px;
     right: 40px;
     display: none;
+    width: 200px;
+    z-index: 1000;
   }
 }
 
@@ -192,6 +196,7 @@
 .dd-menu a {
   text-decoration: none;
   color:rgb(0, 0, 0);
+  line-height: 2em;
 }
 
 .dd-menu-top {
@@ -213,7 +218,7 @@
 }
 
 .triangle {
-  left: 114px;
+  left: 190px;
   top: -9px;
   border-bottom: 10px solid rgb(177, 255, 223);
   border-left: 10px solid transparent;
