@@ -114,6 +114,15 @@ namespace Clippy.Data {
                 .ToListAsync();
         }
 
+        public async virtual Task<List<User>> GetUsersExportAsync()
+        {
+            return await Users
+                .Include(u => u.Roles)
+                .Include(u => u.Subscriptions)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
         public async virtual Task<User> GetUserAsync(int id)
         {
             return await Users
@@ -201,7 +210,7 @@ namespace Clippy.Data {
         {
             Notifications.Add(notification);
         }
-        
+
         #endregion
     }
 }
