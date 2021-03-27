@@ -46,8 +46,8 @@
                 <a href="/Following" class="nav-link" onclick="closeMobileMenu()">Following</a>
                 }
             </div>
-            <form class="searchbar">
-                <input class="search" type="text" name="search-term" placeholder="Search" required>
+            <form class="searchbar" method="get" action="/Search">
+                <input class="search" type="text" name="query" for="query" placeholder="Search" required>
             </form>
             @if (User.Identity.IsAuthenticated)
             {

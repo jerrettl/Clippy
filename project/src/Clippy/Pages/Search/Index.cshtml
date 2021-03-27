@@ -1,0 +1,109 @@
+@page
+@model Clippy.Pages.Search.IndexModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+<link rel="stylesheet" href="/css/explore.css" />
+<link rel="stylesheet" href="/css/search.css" />
+
+<section class="content-explore">
+    @if (Model.Bookmarks.Count == 0)
+    {
+        <div class="card" id="no-results">
+            <div class="title-icon-container">
+                <span><h3>Oops...</h3></span>
+            </div>
+
+            <div class="date-description-container">
+                <p class="card-description">Your search - <strong>@Model.Query</strong> - could not be found. 📎 :( 📎</p>
+            </div>
+        </div>
+    }
+
+    @foreach (var bookmark in Model.Bookmarks)
+    {
+        <div class="card">
+            @{
+                    string resourceTitle = null;
+                    if (!string.IsNullOrWhiteSpace(bookmark.Title))
+                    {
+                        resourceTitle = bookmark.Title;
+                    }
+                    else if (bookmark.Resource.Metadata.ContainsKey("Title") &&
+                    bookmark.Resource.Metadata["Title"] != null)
+                    {
+                        resourceTitle = bookmark.Resource.Metadata["Title"];
+                    }
+                    else
+                    {
+                        resourceTitle = bookmark.Resource.Location;
+                    }
+
+                    string resourceLocation = null;
+                    if (bookmark.Resource.Location.StartsWith("http://") ||
+                    bookmark.Resource.Location.StartsWith("https://"))
+                    {
+                        resourceLocation = bookmark.Resource.Location;
+                    }
+                    else
+                    {
+                        resourceLocation = $"//{bookmark.Resource.Location}";
+                    }
+
+                    string date = bookmark.CreateDate.ToShortDateString();
+                    string description = null;
+                    if (!string.IsNullOrWhiteSpace(bookmark.Description))
+                    {
+                        description = bookmark.Description;
+                    }
+                    else if (bookmark.Resource.Metadata.ContainsKey("Description") &&
+                    bookmark.Resource.Metadata["Description"] != null)
+                    {
+                        description = bookmark.Resource.Metadata["Description"];
+                    }
+                    else
+                    {
+                        description = "No description.";
+                    }
+                    
+                    string imageUrl;
+                    if (bookmark.Resource.Metadata.ContainsKey("ImageURL") &&
+                    bookmark.Resource.Metadata["ImageURL"] != null)
+                    {
+                        imageUrl = $"/images/bookmarks/{bookmark.Resource.Metadata["ImageURL"]}";
+                    }
+                    else
+                    {
+                        imageUrl = "/images/resources/sad-clippy.jpg";
+                    }
+            }
+            <div class="card-photo-container">
+                <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
+            </div>
+            <div class="title-icon-container">
+                <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
+            </div>
+
+            <div class="date-description-container">
+                <p class="date">@date</p>
+                <p class="card-description">@description</p>
+            </div>
+
+            <div class="tags">
+                @if (bookmark.Tags != null)
+                {
+                    @foreach (var tag in bookmark.Tags)
+                    {
+                        <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
+                    }
+                }
+            </div>
+
+            <div class="author-location-container">
+                <p>Clipped by: <a asp-page="/Profile/Index" asp-route-id="@bookmark.User.Id">@bookmark.User.Name</a></p>
+                <a href="@resourceLocation">Link...</a>
+            </div>
+        </div>
+    }
+</section>

@@ -3,6 +3,7 @@ using Clippy.Data.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Clippy.Data {
@@ -67,6 +68,23 @@ namespace Clippy.Data {
         public async virtual Task<List<Bookmark>> GetPublicBookmarksByUserIdAsync(int id)
         {
             return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE UserId = {0} AND IsPublic = 1", id)
+                .Include(b => b.Resource)
+                .Include(b => b.User)
+                .Include(b => b.Tags)
+                .ToListAsync();
+        }
+
+        public async virtual Task<List<Bookmark>> GetBookmarksBySearch(string query, int id)
+        {
+            var allPublicBookmarks = from b in Bookmarks
+                select b;
+
+            var usersPrivateBookmarks = from b in Bookmarks
+                where b.UserId == id && b.IsPublic == false
+                select b;
+
+            return await allPublicBookmarks.Union(usersPrivateBookmarks)
+                .Where(b => b.Title.ToLower().Contains(query.ToLower()))
                 .Include(b => b.Resource)
                 .Include(b => b.User)
                 .Include(b => b.Tags)
