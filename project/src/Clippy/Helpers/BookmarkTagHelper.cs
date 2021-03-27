@@ -41,13 +41,23 @@ namespace Clippy.Helpers
 
                 Tag newTag = new Tag { TagName = tag.Trim() };
 
-                if (output.Contains(newTag))
+                if (ContainsTag(output, newTag))
                     continue;
 
                 output.Add(newTag);
             }
 
             return output;
+        }
+
+        private static bool ContainsTag(IList<Tag> tags, Tag query)
+        {
+            foreach (Tag tag in tags)
+            {
+                if (query.TagName.Equals(tag.TagName)) return true;
+            }
+
+            return false;
         }
     }
 }
