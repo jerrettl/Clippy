@@ -29,6 +29,10 @@
                 <textarea class="description" id="description" placeholder="Description of the bookmark..." asp-for="Bookmark.Description"></textarea>
                 <span asp-validation-for="Bookmark.Description"></span>
 
+                <label class="labels" for="tags">Tags</label>
+                <input class="input-text" type="text" id="tags" placeholder="Tags for the bookmark..." asp-for="Bookmark.Tags" autocomplete="off">
+                <span asp-validation-for="Bookmark.Tags"></span>
+
                 <input class="button" type="submit" value="Save">
                 <button asp-page-handler="Delete" asp-route-id="@Model.Bookmark.Id" onclick="return confirm('Are you sure you want to delete?')" class="button">Delete</button>
                 <a asp-page="Manage">Back</a>
