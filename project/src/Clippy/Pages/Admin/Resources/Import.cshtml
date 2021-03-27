@@ -1,7 +1,7 @@
 @page
-@model Clippy.Pages.Admin.Roles.ImportModel
+@model Clippy.Pages.Admin.Resources.ImportModel
 @{
-    ViewData["Title"] = "Import Roles";
+    ViewData["Title"] = "Import Resources";
 }
 
 <div id="main">
@@ -9,7 +9,7 @@
     <section id="one">
         <div class="inner">
             <header class="major">
-                <h1>Import Roles</h1>
+                <h1>Import Resources</h1>
             </header>
             <form method="post">
                 <div asp-validation-summary="All"></div>
@@ -17,11 +17,11 @@
                     <div class="field">
                         <label for="name">JSON (<a id="addSample" class="sample-link">View Sample</a>)</label>
                         <textarea asp-for="Json" class="json-import"></textarea>
-                        <span class="hint">Enter a JSON array of roles.</span>
+                        <span class="hint">Enter a JSON array of resources.</span>
                     </div>
                 </div>
                 <ul class="actions">
-                    <li><input type="submit" value="Import Roles" class="primary" /></li>
+                    <li><input type="submit" value="Import Resources" class="primary" /></li>
                     <li><a asp-page="Index" class="button">Back</a></li>
                 </ul>
             </form>
@@ -34,7 +34,7 @@
 <script>
     $(function() {
         $("#addSample").click(function() {
-            $("#Json").text("[\n  {\n    \"Name\": \"Admin\"\n  },\n  {\n    \"Name\": \"User\"\n  }\n]");
+            $("#Json").text("[\n  {\n    \"Location\": \"https://www.amazon.com\",\n    \"Metadata\": {\n      \"Title\": \"Amazon\",\n      \"MediaType\": \"text/html\",\n      \"ImageURL\": \"amazon.jpg\",\n      \"Description\": \"Popular online shopping site.\"\n    }\n  },\n  {\n    \"Location\": \"https://www.ucf.edu\",\n    \"Metadata\": {\n      \"Title\": \"University of Central Florida\",\n      \"MediaType\": \"text/html\",\n      \"ImageURL\": \"ucf.jpg\",\n      \"Description\": \"Go Knights!\"\n    }\n  }\n]");
         })
     });
 </script>
