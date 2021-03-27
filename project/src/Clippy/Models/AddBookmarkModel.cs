@@ -12,5 +12,7 @@ namespace Clippy.Models
         public string Description { get; set; }
 
         public string Tags { get; set; }
+
+        public bool IsPublic { get; set; }
     }
 }

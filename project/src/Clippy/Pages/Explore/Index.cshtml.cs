@@ -18,7 +18,7 @@ namespace Clippy.Pages.Explore
 
         public async Task OnGetAsync()
         {
-            Bookmarks =  await _context.GetBookmarksAsync();
+            Bookmarks =  await _context.GetPublicBookmarksAsync();
         }
     }
 }

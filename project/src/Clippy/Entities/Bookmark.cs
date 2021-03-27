@@ -25,9 +25,13 @@ namespace Clippy.Entities
 
         public string Description { get; set; }
 
+        [Required]
+        public bool IsPublic { get; set; }
+
         public Bookmark()
         {
             Tags = new List<Tag>();
+            IsPublic = true;
         }
     }
 }

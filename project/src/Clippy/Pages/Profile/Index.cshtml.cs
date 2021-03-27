@@ -32,14 +32,17 @@ namespace Clippy.Pages.Profile
             }
 
             ThisUser = await _context.GetUserByGithubId(githubId);
-            if (id == 0)
+            if (id == 0 || ThisUser.Id == id)
             {
                 ViewingUser = ThisUser;
                 id = ThisUser.Id;
+                Bookmarks = await _context.GetBookmarksByUserIdAsync(id);
+
             }
             else
             {
                 ViewingUser = await _context.GetUserAsync(id);
+                Bookmarks = await _context.GetPublicBookmarksByUserIdAsync(id);
             }
 
             if (ThisUser == null || ViewingUser == null)
@@ -47,7 +50,6 @@ namespace Clippy.Pages.Profile
                 return RedirectToPage("/Index");
             }
 
-            Bookmarks = await _context.GetBookmarksByUserIdAsync(id);
 
             return Page();
         }

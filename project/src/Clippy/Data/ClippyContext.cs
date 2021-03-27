@@ -46,10 +46,29 @@ namespace Clippy.Data {
                 .ToListAsync();
         }
 
+        public async virtual Task<List<Bookmark>> GetPublicBookmarksAsync()
+        {
+            return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE IsPublic = 1")
+                .Include(b => b.Resource)
+                .Include(b => b.User)
+                .Include(b => b.Tags)
+                .ToListAsync();
+        }
+
         public async virtual Task<List<Bookmark>> GetBookmarksByUserIdAsync(int id)
         {
             return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE UserId = {0}", id)
                 .Include(b => b.Resource)
+                .Include(b => b.User)
+                .Include(b => b.Tags)
+                .ToListAsync();
+        }
+
+        public async virtual Task<List<Bookmark>> GetPublicBookmarksByUserIdAsync(int id)
+        {
+            return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE UserId = {0} AND IsPublic = 1", id)
+                .Include(b => b.Resource)
+                .Include(b => b.User)
                 .Include(b => b.Tags)
                 .ToListAsync();
         }

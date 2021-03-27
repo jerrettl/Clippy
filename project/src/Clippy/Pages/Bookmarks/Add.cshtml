@@ -34,6 +34,12 @@
                 <input class="input-text" type="text" placeholder="Tags for the bookmark..." asp-for="BookmarkEntity.Tags" autocomplete="off">
                 <span asp-validation-for="BookmarkEntity.Tags"></span>
 
+                <div>
+                    <label class="labels" asp-for="BookmarkEntity.IsPublic">Public</label>
+                    <input type="checkbox" asp-for="BookmarkEntity.IsPublic" checked>
+                    <span asp-validation-for="BookmarkEntity.IsPublic"></span>
+                </div>
+
                 <input class="button" type="submit" value="Add Bookmark">
                 <a asp-page="Index">Back</a>
         </form>
