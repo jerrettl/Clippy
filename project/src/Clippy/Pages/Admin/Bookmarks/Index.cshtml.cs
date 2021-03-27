@@ -33,9 +33,9 @@ namespace Clippy.Pages.Admin.Bookmarks
                 exportedBookmarks.Add(new ExportBookmarkModel{
                     Id = bookmark.Id,
                     Location = bookmark.Resource.Location,
-                    Title = bookmark.Title,
-                    Description = bookmark.Description,
-                    IsPublic = bookmark.IsPublic,
+                    Title = bookmark.Title ?? "",
+                    Description = bookmark.Description ?? "",
+                    Public = bookmark.IsPublic,
                     Tags = BookmarkTagHelper.ListToString(bookmark.Tags),
                     Username = bookmark.User.Username
                 });
