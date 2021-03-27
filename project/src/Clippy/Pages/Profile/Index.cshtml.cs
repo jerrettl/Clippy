@@ -70,6 +70,12 @@ namespace Clippy.Pages.Profile
                 ViewingUser.Followers.Add(ThisUser);
             }
 
+            _context.AddNotification(new Notification {
+                UserId = ThisUser.Id,
+                CreateDate = DateTime.Now,
+                Text = $"{ThisUser.Name} followed {ViewingUser.Name}!"
+            });
+
             await _context.SaveChangesAsync();
             return RedirectToPage("/Profile/Index", new { id = ViewingUser.Id });
         }
