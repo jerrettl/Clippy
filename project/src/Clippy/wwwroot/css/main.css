@@ -315,6 +315,22 @@
   margin: auto 10px 5px 10px;
 }
 
+.tags {
+  margin: 4px 16px 0 16px;
+  text-align: left;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 16px;
+  margin: 4px 0 0 0;
+  padding: 0 8px 0 8px;
+  font-size: 10pt;
+}
+
+/*----------------Error Page Styles----------------*/
+
 h1.error-page-title {
   font-size: 48px;
   text-transform: uppercase;

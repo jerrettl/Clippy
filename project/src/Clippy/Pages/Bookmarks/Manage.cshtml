@@ -84,6 +84,15 @@
             <div class="date-description-container">
                 <p class="date">@date</p>
                 <p class="card-description">@description</p>
+                <div class="tags">
+                    @if (bookmark.Tags != null)
+                    {
+                        @foreach (var tag in bookmark.Tags)
+                        {
+                            <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
+                        }
+                    }
+                </div>
             </div>
 
             <div class="author-location-container">

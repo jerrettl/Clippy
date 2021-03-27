@@ -141,6 +141,16 @@
                             <p class="card-description">@description</p>
                         </div>
 
+                        <div class="tags">
+                            @if (bookmark.Tags != null)
+                            {
+                                @foreach (var tag in bookmark.Tags)
+                                {
+                                    <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
+                                }
+                            }
+                        </div>
+
                         <div class="author-location-container">
                             <p>Clipped by: @bookmark.User.Name</p>
                             <a href="@resourceLocation">Link...</a>
