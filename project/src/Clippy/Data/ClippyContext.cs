@@ -50,6 +50,7 @@ namespace Clippy.Data {
         {
             return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE UserId = {0}", id)
                 .Include(b => b.Resource)
+                .Include(b => b.Tags)
                 .ToListAsync();
         }
 
