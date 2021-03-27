@@ -107,21 +107,11 @@ namespace Clippy.Pages.Bookmarks
                 bookmark.UserId = dbResponse.Entity.Id;
             }
 
-            // Add Tags
-            if (!string.IsNullOrWhiteSpace(BookmarkEntity.Tags))
-            {
-                // TODO: Check for uniqueness
-                var tags = BookmarkEntity.Tags.Split(',');
-                foreach (var tag in tags)
-                {
-                    bookmark.Tags.Add(new Tag { TagName = tag });
-                }
-            }
-
             bookmark.CreateDate = now;
 
             bookmark.Title = !string.IsNullOrWhiteSpace(BookmarkEntity.Title) ? BookmarkEntity.Title : null;
             bookmark.Description = !string.IsNullOrWhiteSpace(BookmarkEntity.Description) ? BookmarkEntity.Description : null;
+            bookmark.Tags = BookmarkTagHelper.StringToList(BookmarkEntity.Tags);
 
             _context.AddBookmark(bookmark);
 
