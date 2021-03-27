@@ -1,0 +1,41 @@
+@page
+@model Clippy.Pages.Admin.Bookmarks.ImportModel
+@{
+    ViewData["Title"] = "Import Bookmarks";
+}
+
+<div id="main">
+
+    <section id="one">
+        <div class="inner">
+            <header class="major">
+                <h1>Import Bookmarks</h1>
+            </header>
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">JSON (<a id="addSample" class="sample-link">View Sample</a>)</label>
+                        <textarea asp-for="Json" class="json-import"></textarea>
+                        <span class="hint">Enter a JSON array of bookmarks.</span>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Import Bookmarks" class="primary" /></li>
+                    <li><a asp-page="Index" class="button">Back</a></li>
+                </ul>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+@section Scripts {
+<script>
+    $(function() {
+        $("#addSample").click(function() {
+            $("#Json").text("[\n  {\n    \"Location\": \"https://www.amazon.com\",\n    \"Title\": \"Get u sum\",\n    \"Description\": \"Everything under the sun.\",\n    \"Public\": true,\n    \"Tags\": \"buy,favorite,shopping,store\",\n    \"Username\": \"Clippy5\"\n  },\n  {\n    \"Location\": \"https://www.ucf.edu\",\n    \"Title\": \"UCF Rules!\",\n    \"Description\": \"UCF College of Engineering and CS.\",\n    \"Public\": true,\n    \"Tags\": \"college,school,ucf,university\",\n    \"Username\": \"Clippy5\"\n  }\n]");
+        })
+    });
+</script>
+}
