@@ -20,6 +20,16 @@
                         <span asp-validation-for="BookmarkEntity.Title"></span>
                     </div>
                     <div class="field">
+                        <label asp-for="BookmarkEntity.Description">Description</label>
+                        <input type="text" asp-for="BookmarkEntity.Description" />
+                        <span asp-validation-for="BookmarkEntity.Description"></span>
+                    </div>
+                    <div class="field">
+                        <input type="checkbox" asp-for="BookmarkEntity.IsPublic">
+                        <label asp-for="BookmarkEntity.IsPublic">Public</label>
+                        <span asp-validation-for="BookmarkEntity.IsPublic"></span>
+                    </div>
+                    <div class="field">
                         <label asp-for="BookmarkEntity.ResourceId">Resource</label>
                         <select asp-for="BookmarkEntity.ResourceId" asp-items="Model.Resources"></select>
                         <span asp-validation-for="BookmarkEntity.ResourceId"></span>
