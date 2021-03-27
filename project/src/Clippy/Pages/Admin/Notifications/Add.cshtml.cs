@@ -73,7 +73,6 @@ namespace Clippy.Pages.Admin.Notifications
             bookmark.User = user;
             bookmark.CreateDate = DateTime.UtcNow;
 
-            bookmark.Tags = new List<Tag>();
             if (!string.IsNullOrWhiteSpace(BookmarkEntity.Tags))
             {
                 // TODO: Check for uniqueness
