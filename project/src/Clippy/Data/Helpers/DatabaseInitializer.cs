@@ -169,7 +169,8 @@ namespace Clippy.Data.Helpers {
                     Id = i,
                     ResourceId = resources[i].Id,
                     UserId = user.Id,
-                    CreateDate = resources[i].CreateDate
+                    CreateDate = resources[i].CreateDate,
+                    Title = resources[i].Metadata["Title"]
                 });
             }
 
