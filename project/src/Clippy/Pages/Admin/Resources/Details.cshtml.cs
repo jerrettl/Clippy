@@ -42,7 +42,7 @@ namespace Clippy.Pages.Admin.Resources
 
             await _context.SaveChangesAsync();
 
-            TempData["Message"] = $"Resource successfully deleted. Id = {id}.";
+            TempData["Message"] = $"The resource was successfully deleted.";
 
             return RedirectToPage("./Index");
         }

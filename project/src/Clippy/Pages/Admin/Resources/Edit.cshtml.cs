@@ -68,7 +68,7 @@ namespace Clippy.Pages.Admin.Resources
             _context.Update(existingResource);
             await _context.SaveChangesAsync();
 
-            TempData["Message"] = $"Resource successfully updated.";
+            TempData["Message"] = $"The resource, {Resource.Title}, was successfully updated.";
 
             return RedirectToPage("./Index");
         }
