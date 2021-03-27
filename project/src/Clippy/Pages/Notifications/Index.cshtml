@@ -9,14 +9,18 @@
 <div class="body">
     <div class="title">Your Notifications</div>
     <div class="content">
-        @foreach(var notification in Model.Notifications) {
+        @foreach(var notification in Model.Notifications.Reverse()) {
             <div class="notifications-item">
                 <div class="image" style= "background-image: url('@notification.User.AvatarUrl')"></div>
-                <a asp-page="/Profile/Index" asp-route-id="@notification.User.Id">
-                    <div class="text-from-db">
-                        @notification.Text
-                    </div>
-                </a>
+                <div>
+                    <a asp-page="/Profile/Index" asp-route-id="@notification.User.Id">
+                        <div class="text-from-db">
+                            @notification.Text
+                        </div>
+                    </a>
+                    <br>
+                    @notification.CreateDate.ToString("hh:mm tt - MMMM dd, yyyy")
+                </div>
             </div>
         }
     </div>
