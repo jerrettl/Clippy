@@ -15,10 +15,10 @@ namespace Clippy.Data.Helpers {
                 .HasData(GetSeedingRoles());
             modelBuilder.Entity<User>()
                 .HasData(GetSeedingUsers());
-            modelBuilder.Entity<Tag>()
-                .HasData(GetSeedingTags());
             modelBuilder.Entity<Bookmark>()
                 .HasData(GetSeedingBookmarks());
+            modelBuilder.Entity<Tag>()
+                .HasData(GetSeedingTags());
         }
 
         public static List<Resource> GetSeedingResources()
@@ -140,17 +140,15 @@ namespace Clippy.Data.Helpers {
         {
             var tags = new List<Tag>();
 
-            var resources = GetSeedingResources();
-
-            for(int i = 1; i < resources.Count; i++)
-            {
-                tags.Add(new Tag
-                {
-                    Id = i,
-                    BookmarkId = i,
-                    TagName = "favorite"
-                });
-            }
+            tags.Add(new Tag {Id = 1, BookmarkId = 1, TagName = "Nature"}); // NatGeo
+            tags.Add(new Tag {Id = 2, BookmarkId = 2, TagName = "Adventure"}); // Yellowstone
+            tags.Add(new Tag {Id = 3, BookmarkId = 2, TagName = "Park"}); // Yellowstone
+            tags.Add(new Tag {Id = 4, BookmarkId = 3, TagName = "Food"}); // Food Network
+            tags.Add(new Tag {Id = 5, BookmarkId = 4, TagName = "Detox"}); // Lemons
+            tags.Add(new Tag {Id = 6, BookmarkId = 4, TagName = "Nutrition"}); // Lemons
+            tags.Add(new Tag {Id = 7, BookmarkId = 5, TagName = "Adventure"}); // Appalachian Trail
+            tags.Add(new Tag {Id = 8, BookmarkId = 5, TagName = "Hike"}); // Appalachian Trail
+            tags.Add(new Tag {Id = 9, BookmarkId = 6, TagName = "Space"}); // SpaceX
 
             return tags;
         }
@@ -162,15 +160,15 @@ namespace Clippy.Data.Helpers {
 
             var bookmarks = new List<Bookmark>();
 
-            for(int i = 1; i < resources.Count; i++)
+            for(int i = 1; i <= resources.Count; i++)
             {
                 bookmarks.Add(new Bookmark
                 {
                     Id = i,
-                    ResourceId = resources[i].Id,
+                    ResourceId = resources[i-1].Id,
                     UserId = user.Id,
-                    CreateDate = resources[i].CreateDate,
-                    Title = resources[i].Metadata["Title"]
+                    CreateDate = resources[i-1].CreateDate,
+                    Title = resources[i-1].Metadata["Title"]
                 });
             }
 
