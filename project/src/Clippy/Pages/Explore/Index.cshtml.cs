@@ -18,14 +18,27 @@ namespace Clippy.Pages.Explore
 
         public IList<Bookmark> Bookmarks { get; set; }
 
-        public User ThisUser { get; set; }
+        public bool ClippyMode { get; set; }
 
         public async Task OnGetAsync()
         {
             Bookmarks =  await _context.GetPublicBookmarksAsync();
 
-            string githubId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            ThisUser = await _context.GetUserByGithubId(githubId);
+            string githubId = null;
+            foreach (Claim claim in User.Claims)
+            {
+                if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
+            }
+
+            if (githubId == null)
+            {
+                ClippyMode = false;
+            }
+            else
+            {
+                User user = await _context.GetUserByGithubId(githubId);
+                ClippyMode = user.ClippyMode;
+            }
         }
     }
 }
