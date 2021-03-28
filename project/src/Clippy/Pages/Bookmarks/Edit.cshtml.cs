@@ -21,6 +21,8 @@ namespace Clippy.Pages.Bookmarks
         [BindProperty]
         public EditBookmarkModel Bookmark { get; set; }
 
+        public string ReturnPage { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int id)
         {
             string githubId = "";
@@ -47,6 +49,8 @@ namespace Clippy.Pages.Bookmarks
                 Favorited = bookmark.Favorited
             };
 
+            ReturnPage = Request.Query.ContainsKey("return") ? Request.Query["return"] : "./Manage";
+
             return Page();
         }
 
@@ -70,7 +74,8 @@ namespace Clippy.Pages.Bookmarks
             _context.Update(existingBookmark);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Manage");
+            string returnPage = Request.Query.ContainsKey("return") ? Request.Query["return"] : "./Manage";
+            return RedirectToPage(returnPage);
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
@@ -85,7 +90,8 @@ namespace Clippy.Pages.Bookmarks
             _context.Remove(bookmark);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Manage");
+            string returnPage = Request.Query.ContainsKey("return") ? Request.Query["return"] : "./Manage";
+            return RedirectToPage(returnPage);
         }
     }
 }
