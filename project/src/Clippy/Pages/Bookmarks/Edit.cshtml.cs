@@ -43,7 +43,8 @@ namespace Clippy.Pages.Bookmarks
                 Location = bookmark.Resource.Location,
                 Description = bookmark.Description ?? "",
                 Tags = BookmarkTagHelper.ListToString(bookmark.Tags),
-                IsPublic = bookmark.IsPublic
+                IsPublic = bookmark.IsPublic,
+                Favorited = bookmark.Favorited
             };
 
             return Page();
@@ -64,6 +65,7 @@ namespace Clippy.Pages.Bookmarks
             existingBookmark.Description = !string.IsNullOrWhiteSpace(Bookmark.Description) ? Bookmark.Description : null;
             existingBookmark.Tags = BookmarkTagHelper.StringToList(Bookmark.Tags);
             existingBookmark.IsPublic = Bookmark.IsPublic;
+            existingBookmark.Favorited = Bookmark.Favorited;
             
             _context.Update(existingBookmark);
             await _context.SaveChangesAsync();

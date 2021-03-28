@@ -113,6 +113,7 @@ namespace Clippy.Pages.Bookmarks
             bookmark.Description = !string.IsNullOrWhiteSpace(BookmarkEntity.Description) ? BookmarkEntity.Description : null;
             bookmark.Tags = BookmarkTagHelper.StringToList(BookmarkEntity.Tags);
             bookmark.IsPublic = BookmarkEntity.IsPublic;
+            bookmark.Favorited = BookmarkEntity.Favorited;
 
             _context.AddBookmark(bookmark);
 

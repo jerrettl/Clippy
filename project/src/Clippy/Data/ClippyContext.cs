@@ -91,6 +91,24 @@ namespace Clippy.Data {
                 .ToListAsync();
         }
 
+        public async virtual Task<List<Bookmark>> GetFavoriteBookmarksByUserIdAsync(int id)
+        {
+            return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE UserId = {0} AND Favorited = 1", id)
+                .Include(b => b.Resource)
+                .Include(b => b.User)
+                .Include(b => b.Tags)
+                .ToListAsync();
+        }
+
+        public async virtual Task<List<Bookmark>> GetPublicFavoriteBookmarksByUserIdAsync(int id)
+        {
+            return await Bookmarks.FromSqlRaw("SELECT * FROM Bookmarks WHERE UserId = {0} AND Favorited = 1 AND IsPublic = 1", id)
+                .Include(b => b.Resource)
+                .Include(b => b.User)
+                .Include(b => b.Tags)
+                .ToListAsync();
+        }
+
         public async virtual Task<Bookmark> GetBookmarkAsync(int id)
         {
             return await Bookmarks
@@ -231,12 +249,6 @@ namespace Clippy.Data {
         #endregion
 
         #region Notifications
-
-        // public async virtual Task<List<Notification>> GetNotificationsByUser(int id)
-        // {
-        //     return await Notifications.FromSqlRaw("SELECT * FROM Notifications WHERE UserId = {0}", id)
-        //         .ToListAsync();
-        // }
 
         public async virtual Task<List<Notification>> GetNotificationsByUser(int id)
         {

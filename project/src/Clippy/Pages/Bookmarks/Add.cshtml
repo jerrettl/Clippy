@@ -40,6 +40,12 @@
                     <span asp-validation-for="BookmarkEntity.IsPublic"></span>
                 </div>
 
+                <div>
+                    <label class="labels" asp-for="BookmarkEntity.Favorited">Favorite</label>
+                    <input type="checkbox" asp-for="BookmarkEntity.Favorited">
+                    <span asp-validation-for="BookmarkEntity.Favorited"></span>
+                </div>
+
                 <input class="button" type="submit" value="Add Bookmark">
                 <a asp-page="Index">Back</a>
         </form>

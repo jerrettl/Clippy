@@ -39,6 +39,12 @@
                     <span asp-validation-for="Bookmark.IsPublic"></span>
                 </div>
 
+                <div>
+                    <label class="labels" asp-for="Bookmark.Favorited">Favorite</label>
+                    <input type="checkbox" asp-for="Bookmark.Favorited">
+                    <span asp-validation-for="Bookmark.Favorited"></span>
+                </div>
+
                 <input class="button" type="submit" value="Save">
                 <button asp-page-handler="Delete" asp-route-id="@Model.Bookmark.Id" onclick="return confirm('Are you sure you want to delete?')" class="button">Delete</button>
                 <a asp-page="Manage">Back</a>
