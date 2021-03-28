@@ -10,6 +10,8 @@ namespace Clippy.Models.Admin
 
         public bool IsPublic { get; set; }
 
+        public bool IsFavorite { get; set; }
+
         public int ResourceId { get; set; }
 
         public string Tags { get; set; }

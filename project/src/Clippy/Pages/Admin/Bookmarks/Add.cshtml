@@ -30,6 +30,11 @@
                         <span asp-validation-for="BookmarkEntity.IsPublic"></span>
                     </div>
                     <div class="field">
+                        <input type="checkbox" asp-for="BookmarkEntity.IsFavorite">
+                        <label asp-for="BookmarkEntity.IsFavorite">Favorite</label>
+                        <span asp-validation-for="BookmarkEntity.IsFavorite"></span>
+                    </div>
+                    <div class="field">
                         <label asp-for="BookmarkEntity.ResourceId">Resource</label>
                         <select asp-for="BookmarkEntity.ResourceId" asp-items="Model.Resources"></select>
                         <span asp-validation-for="BookmarkEntity.ResourceId"></span>

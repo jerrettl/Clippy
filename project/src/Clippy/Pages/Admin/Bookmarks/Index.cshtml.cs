@@ -36,6 +36,7 @@ namespace Clippy.Pages.Admin.Bookmarks
                     Title = bookmark.Title ?? "",
                     Description = bookmark.Description ?? "",
                     Public = bookmark.IsPublic,
+                    Favorite = bookmark.Favorited,
                     Tags = BookmarkTagHelper.ListToString(bookmark.Tags),
                     Username = bookmark.User.Username
                 });

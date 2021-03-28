@@ -15,6 +15,7 @@
             <p><strong>Title:</strong> @Model.Bookmark.Title</p>
             <p><strong>Description:</strong> @Model.Bookmark.Description</p>
             <p><strong>Public:</strong> @Model.Bookmark.IsPublic</p>
+            <p><strong>Favorite:</strong> @Model.Bookmark.Favorited</p>
             <p><strong>Resource Metadata:</strong> @Model.Bookmark.Resource.Metadata.Count item(s)</p>
             <pre>
                 @foreach(var metadata in Model.Bookmark.Resource.Metadata) {

@@ -66,6 +66,7 @@ namespace Clippy.Pages.Admin.Bookmarks
                 entity.Title = bookmark.Title ?? "";
                 entity.Description = bookmark.Description ?? "";
                 entity.IsPublic = bookmark.Public;
+                entity.Favorited = bookmark.Favorite;
                 entity.Tags = BookmarkTagHelper.StringToList(bookmark.Tags);
                 entity.CreateDate = DateTime.UtcNow;
 
