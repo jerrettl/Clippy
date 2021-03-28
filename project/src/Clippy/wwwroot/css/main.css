@@ -336,3 +336,98 @@ h1.error-page-title {
   text-transform: uppercase;
   color: white;
 }
+
+/*----------------Animated Background----------------*/
+
+.clip-container {
+  background: linear-gradient(0deg, #ffffff, #c1ffe0, #bcfadb);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+  position: relative;
+  position: fixed;
+  z-index: -950;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.clip {
+  position: absolute;
+  z-index: -10;
+  width: 10px;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+}
+
+.clip:nth-child(1) {
+  animation: clip 15s ease-in alternate infinite;
+  animation-delay: 0s;
+  left: 15vw;
+  top: 15vh;
+}
+
+.clip:nth-child(2) {
+  animation: clip 13s ease-in alternate-reverse infinite;
+  animation-delay: 1s;
+  right: 15vw;
+  top: 15vh;
+}
+
+.clip:nth-child(3) {
+  animation: clip 12s ease-in alternate infinite;
+  animation-delay: 2s;
+  left: 75vw;
+  top: 50vh;
+}
+
+.clip:nth-child(4) {
+  animation: clip 11s ease-in alternate-reverse infinite;
+  animation-delay: 3s;
+  left: 40vw;
+  top: 50vh;
+}
+
+.clip:nth-child(5) {
+  animation: clip 14s ease-in alternate infinite;
+  animation-delay: 4s;
+  left: 10vw;
+  top: 85vh;
+}
+
+.clip:nth-child(6) {
+  animation: clip 16s ease-in alternate-reverse infinite;
+  animation-delay: 5s;
+  right: 10vw;
+  top: 85vh;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes clip {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.25;
+  }
+  80% {
+    transform: scale(0.185) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}

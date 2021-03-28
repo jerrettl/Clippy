@@ -149,12 +149,12 @@
     background-color: rgb(177, 255, 223);
     margin: 15px 15px 0px 0px;
     font-size: 14px;
+    border: 1px solid black;
+    transition-duration: .2s;
 }
 
 .button:hover {
-    background-color: rgb(50, 206, 175);
-    transition: ease-in;
-    transition-duration: .5s;
+    background-color: rgb(117, 241, 217);
 }
 
 .content-add form a {
@@ -169,11 +169,17 @@
     font-size: 14px;
     text-align: center;
     line-height: 25px;
+    border: 1px solid black;
+    transition-duration: .2s;
+}
+
+.content-add form a:hover {
+  background-color: rgb(117, 241, 217);
 }
 
 .content-add form {
-  width: 1000px;
   margin: auto;
+  width: 60%;
 }
 
 .content-add {
