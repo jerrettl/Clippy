@@ -67,6 +67,66 @@
     margin-right: 10px;
 }
 
+/***************** */
+
+.card-link {
+    text-decoration: none;
+    color: black;
+}
+
+.card:hover {
+    opacity: 0.7;
+}
+
+.card {
+    margin: 10px;
+    vertical-align: top;
+}
+
+.card .card-photo-container {
+    height: 160px;
+    margin-bottom: 15px;
+}
+
+.card .card-body {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card .card-body .date-description-container {
+    margin-bottom: 30px;
+}
+
+.card .card-body .tags {
+    position: absolute;
+    left: -5px;
+    bottom: 50px;
+}
+
+.card .card-body .tags .tag {
+    border: none;
+    color: black;
+}
+
+.card .card-body .author-location-container {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.card .card-body .author-location-container span.favorite {
+    position: absolute;
+    left: 260px;
+    bottom: 0px;
+}
+
+.card .card-body .author-location-container span.edit {
+    position: absolute;
+    left: 290px;
+    bottom: 0px;
+}
+
 .banner {
     grid-area: banner;
     background-image: url("/images/resources/BannerImage.jpg");
