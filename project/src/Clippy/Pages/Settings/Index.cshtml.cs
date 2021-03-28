@@ -22,6 +22,8 @@ namespace Clippy.Pages.Settings
         [BindProperty]
         public EditUserModel UserEntity { get; set; }
 
+        public User ThisUser { get; set; }
+
         public async Task<IActionResult> OnGetAsync()
         {
             AvatarUrl = "";
@@ -36,15 +38,15 @@ namespace Clippy.Pages.Settings
                 else if (claim.Type == "urn:github:login") username = claim.Value;
             }
 
-            User user = await _context.GetUserByGithubId(githubId);
+            ThisUser = await _context.GetUserByGithubId(githubId);
             int userId;
-            if (user != null)
+            if (ThisUser != null)
             {
-                userId = user.Id;
+                userId = ThisUser.Id;
             }
             else
             {
-                user = new User
+                ThisUser = new User
                 {
                     Username = username,
                     Name = name,
@@ -53,13 +55,14 @@ namespace Clippy.Pages.Settings
                     AvatarUrl = AvatarUrl
                 };
 
-                var dbResponse = _context.AddUser(user);
+                var dbResponse = _context.AddUser(ThisUser);
                 await _context.SaveChangesAsync();
                 userId = dbResponse.Entity.Id;
             }
 
             UserEntity = new EditUserModel {
-              Bio = user.Bio
+              Bio = ThisUser.Bio,
+              ClippyMode = ThisUser.ClippyMode
             };
 
             return Page();
@@ -83,6 +86,7 @@ namespace Clippy.Pages.Settings
             }
 
             existingUser.Bio = UserEntity.Bio;
+            existingUser.ClippyMode = UserEntity.ClippyMode;
 
             _context.Update(existingUser);
             await _context.SaveChangesAsync();

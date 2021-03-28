@@ -5,7 +5,11 @@
 }
 
 @* styles *@
-    <link rel="stylesheet" href="/css/bookmarks.css" />
+<link rel="stylesheet" href="/css/bookmarks.css" />
+@if (!Model.ThisUser.ClippyMode)
+{
+    <link rel="stylesheet" href="/css/noclippymode.css" />
+}
 
 <div class="body">
 <section class="content-add">

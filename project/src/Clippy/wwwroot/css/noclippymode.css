@@ -1,0 +1,7 @@
+.clip-container {
+  display: none;
+}
+
+.intro, .favorited-bookmarks, .posts, section.following, .buttons-container, .content {
+  background-color: rgba(196, 196, 196, 0.2);
+}

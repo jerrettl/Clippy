@@ -21,6 +21,8 @@ namespace Clippy.Pages.Bookmarks
         [BindProperty]
         public EditBookmarkModel Bookmark { get; set; }
 
+        public User ThisUser { get; set; }
+
         public string ReturnPage { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
@@ -31,9 +33,9 @@ namespace Clippy.Pages.Bookmarks
                 if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
             }
 
-            User user = await _context.GetUserByGithubId(githubId);
+            ThisUser = await _context.GetUserByGithubId(githubId);
             Bookmark bookmark = await _context.GetBookmarkAsync(id);
-            if (user == null || bookmark == null || !user.Id.Equals(bookmark.UserId))
+            if (ThisUser == null || bookmark == null || !ThisUser.Id.Equals(bookmark.UserId))
             {
                 return RedirectToPage("./Manage");
             }

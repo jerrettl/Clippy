@@ -18,6 +18,8 @@ namespace Clippy.Pages.Bookmarks
 
         public IList<Bookmark> Bookmarks { get; set; }
 
+        public User ThisUser { get; set; }
+
         public async void OnGetAsync()
         {
             DateTime now = DateTime.Now;
@@ -33,15 +35,15 @@ namespace Clippy.Pages.Bookmarks
                 else if (claim.Type == "urn:github:avatar") avatarUrl = claim.Value;
             }
 
-            User user = await _context.GetUserByGithubId(githubId);
+            ThisUser = await _context.GetUserByGithubId(githubId);
             int userId;
-            if (user != null)
+            if (ThisUser != null)
             {
-                userId = user.Id;
+                userId = ThisUser.Id;
             }
             else
             {
-                user = new User
+                ThisUser = new User
                 {
                     Username = username,
                     Name = name,
@@ -50,7 +52,7 @@ namespace Clippy.Pages.Bookmarks
                     AvatarUrl = avatarUrl
                 };
 
-                var dbResponse = _context.AddUser(user);
+                var dbResponse = _context.AddUser(ThisUser);
                 await _context.SaveChangesAsync();
                 userId = dbResponse.Entity.Id;
             }

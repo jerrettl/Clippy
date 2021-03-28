@@ -32,11 +32,16 @@ namespace Clippy.Entities
 
         public IList<Role> Roles { get; set; }
 
+        // User preference to enable/disable animated background
+        [Required]
+        public bool ClippyMode { get; set; }
+
         public User()
         {
             Followers = new List<User>();
             Roles = new List<Role>();
             Subscriptions = new List<User>();
+            ClippyMode = false;
         }
     }
 }

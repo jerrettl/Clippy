@@ -5,6 +5,10 @@
 }
 
 <link rel="stylesheet" href="/css/profile.css" />
+@if (!Model.ThisUser.ClippyMode)
+{
+    <link rel="stylesheet" href="/css/noclippymode.css" />
+}
 
 <div class="body">
     <div class="banner">
@@ -21,10 +25,17 @@
         <form method="post">
             <textarea class="description" asp-for="UserEntity.Bio" placeholder="Edit bio..."></textarea>
             <span asp-validation-for="UserEntity.Bio"></span>
+
+            <div>
+                <label class="labels" asp-for="UserEntity.ClippyMode">Clippy Mode™</label>
+                <input type="checkbox" asp-for="UserEntity.ClippyMode">
+                <span asp-validation-for="UserEntity.ClippyMode"></span>
+            </div>
+
             <input class="button" type="submit" value="Save">
             <a asp-page="/Profile/Index"><input class="button" type="button" value="Back"></a>
         </form>
-        
+
         <form method="post">
             <span title="Having problems with your profile? Click here to refresh your account details from GitHub.">
                 <button asp-page-handler="Refresh" class="button">Refresh</button>

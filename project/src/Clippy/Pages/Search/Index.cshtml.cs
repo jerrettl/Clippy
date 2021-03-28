@@ -19,6 +19,8 @@ namespace Clippy.Pages.Search
 
         public string Query { get; set; }
 
+        public User ThisUser { get; set; }
+
         public async Task OnGetAsync(string query)
         {
             string githubId = "";
@@ -27,8 +29,8 @@ namespace Clippy.Pages.Search
                 if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
             }
 
-            User user = await _context.GetUserByGithubId(githubId);
-            int id = (user != null) ? user.Id : 0;
+            ThisUser = await _context.GetUserByGithubId(githubId);
+            int id = (ThisUser != null) ? ThisUser.Id : 0;
             Bookmarks = await _context.GetBookmarksBySearch(query, id);
             Query = query;
         }

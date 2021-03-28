@@ -5,6 +5,11 @@
 }
 
 <link rel="stylesheet" href="/css/notifications.css" />
+@if (!Model.ThisUser.ClippyMode)
+{
+    <link rel="stylesheet" href="/css/noclippymode.css" />
+}
+
 
 <div class="body">
     <div class="title">Your Notifications</div>

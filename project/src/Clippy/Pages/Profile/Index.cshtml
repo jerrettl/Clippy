@@ -6,6 +6,10 @@
 }
 
 <link rel="stylesheet" href="/css/profile.css" />
+@if (!Model.ThisUser.ClippyMode)
+{
+    <link rel="stylesheet" href="/css/noclippymode.css" />
+}
 
 <div class="body">
     <div class="banner">

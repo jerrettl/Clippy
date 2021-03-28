@@ -27,8 +27,12 @@ namespace Clippy.Pages.Bookmarks
 
         public List<SelectListItem> Users { get; set; }
 
-        public void OnGet()
+        public User ThisUser { get; set; }
+
+        public async void OnGetAsync()
         {
+            string githubId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            ThisUser = await _context.GetUserByGithubId(githubId);
         }
 
         public async Task<IActionResult> OnPostAsync()

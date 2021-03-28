@@ -5,6 +5,10 @@
 }
 
 <link rel="stylesheet" href="/css/explore.css" />
+@if (!Model.ThisUser.ClippyMode)
+{
+    <link rel="stylesheet" href="/css/noclippymode.css" />
+}
 
 <section class="content-explore">
     @foreach (var bookmark in Model.Bookmarks)

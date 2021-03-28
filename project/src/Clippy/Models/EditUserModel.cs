@@ -7,5 +7,7 @@ namespace Clippy.Models
     {
         [MaxLength(1000)]
         public string Bio { get; set; }
+
+        public bool ClippyMode { get; set; }
     }
 }
