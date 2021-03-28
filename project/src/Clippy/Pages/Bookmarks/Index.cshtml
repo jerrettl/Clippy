@@ -14,26 +14,146 @@
 <div class="body">
     <section class="content-main">
         <div class="card-main">
-
             @if (@Model.Bookmarks.Count > 1)
                 { <p>Welcome, @User.Identity.Name! <br>You have @Model.Bookmarks.Count bookmarks. Great Job!</p> }
             else if(@Model.Bookmarks.Count == 1)
                 { <p>Welcome, @User.Identity.Name! <br>You have @Model.Bookmarks.Count bookmark. <br>Great Job!</p> }
             else
-                { <p>Welcome, @User.Identity.Name! <br>You have no bookmark. Come on dude.... </p> }
-
+                { <p>Welcome, @User.Identity.Name! <br>You have no bookmarks. Come on dude.... </p> }
         </div>
 
         <div class="card-main">
-            <h3>
-                Bookmarks
-            </h3>
-            <ul>
-            @foreach (var bookmark in Model.Bookmarks)
-            {
-                <li>@bookmark.Resource.Location</li>
-            }
-            </ul>
+            <a asp-page="Manage" class="manage-option"><h3><img src="/images/resources/BookmarkIcon.png">Manage Bookmarks</h3></a>
         </div>
+
+        @if (Model.FavoriteBookmarks.Count != 0)
+        {
+            <div class="card-main">
+                <h3>Favorites:</h3>
+            </div>
+        }
+        @{ await DisplayCards(Model.FavoriteBookmarks, 3, true); }
+
+        @if (Model.FollowingBookmarks.Count != 0)
+        {
+            <div class="card-main">
+                <h3>From People You Follow:</h3>
+            </div>
+        }
+        @{ await DisplayCards(Model.FollowingBookmarks, 3, false); }
     </section>
 </div>
+
+
+@functions {
+#pragma warning disable 1998
+    public async Task DisplayCards(IList<Clippy.Entities.Bookmark> bookmarks, int maxCards, bool showEditButton)
+    {
+        @if (bookmarks.Count == 0)
+        {
+            return;
+        }
+
+        <div class="card-container">
+            @{ int i = 1; }
+            @foreach (var bookmark in bookmarks)
+            {
+                if (i > maxCards) break;
+
+                string resourceLocation = null;
+                if (bookmark.Resource.Location.StartsWith("http://") ||
+                bookmark.Resource.Location.StartsWith("https://"))
+                {
+                    resourceLocation = bookmark.Resource.Location;
+                }
+                else
+                {
+                    resourceLocation = $"//{bookmark.Resource.Location}";
+                }
+                <a href="@resourceLocation" class="card-link">
+                    <div class="card">
+                        @{
+                                string resourceTitle = null;
+                                if (!string.IsNullOrWhiteSpace(bookmark.Title))
+                                {
+                                    resourceTitle = bookmark.Title;
+                                }
+                                else if (bookmark.Resource.Metadata.ContainsKey("Title") &&
+                                bookmark.Resource.Metadata["Title"] != null)
+                                {
+                                    resourceTitle = bookmark.Resource.Metadata["Title"];
+                                }
+                                else
+                                {
+                                    resourceTitle = bookmark.Resource.Location;
+                                }
+
+                                string date = bookmark.CreateDate.ToShortDateString();
+                                string description = null;
+                                if (!string.IsNullOrWhiteSpace(bookmark.Description))
+                                {
+                                    description = bookmark.Description;
+                                }
+                                else if (bookmark.Resource.Metadata.ContainsKey("Description") &&
+                                bookmark.Resource.Metadata["Description"] != null)
+                                {
+                                    description = bookmark.Resource.Metadata["Description"];
+                                }
+                                else
+                                {
+                                    description = "No description.";
+                                }
+
+                                string imageUrl;
+                                if (bookmark.Resource.Metadata.ContainsKey("ImageURL") &&
+                                bookmark.Resource.Metadata["ImageURL"] != null)
+                                {
+                                    imageUrl = $"/images/bookmarks/{bookmark.Resource.Metadata["ImageURL"]}";
+                                }
+                                else
+                                {
+                                    imageUrl = "/images/resources/sad-clippy.jpg";
+                                }
+                        }
+                        <div class="card-photo-container">
+                            <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
+                        </div>
+                        <div class="card-body">
+                            <div class="title-icon-container">
+                                <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
+                            </div>
+
+                            <div class="date-description-container">
+                                <p class="card-description">@description</p>
+                            </div>
+
+                            <div class="tags">
+                                @if (bookmark.Tags != null)
+                                {
+                                    @foreach (var tag in bookmark.Tags)
+                                    {
+                                        <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
+                                    }
+                                }
+                            </div>
+
+                            <div class="author-location-container">
+                                <span><a asp-page="/Profile/Index" asp-route-id="@bookmark.User.Id"><i class="fas fa-user"></i> @bookmark.User.Name</a></span>
+                                @if (bookmark.Favorited)
+                                {
+                                    <span class="favorite"><i class="fas fa-heart"></i> </span>
+                                }
+                                @if (showEditButton)
+                                {
+                                    <span class="edit"><a href="/Bookmarks/Edit?id=@bookmark.Id&return=/Profile/Index"><i class="fas fa-edit"></i></a></span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                i++;
+            }
+        </div>
+    }
+#pragma warning restore 1998
+}

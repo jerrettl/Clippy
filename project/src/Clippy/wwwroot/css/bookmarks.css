@@ -8,6 +8,11 @@
   overflow-y: scroll;
 }
 
+.card-link {
+  color: #000;
+  text-decoration: none;
+}
+
 .card-main {
   background-color: white;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
@@ -16,6 +21,10 @@
   margin: 20px 0px;
   width: var(--card-width);
   overflow-wrap: anywhere;
+}
+
+.card:hover {
+  opacity: 0.7;
 }
 
 .card-main h3 {
@@ -44,6 +53,10 @@
   margin-left: 15px;
 }
 
+.card-container {
+  text-align: center;
+}
+
 /* ------------------ Bookmarks/Manage styles ------------------ */
 
 .body {
@@ -70,28 +83,24 @@
   box-shadow: 1px 20px 0px 0px rgba(0, 0, 0, 0.3);
 }
 
-.options ul {
-  list-style-type: none;
-}
-
-.options ul li a {
-  color: rgba(0, 0, 0, 0.6);
+.manage-option, .manage-option h3 img {
+  color: rgba(0, 0, 0, 1);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.options ul li a:hover {
-  color: rgba(0, 0, 0, 1);
+.manage-option:hover {
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.options ul li {
-  margin: 15px 5px 0px 20px;
-}
-
-.options ul li img {
+.manage-option h3 img {
   width: 15px;
-  margin: 0px 5px;
-  vertical-align: top;
+  padding-right: 6px;
+  vertical-align: text-bottom;
+}
+
+.manage-option h3 img:hover {
+  opacity: 0.6;
 }
 
 /* ------------------ Bookmarks/Add styles ------------------ */
@@ -186,4 +195,17 @@
   height: 100%;
   width: 100%;
   align-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.card a {
+  margin: 0;
+}
+
+.title-icon-container {
+  margin: 0 0 0 8px;
 }

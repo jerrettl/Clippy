@@ -17,6 +17,10 @@ namespace Clippy.Pages.Bookmarks
 
         public IList<Bookmark> Bookmarks { get; set; }
 
+        public IList<Bookmark> FavoriteBookmarks { get; set; }
+
+        public IList<Bookmark> FollowingBookmarks { get; set; }
+
         public User ThisUser { get; set; }
 
         public async void OnGetAsync()
@@ -56,6 +60,8 @@ namespace Clippy.Pages.Bookmarks
             }
 
             Bookmarks = await _context.GetBookmarksByUserIdAsync(userId);
+            FavoriteBookmarks = await _context.GetFavoriteBookmarksByUserIdAsync(userId);
+            FollowingBookmarks = await _context.GetBookmarksByFollowersAsync(userId);
         }
     }
 }

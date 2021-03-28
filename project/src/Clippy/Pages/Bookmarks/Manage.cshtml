@@ -15,94 +15,97 @@
 <section class="content-manage">
     @foreach (var bookmark in Model.Bookmarks)
     {
-        <div class="card">
-            @{
-                    string resourceTitle = null;
-                    if (!string.IsNullOrWhiteSpace(bookmark.Title))
-                    {
-                        resourceTitle = bookmark.Title;
-                    }
-                    else if (bookmark.Resource.Metadata.ContainsKey("Title") &&
-                    bookmark.Resource.Metadata["Title"] != null)
-                    {
-                        resourceTitle = bookmark.Resource.Metadata["Title"];
-                    }
-                    else
-                    {
-                        resourceTitle = bookmark.Resource.Location;
-                    }
+        string resourceTitle = null;
+        if (!string.IsNullOrWhiteSpace(bookmark.Title))
+        {
+            resourceTitle = bookmark.Title;
+        }
+        else if (bookmark.Resource.Metadata.ContainsKey("Title") &&
+        bookmark.Resource.Metadata["Title"] != null)
+        {
+            resourceTitle = bookmark.Resource.Metadata["Title"];
+        }
+        else
+        {
+            resourceTitle = bookmark.Resource.Location;
+        }
 
-                    string resourceLocation = null;
-                    if (bookmark.Resource.Location.StartsWith("http://") ||
-                    bookmark.Resource.Location.StartsWith("https://"))
-                    {
-                        resourceLocation = bookmark.Resource.Location;
-                    }
-                    else
-                    {
-                        resourceLocation = $"//{bookmark.Resource.Location}";
-                    }
+        string resourceLocation = null;
+        if (bookmark.Resource.Location.StartsWith("http://") ||
+        bookmark.Resource.Location.StartsWith("https://"))
+        {
+            resourceLocation = bookmark.Resource.Location;
+        }
+        else
+        {
+            resourceLocation = $"//{bookmark.Resource.Location}";
+        }
 
-                    string date = bookmark.CreateDate.ToShortDateString();
-                    string description = null;
-                    if (!string.IsNullOrWhiteSpace(bookmark.Description))
-                    {
-                        description = bookmark.Description;
-                    }
-                    else if (bookmark.Resource.Metadata.ContainsKey("Description") &&
-                    bookmark.Resource.Metadata["Description"] != null)
-                    {
-                        description = bookmark.Resource.Metadata["Description"];
-                    }
-                    else
-                    {
-                        description = "No description.";
-                    }
+        string date = bookmark.CreateDate.ToShortDateString();
+        string description = null;
+        if (!string.IsNullOrWhiteSpace(bookmark.Description))
+        {
+            description = bookmark.Description;
+        }
+        else if (bookmark.Resource.Metadata.ContainsKey("Description") &&
+        bookmark.Resource.Metadata["Description"] != null)
+        {
+            description = bookmark.Resource.Metadata["Description"];
+        }
+        else
+        {
+            description = "No description.";
+        }
 
-                    string imageUrl;
-                    if (bookmark.Resource.Metadata.ContainsKey("ImageURL") &&
-                    bookmark.Resource.Metadata["ImageURL"] != null)
-                    {
-                        imageUrl = $"/images/bookmarks/{bookmark.Resource.Metadata["ImageURL"]}";
-                    }
-                    else
-                    {
-                        imageUrl = "/images/resources/sad-clippy.jpg";
-                    }
-            }
-            <div class="card-photo-container">
-                <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
-            </div>
-            <div class="title-icon-container">
-                <span title="@resourceTitle"><h3>
-                    @if (bookmark.Favorited)
-                    {
-                        <i class="fas fa-star"></i>
-                    }
-                    @resourceTitle
-                </h3></span>
-                <a asp-page="Edit" asp-route-id="@bookmark.Id"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
-            </div>
+        string imageUrl;
+        if (bookmark.Resource.Metadata.ContainsKey("ImageURL") &&
+        bookmark.Resource.Metadata["ImageURL"] != null)
+        {
+            imageUrl = $"/images/bookmarks/{bookmark.Resource.Metadata["ImageURL"]}";
+        }
+        else
+        {
+            imageUrl = "/images/resources/sad-clippy.jpg";
+        }
 
-            <div class="date-description-container">
-                <p class="date">@date</p>
-                <p class="card-description">@description</p>
-                <div class="tags">
-                    @if (bookmark.Tags != null)
-                    {
-                        @foreach (var tag in bookmark.Tags)
+        <a href="@resourceLocation">
+            <div class="card">
+
+                <div class="card-photo-container">
+                    <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
+                </div>
+                <div class="title-icon-container">
+                    <h3 title="@resourceTitle">
+                        @if (bookmark.Favorited)
                         {
-                            <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
+                            <i class="fas fa-star"></i>
                         }
-                    }
+                        @resourceTitle
+                    </h3>
+                    <a asp-page="Edit" asp-route-id="@bookmark.Id">
+                        <img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark">
+                    </a>
+                </div>
+
+                <div class="date-description-container">
+                    <p class="date">@date</p>
+                    <p class="card-description">@description</p>
+                    <div class="tags">
+                        @if (bookmark.Tags != null)
+                        {
+                            @foreach (var tag in bookmark.Tags)
+                            {
+                                <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="author-location-container">
+                    <p>Clipped by: @bookmark.User.Name</p>
                 </div>
             </div>
-
-            <div class="author-location-container">
-                <p>Clipped by: @bookmark.User.Name</p>
-                <a href="@resourceLocation">Link...</a>
-            </div>
-        </div>
+        </a>
     }
 </section>
 </div>
