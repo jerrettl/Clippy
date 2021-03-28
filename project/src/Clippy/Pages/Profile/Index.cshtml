@@ -1,4 +1,5 @@
 @page
+@using Clippy.Entities
 @model Clippy.Pages.Profile.IndexModel
 @{
     ViewData["Title"] = "Profile";
@@ -53,10 +54,7 @@
             }
         </div>
 
-
-        <div class="card-container">
-
-        </div>
+        @{ await DisplayCards(Model.FavoriteBookmarks); }
     </section>
 
     <section class="posts border-round">
@@ -68,10 +66,35 @@
             }
         </div>
 
-        @* crazy for loop *@
+        @{ await DisplayCards(Model.Bookmarks); }
+    </section>
+
+    <section class="following border-round">
+    <p class="title">Following</p>
+    @foreach(var user in Model.ViewingUser.Subscriptions) {
+        <div class="following-user">
+            <div class="following-user-image" style="background-image: url('@user.AvatarUrl')"></div>
+            <a asp-page="/Profile/Index" asp-route-id="@user.Id">
+                @user.Name
+            </a>
+        </div>
+    }
+    </section>
+</div>
+
+
+@functions {
+#pragma warning disable 1998
+    public async Task DisplayCards(IList<Bookmark> bookmarks)
+    {
+        @if (bookmarks.Count == 0)
+        {
+            <p>Nothing to see here!</p>
+        }
+
         <div class="card-container">
             <div>
-                @foreach (var bookmark in Model.Bookmarks)
+                @foreach (var bookmark in bookmarks)
                 {
                     <div class="card">
                         @{
@@ -132,8 +155,17 @@
                             <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
                         </div>
                         <div class="title-icon-container">
-                            <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
-                            <a asp-page="Edit"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
+                            <span title="@resourceTitle"><h3>
+                                @if (bookmark.Favorited)
+                                {
+                                    <i class="fas fa-star"></i>
+                                }
+                                @resourceTitle
+                            </h3></span>
+                            @if (Model.ThisUser.Id == Model.ViewingUser.Id)
+                            {
+                                <a href="/Bookmarks/Edit?id=@bookmark.Id&return=/Profile/Index"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
+                            }
                         </div>
 
                         <div class="date-description-container">
@@ -159,17 +191,6 @@
                 }
             </div>
         </div>
-    </section>
-
-    <section class="following border-round">
-    <p class="title">Following</p>
-    @foreach(var user in Model.ViewingUser.Subscriptions) {
-        <div class="following-user">
-            <div class="following-user-image" style="background-image: url('@user.AvatarUrl')"></div>
-            <a asp-page="/Profile/Index" asp-route-id="@user.Id">
-                @user.Name
-            </a>
-        </div>
     }
-    </section>
-</div>
+#pragma warning restore 1998
+}
