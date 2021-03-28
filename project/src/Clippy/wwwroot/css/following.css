@@ -8,8 +8,14 @@
     margin-top: 20px;
     grid-template-areas:
     "title title title"
-    "searchbar searchbar buttons"
+    "buttons buttons buttons"
     "people people people";
+}
+
+@media (max-width: 700px) {
+    .body {
+        width: 100%;
+    }
 }
 
 .title {
@@ -18,11 +24,8 @@
     margin: 0px 0px 7px 10px;
 }
 
-.searchbar-container {
-    grid-area: searchbar;
-    background-color: rgba(196, 196, 196, 0.2);
-    border-radius: 15px 0px 0px 0px;
-    padding: 20px;
+.searchbar-container, .buttons-container, .content {
+    background-color: rgba(255, 255, 255, 0.726);
 }
 
 .following-searchbar {
@@ -39,8 +42,7 @@
 
 .buttons-container {
     grid-area: buttons;
-    background-color: rgba(196, 196, 196, 0.2);
-    border-radius: 0px 15px 0px 0px;
+    border-radius: 15px 15px 0px 0px;
     padding: 20px;
 }
 
@@ -101,7 +103,6 @@
 .content {
     grid-area: people;
     height: 79vh;
-    background-color: rgba(196, 196, 196, 0.2);
     border-radius: 0px 0px 15px 15px;
     overflow-y: scroll;
     -ms-overflow-style: none;
