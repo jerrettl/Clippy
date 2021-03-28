@@ -6,7 +6,7 @@
 }
 
 <link rel="stylesheet" href="/css/profile.css" />
-@if (!Model.ThisUser.ClippyMode)
+@if (!Model.ClippyMode)
 {
     <link rel="stylesheet" href="/css/noclippymode.css" />
 }
@@ -16,8 +16,11 @@
         <div class="profile-pic" style="background-image: url('@Model.ViewingUser.AvatarUrl')"></div>
         <div class="profilename-follow">
             <p class="profile-name">@Model.ViewingUser.Name</p>
-            <form method="post" asp-route-thisuser="@Model.ThisUser.Id" asp-route-viewinguser="@Model.ViewingUser.Id">
-                @if (Model.ThisUser.Equals(Model.ViewingUser))
+            @{
+                int thisUserId = (Model.ThisUser != null) ? Model.ThisUser.Id : 0;
+            }
+            <form method="post" asp-route-thisuser="@thisUserId" asp-route-viewinguser="@Model.ViewingUser.Id">
+                @if (Model.ThisUser == null || Model.ThisUser.Equals(Model.ViewingUser))
                 {
 
                 }
@@ -36,7 +39,11 @@
     <section class="intro border-round">
         <div class="upper-div">
             <p class="title">Intro</p>
-            @if (Model.ViewingUser.Id == Model.ThisUser.Id)
+            @if (Model.ThisUser == null)
+            {
+
+            }
+            else if (Model.ViewingUser.Id == Model.ThisUser.Id)
             {
                 <a asp-page="/Settings/Index"><img class="icon" src="/images/resources/EditBookmarkIcon.png"></a>
             }
@@ -60,7 +67,11 @@
     <section class="posts border-round">
         <div class="upper-div">
             <p class="title">Posts</p>
-            @if (Model.ViewingUser.Id == Model.ThisUser.Id)
+            @if (Model.ThisUser == null)
+            {
+
+            }
+            else if (Model.ViewingUser.Id == Model.ThisUser.Id)
             {
                 <a href="/Bookmarks/Add?return=/Profile/Index"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
             }
@@ -179,7 +190,11 @@
                                     {
                                         <span class="favorite"><i class="fas fa-heart"></i> </span>
                                     }
-                                    @if (Model.ThisUser.Id == Model.ViewingUser.Id)
+                                    @if (Model.ThisUser == null)
+                                    {
+
+                                    }
+                                    else if (Model.ThisUser.Id == Model.ViewingUser.Id)
                                     {
                                         <span class="edit"><a href="/Bookmarks/Edit?id=@bookmark.Id&return=/Profile/Index"><i class="fas fa-edit"></i></a></span>
                                     }

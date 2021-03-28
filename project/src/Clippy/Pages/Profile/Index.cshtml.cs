@@ -25,6 +25,8 @@ namespace Clippy.Pages.Profile
 
         public User ThisUser { get; set; }
 
+        public bool ClippyMode { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int id)
         {
             string githubId = "";
@@ -34,7 +36,7 @@ namespace Clippy.Pages.Profile
             }
 
             ThisUser = await _context.GetUserByGithubId(githubId);
-            if (id == 0 || ThisUser.Id == id)
+            if (id == 0 || (ThisUser != null && ThisUser.Id == id))
             {
                 ViewingUser = ThisUser;
                 id = ThisUser.Id;
@@ -48,11 +50,12 @@ namespace Clippy.Pages.Profile
                 FavoriteBookmarks = await _context.GetPublicFavoriteBookmarksByUserIdAsync(id);
             }
 
-            if (ThisUser == null || ViewingUser == null)
+            ClippyMode = (ThisUser != null) ? ThisUser.ClippyMode : false;
+
+            if (ViewingUser == null)
             {
                 return RedirectToPage("/Index");
             }
-
 
             return Page();
         }
