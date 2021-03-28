@@ -27,7 +27,8 @@ namespace Clippy.Pages.Search
                 if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
             }
 
-            int id = (await _context.GetUserByGithubId(githubId)).Id; 
+            User user = await _context.GetUserByGithubId(githubId);
+            int id = (user != null) ? user.Id : 0;
             Bookmarks = await _context.GetBookmarksBySearch(query, id);
             Query = query;
         }

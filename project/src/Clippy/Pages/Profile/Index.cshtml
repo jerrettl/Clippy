@@ -48,10 +48,6 @@
     <section class="favorited-bookmarks border-round">
         <div class="upper-div">
             <p class="title">Favorite Bookmarks</p>
-            @if (Model.ViewingUser.Id == Model.ThisUser.Id)
-            {
-                <a href="#"><img class="plus-icon" src="/images/resources/AddIcon.png"></a>
-            }
         </div>
 
         @{ await DisplayCards(Model.FavoriteBookmarks); }
