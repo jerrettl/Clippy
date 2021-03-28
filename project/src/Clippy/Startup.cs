@@ -42,6 +42,8 @@ namespace Clippy
             {
                 options.Conventions.AuthorizeFolder("/Settings");
                 options.Conventions.AuthorizeFolder("/Bookmarks");
+                options.Conventions.AuthorizeFolder("/Following");
+                options.Conventions.AuthorizeFolder("/Notifications");
 
                 var secureByAdminRole = adminSettings.GetValue<bool>("SecureByAdminRole");
                 if (secureByAdminRole)
