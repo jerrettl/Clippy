@@ -84,8 +84,8 @@ Jaeivan Romero - I restructured our React components folder to fit testing stand
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
 - Automated Tests:
-	* [C# Tests](project/test/Clippy.Tests)
-	* ~~[Javascript Tests](https://github.com/Clippy5/Clippy/tree/sprint-4/project/src/Clippy/ClientApp/src)~~
+  - [C# Tests](project/test/Clippy.Tests)
+  - ~~[Javascript Tests](https://github.com/Clippy5/Clippy/tree/sprint-4/project/src/Clippy/ClientApp/src)~~
 - [Product Demonstration](https://youtu.be/ETisNxjQkSE)
 
 ## Task Allocation
@@ -96,7 +96,7 @@ Jordyn Hayden - I created the resources table in the database as well as the dat
 
 Jerrett Longworth - Added continuous integration using GitHub Actions, created a basic API call to interface with the React frontend, and worked on some styling for the about page.
 
-Diego Rodrigues - Contributed to the front end OAuth research and attempted on implementing  AuthO for the React front end. Helped in the decision process for the project restructure.
+Diego Rodrigues - Contributed to the front end OAuth research and attempted on implementing AuthO for the React front end. Helped in the decision process for the project restructure.
 
 Jaeivan Romero - I restructed our components section to switch the landing page to the about page. Also added an about page with some basic content.
 
@@ -107,8 +107,8 @@ Jaeivan Romero - I restructed our components section to switch the landing page 
 - [Velocity Chart](charts/README.md)
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
-	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
-	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
+  - `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
+  - `/wwwroot`: Contains all static content (including images, CSS, and JS).
 - [Automated Tests](project/test/Clippy.Tests)
 - [Product Demonstration](https://youtu.be/pUUb3lAEkcI)
 
@@ -131,8 +131,8 @@ Jaeivan Romero - I helped transtion our frontend to razor pages and worked on ge
 - [Velocity Chart](charts/README.md)
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
-	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
-	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
+  - `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
+  - `/wwwroot`: Contains all static content (including images, CSS, and JS).
 - [Automated Tests](project/test/Clippy.Tests)
 - [Product Demonstration](https://youtu.be/N9ZHO5tC84Q)
 
@@ -155,8 +155,8 @@ Jaeivan Romero - I worked on getting a users name and bookmarks on our main page
 - [Velocity Chart](charts/README.md)
 - [System Architecture](artifacts/architecture.md)
 - [Source Code](project/src/Clippy)
-	* `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
-	* `/wwwroot`: Contains all static content (including images, CSS, and JS).
+  - `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
+  - `/wwwroot`: Contains all static content (including images, CSS, and JS).
 - [Automated Tests](project/test/Clippy.Tests)
 - [Product Demonstration](https://youtu.be/ceX5tmxsBVw)
 
@@ -171,3 +171,27 @@ Jerrett Longworth - Added automatic image downloading from bookmarked sites (057
 Diego Rodrigues - Completely remade the homepage with new assets created in photoshop and made the page responsive. Helped create the user page by establishing a responsive grid, layout, and aided in the data display process on the page. Helped fixed test failing bugs.
 
 Jaeivan Romero - I helped with adding description and viewing for bookmarks. I also helped with laying out bookmarks in a compact fashion.
+
+# Sprint 8
+
+- [Trello Board](https://trello.com/b/ui7fei2w/clippy) (Backlogs and Requirements)
+- [Burndown Chart](charts/README.md)
+- [Velocity Chart](charts/README.md)
+- [System Architecture](artifacts/architecture.md)
+- [Source Code](project/src/Clippy)
+  - `/Pages`: Contains all dynamic HTML (including reading from and writing to database).
+  - `/wwwroot`: Contains all static content (including images, CSS, and JS).
+- [Automated Tests](project/test/Clippy.Tests)
+- Product Demonstration
+
+## Task Allocation
+
+Joshua Frazer - Add favorite bookmark functionality, deleting and editing bookmarks, following other people, viewing people that are following you and adding the clippy background.
+
+Jordyn Hayden -
+
+Jerrett Longworth - Added favorite bookmark functionality (013), deleting and editing bookmarks (004), following other people (045), viewing the profiles of other people, search functionality, and setting bookmarks as public/private (007).
+
+Diego Rodrigues - Helped with the notifications functionality and profile page. Created the developer information page.
+
+Jaeivan Romero - Added settings page, profile page, following page, notifications page. Added notification functionality and fix edit button.
