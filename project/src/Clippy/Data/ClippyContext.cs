@@ -77,6 +77,7 @@ namespace Clippy.Data {
         public async virtual Task<List<Bookmark>> GetBookmarksBySearch(string query, int id)
         {
             var allPublicBookmarks = from b in Bookmarks
+                where b.IsPublic == true
                 select b;
 
             var usersPrivateBookmarks = from b in Bookmarks
