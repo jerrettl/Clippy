@@ -14,5 +14,7 @@ namespace Clippy.Models
         public string Tags { get; set; }
 
         public bool IsPublic { get; set; }
+
+        public bool Favorited { get; set; }
     }
 }

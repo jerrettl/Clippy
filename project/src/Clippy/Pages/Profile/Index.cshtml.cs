@@ -19,6 +19,8 @@ namespace Clippy.Pages.Profile
 
         public IList<Bookmark> Bookmarks { get; set; }
 
+        public IList<Bookmark> FavoriteBookmarks { get; set; }
+
         public User ViewingUser { get; set; }
 
         public User ThisUser { get; set; }
@@ -37,12 +39,13 @@ namespace Clippy.Pages.Profile
                 ViewingUser = ThisUser;
                 id = ThisUser.Id;
                 Bookmarks = await _context.GetBookmarksByUserIdAsync(id);
-
+                FavoriteBookmarks = await _context.GetFavoriteBookmarksByUserIdAsync(id);
             }
             else
             {
                 ViewingUser = await _context.GetUserAsync(id);
                 Bookmarks = await _context.GetPublicBookmarksByUserIdAsync(id);
+                FavoriteBookmarks = await _context.GetPublicFavoriteBookmarksByUserIdAsync(id);
             }
 
             if (ThisUser == null || ViewingUser == null)

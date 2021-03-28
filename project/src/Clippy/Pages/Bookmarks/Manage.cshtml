@@ -77,7 +77,13 @@
                 <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
             </div>
             <div class="title-icon-container">
-                <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
+                <span title="@resourceTitle"><h3>
+                    @if (bookmark.Favorited)
+                    {
+                        <i class="fas fa-star"></i>
+                    }
+                    @resourceTitle
+                </h3></span>
                 <a asp-page="Edit" asp-route-id="@bookmark.Id"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
             </div>
 

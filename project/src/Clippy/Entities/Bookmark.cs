@@ -28,10 +28,14 @@ namespace Clippy.Entities
         [Required]
         public bool IsPublic { get; set; }
 
+        [Required]
+        public bool Favorited { get; set; }
+
         public Bookmark()
         {
             Tags = new List<Tag>();
             IsPublic = true;
+            Favorited = false;
         }
     }
 }
