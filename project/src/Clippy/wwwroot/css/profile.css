@@ -4,7 +4,7 @@
     grid-template-rows: auto;
     width: 80%;
     height: 90%;
-    margin: 0 auto;
+    margin: 0px auto;
     margin-top: 20px;
     gap: 10px;
     grid-template-areas:
@@ -16,7 +16,7 @@
 
 @media (max-width: 620px) {
     .body {
-        width: 100%;
+        width: 85%;
         grid-template-areas:
         "banner banner banner banner"
         "intro intro intro intro"
@@ -87,6 +87,7 @@
     position: relative;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.6);
+    width: 300px;
 }
 
 .profile-name {
@@ -126,9 +127,12 @@
     height: auto;
 }
 
+.intro, .favorited-bookmarks, .posts, .following {
+    background-color: rgba(255, 255, 255, 0.726);
+}
+
 .intro {
     grid-area: intro;
-    background-color: rgba(196, 196, 196, 0.2);
     width: auto;
     height: auto;
     margin-top: 50px;
@@ -136,7 +140,6 @@
 }
 
 .favorited-bookmarks {
-    background-color: rgba(196, 196, 196, 0.2);
     width: auto;
     height: auto;
     grid-area: favorite;
@@ -144,7 +147,6 @@
 }
 
 .posts {
-    background-color: rgba(196, 196, 196, 0.2);
     width: auto;
     height: auto;
     grid-area: posts;
@@ -200,7 +202,6 @@
 /* Following */
 
 .following {
-    background-color: rgba(196, 196, 196, 0.2);
     width: auto;
     grid-area: follow;
     overflow: hidden;
