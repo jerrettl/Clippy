@@ -1,0 +1,133 @@
+kk.page-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 3rem;
+  margin-top: 60px;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 50px;
+}
+.title p {
+  text-align: center;
+}
+
+.name {
+  text-align: center;
+}
+
+.developer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 300px;
+  margin: 50px 10px;
+  height: 320px;
+}
+
+.picture-josh {
+  position: relative;
+  background: url("../images/developers/josh.png");
+  background-position: center;
+  background-size: cover;
+  top: -25px;
+  left: 70px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+}
+
+.picture-diego {
+  position: relative;
+  background: url("../images/developers/DiegoLinkedIn-08.jpg");
+  background-position: center;
+  background-size: cover;
+  top: -25px;
+  left: 70px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+}
+
+.picture-jerrett {
+  position: relative;
+  background: url("../images/developers/jerrett.png");
+  background-position: center;
+  background-size: cover;
+  top: -25px;
+  left: 70px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+}
+
+.picture-jaerom {
+  position: relative;
+  background: url("../images/developers/j2.png");
+  background-position: center;
+  background-size: cover;
+  top: -25px;
+  left: 70px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+}
+
+.picture-jordyn {
+  position: relative;
+  background: url("../images/developers/jordyn.jpg");
+  background-position: center;
+  background-size: cover;
+  top: -25px;
+  left: 70px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+}
+
+.info {
+  position: relative;
+  text-align: center;
+  top: -130px;
+}
+
+.developer-card .name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.developer-card .dev-title {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 15%;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.description {
+  margin-top: 20px;
+  text-align: justify;
+}
+
+.card-field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.info {
+  margin-top: 50px;
+}
+.info a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.85);
+}

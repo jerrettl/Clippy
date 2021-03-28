@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    @if (!ViewData["Title"].Equals("Home") && !ViewData["Title"].Equals("Error"))
+    @if (!ViewData["Title"].Equals("Home") && !ViewData["Title"].Equals("Error") && !ViewData["Title"].Equals("Developer"))
     {
         <div id="navbar">
             @{
@@ -73,15 +73,18 @@
             <button class="mobile-menu" onclick="handleClick()"><i class="fas fa-bars fa-lg"></i></button>
         </div>
     }
+
     @RenderBody()
-    <script src="~/js/main.js"></script>
-    <div class="clip-container">
-        <div class="clip"><img src="/images/resources/PaperclipBilly.png"></div>
-        <div class="clip"><img src="/images/resources/PaperclipRalph.png"></div>
-        <div class="clip"><img src="/images/resources/PaperclipClappy.png"></div>
-        <div class="clip"><img src="/images/resources/PaperclipClop.png"></div>
-        <div class="clip"><img src="/images/resources/PaperclipFlappy.png"></div>
-        <div class="clip"><img src="/images/resources/PaperclipFlappy.png"></div>
-    </div>
+    @if (!ViewData["Title"].Equals("Developer")) {
+        <script src="~/js/main.js"></script>
+        <div class="clip-container">
+            <div class="clip"><img src="/images/resources/PaperclipBilly.png"></div>
+            <div class="clip"><img src="/images/resources/PaperclipRalph.png"></div>
+            <div class="clip"><img src="/images/resources/PaperclipClappy.png"></div>
+            <div class="clip"><img src="/images/resources/PaperclipClop.png"></div>
+            <div class="clip"><img src="/images/resources/PaperclipFlappy.png"></div>
+            <div class="clip"><img src="/images/resources/PaperclipFlappy.png"></div>
+        </div>
+    }
 </body>
 </html>
