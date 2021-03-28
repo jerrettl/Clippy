@@ -19,18 +19,29 @@ namespace Clippy.Pages.Search
 
         public string Query { get; set; }
 
-        public User ThisUser { get; set; }
+        public bool ClippyMode { get; set; }
 
         public async Task OnGetAsync(string query)
         {
-            string githubId = "";
+            string githubId = null;
             foreach (Claim claim in User.Claims)
             {
                 if (claim.Type == ClaimTypes.NameIdentifier) githubId = claim.Value;
             }
 
-            ThisUser = await _context.GetUserByGithubId(githubId);
-            int id = (ThisUser != null) ? ThisUser.Id : 0;
+            int id;
+            if (githubId == null)
+            {
+                ClippyMode = false;
+                id = 0;
+            }
+            else
+            {
+                User user = await _context.GetUserByGithubId(githubId);
+                ClippyMode = user.ClippyMode;
+                id = user.Id;
+            }
+
             Bookmarks = await _context.GetBookmarksBySearch(query, id);
             Query = query;
         }
