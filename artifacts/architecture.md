@@ -31,34 +31,6 @@ All components related to user functionality were created to fulfill user storie
 
 # Code Design
 
-## Front End Description
-
-The front end will be composed of 5 pages, each connected by a router.
-
-The login page is used to send the user's inputs gathered by the sign-in form component to be authenticated and is the gateway to the other pages.
-
-The bookmark page component is composed of a sidebar component, that fetches the user's bookmarks to be filtered and sent to the bookmark display component which displays the props by calling multiple bookmark card components.
-
-The profile page component is composed of two components. The user header, which displays the user's information, as well as the bookmark display components, which will display the filtered bookmarks by calling the bookmark card component.
-
-The community page component consists of a bookmarks display component that also calls a bookmark card component to display the bookmark data.
-
-The following page component calls the community component that fetches the user followers and following data and passes it to a user follower display component to then display such data.
-
-Finally, the notification component fetches the user's follower's data and sends the said data to the display notification components that will then display the desired information.
-
-All components have a navbar component that links all of them together.
-
-</br>
-
-<div align="center">
-    <img src="assets/frontend.jpg" alt="frontend">
-</div>
-
-## Backend Server (from level 4 C4 Model)
-
-![ER Diagam](assets/backend-server-level-4.png)
-
 ## Backend Server Description
 Clippy uses C# for all of its technologies for the backend. The project is a series of controllers and classes that hook into the available ASP.NET and Entity Framework libraries. The classes in the project act as a bridge between these libraries, and allow for a project that is built on a robust existing framework.
 
