@@ -189,7 +189,7 @@ Jaeivan Romero - I helped with adding description and viewing for bookmarks. I a
 
 Joshua Frazer - Add favorite bookmark functionality, deleting and editing bookmarks, following other people, viewing people that are following you and adding the clippy background.
 
-Jordyn Hayden -
+Jordyn Hayden - I completed 11 user stories for this sprint. I implemented role-based security which among other things allows the Admin section to be secured by users with the Admin role. I added the ability to import bookmarks, users, roles, and resources. For all imports, I added a convenient sample so that an Admin can quickly view the schema for imports. I also added exporting capability for bookmarks, users, roles, and resources in the case an Admin wants to backup the data or transfer the data to a new database. I added public and favorite to Admin add, edit, view, import, and export bookmarks. I styled the explore, and profile page such that the cards appear more aesthetic. I also recorded, edited, and uploaded the Admin perspective sprint 8 demo. 
 
 Jerrett Longworth - Added favorite bookmark functionality (013), deleting and editing bookmarks (004), following other people (045), viewing the profiles of other people, search functionality, and setting bookmarks as public/private (007).
 
