@@ -60,13 +60,11 @@ All components have a navbar component that links all of them together.
 ![ER Diagam](assets/backend-server-level-4.png)
 
 ## Backend Server Description
-The Clippy API is a set of controllers that make up the REST API. Each controller handles a subset of related API requests from the frontend web application. These controllers mainly send and retrieve data from the database.
+Clippy uses C# for all of its technologies for the backend. The project is a series of controllers and classes that hook into the available ASP.NET and Entity Framework libraries. The classes in the project act as a bridge between these libraries, and allow for a project that is built on a robust existing framework.
 
-Various web pages are used by the Admin Portal to administer the database, REST API, configuration settings, and processes.
+Generally, each folder within the `project/src/Clippy` directory is a grouping of related classes. For example, `Data/` contains classes that directly interface with the database using the Entity Framework. `Entities/` contains classes that encapsulate entities within the Entity Framework. `Pages/` contains the classes and Razor page data for Clippy.
 
-There is a set of core features used by the Clippy API and the Admin Portal for authentication and authorization, database access and version control.
-
-The API and Admin Portal use Microsoft .NET 5, which requires few classes, such as Program and Startup, to bootstrap and run these services.
+Apart from these folders, the `Program` and `Startup` classes handle the program initialization and setup.
 
 ### User Story Association
 
