@@ -88,8 +88,6 @@ Apart from these folders, the `Program` and `Startup` classes handle the program
 
 # Business Rules
 
-**Note:** This list is not all-inclusive.
-
 - The database must never be out of date with the user interface. For example, if a change is made on the user interface, the user interface must not update and reflect those changes until the database has confirmed and finished the transaction. *(Requirements R006, R010, R011)*
 - The user interface must never have direct access to the database. Instead, there must always be an intermediate party that is connected to in order to communicate with the database. *(Requirements R040, R042)*
 - It is assumed that there will be malicious data being sent in every step of Clippy's functionality. There must always be checks to validate the data passed into every function created. *(Requirement R004)*
