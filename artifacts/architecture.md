@@ -193,7 +193,7 @@ With the novice level of experience between the developers involved in this proj
 
 # Reuse
 
-Since the third-party components inherently act as core components of the system, they will be coupled directly into the base functionality. In the event that different third-party tools are used, the changes would however still be isolated to their respective system. For example, if a different architecture were to be used for the API, any code on the React Server would be unaffected.
+The libraries used for this project are built with generic purposes in mind, so they are easy to bend to meet the needs of Clippy. The Entity Framework communicates through a common C# language with Razor Pages, meaning that bringing these two together involves a small amount of work, leaving more effort to be put into the implementation of user interactions, rather than interfacing with the database.
 
 # Change Strategy
 
