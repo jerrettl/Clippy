@@ -183,6 +183,7 @@ Jaeivan Romero - I helped with adding description and viewing for bookmarks. I a
   - `/wwwroot`: Contains all static content (including images, CSS, and JS).
 - [Automated Tests](project/test/Clippy.Tests)
 - Product Demonstration
+  - [User Stakeholders](https://www.youtube.com/watch?v=ciMRdhPCCwo)
 
 ## Task Allocation
 
