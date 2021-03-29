@@ -197,3 +197,4 @@ Jerrett Longworth - Added favorite bookmark functionality (013), deleting and ed
 Diego Rodrigues - Helped with the notifications functionality and profile page. Created the developer information page.
 
 Jaeivan Romero - Added settings page, profile page, following page, notifications page. Added notification functionality and fix edit button.
+
