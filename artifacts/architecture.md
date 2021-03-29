@@ -184,10 +184,6 @@ The decision was made to have a project architecture that is likely more complex
 
 # Build-vs-Buy Decisions
 
-With the novice level of experience between the developers involved in this project, the option was chosen to use pre-made solutions for many of the components in this project. As time progresses, first-party solutions may be used to replace the existing solution.
-
-- User interface components will use the [React framework](https://reactjs.org/), specifically using components from [Material-UI](https://material-ui.com/).
-- The API will be handled using [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore), built with ASP.NET Core.
 - To interact with the database, the [SQLite Entity Framework Core Database Provider](https://docs.microsoft.com/en-us/ef/core/providers/sqlite/) from the .NET framework will be used.
 - The administrator portal will use [Razor Pages](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/) in ASP.NET Core.
 
