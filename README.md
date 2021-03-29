@@ -184,6 +184,7 @@ Jaeivan Romero - I helped with adding description and viewing for bookmarks. I a
 - [Automated Tests](project/test/Clippy.Tests)
 - Product Demonstration
   - [User Stakeholders](https://www.youtube.com/watch?v=ciMRdhPCCwo)
+  - [Admin Stakeholders](https://youtu.be/6SsVq-Kz7jk)
 
 ## Task Allocation
 
