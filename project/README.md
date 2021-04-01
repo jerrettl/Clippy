@@ -86,3 +86,11 @@ Visit [development.md](development.md) for more information on development.
 ## Testing
 
 Visit [test.md](test.md) for more information on testing.
+
+
+# Deployment
+
+Build:
+```
+$ dotnet publish --configuration Release --self-contained true --runtime linux-x64
+```
