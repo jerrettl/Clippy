@@ -14,12 +14,15 @@
 <div class="body">
     <section class="content-main">
         <div class="card-main">
+            @{
+                string name = !string.IsNullOrWhiteSpace(Model.ThisUser.Name) ? Model.ThisUser.Name : Model.ThisUser.Username;
+            }
             @if (@Model.Bookmarks.Count > 1)
-                { <p>Welcome, @User.Identity.Name! <br>You have @Model.Bookmarks.Count bookmarks. Great Job!</p> }
+                { <p>Welcome, @name! <br>You have @Model.Bookmarks.Count bookmarks. Great Job!</p> }
             else if(@Model.Bookmarks.Count == 1)
-                { <p>Welcome, @User.Identity.Name! <br>You have @Model.Bookmarks.Count bookmark. <br>Great Job!</p> }
+                { <p>Welcome, @name! <br>You have @Model.Bookmarks.Count bookmark. <br>Great Job!</p> }
             else
-                { <p>Welcome, @User.Identity.Name! <br>You have no bookmarks. Come on dude.... Click the paperclip icon on the top right to add a bookmark!</p> }
+                { <p>Welcome, @name! <br>You have no bookmarks. Come on dude.... Click the paperclip icon on the top right to add a bookmark!</p> }
         </div>
 
         <div class="card-main">
