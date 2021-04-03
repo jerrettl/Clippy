@@ -68,6 +68,8 @@
             imageUrl = "/images/resources/sad-clippy.jpg";
         }
 
+        string name = !string.IsNullOrWhiteSpace(bookmark.User.Name) ? bookmark.User.Name : bookmark.User.Username;
+
         <a href="@resourceLocation">
             <div class="card">
 
@@ -102,7 +104,7 @@
                 </div>
 
                 <div class="author-location-container">
-                    <p>Clipped by: @bookmark.User.Name</p>
+                    <p>Clipped by: @name</p>
                 </div>
             </div>
         </a>

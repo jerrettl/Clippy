@@ -121,10 +121,12 @@ namespace Clippy.Pages.Bookmarks
 
             _context.AddBookmark(bookmark);
 
+            string userIdentifier = !string.IsNullOrWhiteSpace(existingUser.Name) ? existingUser.Name : existingUser.Username;
+
             Notification newNotification = new Notification {
                 UserId = existingUser.Id,
                 CreateDate = DateTime.Now,
-                Text = $"{existingUser.Name} added a new bookmark!"
+                Text = $"{userIdentifier} added a new bookmark!"
             };
             _context.AddNotification(newNotification);
             

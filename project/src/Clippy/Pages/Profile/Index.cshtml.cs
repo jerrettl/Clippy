@@ -76,10 +76,13 @@ namespace Clippy.Pages.Profile
                 ViewingUser.Followers.Add(ThisUser);
             }
 
+            string thisname = !string.IsNullOrWhiteSpace(ThisUser.Name) ? ThisUser.Name : ThisUser.Username;
+            string viewingname = !string.IsNullOrWhiteSpace(ViewingUser.Name) ? ViewingUser.Name : ViewingUser.Username;
+
             _context.AddNotification(new Notification {
                 UserId = ThisUser.Id,
                 CreateDate = DateTime.Now,
-                Text = $"{ThisUser.Name} followed {ViewingUser.Name}!"
+                Text = $"{thisname} followed {viewinguser}!"
             });
 
             await _context.SaveChangesAsync();

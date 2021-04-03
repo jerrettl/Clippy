@@ -29,7 +29,10 @@ Your Community
             <div class="image" style= "background-image: url('@user.AvatarUrl')"></div>
             <a asp-page="/Profile/Index" asp-route-id="@user.Id">
                 <div class="person-name">
-                    @user.Name
+                    @{
+                        string name = !string.IsNullOrWhiteSpace(user.Name) ? user.Name : user.Username;
+                    }
+                    @name
                 </div> 
             </a>
         </div>

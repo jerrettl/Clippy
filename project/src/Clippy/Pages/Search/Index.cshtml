@@ -81,6 +81,8 @@
                     {
                         imageUrl = "/images/resources/sad-clippy.jpg";
                     }
+
+                    string name = !string.IsNullOrWhiteSpace(bookmark.User.Name) ? bookmark.User.Name : bookmark.User.Username;
             }
             <div class="card-photo-container">
                 <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
@@ -105,7 +107,7 @@
             </div>
 
             <div class="author-location-container">
-                <p>Clipped by: <a asp-page="/Profile/Index" asp-route-id="@bookmark.User.Id">@bookmark.User.Name</a></p>
+                <p>Clipped by: <a asp-page="/Profile/Index" asp-route-id="@bookmark.User.Id">@name</a></p>
                 <a href="@resourceLocation">Link...</a>
             </div>
         </div>
