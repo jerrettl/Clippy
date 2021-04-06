@@ -82,7 +82,7 @@ namespace Clippy.Pages.Profile
             _context.AddNotification(new Notification {
                 UserId = ThisUser.Id,
                 CreateDate = DateTime.Now,
-                Text = $"{thisname} followed {viewinguser}!"
+                Text = $"{thisname} followed {viewingname}!"
             });
 
             await _context.SaveChangesAsync();
