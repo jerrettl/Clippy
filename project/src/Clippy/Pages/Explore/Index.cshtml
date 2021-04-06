@@ -13,17 +13,6 @@
 <section class="content-explore">
     @foreach (var bookmark in Model.Bookmarks)
     {
-        string resourceLocation = null;
-        if (bookmark.Resource.Location.StartsWith("http://") ||
-        bookmark.Resource.Location.StartsWith("https://"))
-        {
-            resourceLocation = bookmark.Resource.Location;
-        }
-        else
-        {
-            resourceLocation = $"//{bookmark.Resource.Location}";
-        }
-    <a href="@resourceLocation" class="card-link">
         <div class="card">
             @{
                     string resourceTitle = null;
@@ -41,6 +30,17 @@
                         resourceTitle = bookmark.Resource.Location;
                     }
 
+                    string resourceLocation = null;
+                    if (bookmark.Resource.Location.StartsWith("http://") ||
+                    bookmark.Resource.Location.StartsWith("https://"))
+                    {
+                        resourceLocation = bookmark.Resource.Location;
+                    }
+                    else
+                    {
+                        resourceLocation = $"//{bookmark.Resource.Location}";
+                    }
+
                     string date = bookmark.CreateDate.ToShortDateString();
                     string description = null;
                     if (!string.IsNullOrWhiteSpace(bookmark.Description))
@@ -56,7 +56,7 @@
                     {
                         description = "No description.";
                     }
-
+                    
                     string imageUrl;
                     if (bookmark.Resource.Metadata.ContainsKey("ImageURL") &&
                     bookmark.Resource.Metadata["ImageURL"] != null)
@@ -73,30 +73,28 @@
             <div class="card-photo-container">
                 <img class="card-photo" src="@imageUrl" alt="Bookmark Image Placeholder" onerror="this.onerror = null; this.src = '/images/resources/sad-clippy.jpg'">
             </div>
-            <div class="card-body">
-                <div class="title-icon-container">
-                    <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
-                </div>
+            <div class="title-icon-container">
+                <span title="@resourceTitle"><h3>@resourceTitle</h3></span>
+            </div>
 
-                <div class="date-description-container">
-                    <p class="card-description">@description</p>
-                </div>
+            <div class="date-description-container">
+                <p class="date">@date</p>
+                <p class="card-description">@description</p>
+            </div>
 
-                <div class="tags">
-                    @if (bookmark.Tags != null)
+            <div class="tags">
+                @if (bookmark.Tags != null)
+                {
+                    @foreach (var tag in bookmark.Tags)
                     {
-                        @foreach (var tag in bookmark.Tags)
-                        {
-                            <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
-                        }
+                        <div class="tag"><i class="fas fa-tag"></i>  @tag.TagName</div>
                     }
-                </div>
-
-                <div class="author-location-container">
-                    <p><a asp-page="/Profile/Index" asp-route-id="@bookmark.User.Id"><i class="fas fa-user"></i> @name</a></p>
-                </div>
+                }
+            </div>
+            <div class="author-location-container">
+                <p>Clipped by:<a asp-page="/Profile/Index" asp-route-id="@bookmark.User.Id"> @name</a></p>
+                <a href="@resourceLocation">Link...</a>
             </div>
         </div>
-    </a>
     }
 </section>
