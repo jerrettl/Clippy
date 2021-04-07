@@ -131,7 +131,10 @@
                             }
                             @resourceTitle
                         </h3></span>
-                        <a href="/Bookmarks/Edit?id=@bookmark.Id&return=/Profile/Index"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
+                        @if (Model.ThisUser.Id == bookmark.User.Id)
+                        {
+                            <a href="/Bookmarks/Edit?id=@bookmark.Id&return=/Bookmarks/Index"><img src="/images/resources/EditBookmarkIcon.png" alt="Edit Bookmark"></a>
+                        }
                     </div>
 
                     <div class="date-description-container">
